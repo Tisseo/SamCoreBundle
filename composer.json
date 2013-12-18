@@ -1,0 +1,31 @@
+{
+    "name": "canaltp/iussaad-core-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony CanalTPIussaadCoreBundle",
+    "keywords": ["Iussaad Core Entity"],
+    "homepage": "http://hg.prod.canaltp.fr/Iussaad/IussaadCoreBundle/summary",
+    "license": "",
+    "authors": [
+        {
+            "name": "Rémy Abi Khalil",
+            "email": "remy.abikhalil@canaltp.fr"
+        },
+        {
+            "name": "Akambi Fagbohoun",
+            "email": "akambi.fagbohoun@canaltp.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "target-dir": "CanalTP/IussaadCoreBundle",
+    "autoload": {
+        "psr-0": { "CanalTP\\IussaadcoreBundle\\": "" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

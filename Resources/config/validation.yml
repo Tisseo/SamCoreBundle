@@ -1,0 +1,24 @@
+CanalTP\IussaadCoreBundle\Entity\CoBranding:
+    properties:
+        company:
+            - NotBlank: ~
+        firstname:
+            - NotBlank: ~
+        lastname:
+            - NotBlank: ~
+        address:
+            - NotBlank: ~
+        motivation:
+            - NotBlank: ~
+        domain:
+            - NotBlank: ~
+        email:
+            - NotBlank: ~
+            - Email: ~
+        job:
+            - NotBlank: ~
+        key:
+            - NotBlank: ~
+        sim:
+            - Entity:
+                type: CanalTP\IussaadCoreBundle\Entity\Sim
