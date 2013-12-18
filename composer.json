@@ -21,7 +21,7 @@
     },
     "target-dir": "CanalTP/IussaadCoreBundle",
     "autoload": {
-        "psr-0": { "CanalTP\\IussaadcoreBundle\\": "" }
+        "psr-0": { "CanalTP\\IussaadCoreBundle\\": "" }
     },
     "extra": {
         "branch-alias": {
