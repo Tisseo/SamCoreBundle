@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * CoBranding
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="CanalTP\IussaadDriverBundle\Entity\CoBrandingRepository")
+ * @ORM\Entity(repositoryClass="CanalTP\IussaadCoreBundle\Entity\CoBrandingRepository")
  */
 class CoBranding
 {
