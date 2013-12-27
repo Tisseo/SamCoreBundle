@@ -10,15 +10,13 @@ CanalTP\IussaadCoreBundle\Entity\CoBranding:
             - NotBlank: ~
         motivation:
             - NotBlank: ~
-        domain:
+        domaine:
             - NotBlank: ~
         email:
             - NotBlank: ~
             - Email: ~
         job:
             - NotBlank: ~
-        key:
-            - NotBlank: ~
         sim:
-            - Entity:
+            - Type:
                 type: CanalTP\IussaadCoreBundle\Entity\Sim

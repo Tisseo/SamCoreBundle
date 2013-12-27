@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="CanalTP\IussaadCoreBundle\Entity\CoBrandingRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class CoBranding
 {
@@ -80,7 +81,7 @@ class CoBranding
     /**
      * @var string
      *
-     * @ORM\Column(name="key", type="string", length=255)
+     * @ORM\Column(name="key", type="string", length=255, nullable=true)
      */
     private $key;
 
@@ -94,7 +95,7 @@ class CoBranding
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
 
@@ -105,7 +106,36 @@ class CoBranding
      */
     private $status;
 
+    /**
+     * @var \Entity\Sim $sim
+     *
+     * @ORM\ManyToOne(targetEntity="Sim")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="sim_id", referencedColumnName="sim_id")
+     * })
+     */
+    protected $sim;
 
+
+    /**
+     * Appeler avant la persistance d'un object en base de donnée
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->setStatus(false);
+        $this->setCreatedAt(new \DateTime('now'));
+    }
+
+    /**
+     * Appeler avant la mise à jour d'un objet en base de donnée
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->setUpdatedAt(new \DateTime('now'));
+    }
+    
     /**
      * Get id
      *
@@ -390,5 +420,28 @@ class CoBranding
     public function getCompany()
     {
         return $this->company;
+    }
+
+    /**
+     * Set sim
+     *
+     * @param \CanalTP\IussaadCoreBundle\Entity\Sim $sim
+     * @return CoBranding
+     */
+    public function setSim(\CanalTP\IussaadCoreBundle\Entity\Sim $sim = null)
+    {
+        $this->sim = $sim;
+    
+        return $this;
+    }
+
+    /**
+     * Get sim
+     *
+     * @return \CanalTP\IussaadCoreBundle\Entity\Sim 
+     */
+    public function getSim()
+    {
+        return $this->sim;
     }
 }
