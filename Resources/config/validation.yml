@@ -1,22 +1,32 @@
 CanalTP\IussaadCoreBundle\Entity\CoBranding:
     properties:
         company:
-            - NotBlank: ~
+            - NotBlank:
+                message: sqwal_cobranding.form.organism.name.error.blank
         firstname:
-            - NotBlank: ~
+            - NotBlank:
+                message: sqwal_cobranding.form.delegate.first_name.label
         lastname:
-            - NotBlank: ~
+            - NotBlank:
+                message: sqwal_cobranding.form.delegate.name.error.blank
         address:
-            - NotBlank: ~
+            - NotBlank:
+                message: sqwal_cobranding.form.organism.address.error.blank
         motivation:
-            - NotBlank: ~
+            - NotBlank:
+                message: sqwal_cobranding.form.organism.motivation.label
         domaine:
-            - NotBlank: ~
+            - NotBlank:
+                message: sqwal_cobranding.form.organism.website.label
         email:
-            - NotBlank: ~
-            - Email: ~
+            - NotBlank:
+                message: sqwal_cobranding.form.delegate.email.error.blank
+            - Email:
+                message: sqwal_cobranding.form.delegate.email.error.blank
         job:
-            - NotBlank: ~
+            - NotBlank:
+                message: sqwal_cobranding.form.delegate.office.error.blank
         sim:
             - Type:
                 type: CanalTP\IussaadCoreBundle\Entity\Sim
+                message: sqwal_cobranding.form.sim.error.notvalid
