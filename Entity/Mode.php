@@ -6,29 +6,21 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Mode
- *
- * @ORM\Table(name="t_mode_mde")
- * @ORM\Entity(repositoryClass="CanalTP\IussaadCoreBundle\Entity\ModeRepository")
  */
 class Mode
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="mde_id", type="string", length=255)
-     * @ORM\Id
      */
     private $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="mde_name", type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="SimMode", mappedBy="mode", cascade={"persist"})
+     * @var \Doctrine\Common\Collections\Collection
      */
     private $sim_commercial_modes;
 

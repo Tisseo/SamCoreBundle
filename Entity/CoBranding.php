@@ -6,120 +6,82 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * CoBranding
- *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="CanalTP\IussaadCoreBundle\Entity\CoBrandingRepository")
- * @ORM\HasLifecycleCallbacks()
  */
 class CoBranding
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="company", type="string", length=255)
      */
     private $company;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="firstname", type="string", length=255)
      */
     private $firstname;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="lastname", type="string", length=255)
      */
     private $lastname;
 
     /**
      * @var text
-     *
-     * @ORM\Column(name="address", type="text")
      */
     private $address;
 
     /**
      * @var text
-     *
-     * @ORM\Column(name="motivation", type="text")
      */
     private $motivation;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="domaine", type="string", length=255)
      */
     private $domaine;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="job", type="string", length=255)
      */
     private $job;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="key", type="string", length=255, nullable=true)
      */
     private $key;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="status", type="boolean")
      */
     private $status;
 
     /**
      * @var \Entity\Sim $sim
-     *
-     * @ORM\ManyToOne(targetEntity="Sim")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="sim_id", referencedColumnName="sim_id")
-     * })
      */
     protected $sim;
 
 
     /**
      * Appeler avant la persistance d'un object en base de donnée
-     * @ORM\PrePersist
      */
     public function onPrePersist()
     {
@@ -129,7 +91,6 @@ class CoBranding
 
     /**
      * Appeler avant la mise à jour d'un objet en base de donnée
-     * @ORM\PreUpdate
      */
     public function onPreUpdate()
     {

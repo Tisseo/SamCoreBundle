@@ -1,0 +1,53 @@
+CanalTP\IussaadCoreBundle\Entity\ApplicationRole:
+    type: entity
+    table: tj_application_role
+    repositoryClass: CanalTP\IussaadCoreBundle\Entity\ApplicationRoleRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            column: apr_id
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        canonicalRole:
+            type: string
+            length: '100'
+    manyToOne:
+        application:
+            targetEntity: CanalTP\IussaadCoreBundle\Entity\Application
+            inversedBy: roles
+            joinColumn:
+                name: app_id
+                referencedColumnName: app_id
+        role:
+            targetEntity: CanalTP\IussaadCoreBundle\Entity\Role
+            inversedBy: applicationRoles
+            joinColumn:
+                name: rol_id
+                referencedColumnName: id
+    manyToMany:
+        users:
+            targetEntity: CanalTP\IussaadCoreBundle\Entity\User
+            mappedBy: applicationRoles
+            cascade: 
+               - persist
+        children:
+            targetEntity: CanalTP\IussaadCoreBundle\Entity\ApplicationRole
+            mappedBy: parents
+            cascade: 
+               - persist
+        parents:
+            targetEntity: CanalTP\IussaadCoreBundle\Entity\ApplicationRole
+            inversedBy: children
+            joinTable:
+                name: role_hierarchy
+                joinColumns:
+                    parent_rol_id:
+                        referencedColumnName: apr_id
+                inverseJoinColumns:
+                    child_rol_id:
+                        referencedColumnName: apr_id
+    lifecycleCallbacks: {  }

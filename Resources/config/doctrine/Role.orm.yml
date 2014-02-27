@@ -1,0 +1,16 @@
+CanalTP\IussaadCoreBundle\Entity\Role:
+    type: entity
+    table: container_security_role
+    repositoryClass: CanalTP\IussaadCoreBundle\Entity\RoleRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    OneToMany:
+        applicationRoles:
+            targetEntity: CanalTP\IussaadCoreBundle\Entity\ApplicationRole
+            mappedBy: role
+            cascade: ["persist", "merge"]
+    lifecycleCallbacks: {  }

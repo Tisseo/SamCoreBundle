@@ -1,0 +1,32 @@
+CanalTP\IussaadCoreBundle\Entity\Mode:
+    type: entity
+    table: t_mode_mde
+    repositoryClass: CanalTP\IussaadCoreBundle\Entity\ModeRepository
+    fields:
+        id:
+            type: string
+            scale: 0
+            length: 255
+            unique: false
+            nullable: false
+            precision: 0
+            id: true
+            column: mde_id
+        name:
+            type: string
+            scale: 0
+            length: 255
+            unique: false
+            nullable: false
+            precision: 0
+            column: mde_name
+    oneToMany:
+        sim_commercial_modes:
+            targetEntity: CanalTP\IussaadCoreBundle\Entity\SimMode
+            cascade:
+                - persist
+            mappedBy: mode
+            inversedBy: null
+            orphanRemoval: false
+            orderBy: null
+    lifecycleCallbacks: {  }

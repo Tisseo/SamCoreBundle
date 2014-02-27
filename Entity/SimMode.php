@@ -13,75 +13,51 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="tj_simmode_smd")
- * @ORM\HasLifecycleCallbacks()
  */
 class SimMode
 {
     /**
-    * @ORM\Id
-    * @ORM\Column(name="smd_id", type="integer")
-    * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer
     */
     protected $id;
 
     /**
-     * @ORM\Column(name="smd_name", type="string", length=255)
+     * @var string
      */
     protected $name;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="smd_available", type="boolean")
      */
     private $available;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="smd_visible", type="boolean")
      */
     private $visible;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="smd_includeByDefault", type="boolean")
      */
     private $includeByDefault;
 
     /**
      * @var \Entity\Sim $sim
-     *
-     * @ORM\ManyToOne(targetEntity="Sim")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="sim_id", referencedColumnName="sim_id")
-     * })
      */
     protected $sim;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Mode")
-     * @ORM\JoinColumns({
-     *  @ORM\JoinColumn(name="mde_id", referencedColumnName="mde_id")
-     * })
-     *
+     * @var \Entity\Mode $mode
      */
     protected $mode;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="sim_createdate", type="datetime", nullable=false)
      */
     protected $createDate;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="sim_updatedate", type="datetime", nullable=true)
      */
     protected $updateDate;
 
@@ -128,10 +104,6 @@ class SimMode
         return 'uploads/modepicto';
     }
 
-    /**
-    * @ORM\PostPersist()
-    * @ORM\PostUpdate()
-    */
     public function upload()
     {
 //        if (null === $this->pictoFile) {
@@ -153,7 +125,6 @@ class SimMode
     }
 
     /**
-    * @ORM\PostRemove()
     */
     public function removeUpload()
     {
@@ -177,7 +148,6 @@ class SimMode
 
     /**
     * Appeler avant la persistance d'un object en base de donnée
-    * @ORM\PrePersist()
     */
     public function onPrePersist()
     {
@@ -190,7 +160,6 @@ class SimMode
 
     /**
      * Appeler avant la mise à jour d'un objet en base de donnée
-     * @ORM\PreUpdate
      */
     public function onPreUpdate()
     {

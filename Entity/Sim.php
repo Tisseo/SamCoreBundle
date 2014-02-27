@@ -8,78 +8,60 @@
 
 namespace CanalTP\IussaadCoreBundle\Entity;
 
-use FOS\UserBundle\Model\Group as FosGroup;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity(repositoryClass="CanalTP\IussaadCoreBundle\Entity\SimRepository")
- * @ORM\Table(name="t_sim_sim")
- * @ORM\HasLifecycleCallbacks()
  */
-class Sim extends FosGroup
+class Sim
 {
     /**
-    * @ORM\Id
-    * @ORM\Column(name="sim_id", type="integer")
-    * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer
     */
     protected $id;
 
     /**
-     * @ORM\Column(name="sim_name", type="string", length=255)
+     * @var string
      */
     protected $name;
 
     /**
-     * @ORM\Column(name="sim_namecanonical", type="string", length=255)
+     * @var string
      */
     protected $nameCanonical;
 
     /**
-     * @ORM\Column(name="sim_url", type="string", length=255)
+     * @var string
      */
     protected $url;
 
     /**
-     * @ORM\Column(name="sim_roles", type="array")
+     * @var array
      */
     protected $roles;
 
     /**
      * @var Status $status
-     *
-     * @ORM\ManyToOne(targetEntity="Status")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="sst_id", referencedColumnName="sst_id")
-     * })
      */
     protected $status;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="sim_createdate", type="datetime", nullable=false)
      */
     private $createDate;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="sim_updatedate", type="datetime", nullable=true)
      */
     private $updateDate;
 
     /**
-     * @ORM\Column(name="sim_networks", type="array")
+     * @var array
      */
     protected $networks;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\OneToMany(targetEntity="SimMode", mappedBy="sim", cascade={"persist"})
-     *
      */
     protected $sim_commercial_modes;
 
@@ -91,12 +73,11 @@ class Sim extends FosGroup
     /**
      * Constructor
      */
-    public function __construct($name, $roles = array())
+    public function __construct()
     {
         $this->massUpload = new \Doctrine\Common\Collections\ArrayCollection();
         $this->sim_commercial_modes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->setNameCanonical($name);
-        parent::__construct($name, $roles);
     }
 
     /**
@@ -111,7 +92,6 @@ class Sim extends FosGroup
 
     /**
      * Appeler avant la persistance d'un object en base de donnée
-     * @ORM\PrePersist
      */
     public function onPrePersist()
     {
@@ -120,7 +100,6 @@ class Sim extends FosGroup
 
     /**
      * Appeler avant la mise à jour d'un objet en base de donnée
-     * @ORM\PreUpdate
      */
     public function onPreUpdate()
     {

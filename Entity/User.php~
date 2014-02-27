@@ -40,17 +40,11 @@ class User extends BaseUser
     protected $groups;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $applicationRoles;
-    
-    /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->applicationRoles = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -107,38 +101,5 @@ class User extends BaseUser
     public function getLastname()
     {
         return $this->lastname;
-    }
-
-    /**
-     * Add applicationRoles
-     *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRoles
-     * @return User
-     */
-    public function addApplicationRole(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRoles)
-    {
-        $this->applicationRoles[] = $applicationRoles;
-    
-        return $this;
-    }
-
-    /**
-     * Remove applicationRoles
-     *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRoles
-     */
-    public function removeApplicationRole(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRoles)
-    {
-        $this->applicationRoles->removeElement($applicationRoles);
-    }
-
-    /**
-     * Get applicationRoles
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getApplicationRoles()
-    {
-        return $this->applicationRoles;
     }
 }

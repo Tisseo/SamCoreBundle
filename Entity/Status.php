@@ -6,9 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Status
- *
- * @ORM\Table(name="tr_simstatus_sst")
- * @ORM\Entity(repositoryClass="CanalTP\IussaadCoreBundle\Entity\StatusRepository")
  */
 class Status
 {
@@ -21,16 +18,11 @@ class Status
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="sst_id", type="integer")
-     * @ORM\Id
      */
     private $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="sst_name", type="string", length=255)
      */
     private $name;
 

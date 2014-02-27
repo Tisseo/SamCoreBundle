@@ -1,0 +1,30 @@
+CanalTP\IussaadCoreBundle\Entity\Application:
+    type: entity
+    table: tr_application_app
+    repositoryClass: CanalTP\IussaadCoreBundle\Entity\ApplicationRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            column: app_id
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            column: app_name
+            length: 255
+    oneToMany:
+        applicationRoles:
+            targetEntity: CanalTP\IussaadCoreBundle\Entity\ApplicationRole
+            mappedBy: application
+            cascade: 
+               - persist
+    manyToMany:
+        users:
+            targetEntity: CanalTP\IussaadCoreBundle\Entity\User
+            mappedBy: groups
+            cascade: 
+               - persist
+    lifecycleCallbacks:
+        postLoad:
+            - onPostLoad
