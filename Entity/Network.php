@@ -2,7 +2,7 @@
 
 namespace CanalTP\IussaadCoreBundle\Entity;
 
-use CanalTP\IussaadCoreBundle\Entity\Media;
+use CanalTP\MediaManagerBundle\Entity\Media;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Network extends Media
@@ -10,19 +10,9 @@ class Network extends Media
 
     private $lines;
 
-    public function __construct(
-        $parentType = null,
-        $parentId = null,
-        $childrenType = '',
-        $childrenId = ''
-    )
+    public function __construct()
     {
-        parent::__construct(
-            $parentType,
-            $parentId,
-            $childrenType,
-            $childrenId
-        );
+        parent::__construct();
         $this->lines = new ArrayCollection();
     }
 
