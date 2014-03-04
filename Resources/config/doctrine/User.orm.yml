@@ -78,4 +78,6 @@ CanalTP\IussaadCoreBundle\Entity\User:
                         columnDefinition: null
                         referencedColumnName: app_id
             orderBy: null
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+        postLoad:
+            - onPostLoad
