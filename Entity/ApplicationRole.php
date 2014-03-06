@@ -23,6 +23,11 @@ class ApplicationRole
      * @var string
      */
     private $canonicalRole;
+
+    /**
+     * @var array
+     */
+    private $permissions;
     
     /**
      * @var \CanalTP\IussaadCoreBundle\Entity\Application
@@ -151,7 +156,7 @@ class ApplicationRole
     public function setRole(\CanalTP\IussaadCoreBundle\Entity\Role $role = null)
     {
         $this->role = $role;
-    
+
         return $this;
     }
 
@@ -174,7 +179,7 @@ class ApplicationRole
     public function addChildren(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $children)
     {
         $this->children[] = $children;
-    
+
         return $this;
     }
 
@@ -356,5 +361,28 @@ class ApplicationRole
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set permissions
+     *
+     * @param array $permissions
+     * @return ApplicationRole
+     */
+    public function setPermissions($permissions)
+    {
+        $this->permissions = $permissions;
+    
+        return $this;
+    }
+
+    /**
+     * Get permissions
+     *
+     * @return array 
+     */
+    public function getPermissions()
+    {
+        return $this->permissions;
     }
 }

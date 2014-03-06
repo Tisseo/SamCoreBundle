@@ -32,5 +32,18 @@ class ApplicationRoleRepository extends EntityRepository
              ->setParameter('application', $applications)
              ->getResult();
     }
-    
+
+    /**
+     * Find rolesByApplicationId
+     */
+    public function findRolesBy($user_id, $app_id)
+    {
+        return $this->createQueryBuilder('a')
+                    ->join('a.users', 'p')
+                    ->where('a.application = :app_id AND p.id = :user_id')
+                    ->setParameter('app_id', $app_id)
+                    ->setParameter('user_id', $user_id)
+                    ->getQuery()
+                    ->getResult();
+    }
 }

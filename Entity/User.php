@@ -146,7 +146,7 @@ class User extends BaseUser
     {
         return $this->applicationRoles;
     }
-    
+
     /**
      * Add roleGroupByApplication
      *
