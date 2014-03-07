@@ -65,6 +65,7 @@ class ApplicationRole
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
         $this->parents = new \Doctrine\Common\Collections\ArrayCollection();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->permissions = new \Doctrine\Common\Collections\ArrayCollection();
         $this->parentRoles = $parentRoles;
     }
     

@@ -148,6 +148,48 @@ class User extends BaseUser
     }
 
     /**
+     * Set currentApplicationRoles
+     *
+     * @return Role 
+     */
+    public function setApplicationRoles($applicationRoles)
+    {
+        $this->applicationRoles = $applicationRoles;
+
+        return ($this);
+    }
+
+    /**
+     * Get currentApplicationRoles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCurrentApplicationRoles()
+    {
+        $currentApplicationRoles = new \Doctrine\Common\Collections\ArrayCollection();
+
+        foreach ($this->applicationRoles as $applicationRole) {
+            // TODO: 3 is Id of MTT application (current)
+            if ($applicationRole->getApplication()->getId() == 3)
+                $currentApplicationRoles[] = $applicationRole;
+        }
+        return ($currentApplicationRoles);
+    }
+
+    /**
+     * Set currentApplicationRoles
+     *
+     * @return Role 
+     */
+    public function setCurrentApplicationRoles($currentApplicationRoles)
+    {
+        $this->currentApplicationRoles = $currentApplicationRoles;
+
+        return ($this);
+    }
+
+
+    /**
      * Add roleGroupByApplication
      *
      * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $roleParent
