@@ -65,7 +65,7 @@ class ApplicationRole
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
         $this->parents = new \Doctrine\Common\Collections\ArrayCollection();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->permissions = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->permissions = array();
         $this->parentRoles = $parentRoles;
     }
     
@@ -385,5 +385,34 @@ class ApplicationRole
     public function getPermissions()
     {
         return $this->permissions;
+    }
+
+    /**
+     * Get permissions
+     *
+     * @return array 
+     */
+    public function getPermissionsForm()
+    {
+        // TODO: Get Number of permission the current Application
+        $nbPermissions = 4;
+        $i = $nbPermissions - count($this->permissions);
+
+        while ($i-- > 0) {
+            $this->permissions[] = '';
+        }
+        return $this->permissions;
+    }
+
+
+    /**
+     * Set permissions
+     *
+     * @param array $permissions
+     * @return ApplicationRole
+     */
+    public function setPermissionsForm($permissions)
+    {
+        return $this->setPermissions($permissions);
     }
 }
