@@ -146,7 +146,19 @@ class User extends BaseUser
     {
         return $this->applicationRoles;
     }
-    
+
+    /**
+     * Set currentApplicationRoles
+     *
+     * @return Role 
+     */
+    public function setApplicationRoles($applicationRoles)
+    {
+        $this->applicationRoles = $applicationRoles;
+
+        return ($this);
+    }
+
     /**
      * Add roleGroupByApplication
      *

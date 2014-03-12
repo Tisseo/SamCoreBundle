@@ -15,6 +15,8 @@ CanalTP\IussaadCoreBundle\Entity\ApplicationRole:
         canonicalRole:
             type: string
             length: '100'
+        permissions:
+            type: array
     manyToOne:
         application:
             targetEntity: CanalTP\IussaadCoreBundle\Entity\Application
