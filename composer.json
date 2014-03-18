@@ -1,9 +1,9 @@
 {
-    "name": "canaltp/iussaad-core-bundle",
+    "name": "canaltp/sam-core-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony CanalTPIussaadCoreBundle",
+    "description": "Symfony CanalTPSamCoreBundle",
     "keywords": ["Iussaad Core Entity"],
-    "homepage": "http://hg.prod.canaltp.fr/Iussaad/IussaadCoreBundle/summary",
+    "homepage": "http://hg.prod.canaltp.fr/Sam/SamCoreBundle/summary",
     "license": "",
     "authors": [
         {
