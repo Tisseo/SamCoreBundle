@@ -17,6 +17,7 @@ CanalTP\IussaadCoreBundle\Entity\ApplicationRole:
             length: '100'
         permissions:
             type: array
+            nullable: true
     manyToOne:
         application:
             targetEntity: CanalTP\IussaadCoreBundle\Entity\Application

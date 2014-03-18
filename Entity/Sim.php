@@ -73,7 +73,7 @@ class Sim
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct($name = null)
     {
         $this->massUpload = new \Doctrine\Common\Collections\ArrayCollection();
         $this->sim_commercial_modes = new \Doctrine\Common\Collections\ArrayCollection();
@@ -115,8 +115,9 @@ class Sim
     public function setName($name)
     {
         $this->setNameCanonical($name);
+        $this->name = $name;
 
-        return parent::setName($name);
+        return $this;
     }
 
     /**
