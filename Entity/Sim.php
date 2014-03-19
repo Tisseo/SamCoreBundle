@@ -369,7 +369,7 @@ class Sim extends FosGroup
     {
         return $this->sim_commercial_modes;
     }
-    
+
     /**
      * Get massUpload
      *

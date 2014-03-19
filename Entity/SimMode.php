@@ -10,8 +10,6 @@ namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-use Symfony\Component\Validator\Constraints as Assert;
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="tj_simmode_smd")
@@ -86,7 +84,7 @@ class SimMode
     protected $updateDate;
 
     protected $picto;
-    
+
     /**
      * Constructor
      */
@@ -256,7 +254,7 @@ class SimMode
     {
         return $this->name;
     }
-    
+
     /**
      * Set available
      *
