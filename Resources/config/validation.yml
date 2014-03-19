@@ -1,4 +1,4 @@
-CanalTP\IussaadCoreBundle\Entity\CoBranding:
+CanalTP\SamCoreBundle\Entity\CoBranding:
     properties:
         company:
             - NotBlank:
@@ -28,5 +28,5 @@ CanalTP\IussaadCoreBundle\Entity\CoBranding:
                 message: sqwal_cobranding.form.delegate.office.error.blank
         sim:
             - Type:
-                type: CanalTP\IussaadCoreBundle\Entity\Sim
+                type: CanalTP\SamCoreBundle\Entity\Sim
                 message: sqwal_cobranding.form.sim.error.notvalid

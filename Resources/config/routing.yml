@@ -1,3 +1,3 @@
-canal_tp_iussaad_core_homepage:
+canal_tp_sam_core_homepage:
     pattern:  /hello/{name}
-    defaults: { _controller: CanalTPIussaadCoreBundle:Default:index }
+    defaults: { _controller: CanalTPSamCoreBundle:Default:index }

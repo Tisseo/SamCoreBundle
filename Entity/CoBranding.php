@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * CoBranding
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="CanalTP\IussaadCoreBundle\Entity\CoBrandingRepository")
+ * @ORM\Entity(repositoryClass="CanalTP\SamCoreBundle\Entity\CoBrandingRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class CoBranding
@@ -425,10 +425,10 @@ class CoBranding
     /**
      * Set sim
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\Sim $sim
+     * @param \CanalTP\SamCoreBundle\Entity\Sim $sim
      * @return CoBranding
      */
-    public function setSim(\CanalTP\IussaadCoreBundle\Entity\Sim $sim = null)
+    public function setSim(\CanalTP\SamCoreBundle\Entity\Sim $sim = null)
     {
         $this->sim = $sim;
     
@@ -438,7 +438,7 @@ class CoBranding
     /**
      * Get sim
      *
-     * @return \CanalTP\IussaadCoreBundle\Entity\Sim 
+     * @return \CanalTP\SamCoreBundle\Entity\Sim 
      */
     public function getSim()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Status
  *
  * @ORM\Table(name="tr_simstatus_sst")
- * @ORM\Entity(repositoryClass="CanalTP\IussaadCoreBundle\Entity\StatusRepository")
+ * @ORM\Entity(repositoryClass="CanalTP\SamCoreBundle\Entity\StatusRepository")
  */
 class Status
 {
