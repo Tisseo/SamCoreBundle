@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use CanalTP\MediaManagerBundle\Entity\Media;
 use Doctrine\Common\Collections\ArrayCollection;

@@ -6,7 +6,7 @@
  * @author akambi
  */
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -375,10 +375,10 @@ class SimMode
     /**
      * Set sim
      *
-     * @param  \CanalTP\IussaadCoreBundle\Entity\Sim $sim
+     * @param  \CanalTP\SamCoreBundle\Entity\Sim $sim
      * @return SimMode
      */
-    public function setSim(\CanalTP\IussaadCoreBundle\Entity\Sim $sim = null)
+    public function setSim(\CanalTP\SamCoreBundle\Entity\Sim $sim = null)
     {
         $this->sim = $sim;
 
@@ -388,7 +388,7 @@ class SimMode
     /**
      * Get sim
      *
-     * @return \CanalTP\IussaadCoreBundle\Entity\Sim
+     * @return \CanalTP\SamCoreBundle\Entity\Sim
      */
     public function getSim()
     {
@@ -398,10 +398,10 @@ class SimMode
     /**
      * Set mode
      *
-     * @param  \CanalTP\IussaadCoreBundle\Entity\Mode $mode
+     * @param  \CanalTP\SamCoreBundle\Entity\Mode $mode
      * @return SimMode
      */
-    public function setMode(\CanalTP\IussaadCoreBundle\Entity\Mode $mode = null)
+    public function setMode(\CanalTP\SamCoreBundle\Entity\Mode $mode = null)
     {
         $this->mode = $mode;
 
@@ -411,7 +411,7 @@ class SimMode
     /**
      * Get mode
      *
-     * @return \CanalTP\IussaadCoreBundle\Entity\Mode
+     * @return \CanalTP\SamCoreBundle\Entity\Mode
      */
     public function getMode()
     {

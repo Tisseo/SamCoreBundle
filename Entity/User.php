@@ -6,7 +6,7 @@
  * @author akambi
  */
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -37,7 +37,7 @@ class User extends BaseUser
     protected $lastname;
 
     /**
-     * @ORM\ManyToMany(targetEntity="CanalTP\IussaadCoreBundle\Entity\Sim",
+     * @ORM\ManyToMany(targetEntity="CanalTP\SamCoreBundle\Entity\Sim",
      *       cascade={"persist"}, inversedBy="users"
      * )
      * @ORM\JoinTable(name="tj_user_sim_usm",

@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Mode
  *
  * @ORM\Table(name="t_mode_mde")
- * @ORM\Entity(repositoryClass="CanalTP\IussaadCoreBundle\Entity\ModeRepository")
+ * @ORM\Entity(repositoryClass="CanalTP\SamCoreBundle\Entity\ModeRepository")
  */
 class Mode
 {
@@ -88,10 +88,10 @@ class Mode
     /**
      * Add sim_commercial_modes
      *
-     * @param  \CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes
+     * @param  \CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes
      * @return Mode
      */
-    public function addSimCommercialMode(\CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes)
+    public function addSimCommercialMode(\CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes)
     {
         $this->sim_commercial_modes[] = $simCommercialModes;
 
@@ -101,10 +101,10 @@ class Mode
     /**
      * Remove sim_commercial_modes
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes
+     * @param \CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes
      */
     public function removeSimCommercialMode(
-        \CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes
+        \CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes
     )
     {
         $this->sim_commercial_modes->removeElement($simCommercialModes);

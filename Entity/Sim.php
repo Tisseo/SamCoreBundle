@@ -6,14 +6,14 @@
  * @author akambi
  */
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use FOS\UserBundle\Model\Group as FosGroup;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity(repositoryClass="CanalTP\IussaadCoreBundle\Entity\SimRepository")
+ * @ORM\Entity(repositoryClass="CanalTP\SamCoreBundle\Entity\SimRepository")
  * @ORM\Table(name="t_sim_sim")
  * @ORM\HasLifecycleCallbacks()
  */
@@ -337,10 +337,10 @@ class Sim extends FosGroup
     /**
      * Add sim_commercial_modes
      *
-     * @param  \CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes
+     * @param  \CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes
      * @return Sim
      */
-    public function addSimCommercialMode(\CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes)
+    public function addSimCommercialMode(\CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes)
     {
         $this->sim_commercial_modes[] = $simCommercialModes;
 
@@ -350,10 +350,10 @@ class Sim extends FosGroup
     /**
      * Remove sim_commercial_modes
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes
+     * @param \CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes
      */
     public function removeSimCommercialMode(
-        \CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes
+        \CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes
     )
     {
         $this->sim_commercial_modes->removeElement($simCommercialModes);

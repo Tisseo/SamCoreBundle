@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\Tests\Controller;
+namespace CanalTP\SamCoreBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
