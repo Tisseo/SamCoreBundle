@@ -6,7 +6,7 @@
  * @author akambi
  */
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -317,10 +317,10 @@ class Sim
     /**
      * Add sim_commercial_modes
      *
-     * @param  \CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes
+     * @param  \CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes
      * @return Sim
      */
-    public function addSimCommercialMode(\CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes)
+    public function addSimCommercialMode(\CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes)
     {
         $this->sim_commercial_modes[] = $simCommercialModes;
 
@@ -330,10 +330,10 @@ class Sim
     /**
      * Remove sim_commercial_modes
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes
+     * @param \CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes
      */
     public function removeSimCommercialMode(
-        \CanalTP\IussaadCoreBundle\Entity\SimMode $simCommercialModes
+        \CanalTP\SamCoreBundle\Entity\SimMode $simCommercialModes
     )
     {
         $this->sim_commercial_modes->removeElement($simCommercialModes);
@@ -349,7 +349,7 @@ class Sim
     {
         return $this->sim_commercial_modes;
     }
-    
+
     /**
      * Get massUpload
      *

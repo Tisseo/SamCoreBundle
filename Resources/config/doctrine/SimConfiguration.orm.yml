@@ -1,4 +1,4 @@
-CanalTP\IussaadCoreBundle\Entity\SimConfiguration:
+CanalTP\SamCoreBundle\Entity\SimConfiguration:
     type: entity
     table: t_sim_configuration
     fields:

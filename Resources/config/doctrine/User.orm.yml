@@ -1,4 +1,4 @@
-CanalTP\IussaadCoreBundle\Entity\User:
+CanalTP\SamCoreBundle\Entity\User:
     type: entity
     table: t_user
     fields:
@@ -28,7 +28,7 @@ CanalTP\IussaadCoreBundle\Entity\User:
             precision: 0
     manyToMany:
         applicationRoles:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\ApplicationRole
+            targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
             cascade:
               - persist
             mappedBy: null
@@ -53,7 +53,7 @@ CanalTP\IussaadCoreBundle\Entity\User:
                         columnDefinition: null
                         referencedColumnName: apr_id
         groups:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\Application
+            targetEntity: CanalTP\SamCoreBundle\Entity\Application
             cascade:
               - persist
             mappedBy: null

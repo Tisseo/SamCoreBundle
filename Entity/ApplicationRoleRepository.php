@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -28,7 +28,7 @@ class ApplicationRoleRepository extends EntityRepository
      */
     public function findAllByApplications($applications) {
         
-        return $this->_em->createQuery('SELECT r FROM CanalTPIussaadCoreBundle:ApplicationRole r LEFT JOIN r.application a WHERE a IN (:application) ORDER BY a.id')
+        return $this->_em->createQuery('SELECT r FROM CanalTPSamCoreBundle:ApplicationRole r LEFT JOIN r.application a WHERE a IN (:application) ORDER BY a.id')
              ->setParameter('application', $applications)
              ->getResult();
     }

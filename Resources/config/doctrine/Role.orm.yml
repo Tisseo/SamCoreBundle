@@ -1,7 +1,7 @@
-CanalTP\IussaadCoreBundle\Entity\Role:
+CanalTP\SamCoreBundle\Entity\Role:
     type: entity
     table: container_security_role
-    repositoryClass: CanalTP\IussaadCoreBundle\Entity\RoleRepository
+    repositoryClass: CanalTP\SamCoreBundle\Entity\RoleRepository
     fields:
         id:
             type: integer
@@ -10,7 +10,7 @@ CanalTP\IussaadCoreBundle\Entity\Role:
                 strategy: AUTO
     OneToMany:
         applicationRoles:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\ApplicationRole
+            targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
             mappedBy: role
             cascade: ["persist", "merge"]
     lifecycleCallbacks: {  }

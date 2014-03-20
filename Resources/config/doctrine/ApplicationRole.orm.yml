@@ -1,7 +1,7 @@
-CanalTP\IussaadCoreBundle\Entity\ApplicationRole:
+CanalTP\SamCoreBundle\Entity\ApplicationRole:
     type: entity
     table: tj_application_role
-    repositoryClass: CanalTP\IussaadCoreBundle\Entity\ApplicationRoleRepository
+    repositoryClass: CanalTP\SamCoreBundle\Entity\ApplicationRoleRepository
     fields:
         id:
             type: integer
@@ -20,30 +20,30 @@ CanalTP\IussaadCoreBundle\Entity\ApplicationRole:
             nullable: true
     manyToOne:
         application:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\Application
+            targetEntity: CanalTP\SamCoreBundle\Entity\Application
             inversedBy: roles
             joinColumn:
                 name: app_id
                 referencedColumnName: app_id
         role:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\Role
+            targetEntity: CanalTP\SamCoreBundle\Entity\Role
             inversedBy: applicationRoles
             joinColumn:
                 name: rol_id
                 referencedColumnName: id
     manyToMany:
         users:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\User
+            targetEntity: CanalTP\SamCoreBundle\Entity\User
             mappedBy: applicationRoles
             cascade: 
                - persist
         children:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\ApplicationRole
+            targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
             mappedBy: parents
             cascade: 
                - persist
         parents:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\ApplicationRole
+            targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
             inversedBy: children
             joinTable:
                 name: role_hierarchy

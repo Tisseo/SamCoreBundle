@@ -1,9 +1,9 @@
 {
-    "name": "canaltp/iussaad-core-bundle",
+    "name": "canaltp/sam-core-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony CanalTPIussaadCoreBundle",
-    "keywords": ["Iussaad Core Entity"],
-    "homepage": "http://hg.prod.canaltp.fr/Iussaad/IussaadCoreBundle/summary",
+    "description": "Symfony CanalTPSamCoreBundle",
+    "keywords": ["Sam Core Entity"],
+    "homepage": "http://hg.prod.canaltp.fr/Sam/SamCoreBundle/summary",
     "license": "",
     "authors": [
         {
@@ -19,13 +19,12 @@
     "require": {
         "php": ">=5.3.2"
     },
-    "target-dir": "CanalTP/IussaadCoreBundle",
     "autoload": {
-        "psr-0": { "CanalTP\\IussaadCoreBundle\\": "" }
+        "psr-4": { "CanalTP\\SamCoreBundle\\": "" }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "0.14-dev"
         }
     }
 }

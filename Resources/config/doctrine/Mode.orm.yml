@@ -1,7 +1,7 @@
-CanalTP\IussaadCoreBundle\Entity\Mode:
+CanalTP\SamCoreBundle\Entity\Mode:
     type: entity
     table: t_mode_mde
-    repositoryClass: CanalTP\IussaadCoreBundle\Entity\ModeRepository
+    repositoryClass: CanalTP\SamCoreBundle\Entity\ModeRepository
     fields:
         id:
             type: string
@@ -22,7 +22,7 @@ CanalTP\IussaadCoreBundle\Entity\Mode:
             column: mde_name
     oneToMany:
         sim_commercial_modes:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\SimMode
+            targetEntity: CanalTP\SamCoreBundle\Entity\SimMode
             cascade:
                 - persist
             mappedBy: mode

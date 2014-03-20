@@ -1,21 +1,21 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\DataFixtures\ORM;
+namespace CanalTP\SamCoreBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-use CanalTP\IussaadCoreBundle\Entity\Application;
+use CanalTP\SamCoreBundle\Entity\Application;
 
 class FixturesApplication extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $em)       
     {
         //  On crée les rôles par défaut de symfony 2
-        $appIussaad = new Application('Iussaad');
+        $appSam = new Application('Sam');
         //  On la persiste
-        $em->persist($appIussaad);
+        $em->persist($appSam);
 
         $appNMPA = new Application('Navitia Mobility Planner Admin');
         //  On la persiste
@@ -31,7 +31,7 @@ class FixturesApplication extends AbstractFixture implements OrderedFixtureInter
                 
         //  On déclenche l'enregistrement
         $em->flush();
-        $this->addReference('app-iussaad', $appIussaad);
+        $this->addReference('app-sam', $appSam);
         $this->addReference('app-nmpa', $appNMPA);
         $this->addReference('app-timetable', $appTimetable);
         $this->addReference('app-matrix', $appMatrix);

@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Status
 {
-
     const NETWORK_CONFIGURATION = 1;
     const LOGO_CONFIGURATION = 2;
     const PICTO_CONFIGURATION = 3;

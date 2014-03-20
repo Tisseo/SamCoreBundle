@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -30,12 +30,12 @@ class ApplicationRole
     private $permissions;
     
     /**
-     * @var \CanalTP\IussaadCoreBundle\Entity\Application
+     * @var \CanalTP\SamCoreBundle\Entity\Application
      */
     private $application;
 
     /**
-     * @var \CanalTP\IussaadCoreBundle\Entity\Role
+     * @var \CanalTP\SamCoreBundle\Entity\Role
      */
     private $role;
 
@@ -128,10 +128,10 @@ class ApplicationRole
     /**
      * Set application
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\Application $application
+     * @param \CanalTP\SamCoreBundle\Entity\Application $application
      * @return ApplicationRole
      */
-    public function setApplication(\CanalTP\IussaadCoreBundle\Entity\Application $application = null)
+    public function setApplication(\CanalTP\SamCoreBundle\Entity\Application $application = null)
     {
         $this->application = $application;
     
@@ -141,7 +141,7 @@ class ApplicationRole
     /**
      * Get application
      *
-     * @return \CanalTP\IussaadCoreBundle\Entity\Application 
+     * @return \CanalTP\SamCoreBundle\Entity\Application 
      */
     public function getApplication()
     {
@@ -151,10 +151,10 @@ class ApplicationRole
     /**
      * Set role
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\Role $role
+     * @param \CanalTP\SamCoreBundle\Entity\Role $role
      * @return ApplicationRole
      */
-    public function setRole(\CanalTP\IussaadCoreBundle\Entity\Role $role = null)
+    public function setRole(\CanalTP\SamCoreBundle\Entity\Role $role = null)
     {
         $this->role = $role;
 
@@ -164,7 +164,7 @@ class ApplicationRole
     /**
      * Get role
      *
-     * @return \CanalTP\IussaadCoreBundle\Entity\Role 
+     * @return \CanalTP\SamCoreBundle\Entity\Role 
      */
     public function getRole()
     {
@@ -174,10 +174,10 @@ class ApplicationRole
     /**
      * Add children
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $children
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $children
      * @return ApplicationRole
      */
-    public function addChildren(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $children)
+    public function addChildren(\CanalTP\SamCoreBundle\Entity\ApplicationRole $children)
     {
         $this->children[] = $children;
 
@@ -187,9 +187,9 @@ class ApplicationRole
     /**
      * Remove children
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $children
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $children
      */
-    public function removeChildren(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $children)
+    public function removeChildren(\CanalTP\SamCoreBundle\Entity\ApplicationRole $children)
     {
         $this->children->removeElement($children);
     }
@@ -207,10 +207,10 @@ class ApplicationRole
     /**
      * Add parents
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $parents
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $parents
      * @return ApplicationRole
      */
-    public function addParent(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $parents)
+    public function addParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
     {
         $this->parents[] = $parents;
     
@@ -220,9 +220,9 @@ class ApplicationRole
     /**
      * Remove parents
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $parents
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $parents
      */
-    public function removeParent(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $parents)
+    public function removeParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
     {
         $this->parents->removeElement($parents);
     }
@@ -306,10 +306,10 @@ class ApplicationRole
     /**
      * Set currentRole
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\Role $currentRole
+     * @param \CanalTP\SamCoreBundle\Entity\Role $currentRole
      * @return ApplicationRole
      */
-    public function setCurrentRole(\CanalTP\IussaadCoreBundle\Entity\Role $currentRole = null)
+    public function setCurrentRole(\CanalTP\SamCoreBundle\Entity\Role $currentRole = null)
     {
         $this->currentRole = $currentRole;
     
@@ -319,7 +319,7 @@ class ApplicationRole
     /**
      * Get currentRole
      *
-     * @return \CanalTP\IussaadCoreBundle\Entity\Role 
+     * @return \CanalTP\SamCoreBundle\Entity\Role 
      */
     public function getCurrentRole()
     {
@@ -334,10 +334,10 @@ class ApplicationRole
     /**
      * Add users
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\User $users
+     * @param \CanalTP\SamCoreBundle\Entity\User $users
      * @return ApplicationRole
      */
-    public function addUser(\CanalTP\IussaadCoreBundle\Entity\User $users)
+    public function addUser(\CanalTP\SamCoreBundle\Entity\User $users)
     {
         $this->users[] = $users;
     
@@ -347,9 +347,9 @@ class ApplicationRole
     /**
      * Remove users
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\User $users
+     * @param \CanalTP\SamCoreBundle\Entity\User $users
      */
-    public function removeUser(\CanalTP\IussaadCoreBundle\Entity\User $users)
+    public function removeUser(\CanalTP\SamCoreBundle\Entity\User $users)
     {
         $this->users->removeElement($users);
     }

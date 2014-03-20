@@ -1,7 +1,7 @@
-CanalTP\IussaadCoreBundle\Entity\Sim:
+CanalTP\SamCoreBundle\Entity\Sim:
     type: entity
     table: t_sim_sim
-    repositoryClass: CanalTP\IussaadCoreBundle\Entity\SimRepository
+    repositoryClass: CanalTP\SamCoreBundle\Entity\SimRepository
     fields:
         id:
             type: integer
@@ -64,7 +64,7 @@ CanalTP\IussaadCoreBundle\Entity\Sim:
             column: sim_networks
     manyToOne:
         status:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\Status
+            targetEntity: CanalTP\SamCoreBundle\Entity\Status
             cascade: {  }
             mappedBy: null
             inversedBy: null
@@ -74,7 +74,7 @@ CanalTP\IussaadCoreBundle\Entity\Sim:
             orphanRemoval: false
     oneToMany:
         sim_commercial_modes:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\SimMode
+            targetEntity: CanalTP\SamCoreBundle\Entity\SimMode
             cascade:
                 - persist
             mappedBy: sim

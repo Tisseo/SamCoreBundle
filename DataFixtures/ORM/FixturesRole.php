@@ -1,12 +1,12 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\DataFixtures\ORM;
+namespace CanalTP\SamCoreBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-use CanalTP\IussaadCoreBundle\Entity\Role;
+use CanalTP\SamCoreBundle\Entity\Role;
 
 class FixturesRole extends AbstractFixture implements OrderedFixtureInterface
 {

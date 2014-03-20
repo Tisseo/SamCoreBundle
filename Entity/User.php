@@ -6,7 +6,7 @@
  * @author akambi
  */
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -117,10 +117,10 @@ class User extends BaseUser
     /**
      * Add applicationRoles
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRoles
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRoles
      * @return User
      */
-    public function addApplicationRole(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRoles)
+    public function addApplicationRole(\CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRoles)
     {
         $this->applicationRoles[] = $applicationRoles;
     
@@ -130,9 +130,9 @@ class User extends BaseUser
     /**
      * Remove applicationRoles
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRoles
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRoles
      */
-    public function removeApplicationRole(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRoles)
+    public function removeApplicationRole(\CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRoles)
     {
         $this->applicationRoles->removeElement($applicationRoles);
     }
@@ -162,10 +162,10 @@ class User extends BaseUser
     /**
      * Add roleGroupByApplication
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $roleParent
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $roleParent
      * @return Role
      */
-    public function addRoleGroupByApplication(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $roleGroupByApplication)
+    public function addRoleGroupByApplication(\CanalTP\SamCoreBundle\Entity\ApplicationRole $roleGroupByApplication)
     {
         $this->roleGroupByApplications[] = $roleGroupByApplication;
     
@@ -175,9 +175,9 @@ class User extends BaseUser
     /**
      * Remove roleGroupByApplication
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\Application $roleParent
+     * @param \CanalTP\SamCoreBundle\Entity\Application $roleParent
      */
-    public function removeRoleGroupByApplication(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $roleGroupByApplication)
+    public function removeRoleGroupByApplication(\CanalTP\SamCoreBundle\Entity\ApplicationRole $roleGroupByApplication)
     {
         $this->roleGroupByApplications->removeElement($roleGroupByApplication);
     }

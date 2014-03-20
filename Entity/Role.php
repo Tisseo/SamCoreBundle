@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -79,10 +79,10 @@ class Role
     /**
      * Add applicationRole
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRole
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole
      * @return Role
      */
-    public function addApplicationRole(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRole)
+    public function addApplicationRole(\CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole)
     {
         $this->applicationRoles[] = $applicationRole;
     
@@ -92,9 +92,9 @@ class Role
     /**
      * Remove applicationRole
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRole
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole
      */
-    public function removeApplicationRole(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $applicationRole)
+    public function removeApplicationRole(\CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole)
     {
         $this->applicationRoles->removeElement($applicationRole);
     }
@@ -112,10 +112,10 @@ class Role
     /**
      * Add roleParent
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $roleParent
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $roleParent
      * @return Role
      */
-    public function addRoleParent(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $roleParent)
+    public function addRoleParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $roleParent)
     {
         $this->roleParents[] = $roleParent;
     
@@ -125,9 +125,9 @@ class Role
     /**
      * Remove roleParent
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\ApplicationRole $roleParent
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $roleParent
      */
-    public function removeRoleParent(\CanalTP\IussaadCoreBundle\Entity\ApplicationRole $roleParent)
+    public function removeRoleParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $roleParent)
     {
         $this->roleParents->removeElement($roleParent);
     }

@@ -1,7 +1,7 @@
-CanalTP\IussaadCoreBundle\Entity\CoBranding:
+CanalTP\SamCoreBundle\Entity\CoBranding:
     type: entity
     table: CoBranding
-    repositoryClass: CanalTP\IussaadCoreBundle\Entity\CoBrandingRepository
+    repositoryClass: CanalTP\SamCoreBundle\Entity\CoBrandingRepository
     fields:
         id:
             type: integer
@@ -101,7 +101,7 @@ CanalTP\IussaadCoreBundle\Entity\CoBranding:
             precision: 0
     manyToOne:
         sim:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\Sim
+            targetEntity: CanalTP\SamCoreBundle\Entity\Sim
             cascade: {  }
             mappedBy: null
             inversedBy: null

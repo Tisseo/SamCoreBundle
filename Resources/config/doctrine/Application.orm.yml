@@ -1,7 +1,7 @@
-CanalTP\IussaadCoreBundle\Entity\Application:
+CanalTP\SamCoreBundle\Entity\Application:
     type: entity
     table: tr_application_app
-    repositoryClass: CanalTP\IussaadCoreBundle\Entity\ApplicationRepository
+    repositoryClass: CanalTP\SamCoreBundle\Entity\ApplicationRepository
     fields:
         id:
             type: integer
@@ -15,13 +15,13 @@ CanalTP\IussaadCoreBundle\Entity\Application:
             length: 255
     oneToMany:
         applicationRoles:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\ApplicationRole
+            targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
             mappedBy: application
             cascade: 
                - persist
     manyToMany:
         users:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\User
+            targetEntity: CanalTP\SamCoreBundle\Entity\User
             mappedBy: groups
             cascade: 
                - persist

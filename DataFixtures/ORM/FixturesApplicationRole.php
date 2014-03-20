@@ -1,12 +1,12 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\DataFixtures\ORM;
+namespace CanalTP\SamCoreBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-use CanalTP\IussaadCoreBundle\Entity\ApplicationRole;
+use CanalTP\SamCoreBundle\Entity\ApplicationRole;
 
 class FixturesApplicationRole extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -17,7 +17,7 @@ class FixturesApplicationRole extends AbstractFixture implements OrderedFixtureI
         $roleUser->setRole($this->getReference('role-user'));
         $roleUser->setName('Utilisateur');
         $roleUser->setCanonicalRole('ROLE_USER');
-        $roleUser->setApplication($this->getReference('app-iussaad'));
+        $roleUser->setApplication($this->getReference('app-sam'));
         //  On la persiste
         $em->persist($roleUser);
 
@@ -26,7 +26,7 @@ class FixturesApplicationRole extends AbstractFixture implements OrderedFixtureI
         $roleReferent->setName('Référent');
         $roleReferent->setCanonicalRole('ROLE_REFERENT');
         $roleReferent->addParent($roleUser);
-        $roleReferent->setApplication($this->getReference('app-iussaad'));
+        $roleReferent->setApplication($this->getReference('app-sam'));
         //  On la persiste
         $em->persist($roleReferent);
 
@@ -35,7 +35,7 @@ class FixturesApplicationRole extends AbstractFixture implements OrderedFixtureI
         $roleAdmin->setName('Administrateur');
         $roleAdmin->setCanonicalRole('ROLE_ADMIN');
         $roleAdmin->addParent($roleReferent);
-        $roleAdmin->setApplication($this->getReference('app-iussaad'));
+        $roleAdmin->setApplication($this->getReference('app-sam'));
         //  On la persiste
         $em->persist($roleAdmin);
 
@@ -44,7 +44,7 @@ class FixturesApplicationRole extends AbstractFixture implements OrderedFixtureI
         $roleSuperAdmin->setName('Super Administrateur');
         $roleSuperAdmin->setCanonicalRole('ROLE_SUPER_ADMIN');
         $roleSuperAdmin->addParent($roleAdmin);
-        $roleSuperAdmin->setApplication($this->getReference('app-iussaad'));
+        $roleSuperAdmin->setApplication($this->getReference('app-sam'));
         //  On la persiste
         $em->persist($roleSuperAdmin);
                 

@@ -1,4 +1,4 @@
-CanalTP\IussaadCoreBundle\Entity\SimMode:
+CanalTP\SamCoreBundle\Entity\SimMode:
     type: entity
     table: tj_simmode_smd
     fields:
@@ -63,7 +63,7 @@ CanalTP\IussaadCoreBundle\Entity\SimMode:
             column: sim_updatedate
     manyToOne:
         sim:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\Sim
+            targetEntity: CanalTP\SamCoreBundle\Entity\Sim
             cascade: {  }
             mappedBy: null
             inversedBy: null
@@ -72,7 +72,7 @@ CanalTP\IussaadCoreBundle\Entity\SimMode:
                     referencedColumnName: sim_id
             orphanRemoval: false
         mode:
-            targetEntity: CanalTP\IussaadCoreBundle\Entity\Mode
+            targetEntity: CanalTP\SamCoreBundle\Entity\Mode
             cascade: {  }
             mappedBy: null
             inversedBy: null

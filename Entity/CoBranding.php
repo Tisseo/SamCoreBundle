@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\IussaadCoreBundle\Entity;
+namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -79,7 +79,6 @@ class CoBranding
      */
     protected $sim;
 
-
     /**
      * Appeler avant la persistance d'un object en base de donnée
      */
@@ -96,11 +95,11 @@ class CoBranding
     {
         $this->setUpdatedAt(new \DateTime('now'));
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -110,20 +109,20 @@ class CoBranding
     /**
      * Set firstname
      *
-     * @param string $firstname
+     * @param  string     $firstname
      * @return CoBranding
      */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
-    
+
         return $this;
     }
 
     /**
      * Get firstname
      *
-     * @return string 
+     * @return string
      */
     public function getFirstname()
     {
@@ -133,20 +132,20 @@ class CoBranding
     /**
      * Set lastname
      *
-     * @param string $lastname
+     * @param  string     $lastname
      * @return CoBranding
      */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
-    
+
         return $this;
     }
 
     /**
      * Get lastname
      *
-     * @return string 
+     * @return string
      */
     public function getLastname()
     {
@@ -156,20 +155,20 @@ class CoBranding
     /**
      * Set address
      *
-     * @param text $address
+     * @param  text       $address
      * @return CoBranding
      */
     public function setAddress($address)
     {
         $this->address = $address;
-    
+
         return $this;
     }
 
     /**
      * Get address
      *
-     * @return text 
+     * @return text
      */
     public function getAddress()
     {
@@ -179,20 +178,20 @@ class CoBranding
     /**
      * Set motivation
      *
-     * @param text $motivation
+     * @param  text       $motivation
      * @return CoBranding
      */
     public function setMotivation($motivation)
     {
         $this->motivation = $motivation;
-    
+
         return $this;
     }
 
     /**
      * Get motivation
      *
-     * @return text 
+     * @return text
      */
     public function getMotivation()
     {
@@ -202,20 +201,20 @@ class CoBranding
     /**
      * Set domaine
      *
-     * @param string $domaine
+     * @param  string     $domaine
      * @return CoBranding
      */
     public function setDomaine($domaine)
     {
         $this->domaine = $domaine;
-    
+
         return $this;
     }
 
     /**
      * Get domaine
      *
-     * @return string 
+     * @return string
      */
     public function getDomaine()
     {
@@ -225,20 +224,20 @@ class CoBranding
     /**
      * Set email
      *
-     * @param string $email
+     * @param  string     $email
      * @return CoBranding
      */
     public function setEmail($email)
     {
         $this->email = $email;
-    
+
         return $this;
     }
 
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -248,20 +247,20 @@ class CoBranding
     /**
      * Set job
      *
-     * @param string $job
+     * @param  string     $job
      * @return CoBranding
      */
     public function setJob($job)
     {
         $this->job = $job;
-    
+
         return $this;
     }
 
     /**
      * Get job
      *
-     * @return string 
+     * @return string
      */
     public function getJob()
     {
@@ -271,20 +270,20 @@ class CoBranding
     /**
      * Set key
      *
-     * @param string $key
+     * @param  string     $key
      * @return CoBranding
      */
     public function setKey($key)
     {
         $this->key = $key;
-    
+
         return $this;
     }
 
     /**
      * Get key
      *
-     * @return string 
+     * @return string
      */
     public function getKey()
     {
@@ -294,20 +293,20 @@ class CoBranding
     /**
      * Set createdAt
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime  $createdAt
      * @return CoBranding
      */
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -317,20 +316,20 @@ class CoBranding
     /**
      * Set updatedAt
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime  $updatedAt
      * @return CoBranding
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updatedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -340,20 +339,20 @@ class CoBranding
     /**
      * Set status
      *
-     * @param boolean $status
+     * @param  boolean    $status
      * @return CoBranding
      */
     public function setStatus($status)
     {
         $this->status = $status;
-    
+
         return $this;
     }
 
     /**
      * Get status
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getStatus()
     {
@@ -363,20 +362,20 @@ class CoBranding
     /**
      * Set company
      *
-     * @param string $company
+     * @param  string     $company
      * @return CoBranding
      */
     public function setCompany($company)
     {
         $this->company = $company;
-    
+
         return $this;
     }
 
     /**
      * Get company
      *
-     * @return string 
+     * @return string
      */
     public function getCompany()
     {
@@ -386,20 +385,20 @@ class CoBranding
     /**
      * Set sim
      *
-     * @param \CanalTP\IussaadCoreBundle\Entity\Sim $sim
+     * @param  \CanalTP\SamCoreBundle\Entity\Sim $sim
      * @return CoBranding
      */
-    public function setSim(\CanalTP\IussaadCoreBundle\Entity\Sim $sim = null)
+    public function setSim(\CanalTP\SamCoreBundle\Entity\Sim $sim = null)
     {
         $this->sim = $sim;
-    
+
         return $this;
     }
 
     /**
      * Get sim
      *
-     * @return \CanalTP\IussaadCoreBundle\Entity\Sim 
+     * @return \CanalTP\SamCoreBundle\Entity\Sim
      */
     public function getSim()
     {
