@@ -11,13 +11,16 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class ApplicationRepository extends EntityRepository
-{
-    
+{    
+    /**
+     * Retourne tous les applications en base de données
+     * @param type $user
+     * @return type
+     */
     public function findAllByUser($user)
     {
         return $this->createQueryBuilder('a')
                 ->getQuery()
                 ->getResult();
     }
-
 }
