@@ -334,10 +334,10 @@ class ApplicationRole
     /**
      * Add users
      *
-     * @param \CanalTP\SamCoreBundle\Entity\User $users
+     * @param \CanalTP\SamEcoreUserManagerBundle\Entity\User $users
      * @return ApplicationRole
      */
-    public function addUser(\CanalTP\SamCoreBundle\Entity\User $users)
+    public function addUser(\CanalTP\SamEcoreUserManagerBundle\Entity\User $users)
     {
         $this->users[] = $users;
     
@@ -347,9 +347,9 @@ class ApplicationRole
     /**
      * Remove users
      *
-     * @param \CanalTP\SamCoreBundle\Entity\User $users
+     * @param \CanalTP\SamEcoreUserManagerBundle\Entity\User $users
      */
-    public function removeUser(\CanalTP\SamCoreBundle\Entity\User $users)
+    public function removeUser(\CanalTP\SamEcoreUserManagerBundle\Entity\User $users)
     {
         $this->users->removeElement($users);
     }

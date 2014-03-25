@@ -21,7 +21,7 @@ CanalTP\SamCoreBundle\Entity\Application:
                - persist
     manyToMany:
         users:
-            targetEntity: CanalTP\SamCoreBundle\Entity\User
+            targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
             mappedBy: groups
             cascade: 
                - persist
