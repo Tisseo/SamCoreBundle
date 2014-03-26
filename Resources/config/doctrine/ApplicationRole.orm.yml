@@ -33,7 +33,7 @@ CanalTP\SamCoreBundle\Entity\ApplicationRole:
                 referencedColumnName: id
     manyToMany:
         users:
-            targetEntity: CanalTP\SamCoreBundle\Entity\User
+            targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
             mappedBy: applicationRoles
             cascade: 
                - persist
