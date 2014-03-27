@@ -28,7 +28,7 @@ class ApplicationRole
      * @var array
      */
     private $permissions;
-    
+
     /**
      * @var \CanalTP\SamCoreBundle\Entity\Application
      */
@@ -53,10 +53,10 @@ class ApplicationRole
      * @var \Doctrine\Common\Collections\Collection
      */
     private $users;
-    
+
     protected $currentRole;
     protected $parentRoles;
-    
+
     /**
      * Constructor
      */
@@ -68,11 +68,11 @@ class ApplicationRole
         $this->permissions = array();
         $this->parentRoles = $parentRoles;
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -88,14 +88,14 @@ class ApplicationRole
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -111,20 +111,20 @@ class ApplicationRole
     public function setCanonicalRole($canonicalRole)
     {
         $this->canonicalRole = $canonicalRole;
-    
+
         return $this;
     }
 
     /**
      * Get canonicalRole
      *
-     * @return string 
+     * @return string
      */
     public function getCanonicalRole()
     {
         return $this->canonicalRole;
     }
-    
+
     /**
      * Set application
      *
@@ -134,14 +134,14 @@ class ApplicationRole
     public function setApplication(\CanalTP\SamCoreBundle\Entity\Application $application = null)
     {
         $this->application = $application;
-    
+
         return $this;
     }
 
     /**
      * Get application
      *
-     * @return \CanalTP\SamCoreBundle\Entity\Application 
+     * @return \CanalTP\SamCoreBundle\Entity\Application
      */
     public function getApplication()
     {
@@ -164,7 +164,7 @@ class ApplicationRole
     /**
      * Get role
      *
-     * @return \CanalTP\SamCoreBundle\Entity\Role 
+     * @return \CanalTP\SamCoreBundle\Entity\Role
      */
     public function getRole()
     {
@@ -197,7 +197,7 @@ class ApplicationRole
     /**
      * Get children
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getChildren()
     {
@@ -213,7 +213,7 @@ class ApplicationRole
     public function addParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
     {
         $this->parents[] = $parents;
-    
+
         return $this;
     }
 
@@ -230,7 +230,7 @@ class ApplicationRole
     /**
      * Get parents
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getParents()
     {
@@ -248,7 +248,7 @@ class ApplicationRole
 
         return $this;
     }
-    
+
     /**
      * @param string $parentRole
      *
@@ -312,20 +312,20 @@ class ApplicationRole
     public function setCurrentRole(\CanalTP\SamCoreBundle\Entity\Role $currentRole = null)
     {
         $this->currentRole = $currentRole;
-    
+
         return $this;
     }
 
     /**
      * Get currentRole
      *
-     * @return \CanalTP\SamCoreBundle\Entity\Role 
+     * @return \CanalTP\SamCoreBundle\Entity\Role
      */
     public function getCurrentRole()
     {
         return $this->currentRole;
     }
-    
+
     public function __toString()
     {
         return $this->getName();
@@ -340,7 +340,7 @@ class ApplicationRole
     public function addUser(\CanalTP\SamEcoreUserManagerBundle\Entity\User $users)
     {
         $this->users[] = $users;
-    
+
         return $this;
     }
 
@@ -357,7 +357,7 @@ class ApplicationRole
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUsers()
     {
@@ -373,14 +373,14 @@ class ApplicationRole
     public function setPermissions($permissions)
     {
         $this->permissions = $permissions;
-    
+
         return $this;
     }
 
     /**
      * Get permissions
      *
-     * @return array 
+     * @return array
      */
     public function getPermissions()
     {
@@ -390,9 +390,9 @@ class ApplicationRole
     /**
      * Get permissions
      *
-     * @return array 
+     * @return array
      */
-    public function loadPermissions($nbPermissions)
+    public function loadPermissions($nbPermissions = 0)
     {
         $i = $nbPermissions - count($this->permissions);
 
