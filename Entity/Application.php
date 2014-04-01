@@ -26,15 +26,20 @@ class Application extends FosGroup
     protected $roles;
 
     /**
+     * @var string
+     */
+    protected $defaultRoute;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      */
     protected $applicationRoles;
-    
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $users;
-    
+
     /**
      * Constructor
      */
@@ -44,11 +49,11 @@ class Application extends FosGroup
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         parent::__construct($name, $roles);
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -64,14 +69,14 @@ class Application extends FosGroup
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -88,7 +93,7 @@ class Application extends FosGroup
     {
         $this->addRole($applicationRole->getCanonicalRole());
         $this->applicationRoles[] = $applicationRole;
-    
+
         return $this;
     }
 
@@ -106,13 +111,13 @@ class Application extends FosGroup
     /**
      * Get applicationRoles
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getApplicationRoles()
     {
         return $this->applicationRoles;
     }
-    
+
     /**
      * @param array $roles
      *
@@ -124,11 +129,11 @@ class Application extends FosGroup
 
         return $this;
     }
-    
+
     public function __toString()
     {
         return $this->getName();
-    }    
+    }
 
     /**
      * Add users
@@ -139,7 +144,7 @@ class Application extends FosGroup
     public function addUser(\CanalTP\SamEcoreUserManagerBundle\Entity\User $users)
     {
         $this->users[] = $users;
-    
+
         return $this;
     }
 
@@ -156,13 +161,13 @@ class Application extends FosGroup
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUsers()
     {
         return $this->users;
     }
-    
+
     /**
      * Appeler avant la mise à jour d'un objet en base de donnée
      */
@@ -173,5 +178,15 @@ class Application extends FosGroup
             $aRoles[] = $applicationRole->getCanonicalRole();
         }
         $this->setRoles($aRoles);
+    }
+
+    public function getDefaultRoute()
+    {
+        return $this->defaultRoute;
+    }
+
+    public function setDefaultRoute($defaultRoute)
+    {
+        $this->defaultRoute = $defaultRoute;
     }
 }

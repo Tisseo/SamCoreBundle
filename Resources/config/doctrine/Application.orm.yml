@@ -13,17 +13,21 @@ CanalTP\SamCoreBundle\Entity\Application:
             type: string
             column: app_name
             length: 255
+        defaultRoute:
+            type: string
+            column: app_defaultroute
+            length: 255
     oneToMany:
         applicationRoles:
             targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
             mappedBy: application
-            cascade: 
+            cascade:
                - persist
     manyToMany:
         users:
             targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
             mappedBy: groups
-            cascade: 
+            cascade:
                - persist
     lifecycleCallbacks:
         postLoad:
