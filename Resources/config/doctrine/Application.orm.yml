@@ -17,6 +17,12 @@ CanalTP\SamCoreBundle\Entity\Application:
             type: string
             column: app_defaultroute
             length: 255
+            nullable: true
+        canonicalName:
+            type: string
+            column: app_canonicalname
+            length: 255
+            nullable: true
     oneToMany:
         applicationRoles:
             targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole

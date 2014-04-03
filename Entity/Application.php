@@ -21,6 +21,11 @@ class Application extends FosGroup
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $canonicalName;
+
+    /**
      * @var array
      */
     protected $roles;
@@ -188,5 +193,17 @@ class Application extends FosGroup
     public function setDefaultRoute($defaultRoute)
     {
         $this->defaultRoute = $defaultRoute;
+    }
+
+    public function setCanonicalName($canoniName)
+    {
+        $this->canonicalName = $canoniName;
+
+        return $this;
+    }
+
+    public function getCanonicalName()
+    {
+        return $this->canonicalName;
     }
 }
