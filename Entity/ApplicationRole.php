@@ -42,6 +42,16 @@ class ApplicationRole
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
+    private $children;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $parents;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
     private $users;
 
     protected $currentRole;
@@ -52,6 +62,8 @@ class ApplicationRole
      */
     public function __construct($parentRoles = array())
     {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->parents = new \Doctrine\Common\Collections\ArrayCollection();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         $this->permissions = array();
         $this->parentRoles = $parentRoles;
@@ -157,6 +169,84 @@ class ApplicationRole
     public function getRole()
     {
         return $this->role;
+    }
+
+    /**
+     * Add children
+     *
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $children
+     * @return ApplicationRole
+     */
+    public function addChildren(\CanalTP\SamCoreBundle\Entity\ApplicationRole $children)
+    {
+        $this->children[] = $children;
+
+        return $this;
+    }
+
+    /**
+     * Remove children
+     *
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $children
+     */
+    public function removeChildren(\CanalTP\SamCoreBundle\Entity\ApplicationRole $children)
+    {
+        $this->children->removeElement($children);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Add parents
+     *
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $parents
+     * @return ApplicationRole
+     */
+    public function addParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
+    {
+        $this->parents[] = $parents;
+
+        return $this;
+    }
+
+    /**
+     * Remove parents
+     *
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $parents
+     */
+    public function removeParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
+    {
+        $this->parents->removeElement($parents);
+    }
+
+    /**
+     * Get parents
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParents()
+    {
+        return $this->parents;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $parents
+     *
+     * @return ApplicationRole
+     */
+    public function setParents(\Doctrine\Common\Collections\Collection $parents)
+    {
+        $this->parents = $parents;
+
+        return $this;
     }
 
     /**

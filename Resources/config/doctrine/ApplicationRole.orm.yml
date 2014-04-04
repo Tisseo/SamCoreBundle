@@ -35,6 +35,22 @@ CanalTP\SamCoreBundle\Entity\ApplicationRole:
         users:
             targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
             mappedBy: applicationRoles
-            cascade:
+            cascade: 
                - persist
+        children:
+            targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
+            mappedBy: parents
+            cascade: 
+               - persist
+        parents:
+            targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
+            inversedBy: children
+            joinTable:
+                name: role_hierarchy
+                joinColumns:
+                    parent_rol_id:
+                        referencedColumnName: apr_id
+                inverseJoinColumns:
+                    child_rol_id:
+                        referencedColumnName: apr_id
     lifecycleCallbacks: {  }
