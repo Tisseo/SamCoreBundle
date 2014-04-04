@@ -42,7 +42,7 @@ class ApplicationRole
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $children;
+    // private $children;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -62,7 +62,7 @@ class ApplicationRole
      */
     public function __construct($parentRoles = array())
     {
-        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        //$this->children = new \Doctrine\Common\Collections\ArrayCollection();
         $this->parents = new \Doctrine\Common\Collections\ArrayCollection();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         $this->permissions = array();
@@ -177,32 +177,32 @@ class ApplicationRole
      * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $children
      * @return ApplicationRole
      */
-    public function addChildren(\CanalTP\SamCoreBundle\Entity\ApplicationRole $children)
-    {
-        $this->children[] = $children;
+    // public function addChildren(\CanalTP\SamCoreBundle\Entity\ApplicationRole $children)
+    // {
+    //     $this->children[] = $children;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * Remove children
      *
      * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $children
      */
-    public function removeChildren(\CanalTP\SamCoreBundle\Entity\ApplicationRole $children)
-    {
-        $this->children->removeElement($children);
-    }
+    // public function removeChildren(\CanalTP\SamCoreBundle\Entity\ApplicationRole $children)
+    // {
+    //     $this->children->removeElement($children);
+    // }
 
     /**
      * Get children
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getChildren()
-    {
-        return $this->children;
-    }
+    // public function getChildren()
+    // {
+    //     return $this->children;
+    // }
 
     /**
      * Add parents
