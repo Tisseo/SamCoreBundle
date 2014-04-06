@@ -57,6 +57,8 @@ class ApplicationRole
     protected $currentRole;
     protected $parentRoles;
 
+    private $perimeters;
+
     /**
      * Constructor
      */
@@ -399,5 +401,17 @@ class ApplicationRole
         while ($i-- > 0) {
             $this->permissions[] = '';
         }
+    }
+
+    public function getPerimeters()
+    {
+        return $this->perimeters;
+    }
+
+    public function setPerimeters($perimeters)
+    {
+        $this->perimeters = $perimeters;
+
+        return $this;
     }
 }
