@@ -8,7 +8,7 @@ CanalTP\SamCoreBundle\Entity\ApplicationRole:
             id: true
             column: apr_id
             generator:
-                strategy: AUTO
+                strategy: IDENTITY
         name:
             type: string
             length: 255

@@ -7,7 +7,7 @@ CanalTP\SamCoreBundle\Entity\Role:
             type: integer
             id: true
             generator:
-                strategy: AUTO
+                strategy: IDENTITY
     OneToMany:
         applicationRoles:
             targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
