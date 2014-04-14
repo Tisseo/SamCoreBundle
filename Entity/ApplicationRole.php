@@ -45,9 +45,9 @@ class ApplicationRole
     // private $children;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var ApplicationRole
      */
-    private $parents;
+    private $parent;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -64,8 +64,6 @@ class ApplicationRole
      */
     public function __construct($parentRoles = array())
     {
-        //$this->children = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->parents = new \Doctrine\Common\Collections\ArrayCollection();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         $this->permissions = array();
         $this->parentRoles = $parentRoles;
@@ -207,46 +205,23 @@ class ApplicationRole
     // }
 
     /**
-     * Add parents
-     *
-     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $parents
-     * @return ApplicationRole
-     */
-    public function addParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
-    {
-        $this->parents[] = $parents;
-
-        return $this;
-    }
-
-    /**
-     * Remove parents
-     *
-     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $parents
-     */
-    public function removeParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
-    {
-        $this->parents->removeElement($parents);
-    }
-
-    /**
-     * Get parents
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getParents()
-    {
-        return $this->parents;
-    }
-
-    /**
-     * @param \Doctrine\Common\Collections\Collection $parents
+     * Get parent
      *
      * @return ApplicationRole
      */
-    public function setParents(\Doctrine\Common\Collections\Collection $parents)
+    public function getParent()
     {
-        $this->parents = $parents;
+        return $this->parent;
+    }
+
+    /**
+     * @param ApplicationRole $parent
+     *
+     * @return ApplicationRole
+     */
+    public function setParent(ApplicationRole $parent)
+    {
+        $this->parent = $parent;
 
         return $this;
     }
