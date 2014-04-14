@@ -54,6 +54,11 @@ class ApplicationRole
      */
     private $users;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $parents;
+
     protected $currentRole;
     protected $parentRoles;
 
@@ -67,6 +72,7 @@ class ApplicationRole
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         $this->permissions = array();
         $this->parentRoles = $parentRoles;
+        $this->parents = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -386,6 +392,53 @@ class ApplicationRole
     public function setPerimeters($perimeters)
     {
         $this->perimeters = $perimeters;
+
+        return $this;
+    }
+
+    /**
+     * Add parents
+     * Get parent
+     *
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $parents
+     * @return ApplicationRole
+     */
+    public function addParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
+    {
+        $this->parents[] = $parents;
+
+        return $this;
+    }
+
+    /**
+     * Remove parents
+     *
+     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $parents
+     */
+    public function removeParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
+    {
+        $this->parents->removeElement($parents);
+    }
+
+    /**
+     * Get parents
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getParents()
+    {
+        return $this->parents;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $parents
+     * @param ApplicationRole $parent
+     *
+     * @return ApplicationRole
+     */
+    public function setParents(\Doctrine\Common\Collections\Collection $parents)
+    {
+        $this->parents = $parents;
 
         return $this;
     }
