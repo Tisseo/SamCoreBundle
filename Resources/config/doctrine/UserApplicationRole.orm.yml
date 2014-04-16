@@ -1,0 +1,31 @@
+CanalTP\SamCoreBundle\Entity\UserApplicationRole:
+    type: entity
+    table: tj_user_application_role_uar
+    repositoryClass: CanalTP\SamCoreBundle\Entity\UserApplicationRoleRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            column: uar_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        user:
+            targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
+            inversedBy: applicationRoles
+            joinColumn:
+                name: usr_id
+                referencedColumnName: usr_id
+        application:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Application
+            inversedBy: userRoles
+            joinColumn:
+                name: app_id
+                referencedColumnName: app_id
+        role:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Role
+            inversedBy: userApplications
+            joinColumn:
+                name: rol_id
+                referencedColumnName: rol_id
+    lifecycleCallbacks: {  }

@@ -13,26 +13,24 @@ CanalTP\SamCoreBundle\Entity\Application:
             type: string
             column: app_name
             length: 255
-        defaultRoute:
-            type: string
-            column: app_defaultroute
-            length: 255
-            nullable: true
         canonicalName:
             type: string
-            column: app_canonicalname
+            column: app_canonical_name
+            length: 255
+        defaultRoute:
+            type: string
+            column: app_default_route
             length: 255
             nullable: true
     oneToMany:
-        applicationRoles:
-            targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
+        userRoles:
+            targetEntity: CanalTP\SamCoreBundle\Entity\UserApplicationRole
             mappedBy: application
             cascade:
                - persist
-    manyToMany:
-        users:
-            targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
-            mappedBy: groups
+        roles:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Role
+            mappedBy: application
             cascade:
                - persist
     lifecycleCallbacks:

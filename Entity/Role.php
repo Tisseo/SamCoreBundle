@@ -3,6 +3,7 @@
 namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Role
@@ -14,39 +15,49 @@ class Role
      */
     private $id;
 
-    /**
+     /**
      * @var string
      */
     private $name;
 
     /**
+     * @var string
+     */
+    private $canonicalName;
+
+    /**
      * @var array
      */
-    protected $applications;
-    
+    private $permissions;
+
+    /**
+     * @var Application
+     */
+    protected $application;
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
     protected $roleParents;
-    
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    protected $applicationRoles;
-    
+    protected $userApplications;
+
     /**
      * Constructor
      */
-    public function __construct($applications = array())
+    public function __construct()
     {
-        $this->applicationRoles = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->applications = $applications;
+        $this->userApplications = new ArrayCollection();
+        $this->permissions = array();
     }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,72 +73,96 @@ class Role
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
         return $this->name;
     }
-    
+
+    /**
+     * Set canonicalName
+     *
+     * @param string $canonicalName
+     * @return Role
+     */
+    public function setCanonicalName($canonicalName)
+    {
+        $this->canonicalName = $canonicalName;
+
+        return $this;
+    }
+
+    /**
+     * Get canonicalName
+     *
+     * @return string
+     */
+    public function getCanonicalName()
+    {
+        return $this->canonicalName;
+    }
+
+
     /**
      * Add applicationRole
      *
-     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole
+     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $applicationRole
      * @return Role
      */
-    public function addApplicationRole(\CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole)
+    public function addUserApplication(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $applicationRole)
     {
-        $this->applicationRoles[] = $applicationRole;
-    
+        $this->userApplications[] = $applicationRole;
+
         return $this;
     }
 
     /**
      * Remove applicationRole
      *
-     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole
+     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $applicationRole
      */
-    public function removeApplicationRole(\CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole)
+    public function removeUserApplication(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $applicationRole)
     {
-        $this->applicationRoles->removeElement($applicationRole);
+        $this->userApplications->removeElement($applicationRole);
     }
 
     /**
-     * Get applicationRoles
+     * Get userApplications
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getApplicationRoles()
+    public function getUserApplications()
     {
-        return $this->applicationRoles;
+        return $this->userApplications;
     }
 
     /**
      * Add roleParent
      *
-     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $roleParent
+     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent
      * @return Role
      */
-    public function addRoleParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $roleParent)
+    public function addRoleParent(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent)
     {
         $this->roleParents[] = $roleParent;
-    
+
         return $this;
     }
 
     /**
      * Remove roleParent
      *
-     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $roleParent
+     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent
      */
-    public function removeRoleParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $roleParent)
+    public function removeRoleParent(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent)
     {
         $this->roleParents->removeElement($roleParent);
     }
@@ -135,69 +170,69 @@ class Role
     /**
      * Get roleParents
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getRoleParents()
     {
         return $this->roleParents;
     }
-    
-    /**
-     * @param string $application
-     *
-     * @return Role
-     */
-    public function addApplication($application)
-    {
-        if (!$this->hasApplication($application)) {
-            $this->applications[] = $application;
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param string $application
-     */
-    public function hasApplication($application)
-    {
-        return in_array($application, $this->applications, true);
-    }
-
-    public function getApplications()
-    {
-        return $this->applications;
-    }
 
     /**
      * @param string $application
      *
-     * @return Role
+     * @return Application
      */
-    public function removeApplication($application)
+    public function setApplication(Application $application)
     {
-        if (false !== $key = array_search($application, $this->applications, true)) {
-            unset($this->applications[$key]);
-            $this->applications = array_values($this->applications);
-        }
+        $this->application = $application;
 
         return $this;
     }
 
-    /**
-     * @param array $applications
-     *
-     * @return Role
-     */
-    public function setApplications(array $applications)
+    public function getApplication()
     {
-        $this->applications = $applications;
-
-        return $this;
+        return $this->application;
     }
 
     public function __toString()
     {
-        return $this->getApplicationRoles()->getName();
-    }    
+        return $this->getUserApplications()->getName();
+    }
+
+    /**
+     * Set permissions
+     *
+     * @param array $permissions
+     * @return ApplicationRole
+     */
+    public function setPermissions($permissions)
+    {
+        $this->permissions = $permissions;
+
+        return $this;
+    }
+
+    /**
+     * Get permissions
+     *
+     * @return array
+     */
+    public function getPermissions()
+    {
+        return $this->permissions;
+    }
+
+    /**
+     * Get permissions
+     *
+     * @return array
+     */
+    public function loadPermissions($nbPermissions = 0)
+    {
+        $i = $nbPermissions - count($this->permissions);
+
+        while ($i-- > 0) {
+            $this->permissions[] = '';
+        }
+    }
 }
