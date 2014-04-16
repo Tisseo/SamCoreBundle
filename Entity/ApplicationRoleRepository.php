@@ -22,12 +22,12 @@ class ApplicationRoleRepository extends EntityRepository
                     ->getQuery()
                     ->getResult();
     }
-    
+
     /**
      * Return roles for applications
      */
     public function findAllByApplications($applications) {
-        
+
         return $this->_em->createQuery('SELECT r FROM CanalTPSamCoreBundle:ApplicationRole r LEFT JOIN r.application a WHERE a IN (:application) ORDER BY a.id')
              ->setParameter('application', $applications)
              ->getResult();
@@ -36,12 +36,14 @@ class ApplicationRoleRepository extends EntityRepository
     /**
      * Find rolesByApplicationId
      */
-    public function findRolesBy($user_id, $app_id)
+    public function findRolesBy($user_id, $name)
     {
         return $this->createQueryBuilder('a')
                     ->join('a.users', 'p')
-                    ->where('a.application = :app_id AND p.id = :user_id')
-                    ->setParameter('app_id', $app_id)
+                    ->where('p.id = :user_id')
+                    ->join('a.application', 'app')
+                    ->andWhere('app.canonicalName = :name')
+                    ->setParameter('name', $name)
                     ->setParameter('user_id', $user_id)
                     ->getQuery()
                     ->getResult();
