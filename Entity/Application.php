@@ -129,7 +129,7 @@ class Application extends FosGroup
     {
         $aRoles = array();
         foreach ($this->getuserRoles() as $userRole) {
-            $aRoles[] = $userRole->getRole()->getCanonicalRole();
+            $aRoles[] = $userRole->getRole()->getCanonicalName();
         }
         $this->setRoles($aRoles);
     }

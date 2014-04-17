@@ -29,7 +29,7 @@ CanalTP\SamCoreBundle\Entity\Role:
             joinColumn:
                 name: app_id
                 referencedColumnName: app_id
-    OneToMany:
+    oneToMany:
         userApplications:
             targetEntity: CanalTP\SamCoreBundle\Entity\UserApplicationRole
             mappedBy: role

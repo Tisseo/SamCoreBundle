@@ -229,12 +229,12 @@ class UserApplicationRole
     /**
      * Add users
      *
-     * @param \CanalTP\SamEcoreUserManagerBundle\Entity\User $users
+     * @param \CanalTP\SamEcoreUserManagerBundle\Entity\User $user
      * @return ApplicationRole
      */
-    public function addUser(\CanalTP\SamEcoreUserManagerBundle\Entity\User $users)
+    public function setUser(\CanalTP\SamEcoreUserManagerBundle\Entity\User $user)
     {
-        $this->users[] = $users;
+        $this->user = $user;
 
         return $this;
     }
@@ -242,11 +242,11 @@ class UserApplicationRole
     /**
      * Remove users
      *
-     * @param \CanalTP\SamEcoreUserManagerBundle\Entity\User $users
+     * @return \CanalTP\SamEcoreUserManagerBundle\Entity\User
      */
-    public function removeUser(\CanalTP\SamEcoreUserManagerBundle\Entity\User $users)
+    public function getUser()
     {
-        $this->users->removeElement($users);
+        return $this->user;
     }
 
 
@@ -267,10 +267,10 @@ class UserApplicationRole
      * Add parents
      * Get parent
      *
-     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $parents
+     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $parents
      * @return ApplicationRole
      */
-    // public function addParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
+    // public function addParent(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $parents)
     // {
     //     $this->parents[] = $parents;
 
@@ -280,9 +280,9 @@ class UserApplicationRole
     /**
      * Remove parents
      *
-     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $parents
+     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $parents
      */
-    // public function removeParent(\CanalTP\SamCoreBundle\Entity\ApplicationRole $parents)
+    // public function removeParent(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $parents)
     // {
     //     $this->parents->removeElement($parents);
     // }
