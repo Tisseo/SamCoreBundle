@@ -196,7 +196,7 @@ class Role
 
     public function __toString()
     {
-        return $this->getUserApplications()->getName();
+        return $this->getName();
     }
 
     /**

@@ -40,6 +40,8 @@ class Application extends FosGroup
      */
     protected $userRoles;
 
+    protected $role;
+
     /**
      * Constructor
      */
@@ -154,5 +156,17 @@ class Application extends FosGroup
     public function getCanonicalName()
     {
         return $this->canonicalName;
+    }
+
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function setRole(Role $role)
+    {
+        $this->role = $role;
+
+        return $this;
     }
 }
