@@ -15,20 +15,22 @@ class UserApplicationRoleRepository extends EntityRepository
     /**
      * Return roles with parent
      * @return type
+     * @deprecated
      */
-    public function findAllWithParent() {
+    public function findAllWithParent()
+    {
         return $this->createQueryBuilder('a')
-                    ->join('a.role', 'p')
-                    ->getQuery()
-                    ->getResult();
+            ->join('a.role', 'p')
+            ->getQuery()
+            ->getResult();
     }
 
     /**
      * Return roles for applications
      */
-    public function findAllByApplications($applications) {
-
-        return $this->_em->createQuery('SELECT r FROM CanalTPSamCoreBundle:ApplicationRole r LEFT JOIN r.application a WHERE a IN (:application) ORDER BY a.id')
+    public function findAllByApplications($applications)
+    {
+        return $this->_em->createQuery('SELECT r FROM CanalTPSamCoreBundle:UserApplicationRole r LEFT JOIN r.application a WHERE a IN (:application) ORDER BY a.id')
              ->setParameter('application', $applications)
              ->getResult();
     }

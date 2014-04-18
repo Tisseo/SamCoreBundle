@@ -51,4 +51,13 @@ class RoleRepository extends EntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findAll()
+    {
+        return $this->createQueryBuilder('r')
+            ->addSelect('a')
+            ->join('r.application', 'a')
+            ->getQuery()
+            ->getResult();
+    }
 }
