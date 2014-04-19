@@ -194,11 +194,6 @@ class Role
         return $this->application;
     }
 
-    public function __toString()
-    {
-        return $this->getName();
-    }
-
     /**
      * Set permissions
      *

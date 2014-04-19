@@ -22,6 +22,7 @@ class ApplicationRepository extends EntityRepository
         return $this->createQueryBuilder('a')
             ->orderBy('a.name')
             ->getQuery()
+            ->useResultCache(true, 3600 * 24, 'applications')
             ->getResult();
     }
 }

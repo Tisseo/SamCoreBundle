@@ -31,8 +31,6 @@ CanalTP\SamCoreBundle\Entity\Application:
         roles:
             targetEntity: CanalTP\SamCoreBundle\Entity\Role
             mappedBy: application
-            cascade:
-               - persist
     lifecycleCallbacks:
         postLoad:
             - onPostLoad

@@ -20,12 +20,11 @@ CanalTP\SamCoreBundle\Entity\Role:
         permissions:
             type: array
             column: rol_permissions
-            length: 255
             nullable: true
     manyToOne:
         application:
             targetEntity: CanalTP\SamCoreBundle\Entity\Application
-            inversedBy: roles
+
             joinColumn:
                 name: app_id
                 referencedColumnName: app_id
