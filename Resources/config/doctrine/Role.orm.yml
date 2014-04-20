@@ -34,3 +34,7 @@ CanalTP\SamCoreBundle\Entity\Role:
             mappedBy: role
             cascade: ["persist", "merge"]
     lifecycleCallbacks: {  }
+    entityListeners:
+        CanalTP\SamCoreBundle\Doctrine\RoleListener:
+            preUpdate: [preUpdate]
+            prePersist: [prePersist]
