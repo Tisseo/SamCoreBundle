@@ -24,7 +24,7 @@ CanalTP\SamCoreBundle\Entity\Role:
     manyToOne:
         application:
             targetEntity: CanalTP\SamCoreBundle\Entity\Application
-
+            inversedBy: roles
             joinColumn:
                 name: app_id
                 referencedColumnName: app_id

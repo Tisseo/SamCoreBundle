@@ -31,6 +31,6 @@ CanalTP\SamCoreBundle\Entity\Application:
         roles:
             targetEntity: CanalTP\SamCoreBundle\Entity\Role
             mappedBy: application
-    lifecycleCallbacks:
-        postLoad:
-            - onPostLoad
+    # lifecycleCallbacks:
+    #     postLoad:
+    #         - onPostLoad

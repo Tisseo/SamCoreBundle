@@ -47,8 +47,9 @@ class Application extends FosGroup
      */
     public function __construct($name, $roles = array())
     {
-        $this->userRoles = new \Doctrine\Common\Collections\ArrayCollection();
         parent::__construct($name, $roles);
+        $this->userRoles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->roles = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
