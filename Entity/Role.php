@@ -38,7 +38,7 @@ class Role
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    protected $roleParents;
+    //protected $roleParents;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -150,32 +150,32 @@ class Role
      * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent
      * @return Role
      */
-    public function addRoleParent(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent)
-    {
-        $this->roleParents[] = $roleParent;
+    // public function addRoleParent(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent)
+    // {
+    //     $this->roleParents[] = $roleParent;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * Remove roleParent
      *
      * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent
      */
-    public function removeRoleParent(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent)
-    {
-        $this->roleParents->removeElement($roleParent);
-    }
+    // public function removeRoleParent(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent)
+    // {
+    //     $this->roleParents->removeElement($roleParent);
+    // }
 
     /**
      * Get roleParents
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getRoleParents()
-    {
-        return $this->roleParents;
-    }
+    // public function getRoleParents()
+    // {
+    //     return $this->roleParents;
+    // }
 
     /**
      * @param string $application
@@ -215,19 +215,5 @@ class Role
     public function getPermissions()
     {
         return $this->permissions;
-    }
-
-    /**
-     * Get permissions
-     *
-     * @return array
-     */
-    public function loadPermissions($nbPermissions = 0)
-    {
-        $i = $nbPermissions - count($this->permissions);
-
-        while ($i-- > 0) {
-            $this->permissions[] = '';
-        }
     }
 }
