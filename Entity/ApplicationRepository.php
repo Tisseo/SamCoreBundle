@@ -25,4 +25,15 @@ class ApplicationRepository extends EntityRepository
             ->useResultCache(true, 3600 * 24, 'applications')
             ->getResult();
     }
+
+    public function findByCanonicalName($name)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->addSelect('r')
+            ->leftJoin('a.roles', 'r')
+            ->where('a.canonicalName = :app')
+            ->setParameter('app', $name);
+
+        return $qb->getQuery()->getSingleResult();
+    }
 }
