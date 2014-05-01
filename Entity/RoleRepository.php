@@ -41,15 +41,15 @@ class RoleRepository extends EntityRepository
 
     public function findRolesByUserAndApplication($userId, $appName)
     {
-        return $this->createQueryBuilder('r')
-            ->join('r.userApplications', 'ua')
-            ->join('ua.application', 'app')
-            ->where('ua.user = :user_id')
+        $qb = $this->createQueryBuilder('r')
+            ->join('r.users', 'u')
+            ->join('r.application', 'app')
+            ->where('u.id = :user_id')
             ->andWhere('app.canonicalName = :appName')
             ->setParameter('appName', $appName)
-            ->setParameter('user_id', $userId)
-            ->getQuery()
-            ->getResult();
+            ->setParameter('user_id', $userId);
+
+        return $qb->getQuery()->getResult();
     }
 
     public function findAll()

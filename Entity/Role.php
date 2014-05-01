@@ -2,6 +2,7 @@
 
 namespace CanalTP\SamCoreBundle\Entity;
 
+use FOS\UserBundle\Model\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -43,14 +44,14 @@ class Role
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    protected $userApplications;
+    protected $users;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->userApplications = new ArrayCollection();
+        $this->users = new ArrayCollection();
         $this->permissions = array();
     }
 
@@ -112,45 +113,45 @@ class Role
 
 
     /**
-     * Add applicationRole
+     * Add user
      *
-     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $applicationRole
+     * @param User $user
      * @return Role
      */
-    public function addUserApplication(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $applicationRole)
+    public function addUser(UserInterface $user)
     {
-        $this->userApplications[] = $applicationRole;
+        $this->users[] = $user;
 
         return $this;
     }
 
     /**
-     * Remove applicationRole
+     * Remove user
      *
-     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $applicationRole
+     * @param UserInterface $user
      */
-    public function removeUserApplication(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $applicationRole)
+    public function removeUser(UserInterface $user)
     {
-        $this->userApplications->removeElement($applicationRole);
+        $this->users->removeElement($user);
     }
 
     /**
-     * Get userApplications
+     * Get users
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getUserApplications()
+    public function getUsers()
     {
-        return $this->userApplications;
+        return $this->users;
     }
 
     /**
      * Add roleParent
      *
-     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent
+     * @param User $roleParent
      * @return Role
      */
-    // public function addRoleParent(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent)
+    // public function addRoleParent(User $roleParent)
     // {
     //     $this->roleParents[] = $roleParent;
 
@@ -160,9 +161,9 @@ class Role
     /**
      * Remove roleParent
      *
-     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent
+     * @param User $roleParent
      */
-    // public function removeRoleParent(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $roleParent)
+    // public function removeRoleParent(User $roleParent)
     // {
     //     $this->roleParents->removeElement($roleParent);
     // }

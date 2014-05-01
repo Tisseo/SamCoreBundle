@@ -23,11 +23,6 @@ CanalTP\SamCoreBundle\Entity\Application:
             length: 255
             nullable: true
     oneToMany:
-        userRoles:
-            targetEntity: CanalTP\SamCoreBundle\Entity\UserApplicationRole
-            mappedBy: application
-            cascade:
-               - persist
         roles:
             targetEntity: CanalTP\SamCoreBundle\Entity\Role
             mappedBy: application

@@ -28,10 +28,10 @@ CanalTP\SamCoreBundle\Entity\Role:
             joinColumn:
                 name: app_id
                 referencedColumnName: app_id
-    oneToMany:
-        userApplications:
-            targetEntity: CanalTP\SamCoreBundle\Entity\UserApplicationRole
-            mappedBy: role
+    manyToMany:
+        users:
+            targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
+            mappedBy: userRoles
             cascade: ["persist", "merge"]
     lifecycleCallbacks: {  }
     entityListeners:

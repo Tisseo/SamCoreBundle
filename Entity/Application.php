@@ -35,11 +35,6 @@ class Application extends FosGroup
      */
     protected $defaultRoute;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    protected $userRoles;
-
     protected $role;
 
     /**
@@ -48,7 +43,6 @@ class Application extends FosGroup
     public function __construct($name, $roles = array())
     {
         parent::__construct($name, $roles);
-        $this->userRoles = new \Doctrine\Common\Collections\ArrayCollection();
         $this->roles = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -83,41 +77,6 @@ class Application extends FosGroup
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Add userRole
-     *
-     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $userRole
-     * @return Application
-     */
-    public function addUserRole(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $userRole)
-    {
-        //$this->addRole($userRole->getCanonicalRole());
-        $this->userRoles[] = $userRole;
-
-        return $this;
-    }
-
-    /**
-     * Remove userRole
-     *
-     * @param \CanalTP\SamCoreBundle\Entity\UserApplicationRole $userRole
-     */
-    public function removeUserRole(\CanalTP\SamCoreBundle\Entity\UserApplicationRole $userRole)
-    {
-        $this->userRoles->removeElement($userRole);
-        //$this->removeRole($userRole->getCanonicalRole());
-    }
-
-    /**
-     * Get userRoles
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUserRoles()
-    {
-        return $this->userRoles;
     }
 
     public function __toString()
