@@ -30,12 +30,16 @@ class Application extends FosGroup
      */
     protected $roles;
 
+    //public $rolesByApplication;
+
     /**
      * @var string
      */
     protected $defaultRoute;
 
     protected $role;
+
+    protected $perimeters;
 
     /**
      * Constructor
@@ -126,6 +130,18 @@ class Application extends FosGroup
     public function setRole(Role $role)
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    public function getPerimeters()
+    {
+        return $this->perimeters;
+    }
+
+    public function setPerimeters($perimeters)
+    {
+        $this->perimeters = $perimeters;
 
         return $this;
     }
