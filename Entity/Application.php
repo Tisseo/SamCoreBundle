@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Application
  */
-class Application extends FosGroup
+class Application
 {
     /**
      * @var integer
@@ -44,9 +44,9 @@ class Application extends FosGroup
     /**
      * Constructor
      */
-    public function __construct($name, $roles = array())
+    public function __construct($name)
     {
-        parent::__construct($name, $roles);
+        $this->name = $name;
         $this->roles = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -142,6 +142,35 @@ class Application extends FosGroup
     public function setPerimeters($perimeters)
     {
         $this->perimeters = $perimeters;
+
+        return $this;
+    }
+
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param string $role
+     *
+     * @return Group
+     */
+    public function addRole($role)
+    {
+        $this->roles[] = $role;
+
+        return $this;
+    }
+
+    /**
+     * @param array $roles
+     *
+     * @return Group
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
 
         return $this;
     }
