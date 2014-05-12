@@ -11,16 +11,29 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class ApplicationRepository extends EntityRepository
-{    
+{
     /**
      * Retourne tous les applications en base de données
      * @param type $user
      * @return type
      */
-    public function findAllByUser($user)
+    public function findAllOrderedByName()
     {
         return $this->createQueryBuilder('a')
-                ->getQuery()
-                ->getResult();
+            ->orderBy('a.name')
+            ->getQuery()
+            ->useResultCache(true, 3600 * 24, 'applications')
+            ->getResult();
+    }
+
+    public function findByCanonicalName($name)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->addSelect('r')
+            ->leftJoin('a.roles', 'r')
+            ->where('a.canonicalName = :app')
+            ->setParameter('app', $name);
+
+        return $qb->getQuery()->getSingleResult();
     }
 }

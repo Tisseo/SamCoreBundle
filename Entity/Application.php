@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Application
  */
-class Application extends FosGroup
+class Application
 {
     /**
      * @var integer
@@ -30,29 +30,24 @@ class Application extends FosGroup
      */
     protected $roles;
 
+    //public $rolesByApplication;
+
     /**
      * @var string
      */
     protected $defaultRoute;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    protected $applicationRoles;
+    protected $role;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $users;
+    protected $perimeters;
 
     /**
      * Constructor
      */
-    public function __construct($name, $roles = array())
+    public function __construct($name)
     {
-        $this->applicationRoles = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-        parent::__construct($name, $roles);
+        $this->name = $name;
+        $this->roles = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -88,89 +83,9 @@ class Application extends FosGroup
         return $this->name;
     }
 
-    /**
-     * Add applicationRole
-     *
-     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole
-     * @return Application
-     */
-    public function addApplicationRole(\CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole)
-    {
-        $this->addRole($applicationRole->getCanonicalRole());
-        $this->applicationRoles[] = $applicationRole;
-
-        return $this;
-    }
-
-    /**
-     * Remove applicationRole
-     *
-     * @param \CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole
-     */
-    public function removeApplicationRole(\CanalTP\SamCoreBundle\Entity\ApplicationRole $applicationRole)
-    {
-        $this->applicationRoles->removeElement($applicationRole);
-        $this->removeRole($applicationRole->getCanonicalRole());
-    }
-
-    /**
-     * Get applicationRoles
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getApplicationRoles()
-    {
-        return $this->applicationRoles;
-    }
-
-    /**
-     * @param array $roles
-     *
-     * @return Group
-     */
-    public function setRoles(array $roles)
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
     public function __toString()
     {
         return $this->getName();
-    }
-
-    /**
-     * Add users
-     *
-     * @param \CanalTP\SamEcoreUserManagerBundle\Entity\User $users
-     * @return Application
-     */
-    public function addUser(\CanalTP\SamEcoreUserManagerBundle\Entity\User $users)
-    {
-        $this->users[] = $users;
-
-        return $this;
-    }
-
-    /**
-     * Remove users
-     *
-     * @param \CanalTP\SamEcoreUserManagerBundle\Entity\User $users
-     */
-    public function removeUser(\CanalTP\SamEcoreUserManagerBundle\Entity\User $users)
-    {
-        $this->users->removeElement($users);
-    }
-
-    /**
-     * Get users
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUsers()
-    {
-        return $this->users;
     }
 
     /**
@@ -179,8 +94,8 @@ class Application extends FosGroup
     public function onPostLoad()
     {
         $aRoles = array();
-        foreach ($this->getApplicationRoles() as $applicationRole) {
-            $aRoles[] = $applicationRole->getCanonicalRole();
+        foreach ($this->getuserRoles() as $userRole) {
+            $aRoles[] = $userRole->getRole()->getCanonicalName();
         }
         $this->setRoles($aRoles);
     }
@@ -205,5 +120,63 @@ class Application extends FosGroup
     public function getCanonicalName()
     {
         return $this->canonicalName;
+    }
+
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function setRole(Role $role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function getPerimeters()
+    {
+        return $this->perimeters;
+    }
+
+    public function setPerimeters($perimeters)
+    {
+        $this->perimeters = $perimeters;
+
+        return $this;
+    }
+
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * @param string $role
+     *
+     * @return Group
+     */
+    public function addRole($role)
+    {
+        $this->roles[] = $role;
+
+        return $this;
+    }
+
+    /**
+     * @param array $roles
+     *
+     * @return Group
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function removeRole($role)
+    {
+
     }
 }

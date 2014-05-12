@@ -1,16 +1,40 @@
 CanalTP\SamCoreBundle\Entity\Role:
     type: entity
-    table: container_security_role
+    table: t_role_rol
     repositoryClass: CanalTP\SamCoreBundle\Entity\RoleRepository
     fields:
         id:
+            column: rol_id
             type: integer
             id: true
             generator:
                 strategy: IDENTITY
-    OneToMany:
-        applicationRoles:
-            targetEntity: CanalTP\SamCoreBundle\Entity\ApplicationRole
-            mappedBy: role
+        name:
+            type: string
+            column: rol_name
+            length: 255
+        canonicalName:
+            type: string
+            column: rol_name_canonical
+            length: 255
+        permissions:
+            type: array
+            column: rol_permissions
+            nullable: true
+    manyToOne:
+        application:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Application
+            inversedBy: roles
+            joinColumn:
+                name: app_id
+                referencedColumnName: app_id
+    manyToMany:
+        users:
+            targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
+            mappedBy: userRoles
             cascade: ["persist", "merge"]
     lifecycleCallbacks: {  }
+    entityListeners:
+        CanalTP\SamCoreBundle\Doctrine\RoleListener:
+            preUpdate: [preUpdate]
+            prePersist: [prePersist]
