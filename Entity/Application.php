@@ -174,4 +174,9 @@ class Application
 
         return $this;
     }
+
+    public function removeRole($role)
+    {
+
+    }
 }
