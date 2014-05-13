@@ -26,7 +26,7 @@ class DoctrineEntityListenerPass implements CompilerPassInterface
         foreach ($services as $service => $attributes) {
             $definition->addMethodCall(
                 'addMapping',
-                [$container->getDefinition($service)->getClass(), $service]
+                array($container->getDefinition($service)->getClass(), $service)
             );
         }
     }
