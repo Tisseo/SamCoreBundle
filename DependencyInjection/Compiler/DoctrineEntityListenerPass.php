@@ -16,7 +16,7 @@ class DoctrineEntityListenerPass implements CompilerPassInterface
         $ems = $container->getParameter('doctrine.entity_managers');
         foreach ($ems as $name => $em) {
             $container->getDefinition(sprintf('doctrine.orm.%s_configuration', $name))
-                ->addMethodCall('setEntityListenerResolver', [new Reference('sam_core.doctrine.entity_listener_resolver')])
+                ->addMethodCall('setEntityListenerResolver', array(new Reference('sam_core.doctrine.entity_listener_resolver')))
             ;
         }
 
