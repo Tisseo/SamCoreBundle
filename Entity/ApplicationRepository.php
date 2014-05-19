@@ -36,4 +36,15 @@ class ApplicationRepository extends EntityRepository
 
         return $qb->getQuery()->getSingleResult();
     }
+    
+    public function findByUser($user)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->join('a.roles', 'r')
+            ->join('r.users', 'u')
+            ->where('u = :user')
+            ->setParameter('user', $user);
+
+        return $qb->getQuery()->getResult();
+    }
 }

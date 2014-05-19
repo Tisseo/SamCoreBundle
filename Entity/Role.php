@@ -30,6 +30,11 @@ class Role
      * @var array
      */
     private $permissions;
+    
+    /**
+     * @var array
+     */
+    private $businessPermissions;
 
     /**
      * @var Application
@@ -196,10 +201,11 @@ class Role
     }
 
     /**
-     * Set permissions
+     * BusinessPermissions are used to generate menu in sam
+     * Must be different of BusinessPermissions
      *
      * @param array $permissions
-     * @return ApplicationRole
+     * @return string[]
      */
     public function setPermissions($permissions)
     {
@@ -208,13 +214,27 @@ class Role
         return $this;
     }
 
-    /**
-     * Get permissions
-     *
-     * @return array
-     */
     public function getPermissions()
     {
         return $this->permissions;
+    }
+    
+    /**
+     * BusinessPermissions are used to generate permissions form in sam
+     * Must be different of Permissions because BusinessPermissions type change during the process.
+     * 
+     * @param type $businessPermissions
+     * @return CanalTP\SamEcoreApplicationManagerBundle\Security\BusinessPermissionInterface[]
+     */
+    public function setBusinessPermissions($businessPermissions)
+    {
+        $this->businessPermissions = $businessPermissions;
+
+        return $this;
+    }
+
+    public function getBusinessPermissions()
+    {
+        return $this->businessPermissions;
     }
 }
