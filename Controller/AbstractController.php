@@ -19,7 +19,7 @@ abstract class AbstractController extends Controller
         return $this->get('security.context')->isGranted($permission);
     }
     
-    protected function isAllow($permission)
+    protected function isAllowed($permission)
     {
         if ($this->isGranted($permission) === false) {
             throw new AccessDeniedException($this->get('translator')->trans('forbidden'));
