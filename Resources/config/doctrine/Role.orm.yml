@@ -17,6 +17,9 @@ CanalTP\SamCoreBundle\Entity\Role:
             type: string
             column: rol_name_canonical
             length: 255
+        isEditable:
+            type: boolean
+            column: rol_is_editable
         permissions:
             type: array
             column: rol_permissions

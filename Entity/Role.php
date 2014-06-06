@@ -25,6 +25,11 @@ class Role
      * @var string
      */
     private $canonicalName;
+    
+    /**
+     * @var string
+     */
+    private $isEditable;
 
     /**
      * @var array
@@ -91,6 +96,18 @@ class Role
     public function getName()
     {
         return $this->name;
+    }
+    
+    public function setIsEditable($isEditable)
+    {
+        $this->isEditable = $isEditable;
+
+        return $this;
+    }
+
+    public function getIsEditable()
+    {
+        return $this->isEditable;
     }
 
     /**
