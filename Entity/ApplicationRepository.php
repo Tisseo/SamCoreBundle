@@ -47,4 +47,15 @@ class ApplicationRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+    
+    public function findWithEditableRoles($appId)
+    {
+        $qb = $this->createQueryBuilder('a')
+                ->addSelect('r')
+            ->leftJoin('a.roles', 'r', \Doctrine\ORM\Query\Expr\Join::WITH,  'r.isEditable = true')
+            ->where('a.id = :id')
+            ->setParameter('id', $appId);
+        
+        return $qb->getQuery()->getSingleResult();
+    }
 }
