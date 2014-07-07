@@ -1,6 +1,6 @@
 CanalTP\SamCoreBundle\Entity\Role:
     type: entity
-    table: t_role_rol
+    table: public.t_role_rol
     repositoryClass: CanalTP\SamCoreBundle\Entity\RoleRepository
     fields:
         id:

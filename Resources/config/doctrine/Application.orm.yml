@@ -1,6 +1,6 @@
 CanalTP\SamCoreBundle\Entity\Application:
     type: entity
-    table: tr_application_app
+    table: public.tr_application_app
     repositoryClass: CanalTP\SamCoreBundle\Entity\ApplicationRepository
     fields:
         id:
