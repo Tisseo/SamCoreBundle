@@ -241,7 +241,7 @@ class Role
      * Must be different of Permissions because BusinessPermissions type change during the process.
      * 
      * @param type $businessPermissions
-     * @return CanalTP\SamEcoreApplicationManagerBundle\Security\BusinessPermissionInterface[]
+     * @return CanalTP\SamEcoreApplicationManagerBundle\Permission\BusinessPermissionInterface[]
      */
     public function setBusinessPermissions($businessPermissions)
     {
