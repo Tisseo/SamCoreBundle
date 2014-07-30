@@ -1,0 +1,65 @@
+<?php
+
+namespace CanalTP\SamCoreBundle\Command;
+
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Process\Process;
+
+/**
+ * Command that purges the database
+ *
+ * @author David Quintanel <david.quintanel@canaltp.fr>
+ */
+class PurgeDatabaseCommand extends ContainerAwareCommand
+{
+    private $env = null;
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function configure()
+    {
+        $this
+            ->setName('sam:database:purge')
+            ->setDescription('Drop and create the database, create the different schemas and load the fixtures')
+            ->setHelp(<<<EOT
+The <info>sam:database:purge</info> command Drop and create the database,
+create the different schemas and load the fixtures:
+
+<info>php app/console sam:database:purg</info>
+EOT
+        );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $this->env = $this->getContainer()->get('kernel')->getEnvironment();
+        // Drop the database
+        $this->runCommand('doctrine:database:drop', array('--force'  => true), $output);
+
+        // Create the database
+        $this->runCommand('doctrine:database:create', array(), $output);
+
+        // Create tables
+        $this->runCommand('doctrine:migrations:migrate', array(), $output);
+
+        // Fixtures
+        $this->runCommand('doctrine:fixtures:load', array('--append'  => true), $output);
+    }
+
+    private function runCommand($command, $arguments, OutputInterface $output)
+    {
+        $cmd = $this->getApplication()->find($command);
+        $input = new ArrayInput(array_merge(
+            array('command' => $command),
+            array_merge($arguments, array('--env'=> $this->env, '-n' => true))
+        ));
+        $cmd->run($input, $output);
+    }
+}

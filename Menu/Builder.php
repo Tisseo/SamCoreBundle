@@ -1,0 +1,79 @@
+<?php
+
+namespace CanalTP\SamCoreBundle\Menu;
+
+use Knp\Menu\FactoryInterface;
+use Knp\Menu\ItemInterface;
+use Symfony\Component\DependencyInjection\ContainerAware;
+use CanalTP\SamEcoreApplicationManagerBundle\Menu\BusinessMenuItemInterface;
+
+class Builder extends ContainerAware
+{
+    public function mainMenu(FactoryInterface $factory, array $options)
+    {
+        $translator = $this->container->get('translator');
+        $menu = $factory->createItem('root');
+        $menu->setChildrenAttributes(array('class' => 'navbar-nav'));
+        $menu->addChild(
+            $translator->trans('ctp_user.user._menu'),
+            array('route' => 'sam_user_list')
+        );
+        $menu->addChild(
+            "Role",
+            array('route' => 'sam_role')
+        );
+
+        $menu->addChild(
+            "Permission",
+            array('route' => 'sam_security_business_right_edit')
+        );
+
+        return $menu;
+    }
+
+    public function businessMenu(FactoryInterface $factory, array $options)
+    {
+        $translator = $this->container->get('translator');
+        $request = $this->container->get('request');
+        $businessComponent = $this->container->get('sam.business_component');
+        $app = $this->container->get('canal_tp_sam.application.finder')->getCurrentApp();
+
+        if ($app) {
+            $businessMenu = $businessComponent->getBusinessComponent($app->getCanonicalName())->getMenuItems();
+
+            $menu = $factory->createItem('root');
+            $menu->setChildrenAttributes(array('class' => 'navbar-nav'));
+            foreach ($businessMenu as $menuItem) {
+                $this->generateKnpMenu($menuItem, $menu);
+            }
+
+            return $menu;
+        }
+    }
+
+    protected function generateKnpMenu(BusinessMenuItemInterface $menuItem, $knpMenu, $parentName = null)
+    {
+        $options = array('route' => $menuItem->getRoute());
+        $options += array('routeParameters' => $menuItem->getParameters());
+        if (!is_null($parentName)) {
+            $knpMenu[$parentName]->addChild(
+                $menuItem->getName(),
+                $options
+            );
+        } else {
+            $knpMenu->addChild(
+                $menuItem->getName(),
+                $options
+            );
+        }
+        foreach ($menuItem->getChildren() as $child) {
+            $this->generateKnpMenu($child, $knpMenu, $menuItem->getName());
+        }
+    }
+
+    public function addDivider(ItemInterface &$item)
+    {
+        $ref = count($item);
+        $item->addChild($ref, array('attributes' => array('class' => 'divider')))->setLabel('');
+    }
+}

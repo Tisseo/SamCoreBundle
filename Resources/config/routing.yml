@@ -1,0 +1,3 @@
+canal_tp_sam_homepage:
+    pattern:  /
+    defaults: { _controller: CanalTPSamBundle:Sam:index }
