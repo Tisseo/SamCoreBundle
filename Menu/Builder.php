@@ -38,7 +38,7 @@ class Builder extends ContainerAware
         $businessComponent = $this->container->get('sam.business_component');
         $app = $this->container->get('canal_tp_sam.application.finder')->getCurrentApp();
         $menu = $factory->createItem('root');
-
+        
         if ($app) {
             $businessMenu = $businessComponent->getBusinessComponent($app->getCanonicalName())->getMenuItems();
 

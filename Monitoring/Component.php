@@ -1,6 +1,6 @@
 <?php
 
-namespace CanalTP\SamBundle\Monitoring;
+namespace CanalTP\SamCoreBundle\Monitoring;
 
 use CanalTP\SamMonitoringComponent\StateMonitorInterface as State;
 use CanalTP\SamMonitoringComponent\Component\AbstractComponentMonitor;

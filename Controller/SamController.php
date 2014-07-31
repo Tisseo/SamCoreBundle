@@ -30,7 +30,7 @@ class SamController extends Controller
 
     public function indexAction()
     {
-        return $this->render('CanalTPSamBundle:Sam:index.html.twig');
+        return $this->render('CanalTPSamCoreBundle:Sam:index.html.twig');
     }
 
 //    public function appRenderAction()
@@ -48,7 +48,7 @@ class SamController extends Controller
 //
 //        $response = $this->get('kernel')->handle($request, \Symfony\Component\HttpKernel\HttpKernelInterface::SUB_REQUEST);
 //
-//        return $response->setContent($this->render('CanalTPSamBundle:Default:index.html.twig', array(
+//        return $response->setContent($this->render('CanalTPSamCoreBundle:Default:index.html.twig', array(
 //            'content' => $response->getContent(),
 //        )));
 //    }
