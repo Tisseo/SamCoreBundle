@@ -14,17 +14,17 @@ var require = {
         jquery_ui_autocomplete:         'components/jquery-ui/ui/minified/jquery.ui.autocomplete.min',
         bootstrap:                      'js/bootstrap',
         'bootstrap/datepicker':         'components/bootstrap-datepicker/bootstrap-datepicker-built',
-        'bootstrap/datepicker/fr':      'bundles/canaltpsam/js/bootstrap-datepicker.fr',
+        'bootstrap/datepicker/fr':      'bundles/canaltpsamcore/js/bootstrap-datepicker.fr',
         // routes
         fosjsrouting:                   'bundles/fosjsrouting/js/router',
         sf_routes:                      '{{ path("fos_js_routing_js", {"callback": "fos.Router.setData"}) }}',
-        common:                         'bundles/canaltpsam/js/common',
+        common:                         'bundles/canaltpsamcore/js/common',
         // translations
         translator:                     'bundles/bazingajstranslation/js/translator.min',
         'translations/default':         'js/translations/default/{{ app.request.locale }}',
         'translations/messages':        'js/translations/messages/{{ app.request.locale }}',
         // base
-        base:                           'bundles/canaltpsam/js/base'
+        base:                           'bundles/canaltpsamcore/js/base'
     },
     shim: {
         sf_routes: {
@@ -82,4 +82,4 @@ var require = {
     deps: ["jquery", 'bootstrap', "sf_routes", "translator", "common"]
 };
 </script>
-<script type="text/javascript" src="{{app.request.basePath}}/bundles/canaltpsam/js/require.js?{{ assets_version }}"></script>
+<script type="text/javascript" src="{{app.request.basePath}}/bundles/canaltpsamcore/js/require.js?{{ assets_version }}"></script>

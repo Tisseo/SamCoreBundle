@@ -37,18 +37,20 @@ class Builder extends ContainerAware
         $request = $this->container->get('request');
         $businessComponent = $this->container->get('sam.business_component');
         $app = $this->container->get('canal_tp_sam.application.finder')->getCurrentApp();
+        $menu = $factory->createItem('root');
 
         if ($app) {
             $businessMenu = $businessComponent->getBusinessComponent($app->getCanonicalName())->getMenuItems();
 
-            $menu = $factory->createItem('root');
             $menu->setChildrenAttributes(array('class' => 'navbar-nav'));
             foreach ($businessMenu as $menuItem) {
                 $this->generateKnpMenu($menuItem, $menu);
             }
-
-            return $menu;
+        } else {
+            $menu->setChildrenAttributes(array('class' => 'navbar-nav'));
         }
+        
+        return $menu;
     }
 
     protected function generateKnpMenu(BusinessMenuItemInterface $menuItem, $knpMenu, $parentName = null)
