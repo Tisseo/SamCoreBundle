@@ -12,7 +12,7 @@ class FixturesApplication extends AbstractFixture implements OrderedFixtureInter
     public function load(ObjectManager $em)
     {
         $appSam = new Application('Sam');
-        $appSam->setCanonicalName('sam');
+        $appSam->setCanonicalName('samcore');
         $appSam->setDefaultRoute('/admin');
         $em->persist($appSam);
 

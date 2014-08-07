@@ -33,11 +33,11 @@ class Builder extends ContainerAware
 
     public function businessMenu(FactoryInterface $factory, array $options)
     {
-        $translator = $this->container->get('translator');
         $request = $this->container->get('request');
         $businessComponent = $this->container->get('sam.business_component');
         $app = $this->container->get('canal_tp_sam.application.finder')->getCurrentApp();
         $menu = $factory->createItem('root');
+        $menu->setCurrentUri($request->getRequestUri());
         
         if ($app) {
             $businessMenu = $businessComponent->getBusinessComponent($app->getCanonicalName())->getMenuItems();
@@ -55,8 +55,16 @@ class Builder extends ContainerAware
 
     protected function generateKnpMenu(BusinessMenuItemInterface $menuItem, $knpMenu, $parentName = null)
     {
-        $options = array('route' => $menuItem->getRoute());
+        $options = array();
+        if (!is_null($menuItem->getRoute()) && $menuItem->getRoute() != '') {
+            $options += array('route' => $menuItem->getRoute());
+        }
         $options += array('routeParameters' => $menuItem->getParameters());
+        $attributes = $menuItem->getAttributes();
+        if ($menuItem->isActive()) {
+            $attributes += array('class' => 'active');
+        }
+        $options += array('attributes' => $attributes);
         if (!is_null($parentName)) {
             $knpMenu[$parentName]->addChild(
                 $menuItem->getName(),
@@ -71,11 +79,5 @@ class Builder extends ContainerAware
         foreach ($menuItem->getChildren() as $child) {
             $this->generateKnpMenu($child, $knpMenu, $menuItem->getName());
         }
-    }
-
-    public function addDivider(ItemInterface &$item)
-    {
-        $ref = count($item);
-        $item->addChild($ref, array('attributes' => array('class' => 'divider')))->setLabel('');
     }
 }

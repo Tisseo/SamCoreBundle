@@ -10,8 +10,6 @@ class Component extends AbstractComponentMonitor
     public function __construct()
     {
         parent::__construct();
-
-        $this->name = 'Navitia Mobility Manager';
     }
 
     private function initServicesState($category)

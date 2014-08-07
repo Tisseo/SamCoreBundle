@@ -29,6 +29,8 @@ services:
     # Monitoring
     sam.business_monitoring.nmm:
         class: "%sam.business_monitoring.nmm.class%"
+        calls:
+            - [ setName, ['Navitia Mobility Manager']]
 
     nmm.service_monitoring.database.psql:
         class: "%sam.service_monitoring.database.pgsql.class%"
