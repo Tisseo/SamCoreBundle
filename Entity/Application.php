@@ -40,6 +40,8 @@ class Application
     protected $role;
 
     protected $perimeters;
+    
+    protected $clients;
 
     /**
      * Constructor
@@ -48,6 +50,7 @@ class Application
     {
         $this->name = $name;
         $this->roles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -142,6 +145,18 @@ class Application
     public function setPerimeters($perimeters)
     {
         $this->perimeters = $perimeters;
+
+        return $this;
+    }
+    
+    public function getClients()
+    {
+        return $this->clients;
+    }
+
+    public function setClients($clients)
+    {
+        $this->clients = $clients;
 
         return $this;
     }

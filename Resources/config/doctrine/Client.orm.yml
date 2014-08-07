@@ -1,0 +1,62 @@
+CanalTP\SamCoreBundle\Entity\Client:
+    type: entity
+    table: public.tr_client_cli
+    repositoryClass: CanalTP\SamCoreBundle\Entity\ClientRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            column: cli_id
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            column: cli_name
+            length: 255
+            nullable: false
+        nameCanonical:
+            type: string
+            column: cli_name_canonical
+            length: 255
+            nullable: false
+        logoPath:
+            type: string
+            column: cli_logo_path
+            length: 255
+            nullable: true
+        locked:
+            type: boolean
+            column: cli_locked
+            nullable: false
+        navitiaToken:
+            type: string
+            column: cli_navitia_token
+            length: 255
+            nullable: false
+        creationDateTime:
+            type: datetime
+            column: cli_creation_datetime
+            nullable: false
+        lastModificationDateTime:
+            type: datetime
+            column: cli_last_modification_datetime
+            nullable: false
+    uniqueConstraints:
+        name_idx:
+            columns: [ cli_name_canonical ]
+    manyToMany:
+        applications:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Application
+            inversedBy: clients
+            joinTable:
+                name: public.tj_client_application_cap
+                joinColumns:
+                    cli_id:
+                        referencedColumnName: cli_id
+                inverseJoinColumns:
+                    app_id:
+                        referencedColumnName: app_id
+    oneToMany:
+        users:
+            targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\user
+            mappedBy: clients

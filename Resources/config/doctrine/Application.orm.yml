@@ -26,6 +26,10 @@ CanalTP\SamCoreBundle\Entity\Application:
         roles:
             targetEntity: CanalTP\SamCoreBundle\Entity\Role
             mappedBy: application
+    manyToMany:
+        clients:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Client
+            mappedBy: applications
     # lifecycleCallbacks:
     #     postLoad:
     #         - onPostLoad
