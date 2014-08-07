@@ -16,6 +16,7 @@ use Symfony\Component\Process\Process;
 class PurgeDatabaseCommand extends ContainerAwareCommand
 {
     private $env = null;
+    private $console = null;
 
     /**
      * {@inheritDoc}
@@ -40,6 +41,10 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->env = $this->getContainer()->get('kernel')->getEnvironment();
+        $this->console = $this->getApplication();
+        $this->console->setAutoExit(false);
+        $this->console->setCatchExceptions(false);
+
         // Drop the database
         $this->runCommand('doctrine:database:drop', array('--force'  => true), $output);
 
@@ -55,11 +60,21 @@ EOT
 
     private function runCommand($command, $arguments, OutputInterface $output)
     {
-        $cmd = $this->getApplication()->find($command);
-        $input = new ArrayInput(array_merge(
-            array('command' => $command),
-            array_merge($arguments, array('--env'=> $this->env, '-n' => true))
-        ));
-        $cmd->run($input, $output);
+        
+        $input = new ArrayInput(
+            array_merge(
+                array('command' => $command),
+                array_merge($arguments, array('--env'=> $this->env, '-n' => true))
+            )
+        );
+        try {
+            $status = $this->console->run($input, $output);
+        } catch (Exception $e) {
+            $application->renderException($e, $output);
+
+            $statusCode = $e->getCode();
+            $statusCode = is_numeric($statusCode) && $statusCode ? $statusCode : 1;
+            exit($statusCode);
+        }
     }
 }
