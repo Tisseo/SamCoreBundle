@@ -1,0 +1,53 @@
+{% extends "CanalTPSamCoreBundle::generic_list.html.twig" %}
+
+{% block left_menu -%}
+    {% include 'CanalTPSamCoreBundle:Client:left_menu.html.twig' %}
+{% endblock %}
+
+{% block table_head -%}
+    <th>{{ 'client.name'|trans }}</th>
+    <th>{{ 'client.logo'|trans }}</th>
+    <th>{{ 'client.creationDate'|trans }}</th>
+    {% endblock %}
+
+{% block table_body -%}
+    {% for client in clients %}
+        <tr>
+            <td><a href="{{ path('sam_client_edit', { 'id': client.id }) }}">{{ client.name }}</a></td>
+            <td><img src="{{ client.logoPath }}" class="client_logo_little" alt="{{ client.name }} logo"/></td>
+            <td>{{ client.creationDateTime.format('Y-m-d') }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}
+{% block list_pagination -%}
+    <div class="pager"></div>
+{% endblock %}
+
+
+
+{% block javascripts %}
+    <script type="text/javascript">
+        require(['jquery_tablesorter_pager'], function(tableSorter) {
+            $(function() {
+                var pagerOptions = {
+                    // target the pager markup - see the HTML block below
+                    container: $(".pager"),
+                    // output string - default is '{page}/{totalPages}'; possible variables: {page}, {totalPages}, {startRow}, {endRow} and {totalRows}
+                    output: '{startRow} - {endRow} / {filteredRows} ({totalRows})',
+                    // if true, the table will remain the same height no matter how many records are displayed. The space is made up by an empty
+                    // table row set to a height to compensate; default is false
+                    fixedHeight: true,
+                    // remove rows from the table to speed up the sort of large tables.
+                    // setting this to false, only hides the non-visible rows; needed if you plan to add/remove rows with the pager enabled.
+                    removeRows: false,
+                    // go to page selector - select dropdown that sets the current page
+                    cssGoto: '.gotoPage',
+                    size: 50
+                };
+
+                $("#table").tablesorter().tablesorterPager(pagerOptions);
+                console.log('hey');
+            });
+        });
+    </script>
+{% endblock %}

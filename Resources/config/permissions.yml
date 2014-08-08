@@ -27,6 +27,13 @@ parameters:
         BUSINESS_CREATE_SUPER_ADMIN:
             label: Crer un utilisateur Super Admin
             description: Pourra donner les droits Super Admin à un utilisateur lors de sa création
+            
+        BUSINESS_MANAGE_CLIENT:
+            label: Lister les clients
+            description: Peut voir les clients
+        BUSINESS_CREATE_CLIENT:
+            label: Creer des clients
+            description: Le label n'est-il pas assez explicite ?
 #        BUSINESS_VIEW_PERIMETER:
 #            label: Voir les périmètres
 #            description: Sur la page d’édition des utilisateurs, voir ses périmètres. Sur son propre compte, voir ses périmètres pour chaque appli métier.

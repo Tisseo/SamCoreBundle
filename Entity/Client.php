@@ -58,6 +58,11 @@ class Client
     protected $users;
 
 
+    public function __construct()
+    {
+        $this->creationDateTime = new \DateTime();
+    }
+
     /**
      * Get id
      *
@@ -77,6 +82,7 @@ class Client
     public function setName($name)
     {
         $this->name = $name;
+        $this->setNameCanonical($name);
 
         return $this;
     }
@@ -120,9 +126,11 @@ class Client
      * @param string $nameCanonical
      * @return Client
      */
-    public function setNameCanonical($nameCanonical)
+    protected function setNameCanonical($name)
     {
-        $this->nameCanonical = $nameCanonical;
+        $slug = new \CanalTP\SamCoreBundle\Slugify();
+        
+        $this->nameCanonical = $slug->slugify($name);
 
         return $this;
     }

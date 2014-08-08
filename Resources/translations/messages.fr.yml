@@ -13,6 +13,7 @@ form:
     password_confirmation: "Vérification :"
     new_password: "Nouveau mot de passe :"
     new_password_confirmation: "Vérification :"
+    sauvegarder: sauvegarder
 
 ctp_core:
     _breadcrumb: Accueil
@@ -109,3 +110,17 @@ role:
 
 layout:
     choose_application: Choisir une application
+    
+client:
+    logo: Logo
+    creationDate: Date de création
+    name: Nom
+    navitiaToken: Token Navitia
+    newClient: Ajouter un client
+    edit:
+        title: Édition d'un client
+    flash:
+        edit:
+            success: Changements sauvegardés
+        creation:
+            success: Le nouveau client a bien été créé
