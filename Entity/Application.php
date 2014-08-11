@@ -13,35 +13,35 @@ class Application
     /**
      * @var integer
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
      */
-    protected $name;
+    private $name;
 
     /**
      * @var string
      */
-    protected $canonicalName;
+    private $canonicalName;
 
     /**
      * @var array
      */
-    protected $roles;
+    private $roles;
 
     //public $rolesByApplication;
 
     /**
      * @var string
      */
-    protected $defaultRoute;
+    private $defaultRoute;
 
-    protected $role;
+    private $role;
 
-    protected $perimeters;
-    
-    protected $clients;
+    private $perimeters;
+
+    private $clients;
 
     /**
      * Constructor
@@ -148,7 +148,7 @@ class Application
 
         return $this;
     }
-    
+
     public function getClients()
     {
         return $this->clients;

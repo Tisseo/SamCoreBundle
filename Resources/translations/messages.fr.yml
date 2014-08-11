@@ -110,13 +110,14 @@ role:
 
 layout:
     choose_application: Choisir une application
-    
+
 client:
     logo: Logo
-    creationDate: Date de création
+    created: Date de création
     name: Nom
     navitiaToken: Token Navitia
-    newClient: Ajouter un client
+    new:
+        title: Ajouter un client
     edit:
         title: Édition d'un client
     flash:

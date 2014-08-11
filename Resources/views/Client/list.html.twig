@@ -14,7 +14,7 @@
     {% for client in clients %}
         <tr>
             <td><a href="{{ path('sam_client_edit', { 'id': client.id }) }}">{{ client.name }}</a></td>
-            <td><img src="{{ client.logoPath }}" class="client_logo_little" alt="{{ client.name }} logo"/></td>
+            <td><img src="{{ client.getWebLogoPath }}" class="logo-client-small" alt="{{ client.name }} logo"/></td>
             <td>{{ client.creationDateTime.format('Y-m-d') }}</td>
         </tr>
     {% endfor %}

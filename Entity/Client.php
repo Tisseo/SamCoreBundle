@@ -3,6 +3,7 @@
 namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Client
@@ -12,50 +13,55 @@ class Client
     /**
      * @var integer
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
      */
-    protected $name;
+    private $name;
+
+    /**
+     * @var file
+     */
+    private $file;
 
     /**
      * @var string
      */
-    protected $logoPath;
+    private $logoPath;
 
     /**
      * @var string
      */
-    protected $nameCanonical;
+    private $nameCanonical;
 
     /**
      * @var boolean
      */
-    protected $locked;
+    private $locked;
 
     /**
      * @var \DateTime
      */
-    protected $creationDateTime;
+    private $creationDateTime;
 
     /**
      * @var \DateTime
      */
-    protected $lastModificationDateTime;
+    private $lastModificationDateTime;
 
     /**
      * @var string
      */
-    protected $navitiaToken;
-    
+    private $navitiaToken;
+
     /**
      *
      * @var Application
      */
-    protected $applications;
-    
-    protected $users;
+    private $applications;
+
+    private $users;
 
 
     public function __construct()
@@ -66,7 +72,7 @@ class Client
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -90,7 +96,7 @@ class Client
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -113,7 +119,7 @@ class Client
     /**
      * Get logoPath
      *
-     * @return string 
+     * @return string
      */
     public function getLogoPath()
     {
@@ -126,10 +132,10 @@ class Client
      * @param string $nameCanonical
      * @return Client
      */
-    protected function setNameCanonical($name)
+    private function setNameCanonical($name)
     {
         $slug = new \CanalTP\SamCoreBundle\Slugify();
-        
+
         $this->nameCanonical = $slug->slugify($name);
 
         return $this;
@@ -138,7 +144,7 @@ class Client
     /**
      * Get nameCanonical
      *
-     * @return string 
+     * @return string
      */
     public function getNameCanonical()
     {
@@ -161,7 +167,7 @@ class Client
     /**
      * Get locked
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getLocked()
     {
@@ -184,7 +190,7 @@ class Client
     /**
      * Get creationDateTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreationDateTime()
     {
@@ -207,46 +213,111 @@ class Client
     /**
      * Get lastModificationDateTime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getLastModificationDateTime()
     {
         return $this->lastModificationDateTime;
     }
-    
-    public function setNavitiaToken($navitiaToken) 
+
+    public function setNavitiaToken($navitiaToken)
     {
         $this->navitiaToken = $navitiaToken;
-        
+
         return $this;
     }
-    
-    public function getNavitiaToken() 
+
+    public function getNavitiaToken()
     {
         return $this->navitiaToken;
     }
-    
-    public function setApplications($applications) 
+
+    public function setApplications($applications)
     {
         $this->applications = $applications;
-        
+
         return $this;
     }
-    
-    public function getApplications() 
+
+    public function getApplications()
     {
         return $this->applications;
     }
-    
-    public function setUsers($users) 
+
+    public function setUsers($users)
     {
         $this->users = $users;
-        
+
         return $this;
     }
-    
-    public function getUsers() 
+
+    public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set File
+     *
+     * @return LayoutConfig
+     */
+    public function getFile()
+    {
+        return ($this->file);
+    }
+
+    /**
+     * Set file
+     *
+     * @return LayoutConfig
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+
+        return ($this);
+    }
+
+    public function upload()
+    {
+        if (null === $this->getFile()) {
+            return;
+        }
+        $file = $this->getFile()->move(
+            $this->getUploadRootDir(),
+            $this->getFile()->getClientOriginalName()
+        );
+        $fileName = $this->getId() . '.' . $file->getExtension();
+        $file->move(
+            $this->getUploadRootDir(),
+            $fileName
+        );
+
+        $this->logoPath = $fileName;
+        $this->file = null;
+    }
+
+    public function getAbsoluteLogoPath()
+    {
+        return null === $this->logoPath
+            ? null
+            : $this->getUploadRootDir().'/'.$this->logoPath;
+    }
+
+    public function getWebLogoPath()
+    {
+        return null === $this->logoPath
+            ? null
+            : $this->getUploadDir().'/'.$this->logoPath;
+    }
+
+    private function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web' . $this->getUploadDir();
+    }
+
+    private function getUploadDir()
+    {
+        return '/uploads/clients/logos/';
     }
 }

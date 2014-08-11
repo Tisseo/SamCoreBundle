@@ -8,7 +8,7 @@ CanalTP\SamCoreBundle\Entity\Client:
             id: true
             column: cli_id
             generator:
-                strategy: IDENTITY
+                strategy: SEQUENCE
         name:
             type: string
             column: cli_name

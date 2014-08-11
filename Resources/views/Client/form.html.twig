@@ -6,18 +6,24 @@
 
 {% block main_content %}
 
-    <h1>{{ 'client.edit.title'|trans }}</h1>
+    <h1>{{ title|trans }}</h1>
     <hr/>
+
 
     {{ form_start(form, { 'style': 'horizontal' }) }}
         {{ form_row(form.name) }}
-        
+
+        {% if (logoPath is not empty) %}
+            <p><img src="{{ logoPath }}" class="logo-client-medium" alt="{{ client.name }} logo"/></p>
+        {% endif %}
+        {{ form_row(form.file) }}
+
         {{ form_row(form.navitiaToken) }}
-        
+
         {{ form_widget(form._token) }}
         <button type="submit" class="btn btn-default">{{ 'form.sauvegarder'|trans }}</button>
-                            
-    
+
+
     {{ form_end(form) }}
     <hr/>
 
