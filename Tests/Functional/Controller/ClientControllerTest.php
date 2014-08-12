@@ -41,11 +41,23 @@ class ClientControllerTest extends AbstractControllerTest
         // Check if the form is correctly displayed
         $route = $this->generateRoute('sam_client_list');
         $crawler = $this->doRequestRoute($route, 200);
+        $text = $crawler->filter('table tbody tr')->first()->filter('td a')->first()->text();
         $link = $crawler->filter('table tbody tr')->first()->filter('td a')->first()->link();
-
         $crawler2 = $this->doRequestRoute($link->getUri(), 200);
 
-        $this->assertGreaterThan(0, $crawler2->filter('input[value=' . $this->name . ']')->count());
+        $this->assertGreaterThan(0, $crawler2->filter('input[value=' . $text . ']')->count());
+    }
+
+    public function testUniqueConstraintOnClientName()
+    {
+        $form = $this->getForm();
+        $form['client[name]'] = 'Divia42';
+
+        $crawler = $this->client->submit($form);
+        $this->assertTrue($this->client->getResponse() instanceof RedirectResponse);
+        $crawler = $this->client->submit($form);
+        $this->assertFalse($this->client->getResponse() instanceof RedirectResponse);
+        $this->assertGreaterThan(0, $crawler->filter('div.form-group.has-error')->count());
     }
 
     public function testEmptyForm()
@@ -57,18 +69,6 @@ class ClientControllerTest extends AbstractControllerTest
         $form = $crawler->selectButton('Enregistrer')->form();
         $crawler = $this->client->submit($form);
 
-        $this->assertFalse($this->client->getResponse() instanceof RedirectResponse);
-        $this->assertGreaterThan(0, $crawler->filter('div.form-group.has-error')->count());
-    }
-
-    public function testUniqueConstraintOnClientName()
-    {
-        $form = $this->getForm();
-        $form['client[name]'] = 'Divia42';
-
-        $crawler = $this->client->submit($form);
-        $this->assertTrue($this->client->getResponse() instanceof RedirectResponse);
-        $crawler = $this->client->submit($form);
         $this->assertFalse($this->client->getResponse() instanceof RedirectResponse);
         $this->assertGreaterThan(0, $crawler->filter('div.form-group.has-error')->count());
     }
