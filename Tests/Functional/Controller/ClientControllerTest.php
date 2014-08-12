@@ -61,16 +61,15 @@ class ClientControllerTest extends AbstractControllerTest
         $this->assertGreaterThan(0, $crawler->filter('div.form-group.has-error')->count());
     }
 
-    // TODO : testUniqueConstraintOnClientName
-    // public function testUniqueConstraintOnClientName()
-    // {
-    //     $form = $this->getForm();
-    //     $form['client[name]'] = 'Divia42';
+    public function testUniqueConstraintOnClientName()
+    {
+        $form = $this->getForm();
+        $form['client[name]'] = 'Divia42';
 
-    //     $crawler = $this->client->submit($form);
-    //     $this->assertTrue($this->client->getResponse() instanceof RedirectResponse);
-    //     $crawler = $this->client->submit($form);
-    //     $this->assertFalse($this->client->getResponse() instanceof RedirectResponse);
-    //     $this->assertGreaterThan(0, $crawler->filter('div.form-group.has-error')->count());
-    // }
+        $crawler = $this->client->submit($form);
+        $this->assertTrue($this->client->getResponse() instanceof RedirectResponse);
+        $crawler = $this->client->submit($form);
+        $this->assertFalse($this->client->getResponse() instanceof RedirectResponse);
+        $this->assertGreaterThan(0, $crawler->filter('div.form-group.has-error')->count());
+    }
 }

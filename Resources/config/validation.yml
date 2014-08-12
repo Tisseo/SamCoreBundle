@@ -30,3 +30,6 @@ CanalTP\SamCoreBundle\Entity\CoBranding:
             - Type:
                 type: CanalTP\SamCoreBundle\Entity\Sim
                 message: sqwal_cobranding.form.sim.error.notvalid
+CanalTP\SamCoreBundle\Entity\Client:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name

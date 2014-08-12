@@ -59,7 +59,7 @@ class Client
      *
      * @var Application
      */
-    private $applications;
+    private $applications = array();
 
     private $users = array();
 
@@ -235,6 +235,13 @@ class Client
     public function setApplications($applications)
     {
         $this->applications = $applications;
+
+        return $this;
+    }
+
+    public function addApplication($application)
+    {
+        $this->applications[] = $application;
 
         return $this;
     }
