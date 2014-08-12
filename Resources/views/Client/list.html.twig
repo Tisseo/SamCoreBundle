@@ -11,6 +11,13 @@
     {% endblock %}
 
 {% block table_body -%}
+    {% if clients|length == 0 %}
+        <tr>
+            <td colspan="4">
+                {{'global.no_items'|trans}}
+            </td>
+        </tr>
+    {% endif %}
     {% for client in clients %}
         <tr>
             <td><a href="{{ path('sam_client_edit', { 'id': client.id }) }}">{{ client.name }}</a></td>
@@ -20,8 +27,12 @@
     {% endfor %}
 {% endblock %}
 {% block list_pagination -%}
-    <div class="pager"></div>
-{% endblock %}
+     <div class="pager">
+        <li><a class="prev" href="#">&laquo;</a></li>
+        <span class="pagedisplay"></span> <!-- this can be any element, including an input -->
+        <li><a class="next" href="#">&raquo;</a></li>
+    </div>
+ {% endblock %}
 
 
 
@@ -46,7 +57,6 @@
                 };
 
                 $("#table").tablesorter().tablesorterPager(pagerOptions);
-                console.log('hey');
             });
         });
     </script>

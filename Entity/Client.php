@@ -61,7 +61,7 @@ class Client
      */
     private $applications;
 
-    private $users;
+    private $users = array();
 
 
     public function __construct()
@@ -242,6 +242,13 @@ class Client
     public function getApplications()
     {
         return $this->applications;
+    }
+
+    public function addUser($user)
+    {
+        $this->users[] = $user;
+
+        return $this;
     }
 
     public function setUsers($users)

@@ -16,15 +16,9 @@ abstract class AbstractControllerTest extends BaseControllerTest
      */
     protected static $mockDb = true;
 
-    protected function reloadSamFixtures()
-    {
-        // $this->runConsole("doctrine:fixtures:load", array("--fixtures" => __DIR__ . "/../../DataFixtures", '--append' => null, '-e' => 'test_sam'));
-    }
-
     private function mockDb()
     {
         $this->runConsole("sam:database:purge", array('-e' => 'test_sam'));
-        // $this->reloadSamFixtures();
     }
 
     protected function logIn()
