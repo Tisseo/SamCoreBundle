@@ -13,7 +13,7 @@ form:
     password_confirmation: "Vérification :"
     new_password: "Nouveau mot de passe :"
     new_password_confirmation: "Vérification :"
-    sauvegarder: sauvegarder
+    save: Enregistrer
 
 ctp_core:
     _breadcrumb: Accueil
@@ -115,6 +115,7 @@ client:
     logo: Logo
     created: Date de création
     name: Nom
+    logo_path: Logo
     navitiaToken: Token Navitia
     new:
         title: Ajouter un client

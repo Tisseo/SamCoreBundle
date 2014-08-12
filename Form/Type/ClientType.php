@@ -38,7 +38,7 @@ class ClientType extends AbstractType
             'file',
             'file',
             array(
-                'label' => 'client.labels.logo_path',
+                'label' => 'client.logo_path',
                 'required' => false,
                 'constraints' => array(
                     new File(
