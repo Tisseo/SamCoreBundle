@@ -116,7 +116,8 @@ client:
     created: Date de création
     name: Nom
     logo_path: Logo
-    navitiaToken: Token Navitia
+    creation_date: Crée le
+    navitia_token: Token Navitia
     new:
         title: Ajouter un client
     edit:

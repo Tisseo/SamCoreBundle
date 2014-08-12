@@ -57,7 +57,7 @@ class ClientType extends AbstractType
             'navitiaToken',
             'text',
             array(
-                'label' => 'client.navitiaToken',
+                'label' => 'client.navitia_token',
                 'constraints' => array(
                     new Length(
                         array('max' => 255)
