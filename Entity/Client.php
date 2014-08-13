@@ -246,6 +246,18 @@ class Client
         return $this;
     }
 
+    public function removeApplication($application)
+    {
+        foreach ($$this->applications as $key => $app) {
+            if ($app->getId() == $application->getId()) {
+                unset($this->applications[$key]);
+                break ;
+            }
+        }
+
+        return $this;
+    }
+
     public function getApplications()
     {
         return $this->applications;

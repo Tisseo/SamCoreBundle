@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\File;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * Description of ClientType
@@ -63,6 +64,20 @@ class ClientType extends AbstractType
                         array('max' => 255)
                     )
                 )
+            )
+        );
+        $builder->add(
+            'applications',
+            'entity',
+            array(
+                'label' => 'client.applications',
+                'multiple' => true,
+                'class' => 'CanalTPSamCoreBundle:Application',
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('cli')
+                        ->orderBy('cli.name', 'ASC');
+                },
+                'expanded' => true
             )
         );
     }
