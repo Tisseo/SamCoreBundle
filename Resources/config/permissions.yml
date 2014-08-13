@@ -22,7 +22,7 @@ parameters:
             label: Administrer les rôles
             description: Modifier les rôles (modifier le libellé en fait …). Créer des rôles. Supprimer des rôles.
         BUSINESS_CREATE_SUPER_ADMIN:
-            label: Crer un utilisateur Super Admin
+            label: Creer un utilisateur Super Admin
             description: Pourra donner les droits Super Admin à un utilisateur lors de sa création
         BUSINESS_MANAGE_CLIENT:
             label: Lister les clients

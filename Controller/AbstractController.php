@@ -13,19 +13,21 @@ abstract class AbstractController extends Controller
             throw new AccessDeniedException();
         }
     }
-    
-    protected function isGranted($permission)
+
+    protected function isGranted($businessId)
     {
-        return $this->get('security.context')->isGranted($permission);
+        if ($this->get('security.context')->isGranted($businessId) === false) {
+            throw new AccessDeniedException();
+        }
     }
-    
+
     protected function isAllowed($permission)
     {
         if ($this->isGranted($permission) === false) {
             throw new AccessDeniedException($this->get('translator')->trans('forbidden'));
         }
     }
-    
+
     /**
      * Ajout le message flash dans la session.
      *
