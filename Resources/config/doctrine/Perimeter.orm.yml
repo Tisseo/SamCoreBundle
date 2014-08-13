@@ -1,0 +1,27 @@
+CanalTP\SamCoreBundle\Entity\Perimeter:
+    type: entity
+    table: public.perimeter
+    repositoryClass: CanalTP\NmmPortalBundle\Entity\PerimeterRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        externalCoverageId:
+            type: string
+            length: 255
+            column: external_coverage_id
+        externalNetworkId:
+            type: string
+            length: 255
+            column: external_network_id
+    manyToOne:
+        client:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Client
+            inversedBy: perimeters
+            joinColumn:
+                name: client_id
+                referencedColumnName: cli_id
+    lifecycleCallbacks: {  }

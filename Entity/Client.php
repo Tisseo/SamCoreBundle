@@ -63,6 +63,7 @@ class Client
 
     private $users = array();
 
+    private $perimeters = array();
 
     public function __construct()
     {

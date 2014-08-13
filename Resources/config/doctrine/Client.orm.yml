@@ -58,5 +58,8 @@ CanalTP\SamCoreBundle\Entity\Client:
                         referencedColumnName: app_id
     oneToMany:
         users:
-            targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\user
-            mappedBy: clients
+            targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
+            mappedBy: client
+        perimeters:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Perimeter
+            mappedBy: client

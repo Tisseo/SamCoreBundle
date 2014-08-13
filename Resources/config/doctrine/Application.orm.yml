@@ -30,6 +30,3 @@ CanalTP\SamCoreBundle\Entity\Application:
         clients:
             targetEntity: CanalTP\SamCoreBundle\Entity\Client
             mappedBy: applications
-    # lifecycleCallbacks:
-    #     postLoad:
-    #         - onPostLoad
