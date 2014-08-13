@@ -116,6 +116,7 @@ client:
     created: Date de création
     name: Nom
     logo_path: Logo
+    applications: Applications
     creation_date: Crée le
     navitia_token: Token Navitia
     new:
