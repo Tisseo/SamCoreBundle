@@ -16,32 +16,39 @@ use Doctrine\ORM\EntityRepository;
  */
 class PerimeterType extends AbstractType
 {
+    private $coverages = null;
+
+    public function __construct($coverages)
+    {
+        $this->coverages = array();
+
+        $this->fetchCoverages($coverages);
+    }
+
+    private function fetchCoverages($coverages)
+    {
+        foreach ($coverages as $coverage) {
+            $this->coverages[$coverage->id] = $coverage->id;
+        }
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
             'external_coverage_id',
-            'text',
+            'choice',
             array(
-                'label' => 'perimeter.external_coverage_id',
-                'constraints' => array(
-                    new NotBlank(),
-                    new Length(
-                        array('max' => 255)
-                    )
-                )
+                'choices' => $this->coverages,
+                'empty_value' => 'global.please_choose'
             )
         );
         $builder->add(
             'external_network_id',
-            'text',
+            'choice',
             array(
-                'label' => 'perimeter.external_network_id',
-                'constraints' => array(
-                    new NotBlank(),
-                    new Length(
-                        array('max' => 255)
-                    )
-                )
+                'choices' => array(),
+                'empty_value' => 'global.please_choose',
+                'required'  => false
             )
         );
     }

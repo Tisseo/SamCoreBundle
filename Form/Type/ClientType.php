@@ -20,6 +20,13 @@ class ClientType extends AbstractType
     const MIME_IMAGETYPE_PNG = 'image/png';
     const MIME_IMAGETYPE_JPEG = 'image/jpeg';
 
+    private $coverages = null;
+
+    public function __construct($coverages)
+    {
+        $this->coverages = $coverages;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
@@ -85,7 +92,7 @@ class ClientType extends AbstractType
             'collection',
             array(
                 'label' => 'client.perimeters',
-                'type' => new PerimeterType(),
+                'type' => new PerimeterType($this->coverages),
                 'prototype_name' => '__perimeter_id__',
                 'allow_add' => true
             )

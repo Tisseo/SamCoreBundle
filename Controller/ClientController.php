@@ -2,9 +2,11 @@
 
 namespace CanalTP\SamCoreBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use CanalTP\SamCoreBundle\Entity\Client as ClientEntity;
 use CanalTP\SamCoreBundle\Entity\Perimeter;
-use Symfony\Component\HttpFoundation\Request;
 use CanalTP\SamCoreBundle\Form\Type\ClientType;
 
 /**
@@ -35,7 +37,8 @@ class ClientController extends AbstractController
     {
         $this->isGranted(array('BUSINESS_MANAGE_CLIENT', 'BUSINESS_CREATE_CLIENT'));
 
-        $form = $this->createForm(new ClientType(), $client);
+        $coverage = $this->get('sam_navitia')->getCoverages();
+        $form = $this->createForm(new ClientType($coverage->regions), $client);
 
         $form->handleRequest($request);
         if ($form->isValid()) {
@@ -58,9 +61,18 @@ class ClientController extends AbstractController
     public function newAction(Request $request)
     {
         $this->isGranted('BUSINESS_CREATE_CLIENT');
-        $form = $this->createForm(new ClientType());
+
+        $coverage = $this->get('sam_navitia')->getCoverages();
+        $form = $this->createForm(new ClientType($coverage->regions));
 
         $form->handleRequest($request);
+        // TODO: Remove this.
+        // foreach ($form->getData()->getPerimeters() as $perimeter) {
+        //     $perimeter->setExternalNetworkId('plop!');
+        //     var_dump($perimeter->getExternalNetworkId());
+        // }
+        // var_dump($form->isValid());
+        // die;
         if ($form->isValid()) {
             $this->get('sam_core.client')->save($form->getData());
             $this->addFlashMessage('success', 'client.flash.creation.success');
@@ -76,5 +88,24 @@ class ClientController extends AbstractController
                 'form' => $form->createView()
             )
         );
+    }
+
+    // TODO: Duplicate in CanalTPMttBundle:Network (controller)
+    public function byCoverageAction(Request $request, $externalCoverageId)
+    {
+        $response = new JsonResponse();
+        $navitia = $this->get('sam_navitia');
+
+        $navitia->setToken($request->query->get('token'));
+        $networks = $navitia->getNetworks($externalCoverageId);
+
+        $response->setData(
+            array(
+                'status' => Response::HTTP_OK,
+                'networks' => $networks
+            )
+        );
+
+        return ($response);
     }
 }

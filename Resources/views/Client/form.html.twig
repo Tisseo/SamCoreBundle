@@ -30,6 +30,7 @@
                     {% for field in perimeter %}
                         <div class="col-xs-4">
                             {{ form_widget(field, { 'attr': {'placeholder': field.vars.label } }) }}
+                            {{ form_errors(field) }}
                         </div>
                     {% endfor %}
                 </div>
@@ -45,7 +46,7 @@
 
     <script>
         require(['sam/form/perimeter'], function(perimeterForm){
-            perimeterForm.init();
+            perimeterForm.init("{{ nmm_navitia_token }}");
         });
     </script>
 

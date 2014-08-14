@@ -13,3 +13,11 @@ sam_client_new:
 sam_client_edit:
     pattern:  /client/{id}/edit
     defaults: { _controller: CanalTPSamCoreBundle:Client:edit }
+
+canal_tp_sam_network_list_json:
+    pattern: /coverage/{externalCoverageId}/networks
+    defaults: { _controller: CanalTPSamCoreBundle:Client:byCoverage }
+    requirements:
+        token: -?[a-zA-Z0-9_\-:]*
+    options:
+        expose: true
