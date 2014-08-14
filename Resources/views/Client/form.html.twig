@@ -24,7 +24,7 @@
 
         <div class="form-group row">
         {{ form_label(form.perimeters) }}
-            <div class="col-lg-10">
+            <div class="col-lg-10 perimeters" data-prototype="{{ form_widget(form.perimeters.vars.prototype)|e }}">
             {% for perimeter in form.perimeters %}
                 <div class="form-group row">
                     {% for field in perimeter %}
@@ -42,5 +42,11 @@
 
     {{ form_end(form) }}
     <hr/>
+
+    <script>
+        require(['sam/form/perimeter'], function(perimeterForm){
+            perimeterForm.init();
+        });
+    </script>
 
 {% endblock %}

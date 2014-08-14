@@ -307,6 +307,18 @@ class Client
     public function setPerimeters($perimeters)
     {
         $this->perimeters = $perimeters;
+        foreach ($perimeters as $perimeter) {
+            $perimeter->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function refreshPerimeters()
+    {
+        foreach ($this->perimeters as $perimeter) {
+            $perimeter->setClient($this);
+        }
 
         return $this;
     }

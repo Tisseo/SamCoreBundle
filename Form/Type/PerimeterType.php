@@ -23,7 +23,6 @@ class PerimeterType extends AbstractType
             'text',
             array(
                 'label' => 'perimeter.external_coverage_id',
-                'attr' => array('class' => 'form-control'),
                 'constraints' => array(
                     new NotBlank(),
                     new Length(
@@ -37,7 +36,6 @@ class PerimeterType extends AbstractType
             'text',
             array(
                 'label' => 'perimeter.external_network_id',
-                'attr' => array('class' => 'form-control'),
                 'constraints' => array(
                     new NotBlank(),
                     new Length(

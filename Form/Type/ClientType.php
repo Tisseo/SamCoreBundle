@@ -85,7 +85,9 @@ class ClientType extends AbstractType
             'collection',
             array(
                 'label' => 'client.perimeters',
-                'type' => new PerimeterType()
+                'type' => new PerimeterType(),
+                'prototype_name' => '__perimeter_id__',
+                'allow_add' => true
             )
         );
 

@@ -28,6 +28,7 @@ class ClientManager
 
     public function save($client)
     {
+        $client->refreshPerimeters();
         $this->om->persist($client);
         $client->upload();
         $client->setLastModificationDateTime(new \DateTime());
