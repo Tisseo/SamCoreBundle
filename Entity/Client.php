@@ -3,6 +3,7 @@
 namespace CanalTP\SamCoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
@@ -59,15 +60,18 @@ class Client
      *
      * @var Application
      */
-    private $applications = array();
+    private $applications;
 
-    private $users = array();
+    private $users;
 
-    private $perimeters = array();
+    private $perimeters;
 
     public function __construct()
     {
         $this->creationDateTime = new \DateTime();
+        $this->applications = new ArrayCollection();
+        $this->users = new ArrayCollection();
+        $this->perimeters = new ArrayCollection();
     }
 
     /**
@@ -242,19 +246,14 @@ class Client
 
     public function addApplication($application)
     {
-        $this->applications[] = $application;
+        $this->applications->add($application);
 
         return $this;
     }
 
     public function removeApplication($application)
     {
-        foreach ($$this->applications as $key => $app) {
-            if ($app->getId() == $application->getId()) {
-                unset($this->applications[$key]);
-                break ;
-            }
-        }
+        $this->applications->removeElement($application);
 
         return $this;
     }
@@ -266,7 +265,14 @@ class Client
 
     public function addUser($user)
     {
-        $this->users[] = $user;
+        $this->users->add($user);
+
+        return $this;
+    }
+
+    public function removeUser($user)
+    {
+        $this->users->removeElement($user);
 
         return $this;
     }
@@ -281,6 +287,33 @@ class Client
     public function getUsers()
     {
         return $this->users;
+    }
+
+    public function addPerimeter($perimeter)
+    {
+        $this->perimeters->add($perimeter);
+        $perimeter->setClient($this);
+
+        return $this;
+    }
+
+    public function removePerimeter($perimeter)
+    {
+        $this->perimeters->removeElement($perimeter);
+
+        return $this;
+    }
+
+    public function setPerimeters($perimeters)
+    {
+        $this->perimeters = $perimeters;
+
+        return $this;
+    }
+
+    public function getPerimeters()
+    {
+        return $this->perimeters;
     }
 
     /**

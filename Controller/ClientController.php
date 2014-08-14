@@ -3,6 +3,7 @@
 namespace CanalTP\SamCoreBundle\Controller;
 
 use CanalTP\SamCoreBundle\Entity\Client as ClientEntity;
+use CanalTP\SamCoreBundle\Entity\Perimeter;
 use Symfony\Component\HttpFoundation\Request;
 use CanalTP\SamCoreBundle\Form\Type\ClientType;
 

@@ -80,6 +80,16 @@ class ClientType extends AbstractType
                 'expanded' => true
             )
         );
+        $builder->add(
+            'perimeters',
+            'collection',
+            array(
+                'label' => 'client.perimeters',
+                'type' => new PerimeterType()
+            )
+        );
+
+
     }
 
     public function getName()

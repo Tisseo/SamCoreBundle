@@ -117,6 +117,7 @@ client:
     name: Nom
     logo_path: Logo
     applications: Applications
+    perimeters: Perimètres
     creation_date: Crée le
     navitia_token: Token Navitia
     new:
@@ -128,3 +129,7 @@ client:
             success: Changements sauvegardés
         creation:
             success: Le nouveau client a bien été créé
+
+perimeter:
+    external_coverage_id: Id du coverage
+    external_network_id: Id du réseau

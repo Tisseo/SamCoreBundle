@@ -63,3 +63,4 @@ CanalTP\SamCoreBundle\Entity\Client:
         perimeters:
             targetEntity: CanalTP\SamCoreBundle\Entity\Perimeter
             mappedBy: client
+            cascade: [persist]
