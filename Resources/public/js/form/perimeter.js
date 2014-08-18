@@ -38,6 +38,9 @@ define(
         }
 
         var initPerimeterForm = function addPerimeterForm(index) {
+            $('#client_perimeters_' + index + '_external_coverage_id').parent().parent().find('.delete-item').click(function(){
+                $('#perimeter-' + index).remove();
+            });
             $('#client_perimeters_' + index + '_external_coverage_id').change(function(){
                     var $networkSelect = $('#client_perimeters_' + index + '_external_network_id');
                     // keep selected value when refreshing network list
