@@ -38,7 +38,7 @@ class ClientController extends AbstractController
         $this->isGranted(array('BUSINESS_MANAGE_CLIENT', 'BUSINESS_CREATE_CLIENT'));
 
         $coverage = $this->get('sam_navitia')->getCoverages();
-        $form = $this->createForm(new ClientType($coverage->regions), $client);
+        $form = $this->createForm(new ClientType($coverage->regions, $this->get('sam_navitia')), $client);
 
         $form->handleRequest($request);
         if ($form->isValid()) {
@@ -63,16 +63,9 @@ class ClientController extends AbstractController
         $this->isGranted('BUSINESS_CREATE_CLIENT');
 
         $coverage = $this->get('sam_navitia')->getCoverages();
-        $form = $this->createForm(new ClientType($coverage->regions));
+        $form = $this->createForm(new ClientType($coverage->regions, $this->get('sam_navitia')));
 
         $form->handleRequest($request);
-        // TODO: Remove this.
-        // foreach ($form->getData()->getPerimeters() as $perimeter) {
-        //     $perimeter->setExternalNetworkId('plop!');
-        //     var_dump($perimeter->getExternalNetworkId());
-        // }
-        // var_dump($form->isValid());
-        // die;
         if ($form->isValid()) {
             $this->get('sam_core.client')->save($form->getData());
             $this->addFlashMessage('success', 'client.flash.creation.success');

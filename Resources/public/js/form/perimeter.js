@@ -22,6 +22,9 @@ define(
                 e.preventDefault();
                 addPerimeterForm($collectionHolder, $addPerimeterLink);
             });
+            for (var i = ($collectionHolder.data('index') - 1); i >= 0; i--) {
+                initPerimeterForm(i);
+            };
         };
 
         var addPerimeterForm = function addPerimeterForm($collectionHolder, $addPerimeterLink) {
