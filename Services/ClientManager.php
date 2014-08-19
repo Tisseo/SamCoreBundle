@@ -51,6 +51,8 @@ class ClientManager
             $this->syncPerimeters($client);
         }
         $client->refreshPerimeters();
+        // TODO: UniqueEntity not work in perimeter entity.
+        $client->setPerimeters(array_unique($client->getPerimeters()->toArray()));
         $this->om->persist($client);
         $client->upload();
         $client->setLastModificationDateTime(new \DateTime());

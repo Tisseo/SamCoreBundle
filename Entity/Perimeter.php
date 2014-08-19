@@ -104,4 +104,9 @@ class Perimeter
     {
         return $this->client;
     }
+
+    public function __toString()
+    {
+        return ($this->getId() . ' ' . $this->getExternalCoverageId() . ' ' . $this->getExternalNetworkId());
+    }
 }
