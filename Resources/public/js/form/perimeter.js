@@ -25,6 +25,13 @@ define(
             for (var i = ($collectionHolder.data('index') - 1); i >= 0; i--) {
                 initPerimeterForm(i);
             };
+            
+            $('#client_navitiaToken').on('focusout', function(e) {
+                if (e.which == 17) { //17 = CTRL
+                    return;
+                }
+                perimeterForm.checkNavitiaToken();
+            });
         };
 
         var addPerimeterForm = function addPerimeterForm($collectionHolder, $addPerimeterLink) {
@@ -47,8 +54,7 @@ define(
                     $navApi.getCoverageNetworks(
                         'canal_tp_sam_network_list_json',
                         {
-                            'externalCoverageId': $(this).val(),
-                            'token': $navitiaToken
+                            'externalCoverageId': $(this).val()
                         },
                         function(networks){
                             var network = null;
@@ -67,8 +73,33 @@ define(
                 );
             });
         }
-
-
+        
+        perimeterForm.checkNavitiaToken = function() {
+            div= [];
+            $('div[id^=client_perimeters_]').each(function (index, element) {
+                div[index] = $(element);
+                extCoverageId = $('#' + $(element).attr('id') + '_external_coverage_id').val();
+                extNetworkId = $('#' + $(element).attr('id') + '_external_network_id').val();
+                customerToken = $('#client_navitiaToken').val();
+                       
+                $navApi.getCoverageNetworks(
+                    'canal_tp_sam_network_check_permission_json',
+                    {
+                        'externalCoverageId': extCoverageId,
+                        'externalNetworkId': extNetworkId,
+                        'token': customerToken
+                    },
+                    function(networks){
+                        console.log('OK');
+                        div[index].prepend('OK');
+                    },
+                    function(){
+                        console.log('KO');
+                        div[index].prepend('KO');
+                    }
+                );
+            });
+        };
 
         return perimeterForm;
     }

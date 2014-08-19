@@ -84,21 +84,58 @@ class ClientController extends AbstractController
     }
 
     // TODO: Duplicate in CanalTPMttBundle:Network (controller)
-    public function byCoverageAction(Request $request, $externalCoverageId)
+    public function byCoverageAction($externalCoverageId)
     {
         $response = new JsonResponse();
         $navitia = $this->get('sam_navitia');
+        $nmmToken = $this->get('service_container')->getParameter('nmm.navitia.token');
+        $status = Response::HTTP_FORBIDDEN;
 
-        $navitia->setToken($request->query->get('token'));
-        $networks = $navitia->getNetworks($externalCoverageId);
-
+        $navitia->setToken($nmmToken);
+        try {
+            $networks = $navitia->getNetworks($externalCoverageId);
+        } catch(\Navitia\Component\Exception\NavitiaException $e) {
+            $response->setData(array('status' => $status));
+            $response->setStatusCode($status);
+            
+            return $response;
+        }
+        
+        $status = Response::HTTP_OK;
         $response->setData(
             array(
-                'status' => Response::HTTP_OK,
+                'status' => $status,
                 'networks' => $networks
             )
         );
+        $response->setStatusCode($status);
 
-        return ($response);
+        return $response;
+    }
+    
+    public function checkAllowedToNetworkAction($externalCoverageId, $externalNetworkId, $token)
+    {
+        $response = new JsonResponse();
+        $navitia = $this->get('sam_navitia');
+        $status = Response::HTTP_FORBIDDEN;
+
+        $navitia->setToken($token);
+        try {
+            $networks = $navitia->getNetworks($externalCoverageId);
+        } catch(\Navitia\Component\Exception\NavitiaException $e) {
+            $response->setData(array('status' => $status));
+            $response->setStatusCode($status);
+            
+            return $response;
+        }
+
+        if (isset($networks[$externalNetworkId])) {
+            $status = Response::HTTP_OK;
+        }
+        
+        $response->setData(array('status' => $status));
+        $response->setStatusCode($status);
+
+        return $response;
     }
 }

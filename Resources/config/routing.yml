@@ -17,6 +17,12 @@ sam_client_edit:
 canal_tp_sam_network_list_json:
     pattern: /coverage/{externalCoverageId}/networks
     defaults: { _controller: CanalTPSamCoreBundle:Client:byCoverage }
+    options:
+        expose: true
+        
+canal_tp_sam_network_check_permission_json:
+    pattern: /coverage/{externalCoverageId}/networks/{externalNetworkId}/{token}
+    defaults: { _controller: CanalTPSamCoreBundle:Client:checkAllowedToNetwork }
     requirements:
         token: -?[a-zA-Z0-9_\-:]*
     options:

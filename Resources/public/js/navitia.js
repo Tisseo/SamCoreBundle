@@ -14,7 +14,8 @@ define('navitia', ['jquery', 'utils', 'translations/messages'], function($, util
     self.getCoverageNetworks = function(route, params, callback, callbackFail)
     {
         _set_url(route, params);
-        $.get(_url, function(data){
+        $.get(_url,
+        function(data, status, xhr){
             callback(data.networks);
         }).fail(function() {
             var msg = Translator.trans('network.error.wrong_token', {}, 'message');
