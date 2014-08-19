@@ -34,6 +34,7 @@ class PerimeterType extends AbstractType
         foreach ($coverages as $coverage) {
             $this->coverages[$coverage->id] = $coverage->id;
         }
+        asort($this->coverages);
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)

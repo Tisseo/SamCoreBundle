@@ -91,6 +91,7 @@ class ClientController extends AbstractController
 
         $navitia->setToken($request->query->get('token'));
         $networks = $navitia->getNetworks($externalCoverageId);
+        asort($networks);
 
         $response->setData(
             array(
