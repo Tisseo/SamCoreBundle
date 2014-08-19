@@ -26,8 +26,30 @@ class ClientManager
         return empty($clientId) ? null : $this->repository->find($clientId);
     }
 
+    private function syncPerimeters($client)
+    {
+        $perimeterRepo = $this->om->getRepository('CanalTPSamCoreBundle:Perimeter');
+        $perimeters = $perimeterRepo->findBy(array('client' => $client));
+        $officialPerimeterIds = array();
+
+        foreach ($client->getPerimeters() as $perimeter) {
+            if ($perimeter->getId() != null) {
+                $officialPerimeterIds[] = $perimeter->getId();
+            }
+        }
+
+        foreach ($perimeters as $perimeter) {
+            if (!in_array($perimeter->getId(), $officialPerimeterIds)) {
+                $this->om->remove($perimeter);
+            }
+        }
+    }
+
     public function save($client)
     {
+        if ($client->getId() != null) {
+            $this->syncPerimeters($client);
+        }
         $client->refreshPerimeters();
         $this->om->persist($client);
         $client->upload();

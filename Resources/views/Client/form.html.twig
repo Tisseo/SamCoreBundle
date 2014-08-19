@@ -24,24 +24,16 @@
 
         <div class="form-group row">
         {{ form_label(form.perimeters) }}
-            <div class="col-lg-10 perimeters" data-prototype="{{ form_widget(form.perimeters.vars.prototype)|e }}">
+            <div class="col-lg-10 perimeters" data-prototype="{{ include('CanalTPSamCoreBundle:Client:_perimeter-prototype.html.twig', { 'perimeter': form.perimeters.vars.prototype})|e }}">
             {% for perimeter in form.perimeters %}
-                <div class="form-group row">
-                    {% for field in perimeter %}
-                        <div class="col-xs-4">
-                            {{ form_widget(field, { 'attr': {'placeholder': field.vars.label } }) }}
-                            {{ form_errors(field) }}
-                        </div>
-                    {% endfor %}
-                </div>
+                {% include "CanalTPSamCoreBundle:Client:_perimeter-prototype.html.twig" with {'form': perimeter} %}
             {% endfor %}
             </div>
         </div>
 
         {{ form_widget(form._token) }}
-        <button type="submit" class="btn btn-default">{{ 'form.save'|trans }}</button>
+        <button id="add-perimeter" type="submit" class="btn btn-default">{{ 'form.save'|trans }}</button>
 
-    {{ form_end(form) }}
     <hr/>
 
     <script>

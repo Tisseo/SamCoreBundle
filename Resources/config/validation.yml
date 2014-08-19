@@ -33,3 +33,6 @@ CanalTP\SamCoreBundle\Entity\CoBranding:
 CanalTP\SamCoreBundle\Entity\Client:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
+CanalTP\SamCoreBundle\Entity\Perimeter:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: [client, externalNetworkId, externalCoverageId]

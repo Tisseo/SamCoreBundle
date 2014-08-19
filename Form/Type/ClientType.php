@@ -96,7 +96,8 @@ class ClientType extends AbstractType
                 'label' => 'client.perimeters',
                 'type' => new PerimeterType($this->coverages, $this->navitia),
                 'prototype_name' => '__perimeter_id__',
-                'allow_add' => true
+                'allow_add' => true,
+                'allow_delete' => true
             )
         );
     }

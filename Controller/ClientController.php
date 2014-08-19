@@ -94,6 +94,7 @@ class ClientController extends AbstractController
         $navitia->setToken($nmmToken);
         try {
             $networks = $navitia->getNetworks($externalCoverageId);
+            asort($networks);
         } catch(\Navitia\Component\Exception\NavitiaException $e) {
             $response->setData(array('status' => $status));
             $response->setStatusCode($status);
