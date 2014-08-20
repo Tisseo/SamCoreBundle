@@ -46,44 +46,95 @@ define(
 
         var initPerimeterForm = function addPerimeterForm(index) {
             $('#client_perimeters_' + index + '_external_coverage_id').parent().parent().find('.delete-item').click(function(){
-                $('#perimeter-' + index).remove();
+                $('#perimeter_' + index).remove();
             });
             $('#client_perimeters_' + index + '_external_coverage_id').change(function(){
-                    var $networkSelect = $('#client_perimeters_' + index + '_external_network_id');
-                    // keep selected value when refreshing network list
-                    if ($networkSelect.val() != '') {
-                        var previousValue = $networkSelect.val();
-                    }
-                    $navApi.getCoverageNetworks(
-                        'canal_tp_sam_network_list_json',
-                        {
-                            'externalCoverageId': $(this).val()
-                        },
-                        function(networks){
-                            var network = null;
-                            $networkSelect.empty();
-                            for (key in networks) {
-                                $networkSelect.append('<option value="' + key + '">' + networks[key] + '</option>');
-                            }
-                            if (previousValue) {
-                                $networkSelect.find('option[value="' + previousValue + '"]').prop('selected', true);
-                            }
-                            $networkSelect.show().siblings('label').show();
-                        },
-                        function(){
-                            $networkSelect.hide().siblings('label').hide();
+                perimeterElements = [];
+                perimeterElements[index] = [];
+                
+                perimeterElements[index]['net'] = $('#client_perimeters_' + index + '_external_network_id');
+                perimeterElements[index]['cov'] = $(this);
+                
+                perimeterElements[index]['cov'].css('background-color', 'none');
+                perimeterElements[index]['net'].css('background-color', 'none');
+                $(perimeterElements[index]['cov'].parent().parent().children('.error')).text('');
+                $(perimeterElements[index]['cov'].parent().parent().children('.error')).hide();
+                        
+                var $networkSelect = $('#client_perimeters_' + index + '_external_network_id');
+                // keep selected value when refreshing network list
+                if ($networkSelect.val() != '') {
+                    var previousValue = $networkSelect.val();
+                }
+                $navApi.getCoverageNetworks(
+                    'canal_tp_sam_network_list_json',
+                    {
+                        'externalCoverageId': $(this).val()
+                    },
+                    function(networks){
+                        var network = null;
+                        $networkSelect.empty();
+                        $networkSelect.append('<option disabled="disabled" selected="selected" value="">' + Translator.trans('global.please_choose', {}, 'messages') + '</option>');
+                        for (key in networks) {
+                            $networkSelect.append('<option value="' + key + '">' + networks[key] + '</option>');
+                        }
+                        if (previousValue) {
+                            $networkSelect.find('option[value="' + previousValue + '"]').prop('selected', true);
+                        } else {
+                            $networkSelect.children().first().prop('selected', true);
+                        }
+                        $networkSelect.show().siblings('label').show();
+                    },
+                    function(){
+                        $networkSelect.hide().siblings('label').hide();
+                });
+            });
+            
+            $('#client_perimeters_' + index + '_external_network_id').change(function(){
+                perimeterElements = [];
+                perimeterElements[index] = [];
+                
+                perimeterElements[index]['cov'] = $('#client_perimeters_' + index + '_external_coverage_id');
+                perimeterElements[index]['net'] = $(this);
+                
+                extCoverageId = $('#client_perimeters_' + index + '_external_coverage_id').val();
+                extNetworkId = $('#client_perimeters_' + index + '_external_network_id').val();
+                customerToken = $('#client_navitiaToken').val();
+                
+                $navApi.getCoverageNetworks(
+                    'canal_tp_sam_network_check_permission_json',
+                    {
+                        'externalCoverageId': extCoverageId,
+                        'externalNetworkId': extNetworkId,
+                        'token': customerToken
+                    },
+                    function(networks){
+                        perimeterElements[index]['cov'].css('background-color', 'none');
+                        perimeterElements[index]['net'].css('background-color', 'none');
+                        $(perimeterElements[index]['cov'].parent().parent().children('.error')).text('');
+                        $(perimeterElements[index]['cov'].parent().parent().children('.error')).hide();
+                    },
+                    function(){
+                        $(perimeterElements[index]['cov'].parent().parent().children('.error')).text('Ce token ne vous permet pas d\'accéder à ce réseau');
+                        $(perimeterElements[index]['cov'].parent().parent().children('.error')).show();
+                        perimeterElements[index]['cov'].css('background-color', '#f67074');
+                        perimeterElements[index]['net'].css('background-color', '#f67074');
                     }
                 );
             });
         }
         
+        var onChangeNetwork = 
+        
         perimeterForm.checkNavitiaToken = function() {
-            div= [];
-            $('div[id^=client_perimeters_]').each(function (index, element) {
-                div[index] = $(element);
-                extCoverageId = $('#' + $(element).attr('id') + '_external_coverage_id').val();
-                extNetworkId = $('#' + $(element).attr('id') + '_external_network_id').val();
+            perimeterElements = [];
+            $('div[id^=perimeter_]').each(function (index, element) {
+                extCoverageId = $('#client_perimeters_' + $(element).attr('perimeter-index') + '_external_coverage_id').val();
+                extNetworkId = $('#client_perimeters_' + $(element).attr('perimeter-index') + '_external_network_id').val();
                 customerToken = $('#client_navitiaToken').val();
+                
+                perimeterElements[index] = [];
+                perimeterElements[index]['cov'] = $('#client_perimeters_' + $(element).attr('perimeter-index') + '_external_coverage_id');
+                perimeterElements[index]['net'] = $('#client_perimeters_' + $(element).attr('perimeter-index') + '_external_network_id');
                        
                 $navApi.getCoverageNetworks(
                     'canal_tp_sam_network_check_permission_json',
@@ -93,12 +144,16 @@ define(
                         'token': customerToken
                     },
                     function(networks){
-                        console.log('OK');
-                        div[index].prepend('OK');
+                        perimeterElements[index]['cov'].css('background-color', 'none');
+                        perimeterElements[index]['net'].css('background-color', 'none');
+                        $(perimeterElements[index]['cov'].parent().parent().children('.error')).text('');
+                        $(perimeterElements[index]['cov'].parent().parent().children('.error')).hide();
                     },
                     function(){
-                        console.log('KO');
-                        div[index].prepend('KO');
+                        $(perimeterElements[index]['cov'].parent().parent().children('.error')).text('Ce token ne vous permet pas d\'accéder à ce réseau');
+                        $(perimeterElements[index]['cov'].parent().parent().children('.error')).show();
+                        perimeterElements[index]['cov'].css('background-color', '#f67074');
+                        perimeterElements[index]['net'].css('background-color', '#f67074');
                     }
                 );
             });
