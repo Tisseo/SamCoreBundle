@@ -1,0 +1,45 @@
+CanalTP\SamCoreBundle\Entity\ClientApplication:
+    type: entity
+    table: public.tj_client_application_cap
+    repositoryClass: CanalTP\SamCoreBundle\Entity\ClientApplicationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            column: cap_id
+            generator:
+                strategy: SEQUENCE
+    fields:
+        token:
+            type: string
+            column: cap_token
+            length: 255
+        isActive:
+            column: cap_is_active
+            type: boolean
+        created:
+            type: datetime
+            column: cap_created
+            gedmo:
+                timestampable:
+                    on: create
+        updated:
+            type: datetime
+            column: cap_updated
+            gedmo:
+                timestampable:
+                    on: update
+    lifecycleCallbacks: {  }
+    manyToOne:
+        client:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Client
+            inversedBy: clients
+            joinColumn:
+                name: client_id
+                referencedColumnName: cli_id
+        application:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Application
+            inversedBy: applications
+            joinColumn:
+                name: application_id
+                referencedColumnName: app_id

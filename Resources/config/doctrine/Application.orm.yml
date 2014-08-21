@@ -26,7 +26,6 @@ CanalTP\SamCoreBundle\Entity\Application:
         roles:
             targetEntity: CanalTP\SamCoreBundle\Entity\Role
             mappedBy: application
-    manyToMany:
         clients:
-            targetEntity: CanalTP\SamCoreBundle\Entity\Client
-            mappedBy: applications
+            targetEntity: CanalTP\SamCoreBundle\Entity\ClientApplication
+            mappedBy: application

@@ -52,11 +52,6 @@ class Client
     private $lastModificationDateTime;
 
     /**
-     * @var string
-     */
-    private $navitiaToken;
-
-    /**
      *
      * @var Application
      */
@@ -223,18 +218,6 @@ class Client
     public function getLastModificationDateTime()
     {
         return $this->lastModificationDateTime;
-    }
-
-    public function setNavitiaToken($navitiaToken)
-    {
-        $this->navitiaToken = $navitiaToken;
-
-        return $this;
-    }
-
-    public function getNavitiaToken()
-    {
-        return $this->navitiaToken;
     }
 
     public function setApplications($applications)
