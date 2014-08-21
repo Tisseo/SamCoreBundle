@@ -19,13 +19,13 @@ CanalTP\SamCoreBundle\Entity\Perimeter:
             length: 255
             column: per_external_network_id
     uniqueConstraints:
-        client_id_external_coverage_id_external_network_id_idx:
-            columns: [ cli_id, per_external_coverage_id, per_external_network_id ]
+        customer_id_external_coverage_id_external_network_id_idx:
+            columns: [ cus_id, per_external_coverage_id, per_external_network_id ]
     manyToOne:
-        client:
-            targetEntity: CanalTP\SamCoreBundle\Entity\Client
+        customer:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Customer
             inversedBy: perimeters
             joinColumn:
-                name: cli_id
-                referencedColumnName: cli_id
+                name: cus_id
+                referencedColumnName: cus_id
     lifecycleCallbacks: {  }

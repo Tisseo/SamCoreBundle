@@ -8,7 +8,7 @@ define(
         var $collectionHolder;
         var $navitiaToken;
 
-        var $btnMsg = Translator.trans('client.add_perimeter', {}, 'messages');
+        var $btnMsg = Translator.trans('customer.add_perimeter', {}, 'messages');
         var $addPerimeterLink = $('<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> ' + $btnMsg + '</button>');
 
         perimeterForm.init = function(navitiaToken)
@@ -25,8 +25,8 @@ define(
             for (var i = ($collectionHolder.data('index') - 1); i >= 0; i--) {
                 initPerimeterForm(i);
             };
-            
-            $('#client_navitiaToken').on('focusout', function(e) {
+
+            $('#customer_navitiaToken').on('focusout', function(e) {
                 if (e.which == 17) { //17 = CTRL
                     return;
                 }
@@ -45,22 +45,22 @@ define(
         }
 
         var initPerimeterForm = function addPerimeterForm(index) {
-            $('#client_perimeters_' + index + '_external_coverage_id').parent().parent().find('.delete-item').click(function(){
+            $('#customer_perimeters_' + index + '_external_coverage_id').parent().parent().find('.delete-item').click(function(){
                 $('#perimeter_' + index).remove();
             });
-            $('#client_perimeters_' + index + '_external_coverage_id').change(function(){
+            $('#customer_perimeters_' + index + '_external_coverage_id').change(function(){
                 perimeterElements = [];
                 perimeterElements[index] = [];
-                
-                perimeterElements[index]['net'] = $('#client_perimeters_' + index + '_external_network_id');
+
+                perimeterElements[index]['net'] = $('#customer_perimeters_' + index + '_external_network_id');
                 perimeterElements[index]['cov'] = $(this);
-                
+
                 perimeterElements[index]['cov'].css('background-color', 'none');
                 perimeterElements[index]['net'].css('background-color', 'none');
                 $(perimeterElements[index]['cov'].parent().parent().children('.error')).text('');
                 $(perimeterElements[index]['cov'].parent().parent().children('.error')).hide();
-                        
-                var $networkSelect = $('#client_perimeters_' + index + '_external_network_id');
+
+                var $networkSelect = $('#customer_perimeters_' + index + '_external_network_id');
                 // keep selected value when refreshing network list
                 if ($networkSelect.val() != '') {
                     var previousValue = $networkSelect.val();
@@ -88,18 +88,18 @@ define(
                         $networkSelect.hide().siblings('label').hide();
                 });
             });
-            
-            $('#client_perimeters_' + index + '_external_network_id').change(function(){
+
+            $('#customer_perimeters_' + index + '_external_network_id').change(function(){
                 perimeterElements = [];
                 perimeterElements[index] = [];
-                
-                perimeterElements[index]['cov'] = $('#client_perimeters_' + index + '_external_coverage_id');
+
+                perimeterElements[index]['cov'] = $('#customer_perimeters_' + index + '_external_coverage_id');
                 perimeterElements[index]['net'] = $(this);
-                
-                extCoverageId = $('#client_perimeters_' + index + '_external_coverage_id').val();
-                extNetworkId = $('#client_perimeters_' + index + '_external_network_id').val();
-                customerToken = $('#client_navitiaToken').val();
-                
+
+                extCoverageId = $('#customer_perimeters_' + index + '_external_coverage_id').val();
+                extNetworkId = $('#customer_perimeters_' + index + '_external_network_id').val();
+                customerToken = $('#customer_navitiaToken').val();
+
                 $navApi.getCoverageNetworks(
                     'canal_tp_sam_network_check_permission_json',
                     {
@@ -122,20 +122,20 @@ define(
                 );
             });
         }
-        
-        var onChangeNetwork = 
-        
+
+        var onChangeNetwork =
+
         perimeterForm.checkNavitiaToken = function() {
             perimeterElements = [];
             $('div[id^=perimeter_]').each(function (index, element) {
-                extCoverageId = $('#client_perimeters_' + $(element).attr('perimeter-index') + '_external_coverage_id').val();
-                extNetworkId = $('#client_perimeters_' + $(element).attr('perimeter-index') + '_external_network_id').val();
-                customerToken = $('#client_navitiaToken').val();
-                
+                extCoverageId = $('#customer_perimeters_' + $(element).attr('perimeter-index') + '_external_coverage_id').val();
+                extNetworkId = $('#customer_perimeters_' + $(element).attr('perimeter-index') + '_external_network_id').val();
+                customerToken = $('#customer_navitiaToken').val();
+
                 perimeterElements[index] = [];
-                perimeterElements[index]['cov'] = $('#client_perimeters_' + $(element).attr('perimeter-index') + '_external_coverage_id');
-                perimeterElements[index]['net'] = $('#client_perimeters_' + $(element).attr('perimeter-index') + '_external_network_id');
-                       
+                perimeterElements[index]['cov'] = $('#customer_perimeters_' + $(element).attr('perimeter-index') + '_external_coverage_id');
+                perimeterElements[index]['net'] = $('#customer_perimeters_' + $(element).attr('perimeter-index') + '_external_network_id');
+
                 $navApi.getCoverageNetworks(
                     'canal_tp_sam_network_check_permission_json',
                     {

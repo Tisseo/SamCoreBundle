@@ -1,28 +1,28 @@
 {% extends "CanalTPSamCoreBundle::generic_list.html.twig" %}
 
 {% block left_menu -%}
-    {% include 'CanalTPSamCoreBundle:Client:left_menu.html.twig' %}
+    {% include 'CanalTPSamCoreBundle:Customer:left_menu.html.twig' %}
 {% endblock %}
 
 {% block table_head -%}
-    <th>{{ 'client.name'|trans }}</th>
-    <th>{{ 'client.logo'|trans }}</th>
-    <th>{{ 'client.creation_date'|trans }}</th>
+    <th>{{ 'customer.name'|trans }}</th>
+    <th>{{ 'customer.logo'|trans }}</th>
+    <th>{{ 'customer.creation_date'|trans }}</th>
     {% endblock %}
 
 {% block table_body -%}
-    {% if clients|length == 0 %}
+    {% if customers|length == 0 %}
         <tr>
             <td colspan="4">
                 {{'global.no_items'|trans}}
             </td>
         </tr>
     {% endif %}
-    {% for client in clients %}
+    {% for customer in customers %}
         <tr>
-            <td><a href="{{ path('sam_client_edit', { 'id': client.id }) }}">{{ client.name }}</a></td>
-            <td><img src="{{ client.getWebLogoPath }}" class="logo-client-small" alt="{{ client.name }} logo"/></td>
-            <td>{{ client.creationDateTime.format('Y-m-d') }}</td>
+            <td><a href="{{ path('sam_customer_edit', { 'id': customer.id }) }}">{{ customer.name }}</a></td>
+            <td><img src="{{ customer.getWebLogoPath }}" class="logo-customer-small" alt="{{ customer.name }} logo"/></td>
+            <td>{{ customer.creationDateTime.format('Y-m-d') }}</td>
         </tr>
     {% endfor %}
 {% endblock %}

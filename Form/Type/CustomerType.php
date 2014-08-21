@@ -11,11 +11,11 @@ use Symfony\Component\Validator\Constraints\File;
 use Doctrine\ORM\EntityRepository;
 
 /**
- * Description of ClientType
+ * Description of CustomerType
  *
  * @author kevin
  */
-class ClientType extends AbstractType
+class CustomerType extends AbstractType
 {
     const MIME_IMAGETYPE_PNG = 'image/png';
     const MIME_IMAGETYPE_JPEG = 'image/jpeg';
@@ -35,7 +35,7 @@ class ClientType extends AbstractType
             'name',
             'text',
             array(
-                'label' => 'client.name',
+                'label' => 'customer.name',
                 'constraints' => array(
                     new NotBlank(),
                     new Length(
@@ -48,7 +48,7 @@ class ClientType extends AbstractType
             'file',
             'file',
             array(
-                'label' => 'client.logo_path',
+                'label' => 'customer.logo_path',
                 'required' => false,
                 'constraints' => array(
                     new File(
@@ -67,7 +67,7 @@ class ClientType extends AbstractType
             'navitiaToken',
             'text',
             array(
-                'label' => 'client.navitia_token',
+                'label' => 'customer.navitia_token',
                 'constraints' => array(
                     new Length(
                         array('max' => 255)
@@ -79,7 +79,7 @@ class ClientType extends AbstractType
             'applications',
             'entity',
             array(
-                'label' => 'client.applications',
+                'label' => 'customer.applications',
                 'multiple' => true,
                 'class' => 'CanalTPSamCoreBundle:Application',
                 'query_builder' => function(EntityRepository $er) {
@@ -93,7 +93,7 @@ class ClientType extends AbstractType
             'perimeters',
             'collection',
             array(
-                'label' => 'client.perimeters',
+                'label' => 'customer.perimeters',
                 'type' => new PerimeterType($this->coverages, $this->navitia),
                 'prototype_name' => '__perimeter_id__',
                 'allow_add' => true,
@@ -104,14 +104,14 @@ class ClientType extends AbstractType
 
     public function getName()
     {
-        return 'client';
+        return 'customer';
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(
             array(
-                'data_class' => 'CanalTP\SamCoreBundle\Entity\Client'
+                'data_class' => 'CanalTP\SamCoreBundle\Entity\Customer'
             )
         );
     }

@@ -1,6 +1,6 @@
 {% if (is_granted('BUSINESS_CREATE_CLIENT')) %}
-    <a class="btn btn-primary" href="{{ path('sam_client_new') }}">
+    <a class="btn btn-primary" href="{{ path('sam_customer_new') }}">
         <span class="glyphicon glyphicon-plus"></span>
-        {{'client.new.title'|trans}}
+        {{'customer.new.title'|trans}}
     </a>
 {% endif %}

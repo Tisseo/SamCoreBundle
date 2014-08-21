@@ -26,6 +26,6 @@ CanalTP\SamCoreBundle\Entity\Application:
         roles:
             targetEntity: CanalTP\SamCoreBundle\Entity\Role
             mappedBy: application
-        clients:
-            targetEntity: CanalTP\SamCoreBundle\Entity\ClientApplication
+        customers:
+            targetEntity: CanalTP\SamCoreBundle\Entity\CustomerApplication
             mappedBy: application

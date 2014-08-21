@@ -1,7 +1,7 @@
-CanalTP\SamCoreBundle\Entity\ClientApplication:
+CanalTP\SamCoreBundle\Entity\CustomerApplication:
     type: entity
-    table: public.tj_client_application_cap
-    repositoryClass: CanalTP\SamCoreBundle\Entity\ClientApplicationRepository
+    table: public.tj_customer_application_cap
+    repositoryClass: CanalTP\SamCoreBundle\Entity\CustomerApplicationRepository
     id:
         id:
             type: integer
@@ -31,12 +31,12 @@ CanalTP\SamCoreBundle\Entity\ClientApplication:
                     on: update
     lifecycleCallbacks: {  }
     manyToOne:
-        client:
-            targetEntity: CanalTP\SamCoreBundle\Entity\Client
-            inversedBy: clients
+        customer:
+            targetEntity: CanalTP\SamCoreBundle\Entity\Customer
+            inversedBy: customers
             joinColumn:
-                name: client_id
-                referencedColumnName: cli_id
+                name: customer_id
+                referencedColumnName: cus_id
         application:
             targetEntity: CanalTP\SamCoreBundle\Entity\Application
             inversedBy: applications

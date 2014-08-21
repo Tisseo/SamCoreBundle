@@ -1,52 +1,62 @@
-CanalTP\SamCoreBundle\Entity\Client:
+CanalTP\SamCoreBundle\Entity\Customer:
     type: entity
-    table: public.tr_client_cli
-    repositoryClass: CanalTP\SamCoreBundle\Entity\ClientRepository
+    table: public.tr_customer_cus
+    repositoryClass: CanalTP\SamCoreBundle\Entity\CustomerRepository
     fields:
         id:
             type: integer
             id: true
-            column: cli_id
+            column: cus_id
             generator:
                 strategy: SEQUENCE
         name:
             type: string
-            column: cli_name
+            column: cus_name
             length: 255
             nullable: false
         nameCanonical:
             type: string
-            column: cli_name_canonical
+            column: cus_name_canonical
             length: 255
             nullable: false
         logoPath:
             type: string
-            column: cli_logo_path
+            column: cus_logo_path
             length: 255
             nullable: true
+        email:
+            type: string
+            column: cus_email
+            length: 255
+        emailCanonical:
+            type: string
+            column: cus_email_canonical
+            length: 255
         locked:
             type: boolean
-            column: cli_locked
+            column: cus_locked
             nullable: false
         creationDateTime:
             type: datetime
-            column: cli_creation_datetime
+            column: cus_creation_datetime
             nullable: false
         lastModificationDateTime:
             type: datetime
-            column: cli_last_modification_datetime
+            column: cus_last_modification_datetime
             nullable: false
     uniqueConstraints:
         name_idx:
-            columns: [ cli_name_canonical ]
+            columns: [ cus_name_canonical ]
+        cus_email_idx:
+            columns: [ cus_email_canonical ]
     oneToMany:
         perimeters:
             targetEntity: CanalTP\SamCoreBundle\Entity\Perimeter
-            mappedBy: client
+            mappedBy: customer
             cascade: [persist]
         applications:
-            targetEntity: CanalTP\SamCoreBundle\Entity\ClientApplication
-            mappedBy: client
+            targetEntity: CanalTP\SamCoreBundle\Entity\CustomerApplication
+            mappedBy: customer
         users:
             targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
-            mappedBy: client
+            mappedBy: customer

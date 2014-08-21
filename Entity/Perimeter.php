@@ -24,7 +24,7 @@ class Perimeter
      */
     private $externalNetworkId;
 
-    private $client;
+    private $customer;
 
     /**
      * Get id
@@ -83,26 +83,26 @@ class Perimeter
     }
 
     /**
-     * Set client
+     * Set customer
      *
-     * @param string $client
+     * @param string $customer
      * @return Perimeter
      */
-    public function setClient($client)
+    public function setCustomer($customer)
     {
-        $this->client = $client;
+        $this->customer = $customer;
 
         return $this;
     }
 
     /**
-     * Get client
+     * Get customer
      *
      * @return string
      */
-    public function getClient()
+    public function getCustomer()
     {
-        return $this->client;
+        return $this->customer;
     }
 
     public function __toString()

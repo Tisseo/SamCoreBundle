@@ -41,7 +41,7 @@ class Application
 
     private $perimeters;
 
-    private $clients;
+    private $customers;
 
     /**
      * Constructor
@@ -50,7 +50,7 @@ class Application
     {
         $this->name = $name;
         $this->roles = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->clients = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->customers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -149,14 +149,14 @@ class Application
         return $this;
     }
 
-    public function getClients()
+    public function getCustomers()
     {
-        return $this->clients;
+        return $this->customers;
     }
 
-    public function setClients($clients)
+    public function setCustomers($customers)
     {
-        $this->clients = $clients;
+        $this->customers = $customers;
 
         return $this;
     }

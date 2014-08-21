@@ -1,7 +1,7 @@
-CanalTP\SamCoreBundle\Entity\Client:
+CanalTP\SamCoreBundle\Entity\Customer:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
 CanalTP\SamCoreBundle\Entity\Perimeter:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
-            fields: [client, externalCoverageId, externalNetworkId]
+            fields: [customer, externalCoverageId, externalNetworkId]

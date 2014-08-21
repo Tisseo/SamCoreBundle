@@ -5,9 +5,9 @@ namespace CanalTP\SamCoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ClientApplication
+ * CustomerApplication
  */
-class ClientApplication extends AbstractEntity
+class CustomerApplication extends AbstractEntity
 {
     /**
      * @var integer
@@ -27,7 +27,7 @@ class ClientApplication extends AbstractEntity
     /**
      * @var string
      */
-    private $client;
+    private $customer;
 
     /**
      * @var string
@@ -49,7 +49,7 @@ class ClientApplication extends AbstractEntity
      * Set token
      *
      * @param string $token
-     * @return ClientApplication
+     * @return CustomerApplication
      */
     public function setToken($token)
     {
@@ -72,7 +72,7 @@ class ClientApplication extends AbstractEntity
      * Set isActive
      *
      * @param string $isActive
-     * @return ClientApplication
+     * @return CustomerApplication
      */
     public function setIsActive($isActive)
     {
@@ -92,33 +92,33 @@ class ClientApplication extends AbstractEntity
     }
 
     /**
-     * Set client
+     * Set customer
      *
-     * @param string $client
-     * @return ClientApplication
+     * @param string $customer
+     * @return CustomerApplication
      */
-    public function setClient($client)
+    public function setCustomer($customer)
     {
-        $this->client = $client;
+        $this->customer = $customer;
 
         return $this;
     }
 
     /**
-     * Get client
+     * Get customer
      *
      * @return string
      */
-    public function getClient()
+    public function getCustomer()
     {
-        return $this->client;
+        return $this->customer;
     }
 
     /**
      * Set application
      *
      * @param string $application
-     * @return ClientApplication
+     * @return CustomerApplication
      */
     public function setApplication($application)
     {

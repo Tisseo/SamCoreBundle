@@ -20,7 +20,7 @@ use CanalTP\SamEcoreUserManagerBundle\Entity\User AS SamUser;
 
 abstract class BaseControllerTest extends WebTestCase {
 
-    protected $client;
+    protected $customer;
     protected $application;
     protected $firewall = 'main';
     protected $stubs_path = null;
@@ -58,7 +58,7 @@ abstract class BaseControllerTest extends WebTestCase {
      * Initie la console.
      */
     protected function initConsole() {
-        $kernel = $this->client->getKernel();
+        $kernel = $this->customer->getKernel();
         $this->application = new \Symfony\Bundle\FrameworkBundle\Console\Application($kernel);
         $this->application->setAutoExit(false);
         $this->application->setCatchExceptions(true);
@@ -108,7 +108,7 @@ abstract class BaseControllerTest extends WebTestCase {
      * @return Doctrine\ORM\EntityManager
      */
     protected function getEm() {
-        return $this->client->getContainer()->get('doctrine.orm.entity_manager');
+        return $this->customer->getContainer()->get('doctrine.orm.entity_manager');
     }
 
     /**
@@ -120,7 +120,7 @@ abstract class BaseControllerTest extends WebTestCase {
      * @return string
      */
     protected function generateRoute($route, $params = array()) {
-        return $this->client->getContainer()->get('router')->generate($route, $params);
+        return $this->customer->getContainer()->get('router')->generate($route, $params);
     }
 
     /**
@@ -133,7 +133,7 @@ abstract class BaseControllerTest extends WebTestCase {
      * @return string The translated string
      */
     protected function trans($id, array $parameters = array(), $domain = 'messages', $locale = null) {
-        return $this->client->getContainer()->get('translator')->trans($id, $parameters, $domain, $locale = null);
+        return $this->customer->getContainer()->get('translator')->trans($id, $parameters, $domain, $locale = null);
     }
 
     /**
@@ -144,7 +144,7 @@ abstract class BaseControllerTest extends WebTestCase {
      * @return type
      */
     protected function setService($serviceIdentifier, $service) {
-        return $this->client->getContainer()->set($serviceIdentifier, $service);
+        return $this->customer->getContainer()->set($serviceIdentifier, $service);
     }
 
     /**
@@ -164,7 +164,7 @@ abstract class BaseControllerTest extends WebTestCase {
      */
     protected function logIn($userName, $userPass, $email, array $roles = array(), $sessionAppKey = 'sam_selected_application', $sessionAppValue = 'sam')
     {
-        $session = $this->client->getContainer()->get('session');
+        $session = $this->customer->getContainer()->get('session');
 
         $firewall = 'main';
         $token = new UsernamePasswordToken($userName, $userPass, $firewall, $roles);
@@ -178,8 +178,8 @@ abstract class BaseControllerTest extends WebTestCase {
         $session->save();
 
         $cookie = new Cookie($session->getName(), $session->getId());
-        $this->client->getCookieJar()->set($cookie, true);
-        $this->client->getContainer()->get('event_dispatcher')->dispatch(
+        $this->customer->getCookieJar()->set($cookie, true);
+        $this->customer->getContainer()->get('event_dispatcher')->dispatch(
             AuthenticationEvents::AUTHENTICATION_SUCCESS,
             new AuthenticationEvent($token)
         );
@@ -193,7 +193,7 @@ abstract class BaseControllerTest extends WebTestCase {
     protected function getCurrentUser()
     {
         if(! (self::$currentUser instanceof SamUser)) {
-            $serializedToken = $this->client->getContainer()->get('session')->get('_security_'.$this->firewall);
+            $serializedToken = $this->customer->getContainer()->get('session')->get('_security_'.$this->firewall);
             $token = unserialize($serializedToken);
 
             self::$currentUser = $token->getUser();
@@ -231,13 +231,13 @@ abstract class BaseControllerTest extends WebTestCase {
      */
     protected function doRequestRoute($route, $expectedStatusCode = 200, $method = 'GET')
     {
-        $crawler = $this->client->request($method, $route);
+        $crawler = $this->customer->request($method, $route);
 
         // check response code is expectedStatusCode
         $this->assertEquals(
             $expectedStatusCode,
-            $this->client->getResponse()->getStatusCode(),
-            'Response status NOK:' . $this->client->getResponse()->getStatusCode() . "\r\n"
+            $this->customer->getResponse()->getStatusCode(),
+            'Response status NOK:' . $this->customer->getResponse()->getStatusCode() . "\r\n"
         );
 
         return $crawler;

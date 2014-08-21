@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Client
+ * Customer
  */
-class Client
+class Customer
 {
     /**
      * @var integer
@@ -35,6 +35,16 @@ class Client
      * @var string
      */
     private $nameCanonical;
+
+    /**
+     * @var string
+     */
+    private $email;
+
+    /**
+     * @var string
+     */
+    protected $emailCanonical;
 
     /**
      * @var boolean
@@ -83,7 +93,7 @@ class Client
      * Set name
      *
      * @param string $name
-     * @return Client
+     * @return Customer
      */
     public function setName($name)
     {
@@ -107,7 +117,7 @@ class Client
      * Set logoPath
      *
      * @param string $logoPath
-     * @return Client
+     * @return Customer
      */
     public function setLogoPath($logoPath)
     {
@@ -130,7 +140,7 @@ class Client
      * Set nameCanonical
      *
      * @param string $nameCanonical
-     * @return Client
+     * @return Customer
      */
     private function setNameCanonical($name)
     {
@@ -152,10 +162,58 @@ class Client
     }
 
     /**
+     * Set email
+     *
+     * @param string $email
+     * @return Customer
+     */
+    private function setEmail($email)
+    {
+        $this->email = $email;
+        $this->setEmailCanonical($email);
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set emailCanonical
+     *
+     * @param string $emailCanonical
+     * @return Customer
+     */
+    public function setEmailCanonical($emailCanonical)
+    {
+        $slug = new \CanalTP\SamCoreBundle\Slugify();
+
+        $this->emailCanonical = $slug->slugify($emailCanonical);
+        return $this;
+    }
+
+    /**
+     * Get emailCanonical
+     *
+     * @return string
+     */
+    public function getEmailCanonical()
+    {
+        return $this->emailCanonical;
+    }
+
+    /**
      * Set locked
      *
      * @param boolean $locked
-     * @return Client
+     * @return Customer
      */
     public function setLocked($locked)
     {
@@ -178,7 +236,7 @@ class Client
      * Set creationDateTime
      *
      * @param \DateTime $creationDateTime
-     * @return Client
+     * @return Customer
      */
     public function setCreationDateTime($creationDateTime)
     {
@@ -201,7 +259,7 @@ class Client
      * Set lastModificationDateTime
      *
      * @param \DateTime $lastModificationDateTime
-     * @return Client
+     * @return Customer
      */
     public function setLastModificationDateTime($lastModificationDateTime)
     {
@@ -275,7 +333,7 @@ class Client
     public function addPerimeter($perimeter)
     {
         $this->perimeters->add($perimeter);
-        $perimeter->setClient($this);
+        $perimeter->setCustomer($this);
 
         return $this;
     }
@@ -291,7 +349,7 @@ class Client
     {
         $this->perimeters = $perimeters;
         foreach ($perimeters as $perimeter) {
-            $perimeter->setClient($this);
+            $perimeter->setCustomer($this);
         }
 
         return $this;
@@ -300,7 +358,7 @@ class Client
     public function refreshPerimeters()
     {
         foreach ($this->perimeters as $perimeter) {
-            $perimeter->setClient($this);
+            $perimeter->setCustomer($this);
         }
 
         return $this;
@@ -340,7 +398,7 @@ class Client
         }
         $file = $this->getFile()->move(
             $this->getUploadRootDir(),
-            $this->getFile()->getClientOriginalName()
+            $this->getFile()->getCustomerOriginalName()
         );
         $fileName = $this->getId() . '.' . $file->getExtension();
         $file->move(
@@ -373,6 +431,6 @@ class Client
 
     private function getUploadDir()
     {
-        return '/uploads/clients/logos/';
+        return '/uploads/customers/logos/';
     }
 }

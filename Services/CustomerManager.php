@@ -3,9 +3,9 @@
 namespace CanalTP\SamCoreBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use CanalTP\SamCoreBundle\Entity\Client;
+use CanalTP\SamCoreBundle\Entity\Customer;
 
-class ClientManager
+class CustomerManager
 {
     private $om = null;
     private $repository = null;
@@ -13,7 +13,7 @@ class ClientManager
     public function __construct(ObjectManager $om)
     {
         $this->om = $om;
-        $this->repository = $this->om->getRepository('CanalTPSamCoreBundle:Client');
+        $this->repository = $this->om->getRepository('CanalTPSamCoreBundle:Customer');
     }
 
     public function findAll()
@@ -21,18 +21,18 @@ class ClientManager
         return ($this->repository->findAll());
     }
 
-    public function find($clientId)
+    public function find($customerId)
     {
-        return empty($clientId) ? null : $this->repository->find($clientId);
+        return empty($customerId) ? null : $this->repository->find($customerId);
     }
 
-    private function syncPerimeters($client)
+    private function syncPerimeters($customer)
     {
         $perimeterRepo = $this->om->getRepository('CanalTPSamCoreBundle:Perimeter');
-        $perimeters = $perimeterRepo->findBy(array('client' => $client));
+        $perimeters = $perimeterRepo->findBy(array('customer' => $customer));
         $officialPerimeterIds = array();
 
-        foreach ($client->getPerimeters() as $perimeter) {
+        foreach ($customer->getPerimeters() as $perimeter) {
             if ($perimeter->getId() != null) {
                 $officialPerimeterIds[] = $perimeter->getId();
             }
@@ -45,17 +45,17 @@ class ClientManager
         }
     }
 
-    public function save($client)
+    public function save($customer)
     {
-        if ($client->getId() != null) {
-            $this->syncPerimeters($client);
+        if ($customer->getId() != null) {
+            $this->syncPerimeters($customer);
         }
-        $client->refreshPerimeters();
+        $customer->refreshPerimeters();
         // TODO: UniqueEntity not work in perimeter entity.
-        $client->setPerimeters(array_unique($client->getPerimeters()->toArray()));
-        $this->om->persist($client);
-        $client->upload();
-        $client->setLastModificationDateTime(new \DateTime());
+        $customer->setPerimeters(array_unique($customer->getPerimeters()->toArray()));
+        $this->om->persist($customer);
+        $customer->upload();
+        $customer->setLastModificationDateTime(new \DateTime());
         $this->om->flush();
     }
 }

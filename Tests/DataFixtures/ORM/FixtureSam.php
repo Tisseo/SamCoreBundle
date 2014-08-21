@@ -17,7 +17,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
 use CanalTP\SamEcoreUserManagerBundle\Entity\User;
 use CanalTP\SamCoreBundle\Entity\Application;
-use CanalTP\SamCoreBundle\Entity\Client;
+use CanalTP\SamCoreBundle\Entity\Customer;
 use CanalTP\SamCoreBundle\Entity\Role;
 
 class FixtureSam extends AbstractFixture implements OrderedFixtureInterface
@@ -25,10 +25,10 @@ class FixtureSam extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $em)
     {
         for ($i=0; $i < 300; ++$i) {
-            $client = new Client();
-            $client->setName('client_' . $i);
+            $customer = new Customer();
+            $customer->setName('customer_' . $i);
 
-            $em->persist($client);
+            $em->persist($customer);
         }
         $em->flush();
     }

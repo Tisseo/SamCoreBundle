@@ -34,7 +34,7 @@ abstract class AbstractControllerTest extends BaseControllerTest
 
     public function setUp($login = true)
     {
-        $this->client = parent::createClient(array('environment' => 'test_sam'));
+        $this->customer = parent::createCustomer(array('environment' => 'test_sam'));
         parent::setUp();
 
         if (self::$mockDb === true) {

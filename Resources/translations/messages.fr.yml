@@ -111,7 +111,7 @@ role:
 layout:
     choose_application: Choisir une application
 
-client:
+customer:
     logo: Logo
     created: Date de création
     name: Nom
@@ -122,14 +122,14 @@ client:
     navitia_token: Token Navitia
     add_perimeter: Ajouter un périmètre
     new:
-        title: Ajouter un client
+        title: Ajouter un customer
     edit:
-        title: Édition d'un client
+        title: Édition d'un customer
     flash:
         edit:
             success: Changements sauvegardés
         creation:
-            success: Le nouveau client a bien été créé
+            success: Le nouveau customer a bien été créé
 
 perimeter:
     external_coverage_id: Id du coverage

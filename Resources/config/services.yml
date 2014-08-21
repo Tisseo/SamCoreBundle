@@ -7,7 +7,7 @@ parameters:
     sam_user_registration_listener.class: CanalTP\SamCoreBundle\Form\EventListener\RegistrationSuscriber
     # Monitoring
     sam.business_monitoring.nmm.class: CanalTP\SamCoreBundle\Monitoring\Component
-    sam_core.client.class: CanalTP\SamCoreBundle\Services\ClientManager
+    sam_core.customer.class: CanalTP\SamCoreBundle\Services\CustomerManager
 
 services:
     sam_core.slugify:
@@ -45,7 +45,7 @@ services:
         tags:
             - { name: service_monitoring, category: Business }
 
-    # Client
-    sam_core.client:
-        class: %sam_core.client.class%
+    # Customer
+    sam_core.customer:
+        class: %sam_core.customer.class%
         arguments: ['@doctrine.orm.entity_manager']
