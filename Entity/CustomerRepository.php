@@ -12,4 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class CustomerRepository extends EntityRepository
 {
+    public function findAllForCustomerChoices()
+    {
+        $customers = array();
+
+        foreach ($this->findAll() as $customer) {
+            $customers[$customer->getId()] = $customer->getName();
+        }
+        return ($customers);
+    }
+
+    public function findByForCustomerChoices($criterias)
+    {
+        $customers = array();
+
+        foreach ($this->findBy($criterias) as $customer) {
+            $customers[$customer->getId()] = $customer->getName();
+        }
+        return ($customers);
+    }
 }
