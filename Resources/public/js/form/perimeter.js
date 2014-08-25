@@ -6,14 +6,12 @@ define(
         var perimeterForm = {};
 
         var $collectionHolder;
-        var $navitiaToken;
 
         var $btnMsg = Translator.trans('customer.add_perimeter', {}, 'messages');
         var $addPerimeterLink = $('<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> ' + $btnMsg + '</button>');
 
-        perimeterForm.init = function(navitiaToken)
+        perimeterForm.init = function()
         {
-            $navitiaToken = navitiaToken
             $collectionHolder = $('div.perimeters');
 
             $collectionHolder.append($addPerimeterLink);
