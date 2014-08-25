@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class CustomerRepository extends EntityRepository
 {
-    public function findAllForCustomerChoices()
+    public function findAllToArray()
     {
         $customers = array();
 
@@ -22,7 +22,7 @@ class CustomerRepository extends EntityRepository
         return ($customers);
     }
 
-    public function findByForCustomerChoices($criterias)
+    public function findByToArray($criterias)
     {
         $customers = array();
 

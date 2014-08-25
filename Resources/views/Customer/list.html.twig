@@ -8,7 +8,7 @@
     <th>{{ 'customer.name'|trans }}</th>
     <th>{{ 'customer.logo'|trans }}</th>
     <th>{{ 'customer.creation_date'|trans }}</th>
-    {% endblock %}
+{% endblock %}
 
 {% block table_body -%}
     {% if customers|length == 0 %}
@@ -26,6 +26,7 @@
         </tr>
     {% endfor %}
 {% endblock %}
+
 {% block list_pagination -%}
      <div class="pager">
         <li><a class="prev" href="#">&laquo;</a></li>
@@ -33,8 +34,6 @@
         <li><a class="next" href="#">&raquo;</a></li>
     </div>
  {% endblock %}
-
-
 
 {% block javascripts %}
     <script type="text/javascript">

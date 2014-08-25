@@ -83,6 +83,7 @@ role:
         id: Id
         name: Nom
         role: Role (doit commencer par ROLE_)
+        customer: Client
         copyRole:
             label: Copier un des rôles de
             empty_label: Sélectionnez le rôle parent

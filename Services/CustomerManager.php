@@ -58,4 +58,9 @@ class CustomerManager
         $customer->setLastModificationDateTime(new \DateTime());
         $this->om->flush();
     }
+
+    public function findAllToArray()
+    {
+        return ($this->repository->findAllToArray());
+    }
 }
