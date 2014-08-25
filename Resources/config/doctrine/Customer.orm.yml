@@ -36,14 +36,18 @@ CanalTP\SamCoreBundle\Entity\Customer:
             type: boolean
             column: cus_locked
             nullable: false
-        creationDateTime:
+        created:
             type: datetime
-            column: cus_creation_datetime
-            nullable: false
-        lastModificationDateTime:
+            column: cus_created
+            gedmo:
+                timestampable:
+                    on: create
+        updated:
             type: datetime
-            column: cus_last_modification_datetime
-            nullable: false
+            column: cus_updated
+            gedmo:
+                timestampable:
+                    on: update
     uniqueConstraints:
         name_idx:
             columns: [ cus_name_canonical ]
@@ -57,6 +61,7 @@ CanalTP\SamCoreBundle\Entity\Customer:
         applications:
             targetEntity: CanalTP\SamCoreBundle\Entity\CustomerApplication
             mappedBy: customer
+            cascade: [persist]
         users:
             targetEntity: CanalTP\SamEcoreUserManagerBundle\Entity\User
             mappedBy: customer

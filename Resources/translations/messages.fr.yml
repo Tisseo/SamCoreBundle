@@ -120,7 +120,7 @@ customer:
     applications: Applications
     perimeters: Perimètres
     creation_date: Crée le
-    navitia_token: Token Navitia
+    email: Email
     add_perimeter: Ajouter un périmètre
     new:
         title: Ajouter un customer

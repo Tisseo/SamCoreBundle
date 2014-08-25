@@ -8,7 +8,9 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\Email;
 use Doctrine\ORM\EntityRepository;
+use CanalTP\SamCoreBundle\Form\DataTransformer\ApplicationToCustomerApplicationTransformer;
 
 /**
  * Description of CustomerType
@@ -22,11 +24,13 @@ class CustomerType extends AbstractType
 
     private $coverages = null;
     private $navitia = null;
+    private $applicationsTransformer = null;
 
-    public function __construct($coverages, $navitia)
+    public function __construct($coverages, $navitia, $applicationsTransformer)
     {
         $this->coverages = $coverages;
         $this->navitia = $navitia;
+        $this->applicationsTransformer = $applicationsTransformer;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -64,14 +68,15 @@ class CustomerType extends AbstractType
             )
         );
         $builder->add(
-            'navitiaToken',
+            'email',
             'text',
             array(
-                'label' => 'customer.navitia_token',
+                'label' => 'customer.email',
                 'constraints' => array(
                     new Length(
                         array('max' => 255)
-                    )
+                    ),
+                    new Email(array('checkMX' => true))
                 )
             )
         );
@@ -88,7 +93,7 @@ class CustomerType extends AbstractType
                 },
                 'expanded' => true
             )
-        );
+        )->addModelTransformer($this->applicationsTransformer);
         $builder->add(
             'perimeters',
             'collection',

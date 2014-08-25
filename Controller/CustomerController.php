@@ -38,7 +38,14 @@ class CustomerController extends AbstractController
         $this->isGranted(array('BUSINESS_MANAGE_CLIENT', 'BUSINESS_CREATE_CLIENT'));
 
         $coverage = $this->get('sam_navitia')->getCoverages();
-        $form = $this->createForm(new CustomerType($coverage->regions, $this->get('sam_navitia')), $customer);
+        $form = $this->createForm(
+            new CustomerType(
+                $coverage->regions,
+                $this->get('sam_navitia'),
+                $this->get('sam_core.customer.application.transformer')
+            ),
+            $customer
+        );
 
         $form->handleRequest($request);
         if ($form->isValid()) {
@@ -63,7 +70,13 @@ class CustomerController extends AbstractController
         $this->isGranted('BUSINESS_CREATE_CLIENT');
 
         $coverage = $this->get('sam_navitia')->getCoverages();
-        $form = $this->createForm(new CustomerType($coverage->regions, $this->get('sam_navitia')));
+        $form = $this->createForm(
+            new CustomerType(
+                $coverage->regions,
+                $this->get('sam_navitia'),
+                $this->get('sam_core.customer.application.transformer')
+            )
+        );
 
         $form->handleRequest($request);
         if ($form->isValid()) {

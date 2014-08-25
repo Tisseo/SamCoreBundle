@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Customer
  */
-class Customer
+class Customer extends AbstractEntity
 {
     /**
      * @var integer
@@ -44,22 +44,12 @@ class Customer
     /**
      * @var string
      */
-    protected $emailCanonical;
+    private $emailCanonical;
 
     /**
      * @var boolean
      */
     private $locked;
-
-    /**
-     * @var \DateTime
-     */
-    private $creationDateTime;
-
-    /**
-     * @var \DateTime
-     */
-    private $lastModificationDateTime;
 
     /**
      *
@@ -73,10 +63,10 @@ class Customer
 
     public function __construct()
     {
-        $this->creationDateTime = new \DateTime();
         $this->applications = new ArrayCollection();
         $this->users = new ArrayCollection();
         $this->perimeters = new ArrayCollection();
+        $this->locked = false;
     }
 
     /**
@@ -167,7 +157,7 @@ class Customer
      * @param string $email
      * @return Customer
      */
-    private function setEmail($email)
+    public function setEmail($email)
     {
         $this->email = $email;
         $this->setEmailCanonical($email);
@@ -191,7 +181,7 @@ class Customer
      * @param string $emailCanonical
      * @return Customer
      */
-    public function setEmailCanonical($emailCanonical)
+    private function setEmailCanonical($emailCanonical)
     {
         $slug = new \CanalTP\SamCoreBundle\Slugify();
 
@@ -230,52 +220,6 @@ class Customer
     public function getLocked()
     {
         return $this->locked;
-    }
-
-    /**
-     * Set creationDateTime
-     *
-     * @param \DateTime $creationDateTime
-     * @return Customer
-     */
-    public function setCreationDateTime($creationDateTime)
-    {
-        $this->creationDateTime = $creationDateTime;
-
-        return $this;
-    }
-
-    /**
-     * Get creationDateTime
-     *
-     * @return \DateTime
-     */
-    public function getCreationDateTime()
-    {
-        return $this->creationDateTime;
-    }
-
-    /**
-     * Set lastModificationDateTime
-     *
-     * @param \DateTime $lastModificationDateTime
-     * @return Customer
-     */
-    public function setLastModificationDateTime($lastModificationDateTime)
-    {
-        $this->lastModificationDateTime = $lastModificationDateTime;
-
-        return $this;
-    }
-
-    /**
-     * Get lastModificationDateTime
-     *
-     * @return \DateTime
-     */
-    public function getLastModificationDateTime()
-    {
-        return $this->lastModificationDateTime;
     }
 
     public function setApplications($applications)

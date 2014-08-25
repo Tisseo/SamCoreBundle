@@ -8,6 +8,7 @@ parameters:
     # Monitoring
     sam.business_monitoring.nmm.class: CanalTP\SamCoreBundle\Monitoring\Component
     sam_core.customer.class: CanalTP\SamCoreBundle\Services\CustomerManager
+    sam_core.customer.application.transformer.class: CanalTP\SamCoreBundle\Form\DataTransformer\ApplicationToCustomerApplicationTransformer
 
 services:
     sam_core.slugify:
@@ -48,4 +49,8 @@ services:
     # Customer
     sam_core.customer:
         class: %sam_core.customer.class%
+        arguments: ['@doctrine.orm.entity_manager']
+
+    sam_core.customer.application.transformer:
+        class: %sam_core.customer.application.transformer.class%
         arguments: ['@doctrine.orm.entity_manager']

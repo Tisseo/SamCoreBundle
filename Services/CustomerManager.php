@@ -3,6 +3,8 @@
 namespace CanalTP\SamCoreBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use CanalTP\SamCoreBundle\Entity\CustomerApplication;
+use CanalTP\SamCoreBundle\Entity\Application;
 use CanalTP\SamCoreBundle\Entity\Customer;
 
 class CustomerManager
@@ -55,7 +57,6 @@ class CustomerManager
         $customer->setPerimeters(array_unique($customer->getPerimeters()->toArray()));
         $this->om->persist($customer);
         $customer->upload();
-        $customer->setLastModificationDateTime(new \DateTime());
         $this->om->flush();
     }
 
