@@ -14,11 +14,13 @@ class ApplicationToCustomerApplicationTransformer implements DataTransformerInte
 {
     private $om;
     private $navitiaTokenManager;
+    private $customerApplicationRepository;
 
     public function __construct(ObjectManager $om, NavitiaTokenManager $navitiaTokenManager)
     {
         $this->om = $om;
         $this->navitiaTokenManager = $navitiaTokenManager;
+        $this->customerApplicationRepository = $om->getRepository('CanalTPSamCoreBundle:Customer');
     }
 
     private function createCustomerApplicationRelation(Customer $customer, Application $application)
@@ -41,8 +43,9 @@ class ApplicationToCustomerApplicationTransformer implements DataTransformerInte
         }
         $applications = new ArrayCollection();
 
-        foreach ($customer->getApplications() as $application) {
-            $applications->add($application->getApplication());
+        foreach ($customer->getActiveCustomerApplications() as $customerApplication) {
+            $customerApplication->setIsActive(false);
+            $applications->add($customerApplication->getApplication());
         }
         $customer->setApplications($applications);
         return $customer;
