@@ -22,7 +22,7 @@
         <tr>
             <td><a href="{{ path('sam_customer_edit', { 'id': customer.id }) }}">{{ customer.name }}</a></td>
             <td><img src="{{ customer.getWebLogoPath }}" class="logo-customer-small" alt="{{ customer.name }} logo"/></td>
-            <td>{{ customer.creationDateTime.format('Y-m-d') }}</td>
+            <td>{{ customer.created.format('d/m/Y') }}</td>
         </tr>
     {% endfor %}
 {% endblock %}

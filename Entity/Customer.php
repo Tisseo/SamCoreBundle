@@ -342,7 +342,7 @@ class Customer extends AbstractEntity
         }
         $file = $this->getFile()->move(
             $this->getUploadRootDir(),
-            $this->getFile()->getCustomerOriginalName()
+            $this->getFile()->getClientOriginalName()
         );
         $fileName = $this->getId() . '.' . $file->getExtension();
         $file->move(
