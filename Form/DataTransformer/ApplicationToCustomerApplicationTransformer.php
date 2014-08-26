@@ -14,13 +14,42 @@ class ApplicationToCustomerApplicationTransformer implements DataTransformerInte
 {
     private $om;
     private $navitiaTokenManager;
-    private $customerApplicationRepository;
+    private $oldCustomerApplications;
+    private $oldPerimetersCode;
 
     public function __construct(ObjectManager $om, NavitiaTokenManager $navitiaTokenManager)
     {
         $this->om = $om;
         $this->navitiaTokenManager = $navitiaTokenManager;
-        $this->customerApplicationRepository = $om->getRepository('CanalTPSamCoreBundle:Customer');
+        $this->oldCustomerApplications = array();
+        $this->oldPerimeters = null;
+    }
+
+    private function generatePerimertersArray($perimeters)
+    {
+        $result = array();
+
+        foreach ($perimeters as $perimeter) {
+            $result[$perimeter->getExternalCoverageId()] = $perimeter->getExternalCoverageId();
+        }
+        return ($result);
+    }
+
+    public function transform($customer)
+    {
+        if ($customer === null) {
+            return ($customer);
+        }
+        $applications = new ArrayCollection();
+        $this->oldPerimeters = $this->generatePerimertersArray($customer->getPerimeters());
+
+        foreach ($customer->getActiveCustomerApplications() as $customerApplication) {
+            $customerApplication->setIsActive(false);
+            $applications->add($customerApplication->getApplication());
+            $this->oldCustomerApplications[$customerApplication->getApplication()->getId()] = $customerApplication;
+        }
+        $customer->setApplications($applications);
+        return $customer;
     }
 
     private function createCustomerApplicationRelation(Customer $customer, Application $application)
@@ -36,19 +65,11 @@ class ApplicationToCustomerApplicationTransformer implements DataTransformerInte
         return ($customerApplication);
     }
 
-    public function transform($customer)
+    private function clearUnusableTokens()
     {
-        if ($customer === null) {
-            return ($customer);
+        foreach ($this->oldCustomerApplications as $oldCustomerApplication) {
+            $this->navitiaTokenManager->deleteToken($oldCustomerApplication->getToken());
         }
-        $applications = new ArrayCollection();
-
-        foreach ($customer->getActiveCustomerApplications() as $customerApplication) {
-            $customerApplication->setIsActive(false);
-            $applications->add($customerApplication->getApplication());
-        }
-        $customer->setApplications($applications);
-        return $customer;
     }
 
     public function reverseTransform($customer)
@@ -57,21 +78,26 @@ class ApplicationToCustomerApplicationTransformer implements DataTransformerInte
             return $customer;
         }
         $customerApplications = new ArrayCollection();
-
         $this->navitiaTokenManager->initUser($customer->getNameCanonical(), $customer->getEmail());
         $this->navitiaTokenManager->initInstanceAndAuthorizations($customer->getPerimeters());
-        // TODO: clear all tokens
-        // if ($customer->getId() && $customer == ...)
-        // TODO: Delete token
-        // $this->navitiaTokenManager->generateToken()
+        $forceGenerateToken = !($this->oldPerimeters == $this->generatePerimertersArray($customer->getPerimeters()));
+
         foreach ($customer->getApplications() as $application) {
-            $customerApplications->add(
-                $this->createCustomerApplicationRelation(
-                    $customer,
-                    $application
-                )
-            );
+            if (!$forceGenerateToken && array_key_exists($application->getId(), $this->oldCustomerApplications)) {
+                $customerApplication = $this->oldCustomerApplications[$application->getId()];
+                $customerApplication->setIsActive(true);
+                $customerApplications->add($customerApplication);
+                unset($this->oldCustomerApplications[$application->getId()]);
+            } else {
+                $customerApplications->add(
+                    $this->createCustomerApplicationRelation(
+                        $customer,
+                        $application
+                    )
+                );
+            }
         }
+        $this->clearUnusableTokens();
         $customer->setApplications($customerApplications);
         return $customer;
     }

@@ -250,14 +250,13 @@ class Customer extends AbstractEntity
 
     public function getActiveCustomerApplications()
     {
-        $applications = new ArrayCollection();
-
-        foreach ($this->getApplications() as $application) {
-            if ($application->getIsActive()) {
-                $applications->add($application);
-            }
-        }
-        return ($applications);
+        return (
+            $this->getApplications()->filter(
+                function($customerApplication) {
+                   return ($customerApplication->getIsActive());
+                }
+            )
+        );
     }
 
     public function addUser($user)
