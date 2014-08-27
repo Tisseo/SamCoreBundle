@@ -183,9 +183,8 @@ class Customer extends AbstractEntity
      */
     private function setEmailCanonical($emailCanonical)
     {
-        $slug = new \CanalTP\SamCoreBundle\Slugify();
+        $this->emailCanonical = strtolower($emailCanonical);
 
-        $this->emailCanonical = $slug->slugify($emailCanonical);
         return $this;
     }
 
