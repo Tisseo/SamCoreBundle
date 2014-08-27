@@ -2,27 +2,27 @@ canal_tp_sam_homepage:
     pattern:  /
     defaults: { _controller: CanalTPSamCoreBundle:Sam:index }
 
-sam_client_list:
-    pattern:  /client
-    defaults: { _controller: CanalTPSamCoreBundle:Client:list }
+sam_customer_list:
+    pattern:  /customer
+    defaults: { _controller: CanalTPSamCoreBundle:Customer:list }
 
-sam_client_new:
-    pattern:  /client/new
-    defaults: { _controller: CanalTPSamCoreBundle:Client:new }
+sam_customer_new:
+    pattern:  /customer/new
+    defaults: { _controller: CanalTPSamCoreBundle:Customer:new }
 
-sam_client_edit:
-    pattern:  /client/{id}/edit
-    defaults: { _controller: CanalTPSamCoreBundle:Client:edit }
+sam_customer_edit:
+    pattern:  /customer/{id}/edit
+    defaults: { _controller: CanalTPSamCoreBundle:Customer:edit }
 
 canal_tp_sam_network_list_json:
     pattern: /coverage/{externalCoverageId}/networks
-    defaults: { _controller: CanalTPSamCoreBundle:Client:byCoverage }
+    defaults: { _controller: CanalTPSamCoreBundle:Customer:byCoverage }
     options:
         expose: true
-        
+
 canal_tp_sam_network_check_permission_json:
     pattern: /coverage/{externalCoverageId}/networks/{externalNetworkId}/{token}
-    defaults: { _controller: CanalTPSamCoreBundle:Client:checkAllowedToNetwork }
+    defaults: { _controller: CanalTPSamCoreBundle:Customer:checkAllowedToNetwork }
     requirements:
         token: -?[a-zA-Z0-9_\-:]*
     options:

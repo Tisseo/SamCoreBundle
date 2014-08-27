@@ -25,8 +25,8 @@ parameters:
             label: Creer un utilisateur Super Admin
             description: Pourra donner les droits Super Admin à un utilisateur lors de sa création
         BUSINESS_MANAGE_CLIENT:
-            label: Lister les clients
-            description: Peut voir les clients
+            label: Lister les customers
+            description: Peut voir les customers
         BUSINESS_CREATE_CLIENT:
-            label: Creer des clients
+            label: Creer des customers
             description: Le label n'est-il pas assez explicite ?

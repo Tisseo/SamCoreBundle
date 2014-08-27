@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block left_menu -%}
-    {% include 'CanalTPSamCoreBundle:Client:left_menu.html.twig' %}
+    {% include 'CanalTPSamCoreBundle:Customer:left_menu.html.twig' %}
 {% endblock %}
 
 {% block main_content %}
@@ -9,24 +9,28 @@
     <h1>{{ title|trans }}</h1>
     <hr/>
 
-
     {{ form_start(form, { 'style': 'horizontal' }) }}
         {{ form_row(form.name) }}
 
         {% if (logoPath is not empty) %}
-            <p><img src="{{ logoPath }}" class="logo-client-medium" alt="{{ client.name }} logo"/></p>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+                <img src="{{ logoPath }}" class="logo-customer-medium" alt="{{ customer.name }} logo"/>
+            </div>
+        </div>
+
         {% endif %}
         {{ form_row(form.file) }}
 
-        {{ form_row(form.navitiaToken) }}
+        {{ form_row(form.email) }}
 
         {{ form_row(form.applications) }}
 
         <div class="form-group row">
         {{ form_label(form.perimeters) }}
-            <div class="col-lg-10 perimeters" data-prototype="{{ include('CanalTPSamCoreBundle:Client:_perimeter-prototype.html.twig', { 'perimeter': form.perimeters.vars.prototype})|e }}">
+            <div class="col-lg-10 perimeters" data-prototype="{{ include('CanalTPSamCoreBundle:Customer:_perimeter-prototype.html.twig', { 'perimeter': form.perimeters.vars.prototype})|e }}">
             {% for perimeter in form.perimeters %}
-                {% include "CanalTPSamCoreBundle:Client:_perimeter-prototype.html.twig" with {'form': perimeter} %}
+                {% include "CanalTPSamCoreBundle:Customer:_perimeter-prototype.html.twig" with {'form': perimeter} %}
             {% endfor %}
             </div>
         </div>

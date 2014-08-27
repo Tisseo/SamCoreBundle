@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Client
+ * Customer
  */
-class Client
+class Customer extends AbstractEntity
 {
     /**
      * @var integer
@@ -37,24 +37,19 @@ class Client
     private $nameCanonical;
 
     /**
-     * @var boolean
+     * @var string
      */
-    private $locked;
-
-    /**
-     * @var \DateTime
-     */
-    private $creationDateTime;
-
-    /**
-     * @var \DateTime
-     */
-    private $lastModificationDateTime;
+    private $email;
 
     /**
      * @var string
      */
-    private $navitiaToken;
+    private $emailCanonical;
+
+    /**
+     * @var boolean
+     */
+    private $locked;
 
     /**
      *
@@ -68,10 +63,10 @@ class Client
 
     public function __construct()
     {
-        $this->creationDateTime = new \DateTime();
         $this->applications = new ArrayCollection();
         $this->users = new ArrayCollection();
         $this->perimeters = new ArrayCollection();
+        $this->locked = false;
     }
 
     /**
@@ -88,7 +83,7 @@ class Client
      * Set name
      *
      * @param string $name
-     * @return Client
+     * @return Customer
      */
     public function setName($name)
     {
@@ -112,7 +107,7 @@ class Client
      * Set logoPath
      *
      * @param string $logoPath
-     * @return Client
+     * @return Customer
      */
     public function setLogoPath($logoPath)
     {
@@ -135,7 +130,7 @@ class Client
      * Set nameCanonical
      *
      * @param string $nameCanonical
-     * @return Client
+     * @return Customer
      */
     private function setNameCanonical($name)
     {
@@ -157,10 +152,58 @@ class Client
     }
 
     /**
+     * Set email
+     *
+     * @param string $email
+     * @return Customer
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+        $this->setEmailCanonical($email);
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set emailCanonical
+     *
+     * @param string $emailCanonical
+     * @return Customer
+     */
+    private function setEmailCanonical($emailCanonical)
+    {
+        $slug = new \CanalTP\SamCoreBundle\Slugify();
+
+        $this->emailCanonical = $slug->slugify($emailCanonical);
+        return $this;
+    }
+
+    /**
+     * Get emailCanonical
+     *
+     * @return string
+     */
+    public function getEmailCanonical()
+    {
+        return $this->emailCanonical;
+    }
+
+    /**
      * Set locked
      *
      * @param boolean $locked
-     * @return Client
+     * @return Customer
      */
     public function setLocked($locked)
     {
@@ -177,64 +220,6 @@ class Client
     public function getLocked()
     {
         return $this->locked;
-    }
-
-    /**
-     * Set creationDateTime
-     *
-     * @param \DateTime $creationDateTime
-     * @return Client
-     */
-    public function setCreationDateTime($creationDateTime)
-    {
-        $this->creationDateTime = $creationDateTime;
-
-        return $this;
-    }
-
-    /**
-     * Get creationDateTime
-     *
-     * @return \DateTime
-     */
-    public function getCreationDateTime()
-    {
-        return $this->creationDateTime;
-    }
-
-    /**
-     * Set lastModificationDateTime
-     *
-     * @param \DateTime $lastModificationDateTime
-     * @return Client
-     */
-    public function setLastModificationDateTime($lastModificationDateTime)
-    {
-        $this->lastModificationDateTime = $lastModificationDateTime;
-
-        return $this;
-    }
-
-    /**
-     * Get lastModificationDateTime
-     *
-     * @return \DateTime
-     */
-    public function getLastModificationDateTime()
-    {
-        return $this->lastModificationDateTime;
-    }
-
-    public function setNavitiaToken($navitiaToken)
-    {
-        $this->navitiaToken = $navitiaToken;
-
-        return $this;
-    }
-
-    public function getNavitiaToken()
-    {
-        return $this->navitiaToken;
     }
 
     public function setApplications($applications)
@@ -261,6 +246,17 @@ class Client
     public function getApplications()
     {
         return $this->applications;
+    }
+
+    public function getActiveCustomerApplications()
+    {
+        return (
+            $this->getApplications()->filter(
+                function($customerApplication) {
+                   return ($customerApplication->getIsActive());
+                }
+            )
+        );
     }
 
     public function addUser($user)
@@ -292,7 +288,7 @@ class Client
     public function addPerimeter($perimeter)
     {
         $this->perimeters->add($perimeter);
-        $perimeter->setClient($this);
+        $perimeter->setCustomer($this);
 
         return $this;
     }
@@ -308,7 +304,7 @@ class Client
     {
         $this->perimeters = $perimeters;
         foreach ($perimeters as $perimeter) {
-            $perimeter->setClient($this);
+            $perimeter->setCustomer($this);
         }
 
         return $this;
@@ -317,7 +313,7 @@ class Client
     public function refreshPerimeters()
     {
         foreach ($this->perimeters as $perimeter) {
-            $perimeter->setClient($this);
+            $perimeter->setCustomer($this);
         }
 
         return $this;
@@ -390,6 +386,6 @@ class Client
 
     private function getUploadDir()
     {
-        return '/uploads/clients/logos/';
+        return '/uploads/customers/logos/';
     }
 }

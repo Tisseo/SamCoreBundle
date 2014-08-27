@@ -5,54 +5,61 @@ namespace CanalTP\SamCoreBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use CanalTP\SamCoreBundle\Entity\Client as ClientEntity;
+use CanalTP\SamCoreBundle\Entity\Customer as CustomerEntity;
 use CanalTP\SamCoreBundle\Entity\Perimeter;
-use CanalTP\SamCoreBundle\Form\Type\ClientType;
+use CanalTP\SamCoreBundle\Form\Type\CustomerType;
 
 /**
- * Description of ClientController
+ * Description of CustomerController
  *
  * @author Kévin ZIEMIANSKI <kevin.ziemianski@canaltp.fr>
  */
-class ClientController extends AbstractController
+class CustomerController extends AbstractController
 {
     public function listAction()
     {
         $this->isGranted('BUSINESS_MANAGE_CLIENT');
 
-        $clients = $this->getDoctrine()
+        $customers = $this->getDoctrine()
             ->getManager()
-            ->getRepository('CanalTPSamCoreBundle:Client')
+            ->getRepository('CanalTPSamCoreBundle:Customer')
             ->findAll();
 
         return $this->render(
-            'CanalTPSamCoreBundle:Client:list.html.twig',
+            'CanalTPSamCoreBundle:Customer:list.html.twig',
             array(
-                'clients' => $clients
+                'customers' => $customers
             )
         );
     }
 
-    public function editAction(Request $request, ClientEntity $client = null)
+    public function editAction(Request $request, CustomerEntity $customer = null)
     {
         $this->isGranted(array('BUSINESS_MANAGE_CLIENT', 'BUSINESS_CREATE_CLIENT'));
 
         $coverage = $this->get('sam_navitia')->getCoverages();
-        $form = $this->createForm(new ClientType($coverage->regions, $this->get('sam_navitia')), $client);
+        $form = $this->createForm(
+            new CustomerType(
+                $coverage->regions,
+                $this->get('sam_navitia'),
+                $this->get('sam_core.customer.application.transformer')
+            ),
+            $customer
+        );
 
         $form->handleRequest($request);
         if ($form->isValid()) {
-            $this->get('sam_core.client')->save($form->getData());
-            $this->addFlashMessage('success', 'client.flash.edit.success');
+            $this->get('sam_core.customer')->save($form->getData());
+            $this->addFlashMessage('success', 'customer.flash.edit.success');
 
-            return $this->redirect($this->generateUrl('sam_client_list'));
+            return $this->redirect($this->generateUrl('sam_customer_list'));
         }
 
         return $this->render(
-            'CanalTPSamCoreBundle:Client:form.html.twig',
+            'CanalTPSamCoreBundle:Customer:form.html.twig',
             array(
-                'title' => 'client.edit.title',
-                'logoPath' => $client->getWebLogoPath(),
+                'title' => 'customer.edit.title',
+                'logoPath' => $customer->getWebLogoPath(),
                 'form' => $form->createView()
             )
         );
@@ -63,21 +70,27 @@ class ClientController extends AbstractController
         $this->isGranted('BUSINESS_CREATE_CLIENT');
 
         $coverage = $this->get('sam_navitia')->getCoverages();
-        $form = $this->createForm(new ClientType($coverage->regions, $this->get('sam_navitia')));
+        $form = $this->createForm(
+            new CustomerType(
+                $coverage->regions,
+                $this->get('sam_navitia'),
+                $this->get('sam_core.customer.application.transformer')
+            )
+        );
 
         $form->handleRequest($request);
         if ($form->isValid()) {
-            $this->get('sam_core.client')->save($form->getData());
-            $this->addFlashMessage('success', 'client.flash.creation.success');
+            $this->get('sam_core.customer')->save($form->getData());
+            $this->addFlashMessage('success', 'customer.flash.creation.success');
 
-            return $this->redirect($this->generateUrl('sam_client_list'));
+            return $this->redirect($this->generateUrl('sam_customer_list'));
         }
 
         return $this->render(
-            'CanalTPSamCoreBundle:Client:form.html.twig',
+            'CanalTPSamCoreBundle:Customer:form.html.twig',
             array(
                 'logoPath' => null,
-                'title' => 'client.new.title',
+                'title' => 'customer.new.title',
                 'form' => $form->createView()
             )
         );
@@ -98,10 +111,10 @@ class ClientController extends AbstractController
         } catch(\Navitia\Component\Exception\NavitiaException $e) {
             $response->setData(array('status' => $status));
             $response->setStatusCode($status);
-            
+
             return $response;
         }
-        
+
         $status = Response::HTTP_OK;
         $response->setData(
             array(
@@ -113,7 +126,7 @@ class ClientController extends AbstractController
 
         return $response;
     }
-    
+
     public function checkAllowedToNetworkAction($externalCoverageId, $externalNetworkId, $token)
     {
         $response = new JsonResponse();
@@ -126,14 +139,14 @@ class ClientController extends AbstractController
         } catch(\Navitia\Component\Exception\NavitiaException $e) {
             $response->setData(array('status' => $status));
             $response->setStatusCode($status);
-            
+
             return $response;
         }
 
         if (isset($networks[$externalNetworkId])) {
             $status = Response::HTTP_OK;
         }
-        
+
         $response->setData(array('status' => $status));
         $response->setStatusCode($status);
 
