@@ -23,7 +23,8 @@ abstract class BaseControllerTest extends WebTestCase {
     protected $customer;
     protected $application;
     protected $firewall = 'main';
-    protected $stubs_path = null;
+    protected $navitiaStubsPath = null;
+    protected $tyrStubsPath = null;
 
     static protected $currentUser = null;
 
@@ -40,7 +41,8 @@ abstract class BaseControllerTest extends WebTestCase {
             ini_set('xdebug.max_nesting_level', 200);
         }
         $this->initConsole();
-        $this->stubs_path = dirname(__FILE__) . '/stubs/';
+        $this->navitiaStubsPath = dirname(__FILE__) . '/stubs/navitia/';
+        $this->tyrStubsPath = dirname(__FILE__) . '/stubs/tyr/';
     }
 
     /**
@@ -275,19 +277,19 @@ abstract class BaseControllerTest extends WebTestCase {
 
         $navitia->expects($this->any())
             ->method('getRouteStopPoints')
-            ->will($this->returnValue(json_decode($this->readStub('route_schedules.json'))));
+            ->will($this->returnValue(json_decode($this->readNavitiaStub('route_schedules.json'))));
 
         $navitia->expects($this->any())
             ->method('getStopPointCalendarsData')
-            ->will($this->returnValue(json_decode($this->readStub('calendars.json'))));
+            ->will($this->returnValue(json_decode($this->readNavitiaStub('calendars.json'))));
 
         $navitia->expects($this->any())
             ->method('getRouteCalendars')
-            ->will($this->returnValue(json_decode($this->readStub('calendars.json'))));
+            ->will($this->returnValue(json_decode($this->readNavitiaStub('calendars.json'))));
 
         $navitia->expects($this->any())
             ->method('getStopPointPois')
-            ->will($this->returnValue(json_decode($this->readStub('places_nearby.json'))));
+            ->will($this->returnValue(json_decode($this->readNavitiaStub('places_nearby.json'))));
 
         $navitia->expects($this->any())
             ->method('getCalendarStopSchedulesByRoute')
@@ -300,8 +302,46 @@ abstract class BaseControllerTest extends WebTestCase {
         return $navitia;
     }
 
-    protected function readStub($filename)
+    protected function getMockedTyr()
     {
-        return file_get_contents($this->stubs_path . $filename);
+        $tyr = $this->getMockBuilder('CanalTP\NmmPortalBundle\Services\NavitiaTokenManager')
+            ->setMethods(
+                array(
+                    'initUser',
+                    'initInstanceAndAuthorizations',
+                    'deleteToken',
+                    'generateToken'
+                )
+            )
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $tyr->expects($this->any())
+            ->method('initUser')
+            ->will($this->returnValue("LOLLLLLL"));
+
+        $tyr->expects($this->any())
+            ->method('initInstanceAndAuthorizations')
+            ->will($this->returnValue(null));
+
+        $tyr->expects($this->any())
+            ->method('generateToken')
+            ->will($this->returnValue(md5(time())));
+
+        $tyr->expects($this->any())
+            ->method('deleteToken')
+            ->will($this->returnValue(json_decode($this->readTyrStub('keys.json'))));
+
+        return $tyr;
+    }
+
+    protected function readNavitiaStub($filename)
+    {
+        return file_get_contents($this->navitiaStubsPath . $filename);
+    }
+
+    protected function readTyrStub($filename)
+    {
+        return file_get_contents($this->tyrStubsPath . $filename);
     }
 }

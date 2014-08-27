@@ -10,6 +10,12 @@ class CustomerControllerTest extends AbstractControllerTest
     private $name = 'Divia';
     private $email = 'test@canaltp.fr';
 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->setService('navitia_token_manager', $this->getMockedTyr());
+    }
+
     private function getForm()
     {
         // Check if the form is correctly displayed

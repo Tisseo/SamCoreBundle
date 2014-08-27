@@ -78,6 +78,7 @@ class ApplicationToCustomerApplicationTransformer implements DataTransformerInte
             return $customer;
         }
         $customerApplications = new ArrayCollection();
+        var_dump($this->navitiaTokenManager->initUser(42, 42));die;
         $this->navitiaTokenManager->initUser($customer->getNameCanonical(), $customer->getEmail());
         $this->navitiaTokenManager->initInstanceAndAuthorizations($customer->getPerimeters());
         $forceGenerateToken = !($this->oldPerimeters == $this->generatePerimertersArray($customer->getPerimeters()));
