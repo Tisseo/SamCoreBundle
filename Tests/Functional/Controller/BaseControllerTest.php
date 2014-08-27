@@ -318,7 +318,7 @@ abstract class BaseControllerTest extends WebTestCase {
 
         $tyr->expects($this->any())
             ->method('initUser')
-            ->will($this->returnValue("LOLLLLLL"));
+            ->will($this->returnValue(null));
 
         $tyr->expects($this->any())
             ->method('initInstanceAndAuthorizations')
