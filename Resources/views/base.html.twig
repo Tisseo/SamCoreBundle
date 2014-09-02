@@ -12,11 +12,11 @@
                 <link rel="stylesheet" href="{{ asset_url }}?{{ assets_version }}" />
             {% endstylesheets %}
         {% endblock %}
-        
+
         {% block head_config %}
             {% include 'CanalTPSamCoreBundle::config.js.html.twig' %}
         {% endblock %}
-        
+
         <!--[if lt IE 9]>
             {% javascripts '../vendor/respondjs/respondjs/respond.js'
                            '../vendor/afarkas/html5shiv/src/html5shiv.js' %}
@@ -82,7 +82,7 @@
 
                 {% block body %}
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div id="left-menu">
                         {% block left_menu -%}
                         {% endblock %}
@@ -110,7 +110,7 @@
                 </div>
             {% endblock %}
         </div>
-        
+
         {% block javascripts %}{% endblock %}
         {% block inline_javascripts %}{% endblock %}
     </body>
