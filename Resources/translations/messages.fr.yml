@@ -123,14 +123,14 @@ customer:
     email: Email
     add_perimeter: Ajouter un périmètre
     new:
-        title: Ajouter un customer
+        title: Ajouter un client
     edit:
-        title: Édition d'un customer
+        title: Édition d'un client
     flash:
         edit:
             success: Changements sauvegardés
         creation:
-            success: Le nouveau customer a bien été créé
+            success: Le nouveau client a bien été créé
 
 perimeter:
     external_coverage_id: Id du coverage
