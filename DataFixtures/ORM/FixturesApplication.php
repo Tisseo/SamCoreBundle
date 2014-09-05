@@ -16,15 +16,9 @@ class FixturesApplication extends AbstractFixture implements OrderedFixtureInter
         $appSam->setDefaultRoute('/admin');
         $em->persist($appSam);
 
-        $appNmpAdmin = new Application('NmpAdmin');
-        $appNmpAdmin->setCanonicalName('nmpadmin');
-        $appNmpAdmin->setDefaultRoute('/nmpadmin/sim');
-        $em->persist($appNmpAdmin);
-
         $em->flush();
 
         $this->addReference('app-sam', $appSam);
-        $this->addReference('app-nmpadmin', $appNmpAdmin);
     }
 
      /**
