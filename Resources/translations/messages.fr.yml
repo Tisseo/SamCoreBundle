@@ -118,6 +118,7 @@ customer:
     name: Nom
     logo_path: Logo
     applications: Applications
+    application: Application
     perimeters: Perimètres
     creation_date: Crée le
     email: Email
@@ -131,6 +132,13 @@ customer:
             success: Changements sauvegardés
         creation:
             success: Le nouveau customer a bien été créé
+    actions: Actions
+    actions.listtokens: Voir les clés
+    token: token
+    token.status: État
+    token.enable: Activé
+    token.disable: Désactivé
+    token.unauthorized: Bloqué
 
 perimeter:
     external_coverage_id: Id du coverage

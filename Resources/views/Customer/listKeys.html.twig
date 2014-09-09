@@ -1,0 +1,43 @@
+{% extends "CanalTPSamCoreBundle::generic_list.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets 'bundles/canaltpsamcore/css/customer.css' %}
+         <link rel="stylesheet" href="{{ asset_url }}?{{ assets_version }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block left_menu -%}
+    {% include 'CanalTPSamCoreBundle:Customer:left_menu.html.twig' %}
+{% endblock %}
+
+{% block table_head -%}
+    <th>{{ 'customer.application'|trans }}</th>
+    <th>{{ 'customer.token'|trans }}</th>
+    <th>{{ 'customer.token.status'|trans }}</th>
+{% endblock %}
+
+{% block table_body -%}
+    {% if applicationsTokens|length == 0 %}
+        <tr>
+            <td colspan="4">
+                {{'global.no_items'|trans}}
+            </td>
+        </tr>
+    {% endif %}
+    {% for applicationToken in applicationsTokens %}
+        <tr>
+            <td>{{ applicationToken.application.name }}</td>
+            <td>{{ applicationToken.token }}</td>
+            {% if applicationToken.isActive %}
+                {% if isTokenAllow(applicationToken.token, perimeters) %}
+                    <td>{{'customer.token.enable'|trans}}</td>
+                {% else %}
+                    <td class="disable-token">{{'customer.token.unauthorized'|trans}}</td>
+                {% endif %}
+            {% else %}
+                <td>{{'customer.token.disable'|trans}}</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+{% endblock %}

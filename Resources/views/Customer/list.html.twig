@@ -1,5 +1,12 @@
 {% extends "CanalTPSamCoreBundle::generic_list.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets 'bundles/canaltpsamcore/css/customer.css' %}
+         <link rel="stylesheet" href="{{ asset_url }}?{{ assets_version }}" />
+    {% endstylesheets %}
+{% endblock %}
+
 {% block left_menu -%}
     {% include 'CanalTPSamCoreBundle:Customer:left_menu.html.twig' %}
 {% endblock %}
@@ -8,6 +15,7 @@
     <th>{{ 'customer.name'|trans }}</th>
     <th>{{ 'customer.logo'|trans }}</th>
     <th>{{ 'customer.creation_date'|trans }}</th>
+    <th>{{ 'customer.actions'|trans }}</th>
 {% endblock %}
 
 {% block table_body -%}
@@ -19,11 +27,43 @@
         </tr>
     {% endif %}
     {% for customer in customers %}
-        <tr>
+        <tr class="customer-row" customer-id="{{ customer.id }}">
             <td><a href="{{ path('sam_customer_edit', { 'id': customer.id }) }}">{{ customer.name }}</a></td>
             <td><img src="{{ customer.getWebLogoPath }}" class="logo-customer-small" alt="{{ customer.name }} logo"/></td>
             <td>{{ customer.created.format('d/m/Y') }}</td>
+            <td class="action">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">{{'ctp_core.toggle_menu'|trans}}</span>
+                    </button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                        <li>
+                            <a class="danger" href="{{ path('sam_customer_listkeys', { 'id': customer.id }) }}">
+                                <span class="glyphicon glyphicon-check array"></span> {{'customer.actions.listkeys'|trans}}
+                            </a>
+                        </li>
+                        {#
+                        <li>
+                            <a class="danger" href="{{ path('sam_customer_delete', { 'id': entity.id }) }}" data-toggle="modal" data-target="#base-modal">
+                                <span class="glyphicon glyphicon-trash"></span> {{'customer.actions.delete'|trans}}
+                            </a>
+                        </li>
+                        #}
+                    </ul>
+                </div>
+            </td>
         </tr>
+{#        
+        {% for application in customer.applications %}
+            <tr class="customer-token" customer-id="{{ customer.id }}">
+                <td>8484</td>
+                <td>{{ application.token }}</td>
+                <td>{{ application.application.name }}</td>
+            </tr>    
+        {% endfor %}
+#}
+        
     {% endfor %}
 {% endblock %}
 

@@ -129,6 +129,8 @@ class CustomerController extends AbstractController
 
     public function checkAllowedToNetworkAction($externalCoverageId, $externalNetworkId, $token)
     {
+        return;
+        
         $response = new JsonResponse();
         $navitia = $this->get('sam_navitia');
         $status = Response::HTTP_FORBIDDEN;
@@ -151,5 +153,16 @@ class CustomerController extends AbstractController
         $response->setStatusCode($status);
 
         return $response;
+    }
+    
+    public function listKeysAction(CustomerEntity $customer)
+    {
+        return $this->render(
+            'CanalTPSamCoreBundle:Customer:listKeys.html.twig',
+            array(
+                'applicationsTokens' => $customer->getApplications(),
+                'perimeters' => $customer->getPerimeters()
+            )
+        );
     }
 }

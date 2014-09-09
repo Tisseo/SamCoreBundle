@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://samback/admin/login" />
+<title>IUS-280</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">IUS-280</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/app_dev.php/admin/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>sam</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>sam</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=remember_me</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.dropdown-toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Client</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Ajouter un customer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=customer_name</td>
+	<td>IUS-280</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=customer_email</td>
+	<td>kevin.ziemianski@canaltp.fr</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_0_external_coverage_id</td>
+	<td>label=bourgogne</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=customer_perimeters_0_external_network_id</td>
+	<td>Veuillez choisir...</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_0_external_network_id</td>
+	<td>label=Divia</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=customer.actions.listkeys</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[4]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[5]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Client</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=IUS-280</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_1_external_coverage_id</td>
+	<td>label=bretagne</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=customer_perimeters_1_external_network_id</td>
+	<td>Veuillez choisir...</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_1_external_network_id</td>
+	<td>label=Auray Bus - Auray</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=customer.actions.listkeys</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[4]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[5]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[6]/td[3]</td>
+	<td>Désactivé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[7]/td[3]</td>
+	<td>Désactivé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[8]/td[3]</td>
+	<td>Désactivé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[9]/td[3]</td>
+	<td>Désactivé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[10]/td[3]</td>
+	<td>Désactivé</td>
+</tr>
+</tbody></table>
+</body>
+</html>
