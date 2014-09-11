@@ -295,7 +295,7 @@ abstract class BaseControllerTest extends WebTestCase {
             ->method('getCalendarStopSchedulesByRoute')
             ->will($this->returnCallback(
                 function () {
-                    return json_decode(file_get_contents(dirname(__FILE__) . '/stubs/stop_schedules.json'));
+                    return json_decode(file_get_contents(dirname(__FILE__) . '/stubs/navitia/stop_schedules.json'));
                 }
             ));
 
