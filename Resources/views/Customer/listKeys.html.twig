@@ -8,13 +8,22 @@
 {% endblock %}
 
 {% block left_menu -%}
-    {% include 'CanalTPSamCoreBundle:Customer:left_menu.html.twig' %}
+    <a class="btn btn-default" href="{{ path('sam_customer_list') }}">
+        <span class="glyphicon glyphicon-arrow-left"></span> 
+        {{'customer.list'|trans}}
+    </a>
+    <br/><br/>
+    <a class="btn btn-danger" href="{{ path('sam_customer_regeneratealltokens', { 'id': customerId }) }}">
+        <span class="glyphicon glyphicon-repeat"></span> 
+        {{'customer.token.regenerate_all'|trans}}
+    </a>
 {% endblock %}
 
 {% block table_head -%}
     <th>{{ 'customer.application'|trans }}</th>
     <th>{{ 'customer.token'|trans }}</th>
     <th>{{ 'customer.token.status'|trans }}</th>
+    <th>{{ 'customer.token.regenerate'|trans }}</th>
 {% endblock %}
 
 {% block table_body -%}
@@ -38,6 +47,9 @@
             {% else %}
                 <td>{{'customer.token.disable'|trans}}</td>
             {% endif %}
+            <td><a href="{{ path('sam_customer_regeneratetoken', { 'appId': applicationToken.application.id, 'id': customerId }) }}">
+                <span class="glyphicon glyphicon-repeat array"></span>
+            </a></td>
         </tr>
     {% endfor %}
 {% endblock %}

@@ -33,6 +33,9 @@ class CustomerApplication extends AbstractEntity
      * @var string
      */
     private $application;
+    
+    protected $created;
+    protected $updated;
 
 
     /**
@@ -135,5 +138,31 @@ class CustomerApplication extends AbstractEntity
     public function getApplication()
     {
         return $this->application;
+    }
+    
+    
+    
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    public function getCreated()
+    {
+        return $this->created;
+    }
+    
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }
