@@ -116,6 +116,7 @@ customer:
     logo: Logo
     created: Date de création
     name: Nom
+    list: Liste des clients
     logo_path: Logo
     applications: Applications
     application: Application
@@ -135,10 +136,13 @@ customer:
     actions: Actions
     actions.listtokens: Voir les clés
     token: token
-    token.status: État
-    token.enable: Activé
-    token.disable: Désactivé
-    token.unauthorized: Bloqué
+    token:
+        status: État
+        enable: Activé
+        disable: Désactivé
+        unauthorized: Bloqué
+        regenerate: Re-générer
+        regenerate_all: Re-générer TOUS les tokens
 
 perimeter:
     external_coverage_id: Id du coverage
