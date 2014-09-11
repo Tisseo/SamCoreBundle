@@ -27,6 +27,14 @@ canal_tp_sam_network_check_permission_json:
         token: -?[a-zA-Z0-9_\-:]*
     options:
         expose: true
+        
+sam_customer_regeneratetoken:
+    pattern:  /customer/{id}/keys/{appId}/regenerate
+    defaults: { _controller: CanalTPSamCoreBundle:Customer:regenerateKey }
+
+sam_customer_regeneratealltokens:
+    pattern:  /customer/{id}/keys/regenerate
+    defaults: { _controller: CanalTPSamCoreBundle:Customer:regenerateKeys }
 
 sam_customer_listkeys:
     pattern:  /customer/{id}/keys

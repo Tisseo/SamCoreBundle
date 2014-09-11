@@ -11,11 +11,13 @@ class CustomerManager
 {
     private $om = null;
     private $repository = null;
+    protected $navitiaTokenManager = null;
 
-    public function __construct(ObjectManager $om)
+    public function __construct(ObjectManager $om, $navitiaTokenManager)
     {
         $this->om = $om;
         $this->repository = $this->om->getRepository('CanalTPSamCoreBundle:Customer');
+        $this->navitiaTokenManager = $navitiaTokenManager;
     }
 
     public function findAll()
@@ -63,5 +65,58 @@ class CustomerManager
     public function findAllToArray()
     {
         return ($this->repository->findAllToArray());
+    }
+    
+    public function disableTokens(Customer $customer, Application $application = null)
+    {
+        $this->repository->disableTokens($customer, $application);
+    }
+    
+    public function getApplications($customer)
+    {
+        $applications = array();
+        foreach ($customer->getActiveCustomerApplications() as $customerApplication) {
+            $applications[] = $customerApplication->getApplication();
+        }
+        
+        return $applications;
+    }
+    
+    public function generateTokens($customer, $applications)
+    {
+        foreach ($applications as $application) {
+            $this->createCustomerApplicationRelation($customer, $application);
+        }
+        
+        return true;
+    }
+    
+    public function generateToken($customer, $application)
+    {
+        $this->createCustomerApplicationRelation($customer, $application);
+    }
+    
+    
+    public function initTokenManager($name, $email, $perimeters)
+    {
+        $this->navitiaTokenManager->initUser($name, $email);
+        $this->navitiaTokenManager->initInstanceAndAuthorizations($perimeters);
+    }
+    
+    protected function createCustomerApplicationRelation(Customer $customer, Application $application)
+    {
+        $customerApplication = new CustomerApplication();
+
+        $customerApplication->setCustomer($customer);
+        $customerApplication->setApplication($application);
+        $customerApplication->setToken(
+            $this->navitiaTokenManager->generateToken()
+        );
+        $customerApplication->setIsActive(true);
+        
+        $this->om->persist($customerApplication);
+        $this->om->flush($customerApplication);
+        
+        return $customerApplication;
     }
 }
