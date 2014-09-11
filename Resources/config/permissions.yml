@@ -6,9 +6,6 @@ parameters:
         BUSINESS_MANAGE_USER:
             label: Gérer les utilisateurs
             description: Modifier les données personnelles des utilisateurs. Créer des utilisateurs. Supprimer des utilisateurs.
-        BUSINESS_MANAGE_USER_ROLE:
-            label: Assigner un rôle à un utilisateur
-            description: Permet de visualiser les permissions associées à chaque rôle et d'attribuer et de retirer un rôle à un utilisateur.
         BUSINESS_MANAGE_USER_PERIMETER:
             label: Assigner des périmètres à des utilisateurs
             description: Sur la page de création d’utilisateurs. Sur la page de modification d’utilisateur
