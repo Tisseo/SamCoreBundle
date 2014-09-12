@@ -51,8 +51,12 @@ EOT
         // Create the database
         $this->runCommand('doctrine:database:create', array(), $output);
 
-        // Create tables
-        $this->runCommand('doctrine:migrations:migrate', array(), $output);
+        // Create tables for each aplications
+        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPSamCoreBundle', '--target' => 'farthest'), $output);
+        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPMttBundle', '--target' => 'farthest'), $output);
+        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPNmpAdminBundle', '--target' => 'farthest'), $output);
+        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPRealTimeBundle', '--target' => 'farthest'), $output);
+        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPMatrixBundle', '--target' => 'farthest'), $output);
 
         // Fixtures
         $this->runCommand('doctrine:fixtures:load', array('--append'  => true), $output);
@@ -60,7 +64,7 @@ EOT
 
     private function runCommand($command, $arguments, OutputInterface $output)
     {
-        
+
         $input = new ArrayInput(
             array_merge(
                 array('command' => $command),
