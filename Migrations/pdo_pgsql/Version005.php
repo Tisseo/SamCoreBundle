@@ -2,10 +2,9 @@
 
 namespace CanalTP\SamCoreBundle\Migrations\pdo_pgsql;
 
-use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
 
-class Version005 extends AbstractMigration
+class Version005 extends AbstractSamMigration
 {
     const VERSION = '0.0.5';
 
@@ -16,6 +15,8 @@ class Version005 extends AbstractMigration
 
     public function up(Schema $schema)
     {
+        $this->skipIf($this->tableExists('migration_versions'), 'No need to do this migration.');
+
         $this->addSql('DROP TABLE public.tj_customer_application_cap CASCADE;');
         $this->addSql('CREATE SEQUENCE public.tj_customer_application_cap_id_seq INCREMENT BY 1 MINVALUE 1 START 1;');
         $this->addSql('CREATE TABLE public.tj_customer_application_cap (cap_id INT NOT NULL, customer_id INT DEFAULT NULL, application_id INT DEFAULT NULL, cap_token VARCHAR(255) NOT NULL, cap_is_active BOOLEAN NOT NULL, cap_created TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, cap_updated TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(cap_id));');

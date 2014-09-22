@@ -2,21 +2,11 @@
 
 namespace CanalTP\SamCoreBundle\Migrations\pdo_pgsql;
 
-use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
 
-class Version006 extends AbstractMigration
+class Version006 extends AbstractSamMigration
 {
     const VERSION = '0.0.6';
-
-    private function tableExists($table, $schema = 'public')
-    {
-        $statement = $this->connection->prepare("SELECT EXISTS(SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace WHERE n.nspname = '" . $schema . "' AND c.relname = '" . $table . "');");
-        $statement->execute();
-        $result = $statement->fetchAll();
-
-        return ($result[0]['exists']);
-    }
 
     public function getName()
     {
@@ -49,13 +39,6 @@ class Version006 extends AbstractMigration
             $this->addSql('CREATE TABLE public.doctrine_canaltprealtimebundle_versions (version character varying(255) NOT NULL);');
             $this->addSql('INSERT INTO public.doctrine_canaltprealtimebundle_versions (version) VALUES (\'0.0.1\');');
             $this->addSql('INSERT INTO public.doctrine_canaltprealtimebundle_versions (version) VALUES (\'0.0.2\');');
-
-            $this->addSql('CREATE TABLE public.doctrine_canaltpsamcorebundle_versions (version character varying(255) NOT NULL);');
-            $this->addSql('INSERT INTO public.doctrine_canaltpsamcorebundle_versions (version) VALUES (\'0.0.1\');');
-            $this->addSql('INSERT INTO public.doctrine_canaltpsamcorebundle_versions (version) VALUES (\'0.0.2\');');
-            $this->addSql('INSERT INTO public.doctrine_canaltpsamcorebundle_versions (version) VALUES (\'0.0.3\');');
-            $this->addSql('INSERT INTO public.doctrine_canaltpsamcorebundle_versions (version) VALUES (\'0.0.4\');');
-            $this->addSql('INSERT INTO public.doctrine_canaltpsamcorebundle_versions (version) VALUES (\'0.0.5\');');
         }
     }
 
