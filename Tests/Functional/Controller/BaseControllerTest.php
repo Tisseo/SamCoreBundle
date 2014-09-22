@@ -80,8 +80,8 @@ abstract class BaseControllerTest extends WebTestCase {
      */
     protected function runConsole($command, Array $options = array()) {
         $options['-e'] = isset($options['-e']) ? $options['-e'] : 'test_sam';
-//        $options['-q'] = isset($options['-q']) ? $options['-q'] : null;
-//        $options['-n'] = isset($options['-n']) ? $options['-n'] : true;
+        $options['-q'] = isset($options['-q']) ? $options['-q'] : null;
+        $options['-n'] = isset($options['-n']) ? $options['-n'] : true;
         $options = array_merge($options, array('command' => $command));
 
         $status = $this->application->run(new \Symfony\Component\Console\Input\ArrayInput($options));
