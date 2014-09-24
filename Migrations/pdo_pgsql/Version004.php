@@ -3,8 +3,9 @@
 namespace CanalTP\SamCoreBundle\Migrations\pdo_pgsql;
 
 use Doctrine\DBAL\Schema\Schema;
+use Doctrine\DBAL\Migrations\AbstractMigration;
 
-class Version004 extends AbstractSamMigration
+class Version004 extends AbstractMigration
 {
     const VERSION = '0.0.4';
 
@@ -15,8 +16,6 @@ class Version004 extends AbstractSamMigration
 
     public function up(Schema $schema)
     {
-        $this->skipIf($this->tableExists('migration_versions'), 'No need to do this migration.');
-
         $this->addSql('CREATE SEQUENCE public.t_perimeter_per_per_id_seq INCREMENT BY 1 MINVALUE 1 START 1;');
         $this->addSql('CREATE TABLE public.t_perimeter_per (per_id INT NOT NULL, cus_id INT DEFAULT NULL, per_external_coverage_id VARCHAR(255) NOT NULL, per_external_network_id VARCHAR(255) NOT NULL, PRIMARY KEY(per_id));');
         $this->addSql('CREATE INDEX IDX_6B5760DABC4EE2B0 ON public.t_perimeter_per (cus_id);');

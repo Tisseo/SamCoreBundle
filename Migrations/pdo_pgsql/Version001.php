@@ -3,11 +3,12 @@
 namespace CanalTP\SamCoreBundle\Migrations\pdo_pgsql;
 
 use Doctrine\DBAL\Schema\Schema;
+use Doctrine\DBAL\Migrations\AbstractMigration;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version001 extends AbstractSamMigration
+class Version001 extends AbstractMigration
 {
     const VERSION = '0.0.1';
 
@@ -19,8 +20,6 @@ class Version001 extends AbstractSamMigration
     public function up(Schema $schema)
     {
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != "postgresql", "Migration can only be executed safely on 'postgresql'.");
-
-        $this->skipIf($this->tableExists('migration_versions'), 'No need to do this migration.');
 
 		$this->addSql('CREATE TABLE public.tr_application_app (app_id SERIAL NOT NULL, app_name VARCHAR(255) NOT NULL, app_canonical_name VARCHAR(255) NOT NULL, app_default_route VARCHAR(255) DEFAULT NULL, PRIMARY KEY(app_id))');
 		$this->addSql('CREATE TABLE public.t_role_rol (rol_id SERIAL NOT NULL, app_id INT DEFAULT NULL, rol_name VARCHAR(255) NOT NULL, rol_name_canonical VARCHAR(255) NOT NULL, rol_permissions TEXT DEFAULT NULL, PRIMARY KEY(rol_id))');

@@ -3,8 +3,9 @@
 namespace CanalTP\SamCoreBundle\Migrations\pdo_pgsql;
 
 use Doctrine\DBAL\Schema\Schema;
+use Doctrine\DBAL\Migrations\AbstractMigration;
 
-class Version003 extends AbstractSamMigration
+class Version003 extends AbstractMigration
 {
     const VERSION = '0.0.3';
 
@@ -15,8 +16,6 @@ class Version003 extends AbstractSamMigration
 
     public function up(Schema $schema)
     {
-        $this->skipIf($this->tableExists('migration_versions'), 'No need to do this migration.');
-
         $this->addSql('UPDATE tr_application_app SET app_canonical_name=\'samcore\', app_name=\'SamCore\' where app_canonical_name=\'sam\'');
         $this->addSql('CREATE TABLE public.tr_customer_cus (cus_id INT NOT NULL, cus_name VARCHAR(255) NOT NULL, cus_name_canonical VARCHAR(255) NOT NULL, cus_logo_path VARCHAR(255) DEFAULT NULL, cus_locked BOOLEAN NOT NULL, cus_navitia_token VARCHAR(255) DEFAULT \'\', cus_created TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, cus_updated TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(cus_id));');
 
