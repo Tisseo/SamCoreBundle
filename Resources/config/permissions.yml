@@ -27,3 +27,6 @@ parameters:
         BUSINESS_CREATE_CLIENT:
             label: Creer des customers
             description: Le label n'est-il pas assez explicite ?
+        BUSINESS_MANAGE_NAVITIA_USER:
+            label: Creer des utilisateurs navitia
+            description: Le label n'est-il pas assez explicite ?

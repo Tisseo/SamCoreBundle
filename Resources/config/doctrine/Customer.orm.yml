@@ -24,14 +24,6 @@ CanalTP\SamCoreBundle\Entity\Customer:
             column: cus_logo_path
             length: 255
             nullable: true
-        email:
-            type: string
-            column: cus_email
-            length: 255
-        emailCanonical:
-            type: string
-            column: cus_email_canonical
-            length: 255
         locked:
             type: boolean
             column: cus_locked
@@ -51,13 +43,7 @@ CanalTP\SamCoreBundle\Entity\Customer:
     uniqueConstraints:
         name_idx:
             columns: [ cus_name_canonical ]
-        cus_email_idx:
-            columns: [ cus_email_canonical ]
     oneToMany:
-        perimeters:
-            targetEntity: CanalTP\SamCoreBundle\Entity\Perimeter
-            mappedBy: customer
-            cascade: [persist]
         applications:
             targetEntity: CanalTP\SamCoreBundle\Entity\CustomerApplication
             mappedBy: customer

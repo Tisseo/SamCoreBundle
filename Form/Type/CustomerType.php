@@ -22,14 +22,10 @@ class CustomerType extends AbstractType
     const MIME_IMAGETYPE_PNG = 'image/png';
     const MIME_IMAGETYPE_JPEG = 'image/jpeg';
 
-    private $coverages = null;
-    private $navitia = null;
-    private $applicationsTransformer = null;
+    protected $applicationsTransformer = null;
 
-    public function __construct($coverages, $navitia, $applicationsTransformer)
+    public function __construct($applicationsTransformer)
     {
-        $this->coverages = $coverages;
-        $this->navitia = $navitia;
         $this->applicationsTransformer = $applicationsTransformer;
     }
 
@@ -94,17 +90,6 @@ class CustomerType extends AbstractType
                 'expanded' => true
             )
         )->addModelTransformer($this->applicationsTransformer);
-        $builder->add(
-            'perimeters',
-            'collection',
-            array(
-                'label' => 'customer.perimeters',
-                'type' => new PerimeterType($this->coverages, $this->navitia),
-                'prototype_name' => '__perimeter_id__',
-                'allow_add' => true,
-                'allow_delete' => true
-            )
-        );
     }
 
     public function getName()

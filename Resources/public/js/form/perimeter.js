@@ -36,14 +36,14 @@ define(
         }
 
         var initPerimeterForm = function addPerimeterForm(index) {
-            $('#customer_perimeters_' + index + '_external_coverage_id').parent().parent().find('.delete-item').click(function(){
+            $('#customer_navitiaEntity_perimeters_' + index + '_external_coverage_id').parent().parent().find('.delete-item').click(function(){
                 $('#perimeter_' + index).remove();
             });
-            $('#customer_perimeters_' + index + '_external_coverage_id').change(function(){
+            $('#customer_navitiaEntity_perimeters_' + index + '_external_coverage_id').change(function(){
                 perimeterElements = [];
                 perimeterElements[index] = [];
 
-                perimeterElements[index]['net'] = $('#customer_perimeters_' + index + '_external_network_id');
+                perimeterElements[index]['net'] = $('#customer_navitiaEntity_perimeters_' + index + '_external_network_id');
                 perimeterElements[index]['cov'] = $(this);
 
                 perimeterElements[index]['cov'].css('background-color', 'none');
@@ -51,7 +51,7 @@ define(
                 $(perimeterElements[index]['cov'].parent().parent().children('.error')).text('');
                 $(perimeterElements[index]['cov'].parent().parent().children('.error')).hide();
 
-                var $networkSelect = $('#customer_perimeters_' + index + '_external_network_id');
+                var $networkSelect = $('#customer_navitiaEntity_perimeters_' + index + '_external_network_id');
                 // keep selected value when refreshing network list
                 if ($networkSelect.val() != '') {
                     var previousValue = $networkSelect.val();

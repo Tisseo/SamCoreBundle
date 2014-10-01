@@ -14,37 +14,27 @@ class Customer extends AbstractEntity
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var file
      */
-    private $file;
+    protected $file;
 
     /**
      * @var string
      */
-    private $logoPath;
+    protected $logoPath;
 
     /**
      * @var string
      */
-    private $nameCanonical;
-
-    /**
-     * @var string
-     */
-    private $email;
-
-    /**
-     * @var string
-     */
-    private $emailCanonical;
+    protected $nameCanonical;
 
     /**
      * @var boolean
@@ -55,11 +45,11 @@ class Customer extends AbstractEntity
      *
      * @var Application
      */
-    private $applications;
+    protected $applications;
 
-    private $users;
+    protected $users;
 
-    private $perimeters;
+    protected $perimeters;
 
     public function __construct()
     {
@@ -132,7 +122,7 @@ class Customer extends AbstractEntity
      * @param string $nameCanonical
      * @return Customer
      */
-    private function setNameCanonical($name)
+    protected function setNameCanonical($name)
     {
         $slug = new \CanalTP\SamCoreBundle\Slugify();
 
@@ -149,53 +139,6 @@ class Customer extends AbstractEntity
     public function getNameCanonical()
     {
         return $this->nameCanonical;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Customer
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-        $this->setEmailCanonical($email);
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set emailCanonical
-     *
-     * @param string $emailCanonical
-     * @return Customer
-     */
-    private function setEmailCanonical($emailCanonical)
-    {
-        $this->emailCanonical = strtolower($emailCanonical);
-
-        return $this;
-    }
-
-    /**
-     * Get emailCanonical
-     *
-     * @return string
-     */
-    public function getEmailCanonical()
-    {
-        return $this->emailCanonical;
     }
 
     /**
@@ -378,7 +321,7 @@ class Customer extends AbstractEntity
             : $this->getUploadDir().'/'.$this->logoPath;
     }
 
-    private function getUploadRootDir()
+    protected function getUploadRootDir()
     {
         return __DIR__.'/../../../../web' . $this->getUploadDir();
     }

@@ -41,7 +41,7 @@ class ApplicationToCustomerApplicationTransformer implements DataTransformerInte
             return ($customer);
         }
         $applications = new ArrayCollection();
-        $this->oldPerimeters = $this->generatePerimertersArray($customer->getPerimeters());
+        $this->oldPerimeters = $this->generatePerimertersArray($customer->getNavitiaEntity()->getPerimeters());
 
         foreach ($customer->getActiveCustomerApplications() as $customerApplication) {
             $customerApplication->setIsActive(false);
@@ -52,7 +52,7 @@ class ApplicationToCustomerApplicationTransformer implements DataTransformerInte
         return $customer;
     }
 
-    private function createCustomerApplicationRelation(Customer $customer, Application $application)
+    private function createCustomerApplicationRelation($customer, Application $application)
     {
         $customerApplication = new CustomerApplication();
 
@@ -79,8 +79,8 @@ class ApplicationToCustomerApplicationTransformer implements DataTransformerInte
         }
         $customerApplications = new ArrayCollection();
         $this->navitiaTokenManager->initUser($customer->getNameCanonical(), $customer->getEmailCanonical());
-        $this->navitiaTokenManager->initInstanceAndAuthorizations($customer->getPerimeters());
-        $forceGenerateToken = !($this->oldPerimeters == $this->generatePerimertersArray($customer->getPerimeters()));
+        $this->navitiaTokenManager->initInstanceAndAuthorizations($customer->getNavitiaEntity()->getPerimeters());
+        $forceGenerateToken = !($this->oldPerimeters == $this->generatePerimertersArray($customer->getNavitiaEntity()->getPerimeters()));
 
         foreach ($customer->getApplications() as $application) {
             if (!$forceGenerateToken && array_key_exists($application->getId(), $this->oldCustomerApplications)) {
