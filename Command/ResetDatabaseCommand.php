@@ -13,7 +13,7 @@ use Symfony\Component\Process\Process;
  *
  * @author David Quintanel <david.quintanel@canaltp.fr>
  */
-class PurgeDatabaseCommand extends ContainerAwareCommand
+class ResetDatabaseCommand extends ContainerAwareCommand
 {
     private $env = null;
     private $console = null;
@@ -24,13 +24,13 @@ class PurgeDatabaseCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('sam:database:purge')
+            ->setName('sam:database:reset')
             ->setDescription('Drop and create the database, create the different schemas and load the fixtures')
             ->setHelp(<<<EOT
-The <info>sam:database:purge</info> command Drop and create the database,
+The <info>sam:database:reset</info> command Drop and create the database,
 create the different schemas and load the fixtures:
 
-<info>php app/console sam:database:purg</info>
+<info>php app/console sam:database:reset</info>
 EOT
         );
     }
