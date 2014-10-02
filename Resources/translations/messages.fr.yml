@@ -136,7 +136,7 @@ customer:
     actions: Actions
     actions.listtokens: Voir les clés
     token:
-        label: token
+        label: Token
         status: État
         enable: Activé
         disable: Désactivé
