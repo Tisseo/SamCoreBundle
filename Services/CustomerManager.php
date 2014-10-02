@@ -9,8 +9,8 @@ use CanalTP\SamCoreBundle\Entity\Customer;
 
 class CustomerManager
 {
-    private $om = null;
-    private $repository = null;
+    protected $om = null;
+    protected $repository = null;
     protected $navitiaTokenManager = null;
 
     public function __construct(ObjectManager $om, $navitiaTokenManager)
@@ -30,7 +30,7 @@ class CustomerManager
         return empty($customerId) ? null : $this->repository->find($customerId);
     }
 
-    private function syncPerimeters($customer)
+    protected function syncPerimeters($customer)
     {
         $perimeterRepo = $this->om->getRepository('CanalTPSamCoreBundle:Perimeter');
         $perimeters = $perimeterRepo->findBy(array('customer' => $customer));
@@ -67,7 +67,7 @@ class CustomerManager
         return ($this->repository->findAllToArray());
     }
     
-    public function disableTokens(Customer $customer, Application $application = null)
+    public function disableTokens($customer, Application $application = null)
     {
         $this->repository->disableTokens($customer, $application);
     }
@@ -103,7 +103,7 @@ class CustomerManager
         $this->navitiaTokenManager->initInstanceAndAuthorizations($perimeters);
     }
     
-    protected function createCustomerApplicationRelation(Customer $customer, Application $application)
+    protected function createCustomerApplicationRelation($customer, Application $application)
     {
         $customerApplication = new CustomerApplication();
 

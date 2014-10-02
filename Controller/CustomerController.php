@@ -56,7 +56,7 @@ class CustomerController extends AbstractController
 
             return $this->redirect($this->generateUrl('sam_customer_list'));
         }
-
+        
         return $this->render(
             'CanalTPSamCoreBundle:Customer:form.html.twig',
             array(
@@ -155,55 +155,5 @@ class CustomerController extends AbstractController
         $response->setStatusCode($status);
 
         return $response;
-    }
-    
-    public function listKeysAction(CustomerEntity $customer)
-    {
-        $criteriaOrder = Criteria::create()
-            ->orderBy(array('created' => Criteria::DESC));
-        
-        return $this->render(
-            'CanalTPSamCoreBundle:Customer:listKeys.html.twig',
-            array(
-                'applicationsTokens' => $customer->getApplications()->matching($criteriaOrder),
-                'perimeters' => $customer->getPerimeters(),
-                'customerId' => $customer->getId()
-            )
-        );
-    }
-    
-    public function regenerateKeysAction(CustomerEntity $customer)
-    {
-        $custoService = $this->get('sam_core.customer');
-        
-        //keep all applications
-        $applications = $custoService->getApplications($customer);
-        
-        //disable all tokens
-        $custoService->disableTokens($customer);
-        
-        //generate new token
-        $custoService->initTokenManager($customer->getNameCanonical(), $customer->getEmailCanonical(), $customer->getPerimeters());
-        $custoService->generateTokens($customer, $applications);
-        
-        return $this->redirect($this->generateUrl('sam_customer_listkeys', array('id' => $customer->getId())));
-    }
-    
-    public function regenerateKeyAction(CustomerEntity $customer, $appId)
-    {
-        $custoService = $this->get('sam_core.customer');
-        
-        $application = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('CanalTPSamCoreBundle:Application')->find($appId);
-        
-        //disable tokens for application
-        $custoService->disableTokens($customer, $application);
-        
-        //generate new token
-        $custoService->initTokenManager($customer->getNameCanonical(), $customer->getEmailCanonical(), $customer->getPerimeters());
-        $custoService->generateToken($customer, $application);
-        
-        return $this->redirect($this->generateUrl('sam_customer_listkeys', array('id' => $customer->getId())));
     }
 }

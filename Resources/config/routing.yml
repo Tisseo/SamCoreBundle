@@ -29,13 +29,13 @@ canal_tp_sam_network_check_permission_json:
         expose: true
         
 sam_customer_regeneratetoken:
-    pattern:  /customer/{id}/keys/{appId}/regenerate
-    defaults: { _controller: CanalTPSamCoreBundle:Customer:regenerateKey }
+    pattern:  /customer/{id}/token/{appId}/regenerate
+    defaults: { _controller: CanalTPSamCoreBundle:Customer:regenerateToken }
 
 sam_customer_regeneratealltokens:
-    pattern:  /customer/{id}/keys/regenerate
-    defaults: { _controller: CanalTPSamCoreBundle:Customer:regenerateKeys }
+    pattern:  /customer/{id}/tokens/regenerate
+    defaults: { _controller: CanalTPSamCoreBundle:Customer:regenerateTokens }
 
-sam_customer_listkeys:
-    pattern:  /customer/{id}/keys
-    defaults: { _controller: CanalTPSamCoreBundle:Customer:listKeys }
+sam_customer_listtokens:
+    pattern:  /customer/{id}/tokens
+    defaults: { _controller: CanalTPSamCoreBundle:Customer:listTokens }

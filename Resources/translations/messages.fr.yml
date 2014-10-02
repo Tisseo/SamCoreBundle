@@ -135,8 +135,8 @@ customer:
             success: Le nouveau client a bien été créé
     actions: Actions
     actions.listtokens: Voir les clés
-    token: token
     token:
+        label: Token
         status: État
         enable: Activé
         disable: Désactivé

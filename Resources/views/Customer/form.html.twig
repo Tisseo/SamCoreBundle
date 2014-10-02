@@ -42,10 +42,10 @@
         {{ form_row(form.applications) }}
 
         <div class="form-group row">
-        {{ form_label(form.perimeters) }}
-            <div class="col-lg-10 perimeters" data-prototype="{{ include('CanalTPSamCoreBundle:Customer:_perimeter-prototype.html.twig', { 'perimeter': form.perimeters.vars.prototype})|e }}">
-            {% for perimeter in form.perimeters %}
-                {% include "CanalTPSamCoreBundle:Customer:_perimeter-prototype.html.twig" with {'form': perimeter} %}
+            {{ form_label(form.navitiaEntity.perimeters) }}
+            <div class="col-lg-10 perimeters" data-prototype="{{ include('CanalTPSamCoreBundle:Customer:_perimeter-prototype.html.twig', { 'perimeter': form.navitiaEntity.perimeters.vars.prototype})|e }}">
+            {% for perimeter in form.navitiaEntity.perimeters %}
+                {% include "CanalTPSamCoreBundle:Customer:_perimeter-prototype.html.twig" %}
             {% endfor %}
             </div>
         </div>

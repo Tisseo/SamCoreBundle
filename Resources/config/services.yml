@@ -54,9 +54,3 @@ services:
     sam_core.customer.application.transformer:
         class: %sam_core.customer.application.transformer.class%
         arguments: ['@doctrine.orm.entity_manager', '@navitia_token_manager']
-        
-    sam_core.twig.token_extension:
-        class: CanalTP\SamCoreBundle\Twig\TokenExtension
-        arguments: [@navitia_token_manager]
-        tags:
-            - { name: twig.extension }

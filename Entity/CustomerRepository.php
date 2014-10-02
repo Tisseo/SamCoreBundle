@@ -32,7 +32,7 @@ class CustomerRepository extends EntityRepository
         return ($customers);
     }
     
-    public function disableTokens(Customer $customer, Application $application = null)
+    public function disableTokens($customer, Application $application = null)
     {
         $queryText = 'UPDATE CanalTPSamCoreBundle:CustomerApplication c '
                 . 'SET c.isActive = false '
