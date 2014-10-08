@@ -1,5 +1,6 @@
 global:
-    error:Erreur
+    error: Erreur
+    actions.listtokens: Voir les clés
 # Form field labels
 form:
     group_name: "Nom du Sim :"
@@ -134,7 +135,6 @@ customer:
         creation:
             success: Le nouveau client a bien été créé
     actions: Actions
-    actions.listtokens: Voir les clés
     token:
         label: Token
         status: État
