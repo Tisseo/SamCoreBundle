@@ -53,6 +53,7 @@ EOT
 
         // Create tables for each aplications
         $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPSamCoreBundle', '--target' => 'farthest'), $output);
+        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPNmmPortalBundle', '--target' => 'farthest'), $output);
         $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPMttBundle', '--target' => 'farthest'), $output);
         $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPNmpAdminBundle', '--target' => 'farthest'), $output);
         $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPRealTimeBundle', '--target' => 'farthest'), $output);
