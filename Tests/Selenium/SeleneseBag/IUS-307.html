@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://samback/admin/login" />
+<title>IUS-307</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">IUS-307</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/app_dev.php/admin/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>sam</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>sam</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=remember_me</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.dropdown-toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Navitia.io</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Ajouter un utilisateur Navitia.io</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=customer_name</td>
+	<td>navitia.auth.1@openaliasbox.org</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=customer_email</td>
+	<td>navitia.auth.1@openaliasbox.org</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=navitia.auth.1@openaliasbox.org</td>
+	<td>navitia.auth.1@openaliasbox.org</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Voir les clés</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//table[@id='table']/tbody/tr/td[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td[2]</td>
+	<td>Désactivé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr/td[2]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Navitia.io</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=navitia.auth.1@openaliasbox.org</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_0_external_coverage_id</td>
+	<td>label=fr-bou</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_1_external_coverage_id</td>
+	<td>label=fr-bou</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_2_external_coverage_id</td>
+	<td>label=fr-bou</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_3_external_coverage_id</td>
+	<td>label=fr-cen</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_4_external_coverage_id</td>
+	<td>label=fr-cen</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=navitia.auth.1@openaliasbox.org</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
