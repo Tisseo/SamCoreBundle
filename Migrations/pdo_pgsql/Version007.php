@@ -17,7 +17,7 @@ class Version007 extends AbstractMigration
     public function up(Schema $schema)
     {
         $this->addSql('ALTER TABLE t_user_usr DROP IF EXISTS usr_expires_at;');
-        $this->addSql('ALTER TABLE t_user_usr ADD usr_expires_at TYPE timestamp(0) without time zone;');
+        $this->addSql('ALTER TABLE t_user_usr ADD COLUMN usr_expires_at timestamp(0) without time zone;');
         $this->addSql('ALTER TABLE t_user_usr ALTER COLUMN usr_last_login SET DEFAULT NULL::timestamp without time zone;');
     }
 
