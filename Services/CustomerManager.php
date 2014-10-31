@@ -66,43 +66,43 @@ class CustomerManager
     {
         return ($this->repository->findAllToArray());
     }
-    
+
     public function disableTokens($customer, Application $application = null)
     {
         $this->repository->disableTokens($customer, $application);
     }
-    
+
     public function getApplications($customer)
     {
         $applications = array();
         foreach ($customer->getActiveCustomerApplications() as $customerApplication) {
             $applications[] = $customerApplication->getApplication();
         }
-        
+
         return $applications;
     }
-    
+
     public function generateTokens($customer, $applications)
     {
         foreach ($applications as $application) {
             $this->createCustomerApplicationRelation($customer, $application);
         }
-        
+
         return true;
     }
-    
+
     public function generateToken($customer, $application)
     {
         $this->createCustomerApplicationRelation($customer, $application);
     }
-    
-    
+
+
     public function initTokenManager($name, $email, $perimeters)
     {
         $this->navitiaTokenManager->initUser($name, $email);
         $this->navitiaTokenManager->initInstanceAndAuthorizations($perimeters);
     }
-    
+
     protected function createCustomerApplicationRelation($customer, Application $application)
     {
         $customerApplication = new CustomerApplication();
@@ -113,10 +113,10 @@ class CustomerManager
             $this->navitiaTokenManager->generateToken()
         );
         $customerApplication->setIsActive(true);
-        
+
         $this->om->persist($customerApplication);
         $this->om->flush($customerApplication);
-        
+
         return $customerApplication;
     }
 }
