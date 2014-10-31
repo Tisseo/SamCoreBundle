@@ -3,6 +3,7 @@
 namespace CanalTP\SamCoreBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use CanalTP\SamEcoreApplicationManagerBundle\Services\ApplicationFinder;
 use CanalTP\SamCoreBundle\Entity\CustomerApplication;
 use CanalTP\SamCoreBundle\Entity\Application;
 use CanalTP\SamCoreBundle\Entity\Customer;
@@ -12,12 +13,17 @@ class CustomerManager
     protected $om = null;
     protected $repository = null;
     protected $navitiaTokenManager = null;
+    private $applicationFinder = null;
 
-    public function __construct(ObjectManager $om, $navitiaTokenManager)
+    public function __construct(ObjectManager $om,
+        $navitiaTokenManager,
+        ApplicationFinder $applicationFinder
+    )
     {
         $this->om = $om;
         $this->repository = $this->om->getRepository('CanalTPSamCoreBundle:Customer');
         $this->navitiaTokenManager = $navitiaTokenManager;
+        $this->applicationFinder = $applicationFinder;
     }
 
     public function findAll()
@@ -118,5 +124,17 @@ class CustomerManager
         $this->om->flush($customerApplication);
 
         return $customerApplication;
+    }
+
+    public function findByCurrentApp()
+    {
+        $customerApplicationRepository = $this->om->getRepository('CanalTPSamCoreBundle:CustomerApplication');
+
+        return ($customerApplicationRepository->findBy(
+            array(
+                'application' => $this->applicationFinder->getCurrentApp()->getId(),
+                'isActive' => true
+            )
+        ));
     }
 }
