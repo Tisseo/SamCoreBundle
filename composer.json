@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "Symfony CanalTPSamCoreBundle",
     "keywords": ["Sam Core Entity"],
-    "homepage": "http://hg.prod.canaltp.fr/Sam/SamCoreBundle/summary",
+    "homepage": "https://github.com/CanalTP/SamCoreBundle",
     "license": "",
     "authors": [
         {
