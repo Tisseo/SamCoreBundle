@@ -67,8 +67,11 @@ abstract class Fixture extends AbstractFixture implements OrderedFixtureInterfac
         $entity->setDefaultRoute($route);
         $entity->setCanonicalName(strtolower($name));
 
+
         $this->em->persist($entity);
         $this->em->flush();
+
+        $this->addReference('app-' . $entity->getCanonicalName(), $entity);
 
         return $entity;
     }
