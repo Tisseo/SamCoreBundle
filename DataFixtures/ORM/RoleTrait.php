@@ -14,20 +14,19 @@ trait RoleTrait
      *
      * @return \CanalTP\SamCoreBundle\Entity\Role
      */
-    protected function createApplicationRole(ObjectManager $om, $name, $cannonicalName, $appReference, $roleReference, $isEditable = true)
+    protected function createApplicationRole(ObjectManager $om, $data)
     {
-        //créer un role vide ?!
         $role = new Role();
-        $role->setName($name);
-        $role->setCanonicalName($cannonicalName);
-        $role->setApplication($this->getReference($appReference));
-        $role->setPermissions($this->permissions[$roleReference]);
-        $role->setIsEditable($isEditable);
+        $role->setName($data['name']);
+        $role->setCanonicalName($data['canonicalName']);
+        $role->setApplication($this->getReference($data['application']));
+        $role->setPermissions($data['permissions']);
+        $role->setIsEditable($data['isEditable']);
 
         $om->persist($role);
         $om->flush();
 
-        $this->addReference('role-' . $roleReference, $role);
+        $this->addReference($role->getCanonicalName(), $role);
 
         return $role;
     }
