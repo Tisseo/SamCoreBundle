@@ -13,7 +13,7 @@ trait CustomerTrait
         $customerApplication->setIsActive(true);
         $customerApplication->setCustomer($this->getReference($customerReference));
         $customerApplication->setApplication($this->getReference($application));
-        $om->persist($customerApplication);        
+        $om->persist($customerApplication);
     }
 
     public function createCustomer(ObjectManager $om, $name, $email, $customerReference)
@@ -27,7 +27,7 @@ trait CustomerTrait
         $customer->setName($name);
         $customer->setNavitiaEntity($nav);
         $om->persist($customer);
-        $this->addReference('customer-' . $customerReference, $customer);        
+        $this->addReference('customer-' . $customerReference, $customer);
     }
 
     public function addPerimeterToCustomer(ObjectManager $om, $externalCoverageId, $externalNetworkId, $customerReference)

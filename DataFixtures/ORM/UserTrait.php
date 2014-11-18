@@ -28,7 +28,7 @@ trait UserTrait
         foreach ($data['roles'] as $roleReference) {
             $user->addUserRole($this->getReference($roleReference));
         }
-        
+
         $om->persist($user);
     }
 }

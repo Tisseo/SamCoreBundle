@@ -13,8 +13,8 @@ class FixturesCustomer extends AbstractFixture implements OrderedFixtureInterfac
 
     public function load(ObjectManager $om)
     {
-        $this->createCustomer($om, 'CanalTP', 'nmm-ihm@canaltp.fr', 'canaltp')
-        $this->addPerimeterToCustomer('fr-bou', 'network:CGD', 'customer-canaltp')
+        $this->createCustomer($om, 'CanalTP', 'nmm-ihm@canaltp.fr', 'canaltp');
+        $this->addPerimeterToCustomer('fr-bou', 'network:CGD', 'customer-canaltp');
         $om->flush();
     }
 
