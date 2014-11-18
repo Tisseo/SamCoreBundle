@@ -12,7 +12,7 @@ trait CustomerTrait
         $customerApplication->setToken('aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681');
         $customerApplication->setIsActive(true);
         $customerApplication->setCustomer($this->getReference($customerReference));
-        $customerApplication->setApplication($this->getReference($application));
+        $customerApplication->setApplication($this->getReference($applicationReference));
         $om->persist($customerApplication);
     }
 
