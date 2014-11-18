@@ -15,11 +15,11 @@ trait ApplicationTrait
      *
      * @return Application
      */
-    public function createApplication(ObjectManager $om, $name, $route)
+    public function createApplication(ObjectManager $om, $name, $route, $reference = null)
     {
         $entity = new Application($name);
         $entity->setDefaultRoute($route);
-        $entity->setCanonicalName(strtolower($name));
+        $entity->setCanonicalName(strtolower(($reference === null) ? $name : $reference));
 
         $om->persist($entity);
 
