@@ -16,13 +16,12 @@ trait RoleTrait
     {
         $role = new Role();
         $role->setName($data['name']);
-        $role->setCanonicalName($data['canonicalName']);
         $role->setApplication($this->getReference($data['application']));
         $role->setPermissions($data['permissions']);
         $role->setIsEditable($data['isEditable']);
 
         $om->persist($role);
 
-        $this->addReference($role->getCanonicalName(), $role);
+        $this->addReference('role-'.$data['reference'], $role);
     }
 }
