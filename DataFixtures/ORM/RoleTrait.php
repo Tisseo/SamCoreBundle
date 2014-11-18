@@ -16,19 +16,15 @@ trait RoleTrait
      */
     protected function createApplicationRole(ObjectManager $om, $name, $cannonicalName, $appReference, $roleReference, $isEditable = true)
     {
-        //créer un role vide ?!
         $role = new Role();
+
         $role->setName($name);
         $role->setCanonicalName($cannonicalName);
         $role->setApplication($this->getReference($appReference));
         $role->setPermissions($this->permissions[$roleReference]);
         $role->setIsEditable($isEditable);
-
         $om->persist($role);
-        $om->flush();
-
         $this->addReference('role-' . $roleReference, $role);
-
         return $role;
     }
 }

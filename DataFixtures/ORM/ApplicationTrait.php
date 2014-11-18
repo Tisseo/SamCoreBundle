@@ -19,15 +19,11 @@ trait ApplicationTrait
     public function createApplication(ObjectManager $om, $name, $route)
     {
         $entity = new Application($name);
+
         $entity->setDefaultRoute($route);
         $entity->setCanonicalName(strtolower($name));
-
-
         $om->persist($entity);
-        $om->flush();
-
         $this->addReference('app-' . $entity->getCanonicalName(), $entity);
-
         return $entity;
     }
 }

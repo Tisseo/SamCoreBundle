@@ -18,20 +18,19 @@ trait UserTrait
     protected function createUser(ObjectManager $om, $data)
     {
         $user = new User();
+        
         $user->setUsername($data['username']);
         $user->setFirstName($data['firstname']);
         $user->setLastName($data['lastname']);
         $user->setEnabled(true);
         $user->setEmail($data['email']);
         $user->setPlainPassword($data['password']);
+        $user->setCustomer($this->getReference($data['customer']));
 
         foreach ($data['roles'] as $roleReference) {
             $user->addUserRole($this->getReference($roleReference));
         }
-        
         $om->persist($user);
-        $om->flush();
-
         return $user;
     }
 }
