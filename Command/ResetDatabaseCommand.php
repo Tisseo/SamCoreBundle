@@ -52,12 +52,13 @@ EOT
         $this->runCommand('doctrine:database:create', array(), $output);
 
         // Create tables for each aplications
+        // TODO: Make this to be generic
         $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPSamCoreBundle', '--target' => 'farthest'), $output);
         $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPNmmPortalBundle', '--target' => 'farthest'), $output);
         $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPMttBundle', '--target' => 'farthest'), $output);
-        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPNmpAdminBundle', '--target' => 'farthest'), $output);
-        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPRealTimeBundle', '--target' => 'farthest'), $output);
-        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPMatrixBundle', '--target' => 'farthest'), $output);
+        // $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPNmpAdminBundle', '--target' => 'farthest'), $output);
+        // $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPRealTimeBundle', '--target' => 'farthest'), $output);
+        // $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPMatrixBundle', '--target' => 'farthest'), $output);
 
         // Fixtures
         $this->runCommand('doctrine:fixtures:load', array('--append'  => true), $output);
