@@ -10,5 +10,6 @@
     <div class="modal-footer">
         {% block modal_actions %}{% endblock %}
         {% block modal_close_footer %}<button type="button" class="btn btn-default" data-dismiss="modal">{{'global.close'|trans}}</button>{% endblock %}
+        {% block javascripts %}{% endblock %}
     </div>
 {% endblock %}
