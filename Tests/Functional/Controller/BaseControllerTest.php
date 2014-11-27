@@ -298,10 +298,6 @@ abstract class BaseControllerTest extends WebTestCase {
             ->method('getStopPointPois')
             ->will($this->returnValue(json_decode($this->readNavitiaStub('places_nearby.json'))));
 
-//        $navitia->expects($this->any())
-//            ->method('getStopPoints')
-//            ->will($this->returnValue(json_decode($this->readNavitiaStub('places_nearby.json'))));
-
         $navitia->expects($this->any())
             ->method('getCalendarStopSchedulesByRoute')
             ->will($this->returnCallback(
