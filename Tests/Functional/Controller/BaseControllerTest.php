@@ -255,6 +255,9 @@ abstract class BaseControllerTest extends WebTestCase {
                     'getCalendarStopSchedulesByRoute',
                     'getRouteStopPoints',
                     'getRouteCalendars',
+                    'getStopPointTitle',
+                    'getStopPointPois',
+                    'getStopPoint',
                     'getRouteData'
                 )
             )->disableOriginalConstructor()
@@ -284,12 +287,20 @@ abstract class BaseControllerTest extends WebTestCase {
             ->will($this->returnValue(json_decode($this->readNavitiaStub('calendars.json'))));
 
         $navitia->expects($this->any())
-            ->method('getRouteCalendars')
-            ->will($this->returnValue(json_decode($this->readNavitiaStub('calendars.json'))));
+            ->method('getStopPointTitle')
+            ->will($this->returnValue('stop de test'));
+
+        $navitia->expects($this->any())
+            ->method('getStopPoint')
+            ->will($this->returnValue(json_decode($this->readNavitiaStub('stop_point.json'))));
 
         $navitia->expects($this->any())
             ->method('getStopPointPois')
             ->will($this->returnValue(json_decode($this->readNavitiaStub('places_nearby.json'))));
+
+//        $navitia->expects($this->any())
+//            ->method('getStopPoints')
+//            ->will($this->returnValue(json_decode($this->readNavitiaStub('places_nearby.json'))));
 
         $navitia->expects($this->any())
             ->method('getCalendarStopSchedulesByRoute')

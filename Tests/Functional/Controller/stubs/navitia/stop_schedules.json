@@ -55,10 +55,10 @@
                     "id": "network:TAN"
                 }
             ],
-            "additional_informations": "no_departure_this_day",
+            "additional_informations": "",
             "date_times": [
                 {
-                    "date_time": "T061900",
+                    "date_time": "061900",
                     "additional_informations": [],
                     "links": [
                         {
@@ -72,47 +72,47 @@
                     ]
                 },
                 {
-                    "date_time": "T063600",
+                    "date_time": "063600",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T065400",
+                    "date_time": "065400",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T071100",
+                    "date_time": "071100",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T072800",
+                    "date_time": "072800",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T074500",
+                    "date_time": "074500",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T080200",
+                    "date_time": "080200",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T081900",
+                    "date_time": "081900",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T083600",
+                    "date_time": "083600",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T085300",
+                    "date_time": "085300",
                     "additional_informations": [],
                     "links": [
                         {
@@ -122,272 +122,272 @@
                     ]
                 },
                 {
-                    "date_time": "T091200",
+                    "date_time": "091200",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T093000",
+                    "date_time": "093000",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T094700",
+                    "date_time": "094700",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T100500",
+                    "date_time": "100500",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T102300",
+                    "date_time": "102300",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T104100",
+                    "date_time": "104100",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T105900",
+                    "date_time": "105900",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T111700",
+                    "date_time": "111700",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T113500",
+                    "date_time": "113500",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T115300",
+                    "date_time": "115300",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T121100",
+                    "date_time": "121100",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T122900",
+                    "date_time": "122900",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T124700",
+                    "date_time": "124700",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T130500",
+                    "date_time": "130500",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T132300",
+                    "date_time": "132300",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T134100",
+                    "date_time": "134100",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T135900",
+                    "date_time": "135900",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T141800",
+                    "date_time": "141800",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T143300",
+                    "date_time": "143300",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T143700",
+                    "date_time": "143700",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T145400",
+                    "date_time": "145400",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T151100",
+                    "date_time": "151100",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T152600",
+                    "date_time": "152600",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T154000",
+                    "date_time": "154000",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T155500",
+                    "date_time": "155500",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T161000",
+                    "date_time": "161000",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T162300",
+                    "date_time": "162300",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T163600",
+                    "date_time": "163600",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T164900",
+                    "date_time": "164900",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T170200",
+                    "date_time": "170200",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T171500",
+                    "date_time": "171500",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T172800",
+                    "date_time": "172800",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T174100",
+                    "date_time": "174100",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T174200",
+                    "date_time": "174200",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T174300",
+                    "date_time": "174300",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T174400",
+                    "date_time": "174400",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T174500",
+                    "date_time": "174500",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T175400",
+                    "date_time": "175400",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T175500",
+                    "date_time": "175500",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T175600",
+                    "date_time": "175600",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T175700",
+                    "date_time": "175700",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T175800",
+                    "date_time": "175800",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T175900",
+                    "date_time": "175900",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T180800",
+                    "date_time": "180800",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T182200",
+                    "date_time": "182200",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T183600",
+                    "date_time": "183600",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T185000",
+                    "date_time": "185000",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T190400",
+                    "date_time": "190400",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T192200",
+                    "date_time": "192200",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T194100",
+                    "date_time": "194100",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T200000",
+                    "date_time": "200000",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T202000",
+                    "date_time": "202000",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T204000",
+                    "date_time": "204000",
                     "additional_informations": [],
                     "links": []
                 },
                 {
-                    "date_time": "T210100",
+                    "date_time": "210100",
                     "additional_informations": [],
                     "links": []
                 }
@@ -434,10 +434,12 @@
     ],
     "notes": [
         {
+            "type": "notes",
             "id": "1bca6d9a2f987cb7d2f942ceb632b915",
             "value": "au plus tard la veille du déplacement du lundi au vendredi de 9h à 12h30 et de 13h30 à 16h30."
         },
         {
+            "type": "notes",
             "id": "a79b87e9184b193a24df9b02f03e411a",
             "value": "ceci est une autre notes."
         }
