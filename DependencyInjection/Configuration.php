@@ -20,6 +20,20 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('canal_tp_sam_core');
 
+        $rootNode->children()
+            ->arrayNode('fixture')
+                ->children()
+                    ->arrayNode('perimeters')
+                        ->prototype('array')
+                            ->children()
+                                ->scalarNode('coverage')->end()
+                                ->scalarNode('network')->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ->end();
+
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
