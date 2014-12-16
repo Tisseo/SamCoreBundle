@@ -38,7 +38,7 @@ class Builder extends ContainerAware
         $app = $this->container->get('canal_tp_sam.application.finder')->getCurrentApp();
         $menu = $factory->createItem('root');
         $menu->setCurrentUri($request->getRequestUri());
-        
+
         if ($app) {
             $businessMenu = $businessComponent->getBusinessComponent($app->getCanonicalName())->getMenuItems();
 
@@ -49,7 +49,7 @@ class Builder extends ContainerAware
         } else {
             $menu->setChildrenAttributes(array('class' => 'navbar-nav'));
         }
-        
+
         return $menu;
     }
 
@@ -61,7 +61,7 @@ class Builder extends ContainerAware
         }
         $options += array('routeParameters' => $menuItem->getParameters());
         $attributes = $menuItem->getAttributes();
-        if ($menuItem->isActive()) {
+        if ($menuItem->isActive($this->container->get('request_stack')->getCurrentRequest()->get('_route'))) {
             $attributes += array('class' => 'active');
         }
         $options += array('attributes' => $attributes);

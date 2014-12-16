@@ -28,6 +28,11 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface {
         $user = $token->getUser();
         $userRoles = $user->getUserRoles();
 
+        $targetPath = $request->request->get('_target_path');
+        if (!is_null($targetPath)) {
+            return new RedirectResponse($targetPath);
+        }
+
         $app = '';
         foreach ($userRoles as $role) {
             $defaultRoute = $role->getApplication()->getDefaultRoute();
