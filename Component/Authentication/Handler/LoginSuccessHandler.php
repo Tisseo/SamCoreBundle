@@ -29,7 +29,7 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface {
         $userRoles = $user->getUserRoles();
 
         $targetPath = $request->request->get('_target_path');
-        if (!is_null($targetPath)) {
+        if (!empty($targetPath)) {
             return new RedirectResponse($targetPath);
         }
 
