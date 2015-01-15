@@ -8,7 +8,7 @@ parameters:
     # Monitoring
     sam.business_monitoring.nmm.class: CanalTP\SamCoreBundle\Monitoring\Component
     sam_core.customer.class: CanalTP\SamCoreBundle\Services\CustomerManager
-    sam_core.customer.application.transformer.class: CanalTP\SamCoreBundle\Form\DataTransformer\ApplicationToCustomerApplicationTransformer
+    sam_core.customer.application.transformer.class: CanalTP\NmmPortalBundle\Form\DataTransformer\ApplicationToCustomerApplicationTransformer
 
 services:
     sam_core.slugify:

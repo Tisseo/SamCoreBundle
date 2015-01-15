@@ -10,7 +10,6 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Email;
 use Doctrine\ORM\EntityRepository;
-use CanalTP\SamCoreBundle\Form\DataTransformer\ApplicationToCustomerApplicationTransformer;
 
 /**
  * Description of CustomerType
@@ -21,13 +20,6 @@ class CustomerType extends AbstractType
 {
     const MIME_IMAGETYPE_PNG = 'image/png';
     const MIME_IMAGETYPE_JPEG = 'image/jpeg';
-
-    protected $applicationsTransformer = null;
-
-    public function __construct($applicationsTransformer)
-    {
-        $this->applicationsTransformer = $applicationsTransformer;
-    }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -76,20 +68,6 @@ class CustomerType extends AbstractType
                 )
             )
         );
-        $builder->add(
-            'applications',
-            'entity',
-            array(
-                'label' => 'customer.applications',
-                'multiple' => true,
-                'class' => 'CanalTPSamCoreBundle:Application',
-                'query_builder' => function(EntityRepository $er) {
-                    return $er->createQueryBuilder('cli')
-                        ->orderBy('cli.name', 'ASC');
-                },
-                'expanded' => true
-            )
-        )->addModelTransformer($this->applicationsTransformer);
     }
 
     public function getName()
