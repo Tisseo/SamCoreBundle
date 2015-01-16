@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://nmm.local/" />
+<title>IUS-346</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">IUS-346</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/app_dev.php/admin/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>Admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.dropdown-toggle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sam</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Client</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CanalTP</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_0_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.col-md-2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_0_token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_1_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main-container']/div/div[2]/form/div[4]/div/div/div[2]/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_1_token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_2_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main-container']/div/div[2]/form/div[4]/div/div/div[3]/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_2_token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main-container']/div/div[2]/form/div[4]/div/div/div[4]/div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main-container']/div/div[2]/form/div[4]/div/div/div[4]/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_3_token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_4_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main-container']/div/div[2]/form/div[4]/div/div/div[5]/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_4_token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Client</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Voir les clés</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr[4]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr[5]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=td</td>
+	<td>Matrix</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td</td>
+	<td>RealTime</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td</td>
+	<td>Timetable</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr[4]/td</td>
+	<td>NmpAdmin</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr[5]/td</td>
+	<td>Sam</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr[4]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//table[@id='table']/tbody/tr[5]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Liste des clients</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CanalTP</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_2_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CanalTP</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_5_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main-container']/div/div[2]/form/div[4]/div/div/div[5]/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_5_token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=customer_applications_4_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='main-container']/div/div[2]/form/div[4]/div/div/div[4]/div[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=customer_applications_4_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=customer_applications_4_token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Voir les clés</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//table[@id='table']/tbody/tr[3]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//table[@id='table']/tbody/tr[3]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//table[@id='table']/tbody/tr[3]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Liste des clients</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CanalTP</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=customer_applications_5_token</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_5_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Voir les clés</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td.disable-token</td>
+	<td>Bloqué</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr/td[2]</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td</td>
+	<td>Timetable</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td</td>
+	<td>Matrix</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td</td>
+	<td>RealTime</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[4]/td</td>
+	<td>Timetable</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[5]/td</td>
+	<td>NmpAdmin</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[6]/td</td>
+	<td>Sam</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[4]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[5]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[6]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[4]/td[3]</td>
+	<td>Désactivé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[5]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[6]/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Liste des clients</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CanalTP</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=customer_applications_0_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.col-md-2</td>
+	<td>Timetable</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=customer_applications_0_token</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=customer_applications_0_token</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=customer_applications_1_token</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=customer_applications_2_token</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=customer_applications_4_token</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>id=customer_applications_5_token</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_1_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Voir les clés</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td</td>
+	<td>Matrix</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[2]/td[3]</td>
+	<td>Désactivé</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Liste des clients</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CanalTP</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_6_isActive</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=customer_applications_6_token</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Voir les clés</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=td</td>
+	<td>Matrix</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr/td[3]</td>
+	<td>Activé</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td</td>
+	<td>Matrix</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td[2]</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//table[@id='table']/tbody/tr[3]/td[3]</td>
+	<td>Désactivé</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Déconnexion</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
