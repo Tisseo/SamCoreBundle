@@ -25,6 +25,8 @@ class Application
      */
     private $canonicalName;
 
+    private $bundleName;
+
     /**
      * @var array
      */
@@ -193,5 +195,17 @@ class Application
     public function removeRole($role)
     {
 
+    }
+
+    public function getBundleName()
+    {
+        return $this->bundleName;
+    }
+
+    public function setBundleName($bundleName)
+    {
+        $this->bundleName = $bundleName;
+
+        return $this;
     }
 }
