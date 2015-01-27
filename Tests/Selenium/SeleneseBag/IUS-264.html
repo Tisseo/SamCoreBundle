@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://samback/admin/login" />
+<title>IUS-264</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">IUS-264</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/app_dev.php/admin/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>sam</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>sam</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Customer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Ajouter un customer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=customer_navitiaToken</td>
+	<td>FAUX TOKEN</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=customer_applications_5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_0_external_coverage_id</td>
+	<td>label=bretagne</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=customer_perimeters_0_external_network_id</td>
+	<td>Veuillez choisir...</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_0_external_network_id</td>
+	<td>label=Bibus - Brest métropole océane</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.col-xs-12.error</td>
+	<td>Ce token ne vous permet pas d'accéder à ce réseau</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_1_external_coverage_id</td>
+	<td>label=bourgogne</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>id=customer_perimeters_1_external_network_id</td>
+	<td>Veuillez choisir...</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=customer_perimeters_1_external_network_id</td>
+	<td>label=Tréma</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#perimeter_1 &gt; span.col-xs-12.error</td>
+	<td>Ce token ne vous permet pas d'accéder à ce réseau</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>id=customer_navitiaToken</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=customer_navitiaToken</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>id=customer_navitiaToken</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>id=customer_name</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=customer_name</td>
+	<td>CLIENT #IUS-264</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=#perimeter_0 &gt; span.col-xs-12.error</td>
+	<td>Ce token ne vous permet pas d'accéder à ce réseau</td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>css=#perimeter_1 &gt; span.col-xs-12.error</td>
+	<td>Ce token ne vous permet pas d'accéder à ce réseau</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-perimeter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CLIENT #IUS-264</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=customer_navitiaToken</td>
+	<td>aa01b6b4-2f8f-45dd-9c72-be3c4e2a8681</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=span.col-xs-12.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#perimeter_1 &gt; span.col-xs-12.error</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

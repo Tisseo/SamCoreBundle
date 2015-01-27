@@ -22,10 +22,15 @@ CanalTP\SamCoreBundle\Entity\Application:
             column: app_default_route
             length: 255
             nullable: true
+        bundleName:
+            type: string
+            column: app_bundle_name
+            length: 255
+            nullable: true
     oneToMany:
         roles:
             targetEntity: CanalTP\SamCoreBundle\Entity\Role
             mappedBy: application
-    # lifecycleCallbacks:
-    #     postLoad:
-    #         - onPostLoad
+        customers:
+            targetEntity: CanalTP\SamCoreBundle\Entity\CustomerApplication
+            mappedBy: application

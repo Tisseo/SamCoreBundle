@@ -25,7 +25,7 @@ class Role
      * @var string
      */
     private $canonicalName;
-    
+
     /**
      * @var string
      */
@@ -35,7 +35,7 @@ class Role
      * @var array
      */
     private $permissions;
-    
+
     /**
      * @var array
      */
@@ -63,6 +63,7 @@ class Role
     {
         $this->users = new ArrayCollection();
         $this->permissions = array();
+        $this->isEditable = true;
     }
 
     /**
@@ -97,7 +98,7 @@ class Role
     {
         return $this->name;
     }
-    
+
     public function setIsEditable($isEditable)
     {
         $this->isEditable = $isEditable;
@@ -235,13 +236,13 @@ class Role
     {
         return $this->permissions;
     }
-    
+
     /**
      * BusinessPermissions are used to generate permissions form in sam
      * Must be different of Permissions because BusinessPermissions type change during the process.
-     * 
+     *
      * @param type $businessPermissions
-     * @return CanalTP\SamEcoreApplicationManagerBundle\Security\BusinessPermissionInterface[]
+     * @return CanalTP\SamEcoreApplicationManagerBundle\Permission\BusinessPermissionInterface[]
      */
     public function setBusinessPermissions($businessPermissions)
     {

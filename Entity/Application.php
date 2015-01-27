@@ -13,33 +13,37 @@ class Application
     /**
      * @var integer
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
      */
-    protected $name;
+    private $name;
 
     /**
      * @var string
      */
-    protected $canonicalName;
+    private $canonicalName;
+
+    private $bundleName;
 
     /**
      * @var array
      */
-    protected $roles;
+    private $roles;
 
     //public $rolesByApplication;
 
     /**
      * @var string
      */
-    protected $defaultRoute;
+    private $defaultRoute;
 
-    protected $role;
+    private $role;
 
-    protected $perimeters;
+    private $perimeters;
+
+    private $customers;
 
     /**
      * Constructor
@@ -48,6 +52,7 @@ class Application
     {
         $this->name = $name;
         $this->roles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->customers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -146,6 +151,18 @@ class Application
         return $this;
     }
 
+    public function getCustomers()
+    {
+        return $this->customers;
+    }
+
+    public function setCustomers($customers)
+    {
+        $this->customers = $customers;
+
+        return $this;
+    }
+
     public function getRoles()
     {
         return $this->roles;
@@ -178,5 +195,17 @@ class Application
     public function removeRole($role)
     {
 
+    }
+
+    public function getBundleName()
+    {
+        return $this->bundleName;
+    }
+
+    public function setBundleName($bundleName)
+    {
+        $this->bundleName = $bundleName;
+
+        return $this;
     }
 }

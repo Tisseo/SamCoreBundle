@@ -1,0 +1,1202 @@
+{
+
+    "stop_points": [
+        {
+            "comment": "",
+            "name": "Pichon",
+            "coord": {
+                "lat": "48.025",
+                "lon": "2.71639"
+            },
+            "label": "Pichon (Corquilleroy)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Corquilleroy",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.04517157",
+                        "lon": "2.697975614"
+                    },
+                    "label": "Corquilleroy (45120)",
+                    "id": "admin:45104",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Robert Pichon",
+                "house_number": 1,
+                "coord": {
+                    "lat": "48.025",
+                    "lon": "2.71639"
+                },
+                "label": "1 rue Robert Pichon (Corquilleroy)",
+                "id": "2.71639;48.025"
+            },
+            "id": "stop_point:AME:SP:Nav116",
+            "stop_area": {
+                "comment": "",
+                "name": "Pichon",
+                "coord": {
+                    "lat": "48.025",
+                    "lon": "2.71639"
+                },
+                "label": "Pichon (Corquilleroy)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:MTD:SA:154"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Pichon",
+            "coord": {
+                "lat": "48.025",
+                "lon": "2.71639"
+            },
+            "label": "Pichon (Corquilleroy)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Corquilleroy",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.04517157",
+                        "lon": "2.697975614"
+                    },
+                    "label": "Corquilleroy (45120)",
+                    "id": "admin:45104",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Robert Pichon",
+                "house_number": 1,
+                "coord": {
+                    "lat": "48.025",
+                    "lon": "2.71639"
+                },
+                "label": "1 rue Robert Pichon (Corquilleroy)",
+                "id": "2.71639;48.025"
+            },
+            "id": "stop_point:AME:SP:Nav13",
+            "stop_area": {
+                "comment": "",
+                "name": "Pichon",
+                "coord": {
+                    "lat": "48.025",
+                    "lon": "2.71639"
+                },
+                "label": "Pichon (Corquilleroy)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:MTD:SA:154"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Pichon",
+            "coord": {
+                "lat": "48.025",
+                "lon": "2.71639"
+            },
+            "label": "Pichon (Corquilleroy)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Corquilleroy",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.04517157",
+                        "lon": "2.697975614"
+                    },
+                    "label": "Corquilleroy (45120)",
+                    "id": "admin:45104",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Robert Pichon",
+                "house_number": 1,
+                "coord": {
+                    "lat": "48.025",
+                    "lon": "2.71639"
+                },
+                "label": "1 rue Robert Pichon (Corquilleroy)",
+                "id": "2.71639;48.025"
+            },
+            "id": "stop_point:MTD:SP:Nav116",
+            "stop_area": {
+                "comment": "",
+                "name": "Pichon",
+                "coord": {
+                    "lat": "48.025",
+                    "lon": "2.71639"
+                },
+                "label": "Pichon (Corquilleroy)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:MTD:SA:154"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Pichon",
+            "coord": {
+                "lat": "48.025",
+                "lon": "2.71639"
+            },
+            "label": "Pichon (Corquilleroy)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Corquilleroy",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.04517157",
+                        "lon": "2.697975614"
+                    },
+                    "label": "Corquilleroy (45120)",
+                    "id": "admin:45104",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Robert Pichon",
+                "house_number": 1,
+                "coord": {
+                    "lat": "48.025",
+                    "lon": "2.71639"
+                },
+                "label": "1 rue Robert Pichon (Corquilleroy)",
+                "id": "2.71639;48.025"
+            },
+            "id": "stop_point:MTD:SP:Nav13",
+            "stop_area": {
+                "comment": "",
+                "name": "Pichon",
+                "coord": {
+                    "lat": "48.025",
+                    "lon": "2.71639"
+                },
+                "label": "Pichon (Corquilleroy)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:MTD:SA:154"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Jaillon",
+            "coord": {
+                "lat": "48.02202",
+                "lon": "2.715535"
+            },
+            "label": "Jaillon (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Roger Salengro",
+                "house_number": 105,
+                "coord": {
+                    "lat": "48.02202",
+                    "lon": "2.715535"
+                },
+                "label": "105 rue Roger Salengro (Châlette-sur-Loing)",
+                "id": "2.715535;48.02202"
+            },
+            "id": "stop_point:AME:SP:Nav15",
+            "stop_area": {
+                "comment": "",
+                "name": "Jaillon",
+                "coord": {
+                    "lat": "48.02202",
+                    "lon": "2.715535"
+                },
+                "label": "Jaillon (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:104"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Jaillon",
+            "coord": {
+                "lat": "48.02202",
+                "lon": "2.715535"
+            },
+            "label": "Jaillon (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Roger Salengro",
+                "house_number": 105,
+                "coord": {
+                    "lat": "48.02202",
+                    "lon": "2.715535"
+                },
+                "label": "105 rue Roger Salengro (Châlette-sur-Loing)",
+                "id": "2.715535;48.02202"
+            },
+            "id": "stop_point:AME:SP:Nav114",
+            "stop_area": {
+                "comment": "",
+                "name": "Jaillon",
+                "coord": {
+                    "lat": "48.02202",
+                    "lon": "2.715535"
+                },
+                "label": "Jaillon (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:104"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Blum",
+            "coord": {
+                "lat": "48.01529",
+                "lon": "2.732442"
+            },
+            "label": "Blum (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue du Château",
+                "house_number": 4,
+                "coord": {
+                    "lat": "48.01529",
+                    "lon": "2.732442"
+                },
+                "label": "4 rue du Château (Châlette-sur-Loing)",
+                "id": "2.732442;48.01529"
+            },
+            "id": "stop_point:AME:SP:Nav149",
+            "stop_area": {
+                "comment": "",
+                "name": "Blum",
+                "coord": {
+                    "lat": "48.01529",
+                    "lon": "2.732442"
+                },
+                "label": "Blum (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:17"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Blum",
+            "coord": {
+                "lat": "48.01529",
+                "lon": "2.732442"
+            },
+            "label": "Blum (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue du Château",
+                "house_number": 4,
+                "coord": {
+                    "lat": "48.01529",
+                    "lon": "2.732442"
+                },
+                "label": "4 rue du Château (Châlette-sur-Loing)",
+                "id": "2.732442;48.01529"
+            },
+            "id": "stop_point:AME:SP:Nav222",
+            "stop_area": {
+                "comment": "",
+                "name": "Blum",
+                "coord": {
+                    "lat": "48.01529",
+                    "lon": "2.732442"
+                },
+                "label": "Blum (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:17"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Jaures",
+            "coord": {
+                "lat": "48.012976",
+                "lon": "2.7318"
+            },
+            "label": "Jaures (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "avenue Jean Jaurès",
+                "house_number": 1,
+                "coord": {
+                    "lat": "48.012976",
+                    "lon": "2.7318"
+                },
+                "label": "1 avenue Jean Jaurès (Châlette-sur-Loing)",
+                "id": "2.7318;48.012976"
+            },
+            "id": "stop_point:AME:SP:Nav150",
+            "stop_area": {
+                "comment": "",
+                "name": "Jaures",
+                "coord": {
+                    "lat": "48.012976",
+                    "lon": "2.7318"
+                },
+                "label": "Jaures (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:105"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Jaures",
+            "coord": {
+                "lat": "48.012976",
+                "lon": "2.7318"
+            },
+            "label": "Jaures (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "avenue Jean Jaurès",
+                "house_number": 1,
+                "coord": {
+                    "lat": "48.012976",
+                    "lon": "2.7318"
+                },
+                "label": "1 avenue Jean Jaurès (Châlette-sur-Loing)",
+                "id": "2.7318;48.012976"
+            },
+            "id": "stop_point:AME:SP:Nav221",
+            "stop_area": {
+                "comment": "",
+                "name": "Jaures",
+                "coord": {
+                    "lat": "48.012976",
+                    "lon": "2.7318"
+                },
+                "label": "Jaures (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:105"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Hugo",
+            "coord": {
+                "lat": "48.012758",
+                "lon": "2.736993"
+            },
+            "label": "Hugo (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "avenue Jean Jaurès",
+                "house_number": 35,
+                "coord": {
+                    "lat": "48.012758",
+                    "lon": "2.736993"
+                },
+                "label": "35 avenue Jean Jaurès (Châlette-sur-Loing)",
+                "id": "2.736993;48.012758"
+            },
+            "id": "stop_point:AME:SP:Nav152",
+            "stop_area": {
+                "comment": "",
+                "name": "Hugo",
+                "coord": {
+                    "lat": "48.012758",
+                    "lon": "2.736993"
+                },
+                "label": "Hugo (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:101"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Hugo",
+            "coord": {
+                "lat": "48.012758",
+                "lon": "2.736993"
+            },
+            "label": "Hugo (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "avenue Jean Jaurès",
+                "house_number": 35,
+                "coord": {
+                    "lat": "48.012758",
+                    "lon": "2.736993"
+                },
+                "label": "35 avenue Jean Jaurès (Châlette-sur-Loing)",
+                "id": "2.736993;48.012758"
+            },
+            "id": "stop_point:AME:SP:Nav219",
+            "stop_area": {
+                "comment": "",
+                "name": "Hugo",
+                "coord": {
+                    "lat": "48.012758",
+                    "lon": "2.736993"
+                },
+                "label": "Hugo (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:101"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Delaune",
+            "coord": {
+                "lat": "48.019088",
+                "lon": "2.733616"
+            },
+            "label": "Delaune (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue de la Garenne",
+                "house_number": 2,
+                "coord": {
+                    "lat": "48.019088",
+                    "lon": "2.733616"
+                },
+                "label": "2 rue de la Garenne (Châlette-sur-Loing)",
+                "id": "2.733616;48.019088"
+            },
+            "id": "stop_point:AME:SP:Nav148",
+            "stop_area": {
+                "comment": "",
+                "name": "Delaune",
+                "coord": {
+                    "lat": "48.019088",
+                    "lon": "2.733616"
+                },
+                "label": "Delaune (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:68"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Delaune",
+            "coord": {
+                "lat": "48.019088",
+                "lon": "2.733616"
+            },
+            "label": "Delaune (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue de la Garenne",
+                "house_number": 2,
+                "coord": {
+                    "lat": "48.019088",
+                    "lon": "2.733616"
+                },
+                "label": "2 rue de la Garenne (Châlette-sur-Loing)",
+                "id": "2.733616;48.019088"
+            },
+            "id": "stop_point:AME:SP:Nav223",
+            "stop_area": {
+                "comment": "",
+                "name": "Delaune",
+                "coord": {
+                    "lat": "48.019088",
+                    "lon": "2.733616"
+                },
+                "label": "Delaune (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:68"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Lequatre",
+            "coord": {
+                "lat": "48.011046",
+                "lon": "2.738033"
+            },
+            "label": "Lequatre (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue du 8 Mai",
+                "house_number": 21,
+                "coord": {
+                    "lat": "48.011046",
+                    "lon": "2.738033"
+                },
+                "label": "21 rue du 8 Mai (Châlette-sur-Loing)",
+                "id": "2.738033;48.011046"
+            },
+            "id": "stop_point:AME:SP:Nav153",
+            "stop_area": {
+                "comment": "",
+                "name": "Lequatre",
+                "coord": {
+                    "lat": "48.011046",
+                    "lon": "2.738033"
+                },
+                "label": "Lequatre (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:119"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Lequatre",
+            "coord": {
+                "lat": "48.011046",
+                "lon": "2.738033"
+            },
+            "label": "Lequatre (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue du 8 Mai",
+                "house_number": 21,
+                "coord": {
+                    "lat": "48.011046",
+                    "lon": "2.738033"
+                },
+                "label": "21 rue du 8 Mai (Châlette-sur-Loing)",
+                "id": "2.738033;48.011046"
+            },
+            "id": "stop_point:AME:SP:Nav218",
+            "stop_area": {
+                "comment": "",
+                "name": "Lequatre",
+                "coord": {
+                    "lat": "48.011046",
+                    "lon": "2.738033"
+                },
+                "label": "Lequatre (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:119"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Duclos",
+            "coord": {
+                "lat": "48.017777",
+                "lon": "2.715094"
+            },
+            "label": "Duclos (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Roger Salengro",
+                "house_number": 59,
+                "coord": {
+                    "lat": "48.017777",
+                    "lon": "2.715094"
+                },
+                "label": "59 rue Roger Salengro (Châlette-sur-Loing)",
+                "id": "2.715094;48.017777"
+            },
+            "id": "stop_point:AME:SP:Nav21",
+            "stop_area": {
+                "comment": "",
+                "name": "Duclos",
+                "coord": {
+                    "lat": "48.017777",
+                    "lon": "2.715094"
+                },
+                "label": "Duclos (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:71"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Duclos",
+            "coord": {
+                "lat": "48.017777",
+                "lon": "2.715094"
+            },
+            "label": "Duclos (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Roger Salengro",
+                "house_number": 59,
+                "coord": {
+                    "lat": "48.017777",
+                    "lon": "2.715094"
+                },
+                "label": "59 rue Roger Salengro (Châlette-sur-Loing)",
+                "id": "2.715094;48.017777"
+            },
+            "id": "stop_point:AME:SP:Nav108",
+            "stop_area": {
+                "comment": "",
+                "name": "Duclos",
+                "coord": {
+                    "lat": "48.017777",
+                    "lon": "2.715094"
+                },
+                "label": "Duclos (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:71"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Salengro",
+            "coord": {
+                "lat": "48.015287",
+                "lon": "2.716271"
+            },
+            "label": "Salengro (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Roger Salengro",
+                "house_number": 29,
+                "coord": {
+                    "lat": "48.015287",
+                    "lon": "2.716271"
+                },
+                "label": "29 rue Roger Salengro (Châlette-sur-Loing)",
+                "id": "2.716271;48.015287"
+            },
+            "id": "stop_point:AME:SP:Nav22",
+            "stop_area": {
+                "comment": "",
+                "name": "Salengro",
+                "coord": {
+                    "lat": "48.015287",
+                    "lon": "2.716271"
+                },
+                "label": "Salengro (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:189"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Salengro",
+            "coord": {
+                "lat": "48.015287",
+                "lon": "2.716271"
+            },
+            "label": "Salengro (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Roger Salengro",
+                "house_number": 29,
+                "coord": {
+                    "lat": "48.015287",
+                    "lon": "2.716271"
+                },
+                "label": "29 rue Roger Salengro (Châlette-sur-Loing)",
+                "id": "2.716271;48.015287"
+            },
+            "id": "stop_point:AME:SP:Nav107",
+            "stop_area": {
+                "comment": "",
+                "name": "Salengro",
+                "coord": {
+                    "lat": "48.015287",
+                    "lon": "2.716271"
+                },
+                "label": "Salengro (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:189"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Solin",
+            "coord": {
+                "lat": "48.014661",
+                "lon": "2.71855"
+            },
+            "label": "Solin (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "",
+                "house_number": 0,
+                "coord": {
+                    "lat": "48.014661",
+                    "lon": "2.71855"
+                },
+                "label": " (Châlette-sur-Loing)",
+                "id": "2.71855;48.014661"
+            },
+            "id": "stop_point:AME:SP:Nav23",
+            "stop_area": {
+                "comment": "",
+                "name": "Solin",
+                "coord": {
+                    "lat": "48.014661",
+                    "lon": "2.71855"
+                },
+                "label": "Solin (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:198"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Solin",
+            "coord": {
+                "lat": "48.014661",
+                "lon": "2.71855"
+            },
+            "label": "Solin (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "",
+                "house_number": 0,
+                "coord": {
+                    "lat": "48.014661",
+                    "lon": "2.71855"
+                },
+                "label": " (Châlette-sur-Loing)",
+                "id": "2.71855;48.014661"
+            },
+            "id": "stop_point:AME:SP:Nav106",
+            "stop_area": {
+                "comment": "",
+                "name": "Solin",
+                "coord": {
+                    "lat": "48.014661",
+                    "lon": "2.71855"
+                },
+                "label": "Solin (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:198"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Saint Gobain",
+            "coord": {
+                "lat": "48.012414",
+                "lon": "2.722203"
+            },
+            "label": "Saint Gobain (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Marcel Paul",
+                "house_number": 9,
+                "coord": {
+                    "lat": "48.012414",
+                    "lon": "2.722203"
+                },
+                "label": "9 rue Marcel Paul (Châlette-sur-Loing)",
+                "id": "2.722203;48.012414"
+            },
+            "id": "stop_point:AME:SP:Nav24",
+            "stop_area": {
+                "comment": "",
+                "name": "Saint Gobain",
+                "coord": {
+                    "lat": "48.012414",
+                    "lon": "2.722203"
+                },
+                "label": "Saint Gobain (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:181"
+            }
+        },
+        {
+            "comment": "",
+            "name": "Saint Gobain",
+            "coord": {
+                "lat": "48.012414",
+                "lon": "2.722203"
+            },
+            "label": "Saint Gobain (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "rue Marcel Paul",
+                "house_number": 9,
+                "coord": {
+                    "lat": "48.012414",
+                    "lon": "2.722203"
+                },
+                "label": "9 rue Marcel Paul (Châlette-sur-Loing)",
+                "id": "2.722203;48.012414"
+            },
+            "id": "stop_point:AME:SP:Nav105",
+            "stop_area": {
+                "comment": "",
+                "name": "Saint Gobain",
+                "coord": {
+                    "lat": "48.012414",
+                    "lon": "2.722203"
+                },
+                "label": "Saint Gobain (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:181"
+            }
+        },
+        {
+            "comment": "",
+            "name": "23 Aout",
+            "coord": {
+                "lat": "48.009189",
+                "lon": "2.722134"
+            },
+            "label": "23 Aout (Châlette-sur-Loing)",
+            "equipments": [ ],
+            "administrative_regions": [
+                {
+                    "name": "Châlette-sur-Loing",
+                    "level": 8,
+                    "coord": {
+                        "lat": "48.01470003",
+                        "lon": "2.73233169"
+                    },
+                    "label": "Châlette-sur-Loing (45120)",
+                    "id": "admin:45068",
+                    "zip_code": "45120"
+                }
+            ],
+            "address": {
+                "name": "",
+                "house_number": 0,
+                "coord": {
+                    "lat": "48.009189",
+                    "lon": "2.722134"
+                },
+                "label": " (Châlette-sur-Loing)",
+                "id": "2.722134;48.009189"
+            },
+            "id": "stop_point:AME:SP:Nav25",
+            "stop_area": {
+                "comment": "",
+                "name": "23 Aout",
+                "coord": {
+                    "lat": "48.009189",
+                    "lon": "2.722134"
+                },
+                "label": "23 Aout (Châlette-sur-Loing)",
+                "timezone": "Europe/Paris",
+                "id": "stop_area:AME:SA:1"
+            }
+        }
+    ],
+    "pagination": {
+        "items_per_page": 25,
+        "items_on_page": 25,
+        "start_page": 0,
+        "total_result": 10892
+    },
+    "links": [
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points/{stop_points.id}?collection=stop_points",
+            "type": "stop_points",
+            "rel": "stop_points",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_areas/{stop_area.id}?collection=stop_areas",
+            "type": "stop_area",
+            "rel": "stop_areas",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/addresses/{address.id}?collection=addresses",
+            "type": "address",
+            "rel": "addresses",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points/{stop_points.id}/route_schedules",
+            "rel": "route_schedules",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points/{stop_points.id}/stop_schedules",
+            "rel": "stop_schedules",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points/{stop_points.id}/arrivals",
+            "rel": "arrivals",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points/{stop_points.id}/departures",
+            "rel": "departures",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points/{stop_points.id}/places_nearby",
+            "rel": "places_nearby",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points/{stop_points.id}/journeys",
+            "rel": "journeys",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points?start_page=1",
+            "type": "next",
+            "templated": false
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points?start_page=435",
+            "type": "last",
+            "templated": false
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points",
+            "type": "first",
+            "templated": false
+        }
+    ]
+
+}

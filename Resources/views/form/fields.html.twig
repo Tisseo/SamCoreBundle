@@ -1,0 +1,72 @@
+
+{% block _sim_logo_and_networks_logo_massUpload_widget %}
+    {% spaceless %}
+    {% set full_name = full_name ~ '[]' %}
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    {% endspaceless %}
+{% endblock %}
+
+{% block _sim_lines_picto_massUpload_widget %}
+    {% spaceless %}
+    {% set full_name = full_name ~ '[]' %}
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    {% endspaceless %}
+{% endblock %}
+
+{% block file_widget %}
+    {% spaceless %}
+
+    {{ block('form_widget') }}
+    {% if image_url is defined and image_url is not empty %}
+        <img src="{{ asset(image_url) }}" width="84px"/>
+    {% else %}
+        <img style="display: none" src="#" width="84px" />
+    {% endif %}
+
+    {% endspaceless %}
+{% endblock %}
+
+{% block checkbox_row %}
+<label{% for attrname, attrvalue in label_attr %} {{ attr_name}}="{{attr_value}}"{% endfor %}> <input type="checkbox" {{ block('widget_attributes') }} {% if value is defined %}value="{{ value }}"{% endif %} {% if checked %}checked="checked"{% endif %}> &nbsp;{{ label|trans({}, translation_domain) }}</label>
+{% endblock checkbox_row %}
+
+{% block radio_row %}
+<label{% for attrname, attrvalue in label_attr %} {{ attr_name}}="{{attr_value}}"{% endfor %}> <input type="radio" {{ block('widget_attributes') }} {% if value is defined %}value="{{ value }}"{% endif %} {% if checked %}checked="checked"{% endif %}> &nbsp;{{ label|trans({}, translation_domain) }}</label>
+{% endblock radio_row %}
+
+{% block sam_sim_commercial_modes_row %}
+{% spaceless %}
+            <tr>
+            <td width="300px">
+                {{ form_widget(form.picto.file) }}
+                {{ form_row(form.picto.id) }}
+            </td>
+            <td>
+                {{ form_widget(form.name) }}
+            </td>
+            <td>
+                {{ form_widget(form.available) }}
+            </td>
+            <td>
+                {{ form_widget(form.visible) }}
+            </td>
+            <td>
+                {{ form_widget(form.includeByDefault) }}
+            </td>
+            </tr>
+{% endspaceless %}
+{% endblock sam_sim_commercial_modes_row %}
+
+{% block choice_widget_expanded %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+    <div class="row">
+    {% for child in form %}
+        <div class="col-xs-6">
+        {{ form_row(child) }}
+        </div>
+    {% endfor %}
+                </div>
+    </div>
+{% endspaceless %}
+{% endblock choice_widget_expanded %}

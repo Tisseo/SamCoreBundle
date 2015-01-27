@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]>    <html class="ie8" lang="{{ app.request.locale }}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="" lang="{{ app.request.locale }}"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}SAM-nude{% endblock %}</title>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?{{ assets_version }}" />
+        {% block stylesheets %}
+            {% stylesheets 'css/bootstrap.css'
+                           'components/bootstrap-datepicker/css/datepicker3.css'
+                           filter='cssrewrite' output='css/full_sam.css' %}
+                <link rel="stylesheet" href="{{ asset_url }}?{{ assets_version }}" />
+            {% endstylesheets %}
+        {% endblock %}
+
+        {% block head_config %}
+            {% include 'CanalTPSamCoreBundle::config.js.html.twig' %}
+        {% endblock %}
+
+        <!--[if lt IE 9]>
+            {% javascripts '../vendor/respondjs/respondjs/respond.js'
+                           '../vendor/afarkas/html5shiv/src/html5shiv.js' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        <![endif]-->
+    </head>
+    <body>
+        <div id="header-bg"></div>
+        <div id="footer-bg"></div>
+        <div id="global-flexible-wrapper">
+            {% block menu %}
+                <nav id="sam-navbar" class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-navbar-menu">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{ app.request.baseUrl }}/"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="header-navbar-menu">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <!-- Right Nav Section -->
+                        <ul class="nav navbar-nav navbar-left">
+                            {{ render(controller('CanalTPSamEcoreApplicationManagerBundle:Application:toolbar')) }}
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            {{ render(controller('CanalTPSamEcoreUserManagerBundle:User:toolbar')) }}
+                        </ul>
+                    {% endif %}
+                </nav>
+            {% endblock %}
+
+            <div id="application-navbar" class="container">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-brand">{% block navbar_brand %}{% endblock %}</div>
+                    <div class="navbar-header">
+                        {% block navbar %}
+                            {{ knp_menu_render('CanalTPSamCoreBundle:Builder:businessMenu', {'style': 'navbar', 'currentClass': 'active'}) }}
+                        {% endblock %}
+                    </div>
+                </nav>
+            </div>
+
+            {% block root_breadcrumb %}
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('root') }}">{{'ctp_core._breadcrumb'|trans}}</a></li>
+                    {% block breadcrumb %}{% endblock %}
+                </ol>
+            {% endblock %}
+
+            <div id="main-container" class="container">
+                {% for type, messages in app.session.flashBag.all %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ type }} alert-dismissable {{ type }}">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {{ message|trans }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                {% block body %}
+                <div class="row">
+                    <div class="col-md-3">
+                        <div id="left-menu">
+                        {% block left_menu -%}
+                        {% endblock %}
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        {% block main_content %}
+                        {% endblock %}
+                    </div>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="main-footer" class="no-print container">
+            {% block footer %}
+                {% include 'CanalTPSamCoreBundle::footer.html.twig' %}
+            {% endblock %}
+        </div>
+        <div id="base-modal" class="modal fade">
+            {% block base_modal %}
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        {% include 'CanalTPSamCoreBundle::modal.html.twig' %}
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+
+        {% block javascripts %}{% endblock %}
+        {% block inline_javascripts %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,153 @@
+global:
+    error: Erreur
+    actions.listtokens: Voir les clés
+# Form field labels
+form:
+    group_name: "Nom du Sim :"
+    group_url: "Url :"
+    config_network: "Réseaux :"
+    mass_upload: "Upload en masse"
+    username: "Nom d'utilisateur :"
+    email: "Adresse e-mail :"
+    current_password: "Mot de passe actuel :"
+    password: "Mot de passe :"
+    password_confirmation: "Vérification :"
+    new_password: "Nouveau mot de passe :"
+    new_password_confirmation: "Vérification :"
+    save: Enregistrer
+
+ctp_core:
+    _breadcrumb: Accueil
+    _footer:
+        labs_link: Labs - Le blog de Canal TP
+        your_tools: Vos outils
+        jira: JIRA
+        debug: Debug
+        contact_us: Contactez-nous
+ctp_user:
+    user:
+        _menu: Utilisateurs
+        _breadcrumb: Utilisateurs
+        roles:
+            super_admin: Super Admin
+            admin: Admin
+            user: User
+        actions:
+            edit:
+                short: Modifier
+            add:
+                short: Ajouter
+                full: Ajouter un utilisateur
+            delete:
+                short: Supprimer
+            cancel:
+                short: Annuler
+            back:
+                list: Revenir à la liste
+        list:
+            _breadcrumb: Liste
+            _title: Liste des utilisateurs
+            profil: Rôle
+            groups: Applications
+            name: Nom
+            url: Url
+            email: Email
+            last_login: Dernière connexion
+            enabled: Actif
+            locked: Bloqué
+            actions: Actions
+        edit:
+            _breadcrumb: Modification
+            _title: Modification d'un utilisateur
+        add:
+            _breadcrumb: Ajout
+            _title: Ajout d'un utilisateur
+            roles: "Liste de rôle pour :"
+            groups: "Applications :"
+        delete:
+            _breadcrumb: Suppression
+            _title: Suppression d'un utilisateur
+            confirm: Etes vous sur de vouloir supprimer cet utilisateur ?
+
+menu:
+    donnees: Données & Référentiel
+    gestionsim: Gestion des SIM
+    statistiques: Statistiques
+    outils: Outils
+    administration: Administration
+    utilisateurs: Utilisateurs
+    poi: POI
+
+# Role
+role:
+    field:
+        id: Id
+        name: Nom
+        role: Role (doit commencer par ROLE_)
+        customer: Client
+        copyRole:
+            label: Copier un des rôles de
+            empty_label: Sélectionnez le rôle parent
+        application: Applications
+    list:
+        title: Liste des rôles
+        add: Créer un nouveau rôle
+        back: Retour à la liste des rôles
+    edit:
+        title: Modification du rôle "%name%"
+        submit: Mettre à jour le rôle
+    delete:
+        title: Suppresion du rôle "%name%"
+        confirm: Êtes-vous sûr de vouloir supprimer le rôle %name% ?
+    show:
+        title: Role
+        name: Nom du rôle
+    new:
+        title: Création d'un nouveau rôle
+        submit: Créer le rôle
+    flash:
+        updated: Le rôle a été mis à jour
+        created: Le rôle a été créé
+        deleted: Le rôle a été supprimé
+
+layout:
+    choose_application: Choisir une application
+
+customer:
+    logo: Logo
+    created: Date de création
+    name: Nom
+    list: Liste des clients
+    logo_path: Logo
+    applications: Applications
+    application: Application
+    perimeters: Perimètres
+    creation_date: Crée le
+    email: Email
+    add_perimeter: Ajouter un périmètre
+    new:
+        title: Ajouter un client
+    edit:
+        title: Édition d'un client
+    flash:
+        edit:
+            success: Changements sauvegardés
+        creation:
+            success: Le nouveau client a bien été créé
+    actions: Actions
+    token:
+        label: Token
+        status: État
+        enable: Activé
+        disable: Désactivé
+        unauthorized: Bloqué
+        regenerate: Re-générer
+        regenerate_all: Re-générer TOUS les tokens
+
+perimeter:
+    external_coverage_id: Id du coverage
+    external_network_id: Id du réseau
+
+profile:
+    flash:
+        updated: L'utilisateur a bien été mis à jour

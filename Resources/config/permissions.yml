@@ -1,0 +1,32 @@
+parameters:
+    sam.permissions:
+        BUSINESS_VIEW_USER:
+            label: Voir les utilisateurs
+            description: Accéder à la liste des utilisateurs, pouvoir utiliser les filtres et les tris de cette page, etc...
+        BUSINESS_MANAGE_USER:
+            label: Gérer les utilisateurs
+            description: Modifier les données personnelles des utilisateurs. Créer des utilisateurs. Supprimer des utilisateurs.
+        BUSINESS_MANAGE_USER_PERIMETER:
+            label: Assigner des périmètres à des utilisateurs
+            description: Sur la page de création d’utilisateurs. Sur la page de modification d’utilisateur
+        BUSINESS_MANAGE_PERMISSION:
+            label: Modifier les permissions des rôles
+            description: Permet de modifier les permissions des différents rôles
+        BUSINESS_VIEW_ROLE:
+            label: Voir les rôles existants
+            description: Accéder à la liste des rôles, pouvoir utiliser les filtres et les tris de cette page, etc. Sur la page d’édition des utilisateurs, voir leurs rôles. Sur son propre compte, voir ses rôles pour chaque appli métier.
+        BUSINESS_MANAGE_ROLE:
+            label: Administrer les rôles
+            description: Modifier les rôles (modifier le libellé en fait …). Créer des rôles. Supprimer des rôles.
+        BUSINESS_CREATE_SUPER_ADMIN:
+            label: Creer un utilisateur Super Admin
+            description: Pourra donner les droits Super Admin à un utilisateur lors de sa création
+        BUSINESS_MANAGE_CLIENT:
+            label: Lister les customers
+            description: Peut voir les customers
+        BUSINESS_CREATE_CLIENT:
+            label: Creer des customers
+            description: Le label n'est-il pas assez explicite ?
+        BUSINESS_MANAGE_NAVITIA_USER:
+            label: Creer des utilisateurs navitia
+            description: Le label n'est-il pas assez explicite ?

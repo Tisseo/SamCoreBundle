@@ -1,0 +1,12 @@
+<div id="perimeter_{{ perimeter.vars.name }}" perimeter-index="{{ perimeter.vars.name }}" class="form-group row">
+    {% for field in perimeter %}
+        <div class="col-xs-4">
+            {{ form_widget(field, { 'attr': {'placeholder': field.vars.label } }) }}
+            {{ form_errors(field) }}
+        </div>
+    {% endfor %}
+    <button type="button" class="btn btn-danger btn-xs delete-item">
+        <span class="glyphicon glyphicon-trash"></span> {{ 'global.delete'|trans }}
+    </button>
+    <span class="col-xs-12 error"></span>
+</div>

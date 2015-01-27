@@ -1,32 +1,8 @@
-CanalTP\SamCoreBundle\Entity\CoBranding:
-    properties:
-        company:
-            - NotBlank:
-                message: sqwal_cobranding.form.organism.name.error.blank
-        firstname:
-            - NotBlank:
-                message: sqwal_cobranding.form.delegate.first_name.label
-        lastname:
-            - NotBlank:
-                message: sqwal_cobranding.form.delegate.name.error.blank
-        address:
-            - NotBlank:
-                message: sqwal_cobranding.form.organism.address.error.blank
-        motivation:
-            - NotBlank:
-                message: sqwal_cobranding.form.organism.motivation.label
-        domaine:
-            - NotBlank:
-                message: sqwal_cobranding.form.organism.website.label
-        email:
-            - NotBlank:
-                message: sqwal_cobranding.form.delegate.email.error.blank
-            - Email:
-                message: sqwal_cobranding.form.delegate.email.error.blank
-        job:
-            - NotBlank:
-                message: sqwal_cobranding.form.delegate.office.error.blank
-        sim:
-            - Type:
-                type: CanalTP\SamCoreBundle\Entity\Sim
-                message: sqwal_cobranding.form.sim.error.notvalid
+CanalTP\SamCoreBundle\Entity\Customer:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+CanalTP\SamCoreBundle\Entity\Perimeter:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [customer, externalCoverageId, externalNetworkId]
