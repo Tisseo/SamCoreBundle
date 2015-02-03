@@ -61,6 +61,7 @@ EOT
 
         // Fixtures
         $this->runCommand('doctrine:fixtures:load', array('--append'  => true), $output);
+        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPMetricsDashboardBundle', '--target' => 'farthest'), $output);
     }
 
     private function runCommand($command, $arguments, OutputInterface $output)
