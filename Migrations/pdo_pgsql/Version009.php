@@ -25,11 +25,11 @@ class Version009 extends AbstractMigration
 
     public function down(Schema $schema)
     {
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPMttBundle' WHERE app_canonical_name=''");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPMatrixBundle' WHERE app_canonical_name=''");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPNmpAdminBundle' WHERE app_canonical_name=''");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPRealTimeBundle' WHERE app_canonical_name=''");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPNmmPortalBridgeBundle' WHERE app_canonical_name=''");
+        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPMttBundle' WHERE app_canonical_name='mtt'");
+        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPMatrixBundle' WHERE app_canonical_name='matrix'");
+        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPNmpAdminBundle' WHERE app_canonical_name='nmpadmin'");
+        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPRealTimeBundle' WHERE app_canonical_name='realtime'");
+        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPNmmPortalBridgeBundle' WHERE app_canonical_name='samcore'");
     }
 }
 
