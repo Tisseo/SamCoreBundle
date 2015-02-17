@@ -15,7 +15,7 @@ trait ApplicationTrait
      *
      * @return Application
      */
-    public function createApplication(ObjectManager $om, $name, $route, $bundleName = null, $reference = null)
+    public function createApplication(ObjectManager $om, $name, $route, $reference = null, $bundleName = null)
     {
         $entity = new Application($name);
         $entity->setDefaultRoute($route);
