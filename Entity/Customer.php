@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Customer
  */
-class Customer extends AbstractEntity
+class Customer extends AbstractEntity implements CustomerInterface
 {
     /**
      * @var integer
