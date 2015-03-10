@@ -137,4 +137,13 @@ class CustomerManager
             )
         ));
     }
+
+    public function findByCurrentApplication()
+    {
+        $customerRepository = $this->om->getRepository('CanalTPSamCoreBundle:Customer');
+
+        return $customerRepository->findByActiveApplication(
+            $this->applicationFinder->getCurrentApp()->getId()
+        );
+    }
 }
