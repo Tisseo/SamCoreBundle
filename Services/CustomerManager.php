@@ -82,7 +82,9 @@ class CustomerManager
     {
         $applications = array();
         foreach ($customer->getActiveCustomerApplications() as $customerApplication) {
-            $applications[] = $customerApplication->getApplication();
+            $application = $customerApplication->getApplication();
+
+            $applications[$application->getCanonicalName()] = $application;
         }
 
         return $applications;
