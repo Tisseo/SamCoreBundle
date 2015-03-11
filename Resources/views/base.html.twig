@@ -105,7 +105,7 @@
         </div>
         <div id="base-modal" class="modal fade">
             {% block base_modal %}
-                <div class="modal-dialog">
+                <div class="modal-dialog {% block modal_dialog_classes %}{% endblock %}">
                     <div class="modal-content">
                         {% include 'CanalTPSamCoreBundle::modal.html.twig' %}
                     </div>
