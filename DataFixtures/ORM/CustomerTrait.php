@@ -17,7 +17,7 @@ trait CustomerTrait
         $om->persist($customerApplication);
     }
 
-    public function createCustomer(ObjectManager $om, $name, $email, $customerReference)
+    public function createCustomer(ObjectManager $om, $name, $email, $customerReference, $identifier = null)
     {
         $nav = new \CanalTP\NmmPortalBundle\Entity\NavitiaEntity();
         $nav->setEmail($email);
@@ -26,6 +26,7 @@ trait CustomerTrait
 
         $customer = new \CanalTP\NmmPortalBundle\Entity\Customer();
         $customer->setName($name);
+        $customer->setIdentifier(($identifier == null ? $customer->getNameCanonical() : $identifier));
         $customer->setNavitiaEntity($nav);
         $om->persist($customer);
         $this->addReference('customer-' . $customerReference, $customer);

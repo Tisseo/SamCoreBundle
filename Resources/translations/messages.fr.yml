@@ -117,6 +117,7 @@ customer:
     logo: Logo
     created: Date de création
     name: Nom
+    identifier: Identifiant
     list: Liste des clients
     logo_path: Logo
     applications: Applications

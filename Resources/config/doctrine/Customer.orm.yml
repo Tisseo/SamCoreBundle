@@ -14,6 +14,11 @@ CanalTP\SamCoreBundle\Entity\Customer:
             column: cus_name
             length: 255
             nullable: false
+        identifier:
+            type: string
+            column: cus_identifier
+            length: 255
+            nullable: false
         nameCanonical:
             type: string
             column: cus_name_canonical
@@ -43,6 +48,8 @@ CanalTP\SamCoreBundle\Entity\Customer:
     uniqueConstraints:
         name_idx:
             columns: [ cus_name_canonical ]
+        identifier_idx:
+            columns: [ identifier ]
     oneToMany:
         applications:
             targetEntity: CanalTP\SamCoreBundle\Entity\CustomerApplication
