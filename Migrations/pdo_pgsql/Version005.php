@@ -52,7 +52,7 @@ class Version005 extends AbstractMigration
         $this->addSql('ALTER TABLE public.tj_customer_application_cap ADD CONSTRAINT FK_9425A57F7987212D FOREIGN KEY (app_id) REFERENCES public.tr_application_app (app_id) NOT DEFERRABLE INITIALLY IMMEDIATE;');
 
 
-        $this->addSql('DROP INDEX public.cus_email_idx');
+        $this->addSql('DROP INDEX cus_email_idx;');
         $this->addSql('ALTER TABLE public.tr_customer_cus DROP COLUMN cus_email;');
         $this->addSql('ALTER TABLE public.tr_customer_cus DROP COLUMN cus_email_canonical;');
         $this->addSql('ALTER TABLE public.tr_customer_cus ADD COLUMN cus_navitia_token VARCHAR(255) DEFAULT \'\';');
