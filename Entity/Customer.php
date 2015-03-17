@@ -22,6 +22,11 @@ class Customer extends AbstractEntity implements CustomerInterface
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $identifier;
+
+    /**
      * @var file
      */
     protected $file;
@@ -67,6 +72,18 @@ class Customer extends AbstractEntity implements CustomerInterface
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
+
+    public function setIdentifier($identifier)
+    {
+        $this->identifier = $identifier;
+
+        return $this;
     }
 
     /**

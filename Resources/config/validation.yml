@@ -2,6 +2,7 @@ CanalTP\SamCoreBundle\Entity\Customer:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: identifier
 CanalTP\SamCoreBundle\Entity\Perimeter:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
