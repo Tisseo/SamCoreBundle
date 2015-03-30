@@ -39,6 +39,9 @@ class Version001 extends AbstractMigration
 
     public function down(Schema $schema)
     {
-
+        $this->addSql('DROP TABLE public.tj_user_role_ur;');
+        $this->addSql('DROP TABLE public.t_role_rol;');
+        $this->addSql('DROP TABLE public.t_user_usr;');
+        $this->addSql('DROP TABLE public.tr_application_app;');
     }
 }

@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\Regex;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -65,6 +66,24 @@ class CustomerType extends AbstractType
                         array('max' => 255)
                     ),
                     new Email(array('checkMX' => true))
+                )
+            )
+        );
+        $builder->add(
+            'identifier',
+            'text',
+            array(
+                'label' => 'customer.identifier',
+                'constraints' => array(
+                    new NotBlank(),
+                    new Length(
+                        array('max' => 255)
+                    ),
+                    new Regex(
+                        array(
+                            'pattern' => '/^[a-zA-Z0-9]+$/'
+                        )
+                    )
                 )
             )
         );

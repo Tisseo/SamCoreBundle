@@ -52,4 +52,16 @@ class CustomerRepository extends EntityRepository
 
         $query->execute();
     }
+
+    public function findByActiveApplication($applicationId)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->distinct()
+            ->join('c.applications', 'ca')
+            ->where('ca.application = :appId')
+            ->andWhere('ca.isActive = true')
+            ->setParameter('appId', $applicationId);
+
+        return $qb->getQuery()->getResult();
+    }
 }

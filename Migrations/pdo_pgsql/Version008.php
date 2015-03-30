@@ -21,7 +21,7 @@ class Version008 extends AbstractMigration
 
     public function down(Schema $schema)
     {
-        $this->addSql('ALTER TABLE tr_application_app DROP COLUMN app_bundle_name VARCHAR(255);');
+        $this->addSql('ALTER TABLE tr_application_app DROP COLUMN app_bundle_name;');
     }
 }
 

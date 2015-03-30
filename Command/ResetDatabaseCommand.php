@@ -43,25 +43,36 @@ EOT
         $this->env = $this->getContainer()->get('kernel')->getEnvironment();
         $this->console = $this->getApplication();
 
-        preg_match_all(
-            "|(?P<namespace>[^,]*)\\\(?P<application>[^\\\]*)BridgeBundle|U",
-            implode(',', $this->getContainer()->getParameter('kernel.bundles')),
-            $bridges,
-            PREG_SET_ORDER
-        );
-
         $this->console->setAutoExit(false);
         $this->console->setCatchExceptions(false);
+
         // Drop the database
         $this->runCommand('doctrine:database:drop', array('--force'  => true), $output);
+
         // Create the database
         $this->runCommand('doctrine:database:create', array(), $output);
+
         // Create tables for each aplications
-        foreach ($bridges as $bridge) {
-            $this->runCommand('claroline:migration:upgrade', array('bundle' => $bridge['namespace'] . $bridge['application'] . "Bundle", '--target' => 'farthest'), $output);
+        foreach ($this->getBridgeApplicationBundles() as $bridge) {
+            $this->runCommand('claroline:migration:upgrade', array('bundle' => $bridge, '--target' => 'farthest'), $output);
         }
+
         // Fixtures
         $this->runCommand('doctrine:fixtures:load', array('--append'  => true), $output);
+    }
+
+    private function getBridgeApplicationBundles()
+    {
+        $bridges = preg_grep(
+            "|BridgeBundle|U",
+            $this->getContainer()->getParameter('kernel.bundles')
+        );
+
+        $getApplicationBundles = function ($bridgeBundle) {
+            return str_replace('Bridge', '', $bridgeBundle);
+        };
+
+        return array_map($getApplicationBundles, array_keys($bridges));
     }
 
     private function runCommand($command, $arguments, OutputInterface $output)
