@@ -52,27 +52,15 @@ EOT
         // Create the database
         $this->runCommand('doctrine:database:create', array(), $output);
 
+        $applicationFinder = $this->getContainer()->get('canal_tp_sam.application.finder');
+        $applications = $applicationFinder->getBridgeApplicationBundles();
         // Create tables for each aplications
-        foreach ($this->getBridgeApplicationBundles() as $bridge) {
-            $this->runCommand('claroline:migration:upgrade', array('bundle' => $bridge, '--target' => 'farthest'), $output);
+        foreach ($applications as $application) {
+            $this->runCommand('claroline:migration:upgrade', array('bundle' => $application['bundle'], '--target' => 'farthest'), $output);
         }
 
         // Fixtures
         $this->runCommand('doctrine:fixtures:load', array('--append'  => true), $output);
-    }
-
-    private function getBridgeApplicationBundles()
-    {
-        $bridges = preg_grep(
-            "|BridgeBundle|U",
-            $this->getContainer()->getParameter('kernel.bundles')
-        );
-
-        $getApplicationBundles = function ($bridgeBundle) {
-            return str_replace('Bridge', '', $bridgeBundle);
-        };
-
-        return array_map($getApplicationBundles, array_keys($bridges));
     }
 
     private function runCommand($command, $arguments, OutputInterface $output)
