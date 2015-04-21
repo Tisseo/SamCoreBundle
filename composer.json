@@ -4,27 +4,44 @@
     "description": "Symfony CanalTPSamCoreBundle",
     "keywords": ["Sam Core Entity"],
     "homepage": "https://github.com/CanalTP/SamCoreBundle",
-    "license": "",
+    "license": "AGPLv3",
     "authors": [
         {
-            "name": "Rémy Abi Khalil",
+            "name": "Rémy Abi-Khalil",
             "email": "remy.abikhalil@canaltp.fr"
+        },
+        {
+            "name": "Kévin ZIEMIANSKI",
+            "email": "kevin.ziemianski@canaltp.fr"
+        },
+        {
+            "name": "David QUINTANEL",
+            "email": "david.quintanel@canaltp.fr"
+        },
+        {
+            "name": "David NEGRELLO",
+            "email": "david.negrello@canaltp.fr"
+        },
+        {
+            "name": "Thomas CHEVILY",
+            "email": "thomas.chevily@canaltp.fr"
+        },
+        {
+            "name": "Arnaud OGIELA",
+            "email": "arnaud.ogiela@canaltp.fr"
         },
         {
             "name": "Akambi Fagbohoun",
             "email": "akambi.fagbohoun@canaltp.fr"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "php": ">=5.3.2"
+        "php": ">=5.3.2",
+        "canaltp/sam-ecore-application-manager-bundle": "0.5.0",
+        "canaltp/sam-ecore-user-manager-bundle": "0.5.0",
+        "canaltp/sam-ecore-security-manager-bundle": "0.5.0"
     },
     "autoload": {
         "psr-4": { "CanalTP\\SamCoreBundle\\": "" }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.14-dev"
-        }
     }
 }
