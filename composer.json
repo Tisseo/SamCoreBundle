@@ -37,9 +37,9 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "canaltp/sam-ecore-application-manager-bundle": "0.5.0",
-        "canaltp/sam-ecore-user-manager-bundle": "0.5.0",
-        "canaltp/sam-ecore-security-manager-bundle": "0.5.0"
+        "canaltp/sam-ecore-application-manager-bundle": "0.5.1",
+        "canaltp/sam-ecore-user-manager-bundle": "0.5.1",
+        "canaltp/sam-ecore-security-manager-bundle": "0.5.1"
     },
     "autoload": {
         "psr-4": { "CanalTP\\SamCoreBundle\\": "" }
