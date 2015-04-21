@@ -42,6 +42,7 @@ EOT
     {
         $this->env = $this->getContainer()->get('kernel')->getEnvironment();
         $this->console = $this->getApplication();
+
         $this->console->setAutoExit(false);
         $this->console->setCatchExceptions(false);
 
@@ -51,17 +52,15 @@ EOT
         // Create the database
         $this->runCommand('doctrine:database:create', array(), $output);
 
+        $applicationFinder = $this->getContainer()->get('canal_tp_sam.application.finder');
+        $applications = $applicationFinder->getBridgeApplicationBundles();
         // Create tables for each aplications
-        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPSamCoreBundle', '--target' => 'farthest'), $output);
-        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPNmmPortalBundle', '--target' => 'farthest'), $output);
-        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPMttBundle', '--target' => 'farthest'), $output);
-        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPNmpAdminBundle', '--target' => 'farthest'), $output);
-        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPRealTimeBundle', '--target' => 'farthest'), $output);
-        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPMatrixBundle', '--target' => 'farthest'), $output);
+        foreach ($applications as $application) {
+            $this->runCommand('claroline:migration:upgrade', array('bundle' => $application['bundle'], '--target' => 'farthest'), $output);
+        }
 
         // Fixtures
         $this->runCommand('doctrine:fixtures:load', array('--append'  => true), $output);
-        $this->runCommand('claroline:migration:upgrade', array('bundle' => 'CanalTPMetricsDashboardBundle', '--target' => 'farthest'), $output);
     }
 
     private function runCommand($command, $arguments, OutputInterface $output)

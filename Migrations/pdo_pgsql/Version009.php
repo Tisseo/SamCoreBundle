@@ -14,22 +14,28 @@ class Version009 extends AbstractMigration
         return self::VERSION;
     }
 
+    public function postUp(Schema $schema)
+    {
+        $statement = $this->connection->prepare("SELECT cus.cus_id, cus.cus_name_canonical FROM tr_customer_cus AS cus");
+        $statement->execute();
+        $customers = $statement->fetchAll();
+
+        foreach ($customers as $customer) {
+            $statement = $this->connection->prepare("UPDATE tr_customer_cus SET cus_identifier = :cus_identifier WHERE cus_id = :cus_id");
+            $statement->bindValue('cus_identifier', $customer['cus_name_canonical']);
+            $statement->bindValue('cus_id', $customer['cus_id']);
+            $statement->execute();
+        }
+    }
+
     public function up(Schema $schema)
     {
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPMttBundle' WHERE app_canonical_name='mtt'");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPMatrixBundle' WHERE app_canonical_name='matrix'");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPNmpAdminBundle' WHERE app_canonical_name='nmpadmin'");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPRealTimeBundle' WHERE app_canonical_name='realtime'");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPNmmPortalBridgeBundle' WHERE app_canonical_name='samcore'");
+        $this->addSql('ALTER TABLE tr_customer_cus ADD cus_identifier VARCHAR(255);');
     }
 
     public function down(Schema $schema)
     {
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPMttBundle' WHERE app_canonical_name=''");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPMatrixBundle' WHERE app_canonical_name=''");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPNmpAdminBundle' WHERE app_canonical_name=''");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPRealTimeBundle' WHERE app_canonical_name=''");
-        $this->addSql("UPDATE tr_application_app SET app_bundle_name = 'CanalTPNmmPortalBridgeBundle' WHERE app_canonical_name=''");
+        $this->addSql('ALTER TABLE tr_customer_cus DROP cus_identifier;');
     }
 }
 

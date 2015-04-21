@@ -14,9 +14,9 @@ abstract class AbstractController extends Controller
         }
     }
 
-    protected function isGranted($businessId)
+    protected function isGranted($businessId, $object = null)
     {
-        if ($this->get('security.context')->isGranted($businessId) === false) {
+        if ($this->get('security.authorization_checker')->isGranted($businessId, $object) === false) {
             throw new AccessDeniedException();
         }
     }

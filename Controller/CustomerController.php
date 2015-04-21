@@ -56,7 +56,7 @@ class CustomerController extends AbstractController
 
             return $this->redirect($this->generateUrl('sam_customer_list'));
         }
-        
+
         return $this->render(
             'CanalTPSamCoreBundle:Customer:form.html.twig',
             array(
@@ -132,7 +132,7 @@ class CustomerController extends AbstractController
     public function checkAllowedToNetworkAction($externalCoverageId, $externalNetworkId, $token)
     {
         return;
-        
+
         $response = new JsonResponse();
         $navitia = $this->get('sam_navitia');
         $status = Response::HTTP_FORBIDDEN;

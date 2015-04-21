@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Customer
  */
-class Customer extends AbstractEntity
+class Customer extends AbstractEntity implements CustomerInterface
 {
     /**
      * @var integer
@@ -20,6 +20,11 @@ class Customer extends AbstractEntity
      * @var string
      */
     protected $name;
+
+    /**
+     * @var string
+     */
+    protected $identifier;
 
     /**
      * @var file
@@ -67,6 +72,18 @@ class Customer extends AbstractEntity
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
+
+    public function setIdentifier($identifier)
+    {
+        $this->identifier = $identifier;
+
+        return $this;
     }
 
     /**
