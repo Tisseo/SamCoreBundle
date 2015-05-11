@@ -6,6 +6,9 @@ interface CustomerInterface
 {
     public function getId();
 
+    public function getIdentifier();
+    public function setIdentifier($identifier);
+
     public function setName($name);
     public function getName();
 
