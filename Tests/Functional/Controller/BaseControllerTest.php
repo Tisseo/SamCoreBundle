@@ -272,7 +272,10 @@ abstract class BaseControllerTest extends WebTestCase {
             ->will($this->returnCallback(
                 function () {
                     $return = new \stdClass;
-                    $return->name = 'toto';
+                    $return->direction = new \stdClass;
+                    $return->direction->embedded_type = 'stop_point';
+                    $return->direction->stop_point = new \stdClass;
+                    $return->direction->stop_point->name = 'toto';
 
                     return $return;
                 }
