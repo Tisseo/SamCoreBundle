@@ -6,6 +6,10 @@
             {
                "type":"external_code",
                "value":"TTRSTPGB-2"
+            },
+            {
+               "type": "totem",
+               "value": "654895"
             }
          ],
          "name":"St Pierre Gare",
