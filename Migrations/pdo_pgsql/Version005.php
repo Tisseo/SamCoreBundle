@@ -26,7 +26,7 @@ class Version005 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_9425A57F3E030ACD ON public.tj_customer_application_cap (application_id);');
 
         $this->addSql('CREATE SEQUENCE public.tj_customer_application_cap_cap_id_seq INCREMENT BY 1 MINVALUE 1 START 1;');
-        $this->addSql('CREATE SEQUENCE public.tr_customer_cus_cus_id_seq INCREMENT BY 1 MINVALUE 1 START 1;');
+
         $this->addSql('ALTER TABLE public.tr_customer_cus ADD COLUMN cus_email VARCHAR(255) NOT NULL;');
         $this->addSql('ALTER TABLE public.tr_customer_cus ADD COLUMN cus_email_canonical VARCHAR(255) NOT NULL;');
         $this->addSql('CREATE UNIQUE INDEX cus_email_idx ON public.tr_customer_cus (cus_email_canonical);');
@@ -39,7 +39,7 @@ class Version005 extends AbstractMigration
     {
         $this->addSql('DROP SEQUENCE public.tj_customer_application_cap_id_seq');
         $this->addSql('DROP SEQUENCE public.tj_customer_application_cap_cap_id_seq');
-        $this->addSql('DROP SEQUENCE public.tr_customer_cus_cus_id_seq');
+
         $this->addSql('DROP INDEX public.IDX_9425A57F19EB6921');
         $this->addSql('DROP INDEX public.IDX_9425A57F3E030ACD');
         $this->addSql('ALTER TABLE public.tj_customer_application_cap DROP CONSTRAINT FK_9425A57F3E030ACD;');
