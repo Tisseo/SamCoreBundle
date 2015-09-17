@@ -5,6 +5,7 @@ namespace CanalTP\SamCoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use CanalTP\SamCoreBundle\Entity\Application;
 
 /**
  * Customer
@@ -47,8 +48,7 @@ class Customer extends AbstractEntity implements CustomerInterface
     private $locked;
 
     /**
-     *
-     * @var Application
+     * @var Application[]
      */
     protected $applications;
 
@@ -181,6 +181,11 @@ class Customer extends AbstractEntity implements CustomerInterface
         return $this->locked;
     }
 
+    /**
+     * @param Application[] $applications
+     *
+     * @return Customer
+     */
     public function setApplications($applications)
     {
         $this->applications = $applications;
@@ -188,6 +193,11 @@ class Customer extends AbstractEntity implements CustomerInterface
         return $this;
     }
 
+    /**
+     * @param Application $application
+     *
+     * @return Customer
+     */
     public function addApplication($application)
     {
         $this->applications->add($application);
@@ -195,6 +205,11 @@ class Customer extends AbstractEntity implements CustomerInterface
         return $this;
     }
 
+    /**
+     * @param Application $application
+     *
+     * @return Customer
+     */
     public function removeApplication($application)
     {
         $this->applications->removeElement($application);
@@ -202,6 +217,9 @@ class Customer extends AbstractEntity implements CustomerInterface
         return $this;
     }
 
+    /**
+     * @return Application[]
+     */
     public function getApplications()
     {
         return $this->applications;
