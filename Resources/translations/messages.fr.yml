@@ -24,6 +24,10 @@ ctp_core:
         jira: JIRA
         debug: Debug
         contact_us: Contactez-nous
+        follow_kisio_twitter: Suivez Kisio Digital sur Twitter
+        follow_navitia_twitter: Suivez Navitia sur Twitter
+        follow_kisio_linkedin: Suivez Kisio Digital sur LinkedIn
+        checkout_navitiaio: Venez voir notre API Navitia.io
 ctp_user:
     user:
         _menu: Utilisateurs
