@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% import "CanalTPSamCoreBundle::macros.html.twig" as macros %}
+
+{% if table_id is not defined %}
+    {% set table_id = 'table' %}
+{% endif %}
+
+{% block main_content -%}
+    <h1>{% block list_title -%}{% endblock %}</h1>
+    {% block list_menu -%}{% endblock %}
+    <hr/>
+
+    {% block bootstrap_table -%}{% endblock %}
+    {% block list_pagination -%}{% endblock %}
+{% endblock %}
