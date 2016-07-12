@@ -55,6 +55,7 @@ class ApplicationRepository extends EntityRepository
                 ->addSelect('r')
             ->leftJoin('a.roles', 'r', \Doctrine\ORM\Query\Expr\Join::WITH,  'r.isEditable = true')
             ->where('a.id = :id')
+            ->orderBy('r.id', 'ASC')
             ->setParameter('id', $appId);
 
         return $qb->getQuery()->getSingleResult();
