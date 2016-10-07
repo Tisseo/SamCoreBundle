@@ -17,12 +17,16 @@ trait ApplicationTrait
      */
     public function createApplication(ObjectManager $om, $name, $route, $reference = null, $bundleName = null)
     {
-        $entity = new Application($name);
-        $entity->setDefaultRoute($route);
-        $entity->setCanonicalName(strtolower(($reference === null) ? $name : $reference));
-        $entity->setBundleName($bundleName);
+        $canonicalName = strtolower(($reference === null) ? $name : $reference);
+        $entity = $om->getRepository('CanalTPSamCoreBundle:Application')->findOneByCanonicalName($canonicalName);
+        if (is_null($entity)) {
+            $entity = new Application($name);
+            $entity->setDefaultRoute($route);
+            $entity->setCanonicalName($canonicalName);
+            $entity->setBundleName($bundleName);
 
-        $om->persist($entity);
+            $om->persist($entity);
+        }
 
         $this->addReference('app-' . $entity->getCanonicalName(), $entity);
     }
