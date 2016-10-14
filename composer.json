@@ -48,7 +48,8 @@
         "canaltp/sam-ecore-security-manager-bundle": "~0.5",
         "canaltp/sam-monitoring-bundle": "^1.0",
         "stof/doctrine-extensions-bundle": "~1.0",
-        "friendsofsymfony/jsrouting-bundle": "~1.0"
+        "friendsofsymfony/jsrouting-bundle": "~1.0",
+        "knplabs/knp-menu-bundle": "~1.1"
     },
     "autoload": {
         "psr-4": { "CanalTP\\SamCoreBundle\\": "" }
