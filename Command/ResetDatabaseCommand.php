@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Command that purges the database
@@ -26,11 +27,12 @@ class ResetDatabaseCommand extends ContainerAwareCommand
         $this
             ->setName('sam:database:reset')
             ->setDescription('Drop and create the database, create the different schemas and load the fixtures')
+            ->addOption('load-fixtures', null, InputOption::VALUE_NONE, 'Load fixtures into the database')
             ->setHelp(<<<EOT
 The <info>sam:database:reset</info> command Drop and create the database,
-create the different schemas and load the fixtures:
+create the different schemas:
 
-<info>php app/console sam:database:reset</info>
+<info>php app/console sam:database:reset --load-fixtures</info>
 EOT
         );
     }
@@ -60,7 +62,12 @@ EOT
         }
 
         // Fixtures
-        $this->runCommand('doctrine:fixtures:load', array('--append'  => true), $output);
+        if ($input->getOption('load-fixtures')) {
+            if (!array_key_exists('DoctrineFixturesBundle', $this->getContainer()->get('kernel')->getBundles())) {
+                throw new \Exception('doctrine-fixtures-bundle must be installed and loaded into AppKernel');
+            }
+            $this->runCommand('doctrine:fixtures:load', array('--append' => true), $output);
+        }
     }
 
     private function runCommand($command, $arguments, OutputInterface $output)
