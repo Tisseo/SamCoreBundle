@@ -1,0 +1,22 @@
+parameters:
+    sam.business_component.samcore.class: CanalTP\SamCoreBundle\Component\BusinessComponent
+    sam.business_module.samcore.class: CanalTP\SamCoreBundle\Permission\BusinessPermissionModule
+    sam.business_permission_manager.samcore.class: CanalTP\SamCoreBundle\Permission\BusinessPermissionManager
+
+services:
+    sam.business_module.samcore:
+        class: "%sam.business_module.samcore.class%"
+        arguments: ['%sam.permissions%']
+        public: false
+
+    sam.business_permission_manager.samcore:
+        class: "%sam.business_permission_manager.samcore.class%"
+        arguments: ['@sam.business_module.samcore']
+        public: false
+
+    sam.business_component.samcore:
+        class: "%sam.business_component.samcore.class%"
+        arguments: ['@sam.business_permission_manager.samcore', @service_container]
+        public: false
+        tags:
+            -  { name: sam.app_business_component, canonical_app_name: samcore }
