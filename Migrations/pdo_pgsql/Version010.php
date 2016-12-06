@@ -10,7 +10,7 @@ use Doctrine\DBAL\Migrations\AbstractMigration;
  */
 class Version010 extends AbstractMigration
 {
-    const VERSION = '0.10.0';
+    const VERSION = '0.10.1';
 
     public function getName()
     {
@@ -24,7 +24,7 @@ class Version010 extends AbstractMigration
      */
     public function up(Schema $schema)
     {
-        $this->addSql("ALTER TABLE public.t_user_usr ADD COLUMN usr_timezone varchar(255) DEFAULT 'Europe/Paris'");
+        $this->addSql("ALTER TABLE public.t_user_usr ADD COLUMN usr_timezone varchar(255) NOT NULL DEFAULT 'Europe/Paris'");
     }
 
     /**

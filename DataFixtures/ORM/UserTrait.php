@@ -17,6 +17,10 @@ trait UserTrait
      */
     protected function createUser(ObjectManager $om, $data)
     {
+        if (!isset($data['timezone'])) {
+            $data['timezone'] = 'Europe/Paris';
+        }
+
         $user = new User();
         $user->setUsername($data['username']);
         $user->setFirstName($data['firstname']);
@@ -24,6 +28,7 @@ trait UserTrait
         $user->setEnabled(true);
         $user->setEmail($data['email']);
         $user->setPlainPassword($data['password']);
+        $user->setTimezone($data['timezone']);
         $user->setCustomer($this->getReference($data['customer']));
 
         foreach ($data['roles'] as $roleReference) {
