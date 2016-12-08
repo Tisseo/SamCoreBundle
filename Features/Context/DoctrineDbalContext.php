@@ -35,4 +35,15 @@ class DoctrineDbalContext implements SnippetAcceptingContext
             $connection->insert($dbTable, $row);
         }
     }
+
+    /**
+     * @Given I have updated the field :field with value :value for condition :condition_field=:condition_value on table :dbTable
+     */
+    public function iUpdateFieldWithValue($field, $value, $conditionField, $conditionValue, $dbTable)
+    {
+        $connection = $this->getContainer()->get('doctrine.dbal.default_connection');
+        $connection->executeUpdate(
+            sprintf("UPDATE %s SET %s='%s' WHERE %s='%s'", $dbTable, $field, $value, $conditionField, $conditionValue)
+        );
+    }
 }
