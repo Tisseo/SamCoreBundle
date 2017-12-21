@@ -89,18 +89,12 @@
                 {% endblock %}
 
                 {% block body %}
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div id="left-menu">
-                            {% block left_menu -%}
-                            {% endblock %}
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            {% block main_content %}
-                            {% endblock %}
-                        </div>
+                    <div class="admin-menu">
+                        {% block left_menu -%}
+                        {% endblock %}
                     </div>
+                    {% block main_content %}
+                    {% endblock %}
                 {% endblock %}
             </div>
         </div>
