@@ -81,6 +81,11 @@ menu:
     administration: Administration
     utilisateurs: Utilisateurs
     poi: POI
+    users: Utilisateurs
+    roles: Rôles
+    permissions: Permissions
+    clients: Clients
+
 
 # Role
 role:
@@ -104,7 +109,7 @@ role:
         title: Suppresion du rôle "%name%"
         confirm: Êtes-vous sûr de vouloir supprimer le rôle %name% ?
     show:
-        title: Role
+        title: Rôle
         name: Nom du rôle
     new:
         title: Création d'un nouveau rôle
