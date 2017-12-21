@@ -38,22 +38,22 @@ class BusinessComponent extends AbstractBusinessComponent
     {
         $client = new BusinessMenuItem();
         $client->setAction('#');
-        $client->setName('Client');
+        $client->setName('Clients');
         $client->setRoute('sam_customer_list');
 
         $user = new BusinessMenuItem();
         $user->setAction('#');
-        $user->setName('Utilisateur');
+        $user->setName('Utilisateurs');
         $user->setRoute('sam_user_list');
 
         $role = new BusinessMenuItem();
         $role->setAction('#');
-        $role->setName('Role');
+        $role->setName('Rôles');
         $role->setRoute('sam_role');
 
         $perm = new BusinessMenuItem();
         $perm->setAction('#');
-        $perm->setName('Permission');
+        $perm->setName('Permissions');
         $perm->setRoute('sam_security_business_right_edit');
         
         $menu = array();
