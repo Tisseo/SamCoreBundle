@@ -80,11 +80,10 @@ class CustomerType extends AbstractType
                         array('max' => 255)
                     ),
                     new Regex(
-                        array(
-                            'pattern' => '/^[a-zA-Z0-9]+$/'
-                        )
+                        array('pattern' => '/^[a-zA-Z0-9]+$/')
                     )
-                )
+                ),
+                'attr' => array('readonly' => true)
             )
         );
     }

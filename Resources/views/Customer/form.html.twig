@@ -4,21 +4,6 @@
     {% include 'CanalTPSamCoreBundle:Customer:left_menu.html.twig' %}
 {% endblock %}
 
-{#
-{% form_theme form _self %}
-{% block _customer_applications_widget %}
-    {{ form_errors(form) }}
-    {% for child in form %}
-        {% if form.multiple is defined %}
-            {{ checkbox_row(child, { 'no_form_group': true }) }} 11111
-        {% else %}
-            {{ radio_row(child, { 'no_form_group': true }) }}
-            {{ dump(child) }}
-        {% endif %}
-    {% endfor %}
-{% endblock %}
-#}
-
 {% block main_content %}
 
     <h1>{{ title|trans }}</h1>
