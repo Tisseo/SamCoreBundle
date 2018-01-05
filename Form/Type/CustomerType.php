@@ -83,7 +83,7 @@ class CustomerType extends AbstractType
                         array('pattern' => '/^[a-zA-Z0-9]+$/')
                     )
                 ),
-                'attr' => array('readonly' => true)
+                'disabled' => array_key_exists('data', $options)
             )
         );
     }
