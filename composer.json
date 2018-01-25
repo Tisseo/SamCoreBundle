@@ -4,7 +4,7 @@
     "description": "Symfony CanalTPSamCoreBundle",
     "keywords": ["Sam Core Entity"],
     "homepage": "https://github.com/CanalTP/SamCoreBundle",
-    "license": "AGPLv3",
+    "license": "AGPL-3.0-only",
     "authors": [
         {
             "name": "Rémy Abi-Khalil",
@@ -33,12 +33,6 @@
         {
             "name": "Akambi Fagbohoun",
             "email": "akambi.fagbohoun@canaltp.fr"
-        }
-    ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "packagist.canaltp.fr"
         }
     ],
     "require": {
