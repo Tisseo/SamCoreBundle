@@ -139,6 +139,8 @@ customer:
         title: Ajouter un client
     edit:
         title: Édition d'un client
+    delete:
+        title: Suppression d'un client
     flash:
         edit:
             success: Changements sauvegardés
