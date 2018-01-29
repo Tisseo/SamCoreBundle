@@ -139,13 +139,6 @@ customer:
         title: Ajouter un client
     edit:
         title: Édition d'un client
-    delete:
-        title: Suppression d'un client
-        warning: |
-                  La suppression d'un client est une action IRREVERSIBLE. 
-                  -> tous les utilisateurs rattachés seront supprimés 
-                  -> toutes les configurations produits seront supprimées 
-        confirm: Êtes-vous absolument certain de vouloir supprimer le client %name% ?
     flash:
         edit:
             success: Changements sauvegardés
