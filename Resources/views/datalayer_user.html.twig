@@ -1,0 +1,8 @@
+<script type="text/javascript">
+    if (typeof dataLayer !== 'undefined') {
+        dataLayer.push({
+            'user_id': '{{ app.user.id|default('unknown') }}',
+            'client_id': '{{ app.user.customer.id|default('unknown') }}'
+        });
+    }
+</script>
