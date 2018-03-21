@@ -3,12 +3,14 @@
 namespace CanalTP\SamCoreBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
-use Knp\Menu\ItemInterface;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use CanalTP\SamEcoreApplicationManagerBundle\Menu\BusinessMenuItemInterface;
 
-class Builder extends ContainerAware
+class Builder implements ContainerAwareInterface
 {
+    use ContainerAwareTrait;
+
     public function mainMenu(FactoryInterface $factory, array $options)
     {
         $translator = $this->container->get('translator');
