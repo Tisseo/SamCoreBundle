@@ -1,6 +1,7 @@
 global:
     error: Erreur
     actions.listtokens: Voir les clés
+    close: Fermer
 # Form field labels
 form:
     group_name: "Nom du Sim :"
