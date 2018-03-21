@@ -11,7 +11,7 @@ class Builder implements ContainerAwareInterface
 {
     use ContainerAwareTrait;
 
-    public function mainMenu(FactoryInterface $factory, array $options)
+    public function mainMenu(FactoryInterface $factory)
     {
         $translator = $this->container->get('translator');
         $menu = $factory->createItem('root');
@@ -33,13 +33,12 @@ class Builder implements ContainerAwareInterface
         return $menu;
     }
 
-    public function businessMenu(FactoryInterface $factory, array $options)
+    public function businessMenu(FactoryInterface $factory)
     {
         $request = $this->container->get('request');
         $businessComponent = $this->container->get('sam.business_component');
         $app = $this->container->get('canal_tp_sam.application.finder')->getCurrentApp();
         $menu = $factory->createItem('root');
-        $menu->setCurrentUri($request->getRequestUri());
 
         if ($app) {
             $businessMenu = $businessComponent->getBusinessComponent($app->getCanonicalName())->getMenuItems();
