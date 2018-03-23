@@ -38,40 +38,41 @@ class BusinessComponent extends AbstractBusinessComponent
     {
         $client = new BusinessMenuItem();
         $client->setAction('#');
-        $client->setName($this->container->get('translator')->trans('menu.clients'));
+        $client->setName('menu.clients');
         $client->setRoute('sam_customer_list');
 
         $user = new BusinessMenuItem();
         $user->setAction('#');
-        $user->setName($this->container->get('translator')->trans('menu.users'));
+        $user->setName('menu.users');
         $user->setRoute('sam_user_list');
 
         $role = new BusinessMenuItem();
         $role->setAction('#');
-        $role->setName($this->container->get('translator')->trans('menu.roles'));
+        $role->setName('menu.roles');
         $role->setRoute('sam_role');
 
         $perm = new BusinessMenuItem();
         $perm->setAction('#');
-        $perm->setName($this->container->get('translator')->trans('menu.permissions'));
+        $perm->setName('menu.permissions');
         $perm->setRoute('sam_security_business_right_edit');
         
         $menu = array();
-        if ($this->container->get('security.context')->isGranted('BUSINESS_VIEW_USER')
-            || $this->container->get('security.context')->isGranted('BUSINESS_MANAGE_USER')) {
+        $authChecker = $this->container->get('security.authorization_checker');
+        if ($authChecker->isGranted('BUSINESS_VIEW_USER')
+            || $authChecker->isGranted('BUSINESS_MANAGE_USER')) {
             $menu[] = $user;
         }
 
-        if ($this->container->get('security.context')->isGranted('BUSINESS_VIEW_ROLE')
-            || $this->container->get('security.context')->isGranted('BUSINESS_MANAGE_ROLE')) {
+        if ($authChecker->isGranted('BUSINESS_VIEW_ROLE')
+            || $authChecker->isGranted('BUSINESS_MANAGE_ROLE')) {
             $menu[] = $role;
         }
 
-        if ($this->container->get('security.context')->isGranted('BUSINESS_MANAGE_PERMISSION')) {
+        if ($authChecker->isGranted('BUSINESS_MANAGE_PERMISSION')) {
             $menu[] = $perm;
         }
 
-        if ($this->container->get('security.context')->isGranted('BUSINESS_MANAGE_CLIENT')) {
+        if ($authChecker->isGranted('BUSINESS_MANAGE_CLIENT')) {
             $menu[] = $client;
         }
         

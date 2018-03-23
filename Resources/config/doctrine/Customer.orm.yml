@@ -9,14 +9,14 @@ CanalTP\SamCoreBundle\Entity\Customer:
             column: cus_id
             generator:
                 strategy: SEQUENCE
-        name:
-            type: string
-            column: cus_name
-            length: 255
-            nullable: false
         identifier:
             type: string
             column: cus_identifier
+            length: 255
+            nullable: false
+        name:
+            type: string
+            column: cus_name
             length: 255
             nullable: false
         nameCanonical:
@@ -49,7 +49,7 @@ CanalTP\SamCoreBundle\Entity\Customer:
         name_idx:
             columns: [ cus_name_canonical ]
         identifier_idx:
-            columns: [ identifier ]
+            columns: [ cus_identifier ]
     oneToMany:
         applications:
             targetEntity: CanalTP\SamCoreBundle\Entity\CustomerApplication

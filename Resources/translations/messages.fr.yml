@@ -2,6 +2,7 @@ global:
     error: Erreur
     actions.listtokens: Voir les clés
     close: Fermer
+    please_choose: Votre choix
 # Form field labels
 form:
     group_name: "Nom du Sim :"
@@ -87,7 +88,29 @@ menu:
     permissions: Permissions
     clients: Clients
 
-
+perm:
+    show:
+        user_label: Voir les utilisateurs
+        user_desc: Accéder à la liste des utilisateurs, pouvoir utiliser les filtres et les tris de cette page, etc...
+        role_label: Voir les rôles existants
+        role_desc: Accéder à la liste des rôles, pouvoir utiliser les filtres et les tris de cette page, etc. Sur la page d’édition des utilisateurs, voir leurs rôles. Sur son propre compte, voir ses rôles pour chaque appli métier.
+    manage:
+        user_label: Gérer les utilisateurs
+        user_desc: Modifier les données personnelles des utilisateurs. Créer des utilisateurs. Supprimer des utilisateurs.
+        customer_label: Gèrer les clients
+        customer_desc: Peut administrer les clients
+        perimeter_label: Assigner des périmètres à des utilisateurs
+        perimeter_desc : Sur la page de création d’utilisateurs. Sur la page de modification d’utilisateur
+        perm_role_label: Modifier les permissions des rôles
+        perm_role_desc:  Permet de modifier les permissions des différents rôles
+        role_label: Administrer les rôles
+        role_desc: Modifier les rôles (modifier le libellé en fait …). Créer des rôles. Supprimer des rôles.
+    create:
+        customer_label: Créer des client
+        customer_desc: ''
+    godlike:
+        user_label: Creer un utilisateur Super Admin
+        user_desc: Pourra donner les droits Super Admin à un utilisateur lors de sa création
 # Role
 role:
     field:

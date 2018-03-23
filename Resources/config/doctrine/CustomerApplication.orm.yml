@@ -33,13 +33,13 @@ CanalTP\SamCoreBundle\Entity\CustomerApplication:
     manyToOne:
         customer:
             targetEntity: CanalTP\SamCoreBundle\Entity\Customer
-            inversedBy: customers
+            inversedBy: applications
             joinColumn:
                 name: customer_id
                 referencedColumnName: cus_id
         application:
             targetEntity: CanalTP\SamCoreBundle\Entity\Application
-            inversedBy: applications
+            inversedBy: customers
             joinColumn:
                 name: application_id
                 referencedColumnName: app_id
