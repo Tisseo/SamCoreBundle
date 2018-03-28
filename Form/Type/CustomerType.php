@@ -3,14 +3,16 @@
 namespace CanalTP\SamCoreBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Regex;
-use Doctrine\ORM\EntityRepository;
 
 /**
  * Description of CustomerType
@@ -26,7 +28,7 @@ class CustomerType extends AbstractType
     {
         $builder->add(
             'name',
-            'text',
+            TextType::class,
             array(
                 'label' => 'customer.name',
                 'constraints' => array(
@@ -39,7 +41,7 @@ class CustomerType extends AbstractType
         );
         $builder->add(
             'file',
-            'file',
+            FileType::class,
             array(
                 'label' => 'customer.logo_path',
                 'required' => false,
@@ -58,7 +60,7 @@ class CustomerType extends AbstractType
         );
         $builder->add(
             'email',
-            'text',
+            EmailType::class,
             array(
                 'label' => 'customer.email',
                 'constraints' => array(
@@ -71,7 +73,7 @@ class CustomerType extends AbstractType
         );
         $builder->add(
             'identifier',
-            'text',
+            TextType::class,
             array(
                 'label' => 'customer.identifier',
                 'constraints' => array(
@@ -93,7 +95,7 @@ class CustomerType extends AbstractType
         return 'customer';
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
             array(

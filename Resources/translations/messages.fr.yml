@@ -3,6 +3,7 @@ global:
     actions.listtokens: Voir les clés
     close: Fermer
     please_choose: Votre choix
+    delete: Supprimer
 # Form field labels
 form:
     group_name: "Nom du Sim :"
