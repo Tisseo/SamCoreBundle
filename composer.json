@@ -42,7 +42,7 @@
         "canaltp/sam-ecore-security-manager-bundle": "~2.8",
         "canaltp/sam-monitoring-bundle": "~2.8",
         "stof/doctrine-extensions-bundle": "~1.0",
-        "friendsofsymfony/jsrouting-bundle": "~1.0",
+        "friendsofsymfony/jsrouting-bundle": "~2.0.0",
         "knplabs/knp-menu-bundle": "~2.2",
         "willdurand/js-translation-bundle": "~2.0"
     },
