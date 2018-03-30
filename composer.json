@@ -38,7 +38,7 @@
     "require": {
         "php": ">=5.3.2",
         "canaltp/sam-ecore-application-manager-bundle": "~2.8",
-        "canaltp/sam-ecore-user-manager-bundle": "~2.8",
+        "canaltp/sam-ecore-user-manager-bundle": "~3.4",
         "canaltp/sam-ecore-security-manager-bundle": "~2.8",
         "canaltp/sam-monitoring-bundle": "~2.8",
         "stof/doctrine-extensions-bundle": "~1.0",
