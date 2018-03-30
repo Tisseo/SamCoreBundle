@@ -35,7 +35,6 @@ class Builder implements ContainerAwareInterface
 
     public function businessMenu(FactoryInterface $factory)
     {
-        $request = $this->container->get('request');
         $businessComponent = $this->container->get('sam.business_component');
         $app = $this->container->get('canal_tp_sam.application.finder')->getCurrentApp();
         $menu = $factory->createItem('root');
