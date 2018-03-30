@@ -90,11 +90,6 @@ class CustomerType extends AbstractType
         );
     }
 
-    public function getName()
-    {
-        return 'customer';
-    }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
@@ -102,5 +97,14 @@ class CustomerType extends AbstractType
                 'data_class' => 'CanalTP\SamCoreBundle\Entity\Customer'
             )
         );
+    }
+
+    public function getName()
+    {
+        $this->getBlockPrefix();
+    }
+
+    public function getBlockPrefix() {
+        return 'customer';
     }
 }
