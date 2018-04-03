@@ -12,16 +12,16 @@ parameters:
 
 services:
     sam_core.slugify:
-        class: %sam_core.slugify.class%
+        class: '%sam_core.slugify.class%'
 
     sam_core.role_listener:
-        class: %sam_core.role_listener.class%
+        class: '%sam_core.role_listener.class%'
         arguments: ['@sam_core.slugify']
         tags:
             -  { name: doctrine.entity_listener }
 
     sam_core.doctrine.entity_listener_resolver:
-        class: %sam_core.doctrine.entity_listener_resolver.class%
+        class: '%sam_core.doctrine.entity_listener_resolver.class%'
         arguments: [ "@service_container" ]
 
     sam.component.authentication.handler.login_success_handler:
@@ -36,21 +36,21 @@ services:
 
     nmm.service_monitoring.database.psql:
         class: "%sam.service_monitoring.database.pgsql.class%"
-        arguments: [%database_host%, %database_port%, %database_name%, %database_user%, %database_password%]
+        arguments: ['%database_host%', '%database_port%', '%database_name%', '%database_user%', '%database_password%']
         tags:
             - { name: service_monitoring, category: Tech }
 
     nmm.service_monitoring.login:
         class: "%sam.service_monitoring.http.rest.class%"
-        arguments: [%monitoring.sam.host%, 'NMM Application', 302]
+        arguments: ['%monitoring.sam.host%', 'NMM Application', 302]
         tags:
             - { name: service_monitoring, category: Business }
 
     # Customer
     sam_core.customer:
-        class: %sam_core.customer.class%
+        class: '%sam_core.customer.class%'
         arguments: ["@doctrine.orm.entity_manager", "@navitia_token_manager", "@canal_tp_sam.application.finder"]
 
     sam_core.customer.application.transformer:
-        class: %sam_core.customer.application.transformer.class%
+        class: '%sam_core.customer.application.transformer.class%'
         arguments: ["@doctrine.orm.entity_manager", "@navitia_token_manager"]
