@@ -38,13 +38,13 @@
     "require": {
         "php": ">=5.3.2",
         "canaltp/sam-ecore-application-manager-bundle": "~3.4",
-        "canaltp/sam-ecore-user-manager-bundle": "~3.4",
+        "canaltp/sam-ecore-user-manager-bundle": "~3.4-webpack",
         "canaltp/sam-ecore-security-manager-bundle": "~3.4",
         "canaltp/sam-monitoring-bundle": "~3.4",
         "stof/doctrine-extensions-bundle": "~1.0",
         "friendsofsymfony/jsrouting-bundle": "~2.1.1",
         "knplabs/knp-menu-bundle": "~2.2",
-        "willdurand/js-translation-bundle": "v2.6.0"
+        "willdurand/js-translation-bundle": "v2.6.6"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "~2.2"

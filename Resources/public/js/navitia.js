@@ -1,7 +1,8 @@
-define('navitia', ['jquery', 'utils', 'translations/messages'], function($, utils) {
+define('navitia', [], function(Routing) {
     var self = {};
     var _url = null;
-    var $msgWrapperTpl = utils.getTpl('msgWrapperTpl');
+   // var $msgWrapperTpl = utils.getTpl('msgWrapperTpl');
+    var $msgWrapperTpl = $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>')
 
     var _set_url = function(route, params)
     {
@@ -28,5 +29,5 @@ define('navitia', ['jquery', 'utils', 'translations/messages'], function($, util
 
     return function Navitia(){
         return self;
-    }
+    };
 });

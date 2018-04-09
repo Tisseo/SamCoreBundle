@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]>    <html class="ie8" lang="{{ app.request.locale }}"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="" lang="{{ app.request.locale }}"> <!--<![endif]-->
+<html lang="{{ app.request.locale }}>
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}SAM-nude{% endblock %}</title>
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?{{ assets_version }}" />
+        <link rel="stylesheet" href="{{ asset('build/vendor.css') }}" />
+        <link rel="stylesheet" href="{{ asset('build/global.css') }}">
         {% block stylesheets %}
-            {% stylesheets 'css/bootstrap.css'
-                           'components/bootstrap-datepicker/css/datepicker3.css'
-                           filter='cssrewrite' output='css/full_sam.css' %}
-                <link rel="stylesheet" href="{{ asset_url }}?{{ assets_version }}" />
-            {% endstylesheets %}
         {% endblock %}
 
         {% block head_analytics %}
@@ -21,12 +19,15 @@
         {% block head_config %}
             {% include 'CanalTPSamCoreBundle::config.js.html.twig' %}
         {% endblock %}
+        <script src="{{ asset('build/manifest.js') }}"></script>
+        <script src="{{ asset('build/vendor.js') }}"></script>
+        <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+        <script src="{{ asset('js/translations/config.js') }}"></script>
+
+        <script src="{{ asset('build/app.js') }}"></script>
 
         <!--[if lt IE 9]>
-            {% javascripts '../vendor/respondjs/respondjs/respond.js'
-                           '../vendor/afarkas/html5shiv/src/html5shiv.js' %}
-                <script type="text/javascript" src="{{ asset_url }}"></script>
-            {% endjavascripts %}
+            <script src="{{ asset('build/ielt9.js') }}"></script>
         <![endif]-->
     </head>
     <body>
