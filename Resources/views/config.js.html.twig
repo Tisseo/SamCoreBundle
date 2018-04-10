@@ -21,14 +21,14 @@ var require = {
         //common:                                     'bundles/canaltpsamcore/js/common',
         // translations
         //translator:                                 'bundles/bazingajstranslation/js/translator.min',
-        'translations/default':                     'js/translations/default/{{ app.request.locale }}',
-        'translations/messages':                    'js/translations/messages/{{ app.request.locale }}',
+        //'translations/default':                     'js/translations/default/{{ app.request.locale }}',
+        //'translations/messages':                    'js/translations/messages/{{ app.request.locale }}',
         // base
         //base:                                       'bundles/canaltpsamcore/js/base',
         // NMM
         //'utils':                                    'bundles/canaltpsamcore/js/utils',
         //'navitia':                                  'bundles/canaltpsamcore/js/navitia',
-        //'sam/form/perimeter':                       'bundles/canaltpsamcore/js/form/perimeter'
+        'sam/form/perimeter':                          'bundles/canaltpsamcore/js/form/perimeter'
     },
     shim: {
         /*'jquery_table_export': {
@@ -40,14 +40,14 @@ var require = {
         /*translator: {
             exports: "Translator"
         },*/
-        "translations/default":{
+        /*"translations/default":{
             //deps: ["translator"],
             exports: "Translator"
         },
         "translations/messages":{
             //deps: ["translator"],
             exports: "Translator"
-        },
+        },*/
         /*bootstrap: {
             deps: ['jquery']
         },

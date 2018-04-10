@@ -1,8 +1,5 @@
-define(
-    [],
-    function(Navitia){
-
-        var $navApi = Navitia;
+define('perimeterForm', ['navitia'], function(navitia){
+        var $navApi = navitia();
         var perimeterForm = {};
 
         var $collectionHolder;
@@ -80,6 +77,7 @@ define(
                 });
             });
         }
+
 
         return perimeterForm;
     }

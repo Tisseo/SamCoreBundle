@@ -1,6 +1,7 @@
-define('navitia', [], function(Routing) {
+define('navitia', ['routing'], function(Routing,Translator) {
     var self = {};
     var _url = null;
+    console.log(Routing);
    // var $msgWrapperTpl = utils.getTpl('msgWrapperTpl');
     var $msgWrapperTpl = $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>')
 
