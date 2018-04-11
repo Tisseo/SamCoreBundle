@@ -1,4 +1,4 @@
-define('perimeterForm', ['navitia'], function(navitia){
+define('perimeterForm', ['navitia', 'translations/messages'], function(navitia){
         var $navApi = navitia();
         var perimeterForm = {};
 
