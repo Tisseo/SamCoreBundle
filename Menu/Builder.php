@@ -42,12 +42,12 @@ class Builder implements ContainerAwareInterface
         if ($app) {
             $businessMenu = $businessComponent->getBusinessComponent($app->getCanonicalName())->getMenuItems();
 
-            $menu->setChildrenAttributes(array('class' => 'navbar-nav'));
+            $menu->setChildrenAttributes(array('class' => 'navbar-nav nav'));
             foreach ($businessMenu as $menuItem) {
                 $this->generateKnpMenu($menuItem, $menu);
             }
         } else {
-            $menu->setChildrenAttributes(array('class' => 'navbar-nav'));
+            $menu->setChildrenAttributes(array('class' => 'navbar-nav nav'));
         }
 
         return $menu;

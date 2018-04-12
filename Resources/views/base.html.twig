@@ -4,7 +4,6 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}SAM-nude{% endblock %}</title>
-
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?{{ assets_version }}" />
         <link rel="stylesheet" href="{{ asset('build/vendor.css') }}" />
         <link rel="stylesheet" href="{{ asset('build/global.css') }}">
@@ -26,7 +25,7 @@
             <script src="{{ asset('build/ielt9.js') }}"></script>
         <![endif]-->
     </head>
-    <body>
+    <body class="override-nmm">
         {% block body_analytics %}
         {% endblock %}
         <div id="header-bg"></div>
@@ -58,11 +57,12 @@
 
             <div id="application-navbar" class="container">
                 <nav class="navbar navbar-default" role="navigation">
-                    <div class="navbar-brand">{% block navbar_brand %}{% endblock %}</div>
-                    <div class="navbar-header">
-                        {% block navbar %}
-                            {{ knp_menu_render('CanalTPSamCoreBundle:Builder:businessMenu', {'style': 'navbar', 'currentClass': 'active'}) }}
-                        {% endblock %}
+                    <div class="navbar-brand">{% block navbar_brand %}SAM{% endblock %}</div>
+                    <div class="navbar-header"></div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    {% block navbar %}
+                        {{ knp_menu_render('CanalTPSamCoreBundle:Builder:businessMenu', {'style': 'navbar', 'currentClass': 'active'}) }}
+                    {% endblock %}
                     </div>
                 </nav>
             </div>
