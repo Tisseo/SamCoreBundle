@@ -58,12 +58,13 @@
             <div id="application-navbar" class="container">
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="navbar-brand">{% block navbar_brand %}SAM{% endblock %}</div>
-                    <div class="navbar-header"></div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    {% block navbar %}
-                        {{ knp_menu_render('CanalTPSamCoreBundle:Builder:businessMenu', {'style': 'navbar', 'currentClass': 'active'}) }}
-                    {% endblock %}
+                    <div class="navbar-header">
+
+                        {% block navbar %}
+                            {{ knp_menu_render('CanalTPSamCoreBundle:Builder:businessMenu', {'allow_safe_labels': true, 'style': 'navbar', 'currentClass': 'active'}) }}
+                        {% endblock %}
                     </div>
+
                 </nav>
             </div>
 

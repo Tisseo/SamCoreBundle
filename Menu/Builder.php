@@ -50,12 +50,25 @@ class Builder implements ContainerAwareInterface
             $menu->setChildrenAttributes(array('class' => 'navbar-nav nav'));
         }
 
+        /** @var \Knp\Menu\MenuItem $children */
+        /** TODO update the code below if there is a multilevel dropdown menu. */
+        foreach($menu->getChildren() as $children) {
+            if ($children->hasChildren()) {
+                $children->setAttribute('class', 'dropdown');
+                $children->setLinkAttributes([
+                    'class' => 'dropdown-toggle',
+                    'data-toggle' => 'dropdown',
+                ]);
+                $children->setLabel($children->getLabel() . ' <span class="caret"></span>');
+                $children->setChildrenAttribute('class', "dropdown-menu");
+            }
+        }
         return $menu;
     }
 
     protected function generateKnpMenu(BusinessMenuItemInterface $menuItem, $knpMenu, $parentName = null)
     {
-        $options = array();
+        $options = ['extras' => ['safe_label' => true]];
         if (!is_null($menuItem->getRoute()) && $menuItem->getRoute() != '') {
             $options += array('route' => $menuItem->getRoute());
         }
