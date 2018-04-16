@@ -52,5 +52,6 @@ services:
         arguments: ["@doctrine.orm.entity_manager", "@navitia_token_manager", "@canal_tp_sam.application.finder"]
 
     sam_core.customer.application.transformer:
+        public: true
         class: '%sam_core.customer.application.transformer.class%'
         arguments: ["@doctrine.orm.entity_manager", "@navitia_token_manager"]
