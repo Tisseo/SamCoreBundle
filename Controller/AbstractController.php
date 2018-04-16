@@ -7,19 +7,19 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 abstract class AbstractController extends Controller
 {
-    protected function checkPermission($object, $permission)
+    protected function checkPermission($permission, $object = null)
     {
-        if (false === $this->get('security.context')->isGranted($permission, $object)) {
+        if ($this->get('security.authorization_checker')->isGranted($permission, $object) === false) {
             throw new AccessDeniedException();
         }
     }
 
-    protected function isGranted($businessId, $object = null)
+    /*protected function isGranted($businessId, $object = null)
     {
         if ($this->get('security.authorization_checker')->isGranted($businessId, $object) === false) {
             throw new AccessDeniedException();
         }
-    }
+    }*/
 
     protected function isAllowed($permission)
     {

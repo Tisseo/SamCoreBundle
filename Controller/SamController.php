@@ -23,7 +23,7 @@ class SamController extends Controller
      */
     protected function checkPermission($object, $permission)
     {
-        if (false === $this->container->get('security.context')->isGranted($permission, $object)) {
+        if (false === $this->container->get('security.authorization_checker')->isGranted($permission, $object)) {
             throw new AccessDeniedException();
         }
     }
