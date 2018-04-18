@@ -33,10 +33,15 @@ class LoginSuccessHandler implements AuthenticationSuccessHandlerInterface {
             return new RedirectResponse($targetPath);
         }
 
-        $app = '';
         foreach ($userRoles as $role) {
             $defaultRoute = $role->getApplication()->getDefaultRoute();
             if (!is_null($defaultRoute)) {
+                if ($this->router->getMatcher()->getContext()->getMethod() === 'POST') {
+                    // Force GET (if POST, default route is not found)
+                    $this->router->getMatcher()
+                        ->getContext()
+                        ->setMethod('GET');
+                }
                 $defaultRoute = $this->router->match($defaultRoute);
 
                 return new RedirectResponse($this->router->generate($defaultRoute['_route']));
