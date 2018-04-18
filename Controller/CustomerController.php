@@ -50,7 +50,7 @@ class CustomerController extends AbstractController
         );
 
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->get('sam_core.customer')->save($form->getData());
             $this->addFlashMessage('success', 'customer.flash.edit.success');
 
@@ -81,7 +81,7 @@ class CustomerController extends AbstractController
         );
 
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->get('sam_core.customer')->save($form->getData());
             $this->addFlashMessage('success', 'customer.flash.creation.success');
 
