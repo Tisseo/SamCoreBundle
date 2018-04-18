@@ -15,6 +15,7 @@ services:
         class: '%sam_core.slugify.class%'
 
     sam_core.role_listener:
+        public: true
         class: '%sam_core.role_listener.class%'
         arguments: ['@sam_core.slugify']
         tags:
