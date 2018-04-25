@@ -4,7 +4,7 @@ parameters:
     sam_core.doctrine.entity_listener_resolver.class: CanalTP\SamCoreBundle\Doctrine\EntityListenerResolver
 
     sam_component_authentication_handler.class: CanalTP\SamCoreBundle\Component\Authentication\Handler\LoginSuccessHandler
-    sam_user_registration_listener.class: CanalTP\SamCoreBundle\Form\EventListener\RegistrationSuscriber
+    #sam_user_registration_listener.class: CanalTP\SamCoreBundle\Form\EventListener\RegistrationSuscriber
     # Monitoring
     sam.business_monitoring.nmm.class: CanalTP\SamCoreBundle\Monitoring\Component
     sam_core.customer.class: CanalTP\SamCoreBundle\Services\CustomerManager
@@ -26,6 +26,7 @@ services:
         arguments: [ "@service_container" ]
 
     sam.component.authentication.handler.login_success_handler:
+        public: true
         class:          "%sam_component_authentication_handler.class%"
         arguments:  ['@doctrine', '@router', '@session']
 

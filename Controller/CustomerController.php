@@ -2,11 +2,14 @@
 
 namespace CanalTP\SamCoreBundle\Controller;
 
+use CanalTP\SamCoreBundle\Exception\CustomerEventException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use CanalTP\SamCoreBundle\Entity\Customer as CustomerEntity;
 use CanalTP\SamCoreBundle\Entity\Application as ApplicationEntity;
+use CanalTP\SamCoreBundle\Event\SamCoreEvents;
+use CanalTP\SamCoreBundle\Event\CustomerEvent;
 use CanalTP\SamCoreBundle\Entity\Perimeter;
 use CanalTP\SamCoreBundle\Form\Type\CustomerType;
 use Doctrine\Common\Collections\Criteria;
@@ -18,6 +21,7 @@ use Doctrine\Common\Collections\Criteria;
  */
 class CustomerController extends AbstractController
 {
+    // TODO duplicate with  nmm portal controller
     public function listAction()
     {
         $this->checkPermission('BUSINESS_MANAGE_CLIENT');
@@ -35,22 +39,37 @@ class CustomerController extends AbstractController
         );
     }
 
+    private function dispatchEvent($form, $type)
+    {
+        $event = new CustomerEvent($form->getData());
+        try {
+            $this->get('event_dispatcher')->dispatch($type, $event);
+        } catch (CustomerEventException $e) {
+            $this->addFlashMessage('danger', $e->getMessage());
+            return (false);
+        }
+        return (true);
+    }
+
+    // TODO Duplicate with nmm portal controller
     public function editAction(Request $request, CustomerEntity $customer = null)
     {
         $this->checkPermission(array('BUSINESS_MANAGE_CLIENT', 'BUSINESS_CREATE_CLIENT'));
 
         $coverage = $this->get('sam_navitia')->getCoverages();
-        $form = $this->createForm(
-            new CustomerType(
-                $coverage->regions,
-                $this->get('sam_navitia'),
-                $this->get('sam_core.customer.application.transformer')
-            ),
-            $customer
-        );
+        $form = $this->createForm(CustomerType::class, $customer, [
+            'init' => [
+                'em' => $this->getDoctrine()->getManager(),
+                'coverage' => $coverage->regions,
+                'navitia' => $this->get('sam_navitia'),
+                'applicationsTransformer' => $this->get('sam_core.customer.application.transformer'),
+                'applicationsTransformerWithToken' => $this->get('nmm.customer.application.transformer_with_token'),
+                'withTyr' => ($this->get('service_container')->getParameter('nmm.tyr.url') != null)
+            ]
+        ]);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $this->dispatchEvent($form, SamCoreEvents::EDIT_CLIENT)) {
             $this->get('sam_core.customer')->save($form->getData());
             $this->addFlashMessage('success', 'customer.flash.edit.success');
 
@@ -67,21 +86,25 @@ class CustomerController extends AbstractController
         );
     }
 
+    // TODO duplicate with nmm portal controller
     public function newAction(Request $request)
     {
         $this->checkPermission('BUSINESS_CREATE_CLIENT');
 
         $coverage = $this->get('sam_navitia')->getCoverages();
-        $form = $this->createForm(
-            new CustomerType(
-                $coverage->regions,
-                $this->get('sam_navitia'),
-                $this->get('sam_core.customer.application.transformer')
-            )
-        );
+        $form = $this->createForm(CustomerType::class, null, [
+            'init' => [
+                'em' => $this->getDoctrine()->getManager(),
+                'coverage' => $coverage->regions,
+                'navitia' => $this->get('sam_navitia'),
+                'applicationsTransformer' => $this->get('sam_core.customer.application.transformer'),
+                'applicationsTransformerWithToken' => $this->get('nmm.customer.application.transformer_with_token'),
+                'withTyr' => ($this->get('service_container')->getParameter('nmm.tyr.url') != null)
+            ]
+        ]);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $this->dispatchEvent($form, SamCoreEvents::CREATE_CLIENT)) {
             $this->get('sam_core.customer')->save($form->getData());
             $this->addFlashMessage('success', 'customer.flash.creation.success');
 
@@ -132,28 +155,5 @@ class CustomerController extends AbstractController
     public function checkAllowedToNetworkAction($externalCoverageId, $externalNetworkId, $token)
     {
         return;
-
-        $response = new JsonResponse();
-        $navitia = $this->get('sam_navitia');
-        $status = Response::HTTP_FORBIDDEN;
-
-        $navitia->setToken($token);
-        try {
-            $networks = $navitia->getNetworks($externalCoverageId);
-        } catch(\Navitia\Component\Exception\NavitiaException $e) {
-            $response->setData(array('status' => $status));
-            $response->setStatusCode($status);
-
-            return $response;
-        }
-
-        if (isset($networks[$externalNetworkId])) {
-            $status = Response::HTTP_OK;
-        }
-
-        $response->setData(array('status' => $status));
-        $response->setStatusCode($status);
-
-        return $response;
     }
 }
